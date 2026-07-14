@@ -137,3 +137,9 @@ Sports Science India
 ## 📄 License
 
 Private Project © Sports Science India
+
+## Copyright
+
+© 2026 Sports Science India. All Rights Reserved.
+
+This repository is private and intended for internal development only.
