@@ -1,145 +1,36 @@
-# 🏃 Sports Science India 2.0
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-> Performance • Recovery • Excellence
+## Getting Started
 
-A next-generation Sports Science platform focused on athlete performance, rehabilitation, sports medicine, and AI-powered healthcare assistance.
+First, run the development server:
 
----
-
-## 🚀 Vision
-
-Sports Science India 2.0 is designed to become India's most advanced digital sports science platform by combining:
-
-- 🦴 Sports Medicine
-- 💪 Physiotherapy
-- 🏃 Performance Analysis
-- 🤖 AI Assistant
-- 🧬 Interactive 3D Anatomy
-- 📊 Athlete Dashboard
-- 📅 Online Appointment System
-
----
-
-## ✨ Planned Features
-
-- Premium Landing Page
-- Interactive 3D Human Anatomy
-- AI Sports Science Assistant
-- Injury Assessment Tool
-- Rehabilitation Exercise Library
-- Performance Lab
-- Doctor Dashboard
-- Athlete Portal
-- Admin Dashboard
-- Research & Education Portal
-- Blog & News
-- Online Appointment Booking
-
----
-
-## 🛠 Technology Stack
-
-### Frontend
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-- GSAP
-- Framer Motion
-- Three.js
-- React Three Fiber
-
-### Backend
-- Next.js API Routes
-- PostgreSQL
-- Prisma ORM
-
-### Authentication
-- Supabase Auth
-
-### AI
-- OpenAI API
-
-### Deployment
-- Hostinger
-- Vercel (Development & Preview)
-
----
-
-## 📁 Project Structure
-
-```text
-sports-science-india-v2
-│
-├── app/
-├── components/
-├── public/
-├── styles/
-├── lib/
-├── hooks/
-├── utils/
-└── README.md
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🎯 Project Roadmap
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### Phase 1
-- Homepage
-- Navigation
-- Hero Section
-- Services
-- Footer
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-### Phase 2
-- About
-- Team
-- Performance Lab
-- Contact
+## Learn More
 
-### Phase 3
-- Interactive 3D Anatomy
-- AI Center
+To learn more about Next.js, take a look at the following resources:
 
-### Phase 4
-- Athlete Dashboard
-- Doctor Dashboard
-- Admin Panel
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
----
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## 🎨 Brand Colors
+## Deploy on Vercel
 
-| Color | Hex |
-|--------|------|
-| Orange | #FF6B00 |
-| Black | #0A0A0A |
-| White | #FFFFFF |
-| Gray | #B3B3B3 |
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## 📌 Status
-
-🚧 Under Development
-
----
-
-## 👨‍💻 Project Owner
-
-Jayadev Pradhan
-
-Sports Science India
-
----
-
-## 📄 License
-
-Private Project © Sports Science India
-
-## Copyright
-
-© 2026 Sports Science India. All Rights Reserved.
-
-This repository is private and intended for internal development only.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
