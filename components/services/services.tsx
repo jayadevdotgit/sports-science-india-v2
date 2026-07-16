@@ -1,3 +1,7 @@
+import Container from "@/components/ui/Container";
+import Card from "@/components/ui/Card";
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
 import {
   Activity,
   HeartPulse,
@@ -49,33 +53,21 @@ const services = [
 export default function Services() {
   return (
     <section className="bg-black text-white py-28">
-      <div className="max-w-7xl mx-auto px-8">
+      <Container>
 
-        <div className="text-center mb-16">
-          <p className="text-orange-500 uppercase tracking-widest mb-3">
-            Our Services
-          </p>
-
-          <h2 className="text-5xl font-bold">
-            Sports Science Solutions
-          </h2>
-
-          <p className="text-gray-400 mt-5 max-w-2xl mx-auto">
-            Comprehensive services designed to help athletes maximize
-            performance, prevent injuries, and recover faster.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Our Services"
+          title="Sports Science Solutions"
+          description="Comprehensive services designed to improve performance, prevent injuries and accelerate recovery."
+        />
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
-              <div
-                key={index}
-                className="bg-[#111111] rounded-3xl p-8 border border-gray-800
-                           hover:border-orange-500 hover:-translate-y-2
-                           transition-all duration-300"
+              <Card key={index}
+                className="flex flex-col"
               >
                 <Icon
                   size={48}
@@ -90,15 +82,17 @@ export default function Services() {
                   {service.description}
                 </p>
 
-                <button className="mt-8 text-orange-500 font-semibold hover:underline">
-                  Learn More →
-                </button>
-              </div>
+                <div className="mt-auto pt-8">
+                  <Button variant="outline">
+                   Learn More →
+                  </Button>
+                </div>
+              </Card>
             );
           })}
         </div>
 
-      </div>
+      </Container>
     </section>
   );
 }
