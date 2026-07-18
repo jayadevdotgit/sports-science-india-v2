@@ -52,7 +52,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-black text-white py-28">
+    <section id="services" className="bg-black text-white py-28">
       <Container>
 
         <SectionHeading

@@ -1,0 +1,115 @@
+export const platforms = [
+  {
+    id: "clinic",
+    category: "HEALTHCARE",
+    title: "Sports Injury Medicine Centre",
+    description:
+      "Advanced diagnosis, physiotherapy, rehabilitation and return-to-play programs for athletes.",
+    image: "/network/clinic.jpg",
+    link: "/clinic",
+    button: "Explore Platform",
+    stats1: "15+",
+    label1: "Years",
+    stats2: "1000+",
+    label2: "Athletes",
+    badgeColor: "orange",
+  },
+
+  {
+    id: "sports",
+    category: "PERFORMANCE",
+    title: "SSI Sports",
+    description:
+      "Athlete development, performance enhancement and elite sports training.",
+    image: "/network/sports.jpg",
+    link: "/ssi-sports",
+    button: "Explore Platform",
+    stats1: "25+",
+    label1: "Sports",
+    stats2: "500+",
+    label2: "Athletes",
+    badgeColor: "blue",
+  },
+
+  {
+    id: "awards",
+    category: "RECOGNITION",
+    title: "SSI Awards",
+    description:
+      "Recognising excellence in sports through prestigious awards and celebrations.",
+    image: "/network/awards.jpg",
+    link: "/awards",
+    button: "Explore Platform",
+    stats1: "Annual",
+    label1: "Event",
+    stats2: "50+",
+    label2: "Awards",
+    badgeColor: "gold",
+  },
+
+  {
+    id: "fanzine",
+    category: "MEDIA",
+    title: "SSI Fanzine",
+    description:
+      "India's sports science publication featuring research and athlete stories.",
+    image: "/network/fanzine.jpg",
+    link: "/fanzine",
+    button: "Read Articles",
+    stats1: "100+",
+    label1: "Articles",
+    stats2: "Monthly",
+    label2: "Edition",
+    badgeColor: "purple",
+  },
+
+  {
+    id: "connect",
+    category: "COMMUNITY",
+    title: "SSI Sports Connect",
+    description:
+      "Connecting athletes, coaches, academies and sports professionals.",
+    image: "/network/connect.jpg",
+    link: "/sports-connect",
+    button: "Join Network",
+    stats1: "100+",
+    label1: "Members",
+    stats2: "Pan India",
+    label2: "Network",
+    badgeColor: "cyan",
+  },
+
+  {
+    id: "yap",
+    category: "DEVELOPMENT",
+    title: "Young Athlete Program",
+    description:
+      "Developing tomorrow's champions using sports science and long-term athlete development.",
+    image: "/network/yap.jpg",
+    link: "/young-athlete-program",
+    button: "Explore Program",
+    stats1: "U10-U18",
+    label1: "Age",
+    stats2: "Future",
+    label2: "Champions",
+    badgeColor: "green",
+  },
+
+  {
+    id: "foundation",
+    category: "FOUNDATION",
+    title: "SSI Foundation",
+    description:
+      "Promoting sports education, youth development and community wellness.",
+    image: "/network/foundation.jpg",
+    link: "/foundation",
+    button: "Discover More",
+    stats1: "Community",
+    label1: "Impact",
+    stats2: "Social",
+    label2: "Initiatives",
+    badgeColor: "emerald",
+    status: "Healthcare",
+    statusColor: "orange",
+  },
+];

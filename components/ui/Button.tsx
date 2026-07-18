@@ -27,8 +27,10 @@ export default function Button({
       {...props}
       className={`
         ${styles[variant]}
-        px-8
-        py-4
+        px-6
+        py-3
+        lg:px-8
+        lg:py-4
         rounded-full
         font-semibold
         transition-all

@@ -8,6 +8,9 @@ import Testimonials from "@/components/testimonials/Testimonials";
 import FAQ from "@/components/faq/faq";
 import CTA from "@/components/cta/CTA";
 import Footer from "@/components/footer/Footer";
+import Booking from "@/components/booking/Booking";
+import Contact from "@/components/contact/Contact";
+import Network from "@/components/network/Network";
 
 export default function Home() {
   return (
@@ -16,11 +19,14 @@ export default function Home() {
       <Hero />
       <Services />
       <WhyChooseUs />
+      <Network />
       <Assessment />
       <Stats />
       <Testimonials />
       <FAQ />
       <CTA />
+      <Booking />
+      <Contact />
       <Footer />
     </>
   );

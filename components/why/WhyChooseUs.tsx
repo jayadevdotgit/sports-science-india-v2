@@ -48,7 +48,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-zinc-950 text-white py-28">
+    <section id="about" className="bg-zinc-950 text-white py-28">
       <div className="max-w-7xl mx-auto px-8">
 
         <div className="text-center mb-16">
