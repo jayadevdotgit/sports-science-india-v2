@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import { faqs } from "@/data/faqs";
 import { ChevronDown } from "lucide-react";
 
@@ -10,15 +9,28 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-black text-white py-28">
+    <section className="bg-black text-white py-20">
       <Container>
-        <SectionHeading
-          eyebrow="FAQ"
-          title="Frequently Asked Questions"
-          description="Everything you need to know before starting your Sports Science journey."
-        />
 
-        <div className="max-w-4xl mx-auto mt-16 space-y-4">
+        <div className="text-center max-w-4xl mx-auto mb-14">
+
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            FAQ
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            Everything you need to know before starting your Sports Science journey.
+          </p>
+
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-14 space-y-3">
           {faqs.map((faq, index) => (
             <div
               key={index}

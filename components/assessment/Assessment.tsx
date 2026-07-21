@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import {
   ClipboardCheck,
   Activity,
@@ -48,16 +47,28 @@ const steps = [
 
 export default function Assessment() {
   return (
-    <section className="bg-[#0b0b0b] text-white py-28">
+    <section className="bg-[#0b0b0b] text-white py-20">
       <Container>
 
-        <SectionHeading
-          eyebrow="How It Works"
-          title="Our Assessment Process"
-          description="A structured approach to maximize performance while minimizing injury risk."
-        />
+        <div className="text-center max-w-4xl mx-auto mb-14">
 
-        <div className="grid md:grid-cols-5 gap-8 mt-20">
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            How It Works
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            Our Assessment Process
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            A structured approach to maximize performance while minimizing injury risk.
+          </p>
+
+        </div>
+
+        <div className="grid md:grid-cols-5 gap-6 mt-14">
     {steps.map((step) => {
       const Icon = step.icon;
 

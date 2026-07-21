@@ -1,7 +1,6 @@
 "use client";
 
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 
 import {
@@ -20,16 +19,28 @@ import {
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-[#050505] text-white py-28">
+    <section id="contact" className="bg-[#050505] text-white py-20">
       <Container>
 
-        <SectionHeading
-          eyebrow="Contact Us"
-          title="Let's Build Better Athletes Together"
-          description="Whether you're an athlete, coach, or organization, we'd love to hear from you."
-        />
+        <div className="text-center max-w-4xl mx-auto mb-14">
 
-        <div className="grid lg:grid-cols-2 gap-12 mt-16">
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            Contact Us
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            Let&apos;s Build Better Athletes Together
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            Whether you&apos;re an athlete, coach, or organization, we&apos;d love to hear from you.
+          </p>
+
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 mt-14">
 
           {/* Left */}
 

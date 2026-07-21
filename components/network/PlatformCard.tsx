@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -31,10 +33,10 @@ export default function PlatformCard({
   stats2,
   label2,
   badgeColor,
-  height = "h-[360px]",
+  height = "h-[235px]",
 }: Props) {
   return (
-    <Link href={link}>
+    <Link href={link} prefetch={false}>
       <div
         className={`
         group
@@ -44,192 +46,203 @@ export default function PlatformCard({
         ${height}
         cursor-pointer
         border
-        border-white/10
-        bg-white/5
+        border-white/15
+        bg-black/60
         backdrop-blur-md
-        hover:border-orange-500
+        hover:border-orange-500/80
         transition-all
         duration-500
-        hover:-translate-y-3
-        hover:rotate-[0.5deg]
-        hover:shadow-[0_0_50px_rgba(249,115,22,0.35)]
+        hover:-translate-y-2
+        hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]
         `}
       >
-        {/* Background */}
-
+        {/* Background Image */}
         <Image
-        src={image}
-        alt={title}
-        fill
-        unoptimized
-        className="
+          src={image}
+          alt={title}
+          fill
+          unoptimized
+          className="
             absolute
             inset-0
             object-cover
-            duration-1000
+            object-center
+            transition-transform
+            duration-700
             ease-out
             group-hover:scale-105
-            group-hover:border-orange-400
-            group-hover:rotate-1
-            "
+          "
         />
 
-        {/* Dark Overlay */}
-
+        {/* Dynamic Multi-layer Dark Gradient Overlay for Maximum Readability */}
         <div
-        className="
+          className="
             absolute
             inset-0
             bg-gradient-to-t
-            from-black
-            via-black/60
-            to-black/20
-            transition-all
-            duration-700
-            group-hover:from-black/80
-            group-hover:via-black/30
-            group-hover:to-transparent
-        "
+            from-black/95
+            via-black/75
+            to-black/40
+            transition-opacity
+            duration-500
+            group-hover:opacity-90
+          "
         />
 
-        {/* Status */}
+        {/* Orange Accent Glow on Hover */}
+        <div
+          className="
+            absolute
+            -inset-1
+            bg-gradient-to-r
+            from-orange-500/0
+            via-orange-500/10
+            to-orange-500/0
+            opacity-0
+            blur-xl
+            transition-opacity
+            duration-500
+            group-hover:opacity-100
+          "
+        />
 
-        <div className="absolute top-6 right-6">
-          <span className="rounded-full bg-emerald-500/20 border border-emerald-500/30 px-3 py-1 text-xs text-emerald-400 backdrop-blur-sm">
-            ● ACTIVE
+        {/* Active Badge Tag */}
+        <div className="absolute top-5 right-5 z-20">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 border border-emerald-500/40 px-3 py-1 text-xs font-semibold text-emerald-400 backdrop-blur-md shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            ACTIVE
           </span>
         </div>
 
-        {/* Content */}
-
+        {/* Content Container */}
         <div
-        className="
+          className="
             relative
             z-10
             flex
             h-full
             flex-col
-            p-8
-            transition-all
-            duration-500
-            group-hover:-translate-y-2
-        "
+            justify-between
+            p-5
+            sm:p-6
+          "
         >
-
-          {/* Category */}
-
-          <span
-            className={`
-                w-fit
+          {/* Top Section: Category & Title */}
+          <div>
+            <span
+              className={`
+                inline-block
                 rounded-full
-                px-4
+                px-3.5
                 py-1
                 text-xs
-                font-semibold
-                tracking-[2px]
-                backdrop-blur-sm
-                ${
-                badgeColor === "orange"
-                    ? "bg-orange-500/15 border border-orange-500/30 text-orange-400"
-                    : badgeColor === "blue"
-                    ? "bg-blue-500/15 border border-blue-500/30 text-blue-400"
-                    : badgeColor === "gold"
-                    ? "bg-yellow-500/15 border border-yellow-500/30 text-yellow-300"
-                    : badgeColor === "purple"
-                    ? "bg-purple-500/15 border border-purple-500/30 text-purple-300"
-                    : badgeColor === "cyan"
-                    ? "bg-cyan-500/15 border border-cyan-500/30 text-cyan-300"
-                    : badgeColor === "green"
-                    ? "bg-green-500/15 border border-green-500/30 text-green-300"
-                    : "bg-emerald-500/15 border border-emerald-500/30 text-emerald-300"
-                }
-            `}
-            >
-            {category}
-          </span>
-
-          {/* Title */}
-
-          <h3
-            className="
-                mt-5
-                text-3xl
                 font-bold
-                text-white
-                transition-all
-                duration-500
-                group-hover:text-orange-400
-            "
+                tracking-widest
+                uppercase
+                backdrop-blur-md
+                border
+                shadow-sm
+                transition-transform
+                duration-300
+                group-hover:scale-105
+                ${
+                  badgeColor === "orange"
+                    ? "bg-orange-500/20 border-orange-500/40 text-orange-300"
+                    : badgeColor === "blue"
+                    ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
+                    : badgeColor === "gold"
+                    ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
+                    : badgeColor === "purple"
+                    ? "bg-purple-500/20 border-purple-500/40 text-purple-300"
+                    : badgeColor === "cyan"
+                    ? "bg-cyan-500/20 border-cyan-500/40 text-cyan-300"
+                    : badgeColor === "green"
+                    ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300"
+                    : "bg-orange-500/20 border-orange-500/40 text-orange-300"
+                }
+              `}
             >
-            {title}
+              {category}
+            </span>
+
+            <h3
+              className="
+                mt-3
+                text-xl
+                sm:text-2xl
+                font-black
+                text-white
+                tracking-tight
+                transition-colors
+                duration-300
+                group-hover:text-orange-400
+              "
+            >
+              {title}
             </h3>
 
-          {/* Description */}
-
-          <p
-            className="
-                mt-4
+            <p
+              className="
+                mt-2
+                text-sm
                 text-gray-300
-                leading-7
-            "
+                leading-relaxed
+                line-clamp-2
+                sm:line-clamp-3
+              "
             >
-            {description}
+              {description}
             </p>
+          </div>
 
+          {/* Bottom Section: Metrics & Action Link */}
+          <div className="mt-4 pt-3 border-t border-white/10">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-5">
+                <div>
+                  <p className="text-lg sm:text-xl font-black text-white leading-tight">
+                    {stats1}
+                  </p>
+                  <p className="text-[11px] uppercase tracking-wider text-gray-400">
+                    {label1}
+                  </p>
+                </div>
 
-         {/* Spacer */}
+                <div className="h-8 w-px bg-white/10" />
 
-        {/* Footer Section */}
+                <div>
+                  <p className="text-lg sm:text-xl font-black text-white leading-tight">
+                    {stats2}
+                  </p>
+                  <p className="text-[11px] uppercase tracking-wider text-gray-400">
+                    {label2}
+                  </p>
+                </div>
+              </div>
 
-<div className="mt-auto">
-
-  <div className="mb-5 h-px bg-gradient-to-r from-orange-500 via-orange-400 to-transparent" />
-
-  <div className="flex items-center justify-between">
-
-    <div className="flex gap-6 text-center">
-
-      <div>
-        <p className="text-xl font-bold text-white">{stats1}</p>
-        <p className="text-xs text-gray-400">{label1}</p>
-      </div>
-
-      <div>
-        <p className="text-xl font-bold text-white">{stats2}</p>
-        <p className="text-xs text-gray-400">{label2}</p>
-      </div>
-
-    </div>
-
-    <span
-      className="
-        flex
-        items-center
-        whitespace-nowrap
-        gap-2
-        font-semibold
-        text-orange-400
-        transition-all
-        duration-500
-        group-hover:gap-4
-      "
-    >
-      {button}
-
-      <span className="transition-transform duration-500 group-hover:translate-x-2">
-        →
-      </span>
-
-       </span>
-
-  </div>
-
-</div>
-
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-1.5
+                  text-sm
+                  font-bold
+                  text-orange-400
+                  transition-all
+                  duration-300
+                  group-hover:text-orange-300
+                  group-hover:translate-x-1
+                "
+              >
+                {button}
+                <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </Link>
   );
 }
-
- 

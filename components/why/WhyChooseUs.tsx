@@ -48,19 +48,22 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="about" className="bg-zinc-950 text-white py-28">
+    <section id="about" className="bg-zinc-950 text-white py-20">
       <div className="max-w-7xl mx-auto px-8">
 
-        <div className="text-center mb-16">
-          <p className="text-orange-500 uppercase tracking-widest">
+        <div className="text-center max-w-4xl mx-auto mb-14">
+
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
             Why Choose Us
           </p>
 
-          <h2 className="text-5xl font-bold mt-3">
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
             Science. Performance. Excellence.
           </h2>
 
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
             We combine sports science, technology and athlete-focused care to
             help you perform at your highest level.
           </p>

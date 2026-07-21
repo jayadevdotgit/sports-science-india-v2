@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
 import { testimonials } from "@/data/testimonials";
 import {
@@ -37,16 +36,28 @@ useEffect(() => {
   
 
   return (
-    <section className="bg-black text-white py-28">
+    <section className="bg-black text-white py-20">
       <Container>
 
-        <SectionHeading
-          eyebrow="Testimonials"
-          title="What Our Athletes Say"
-          description="Real stories from athletes who trusted Sports Science India."
-        />
+        <div className="text-center max-w-4xl mx-auto mb-14">
 
-        <div className="max-w-4xl mx-auto mt-20">
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            Testimonials
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            What Our Athletes Say
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            Real stories from athletes who trusted Sports Science India.
+          </p>
+
+        </div>
+
+        <div className="max-w-4xl mx-auto mt-14">
 
           <Card
              key={testimonial.id}
@@ -71,7 +82,7 @@ useEffect(() => {
             </div>
 
             <p className="text-2xl italic text-center leading-10 text-gray-300">
-              "{testimonial.review}"
+              &ldquo;{testimonial.review}&rdquo;
             </p>
 
             <div className="mt-10 text-center">

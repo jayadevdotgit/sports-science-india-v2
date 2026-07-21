@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
 
 import { platforms } from "@/data/platforms";
 import PlatformCard from "./PlatformCard";
@@ -11,7 +10,7 @@ export default function Network() {
       className="
         relative
         overflow-hidden
-        py-32
+        py-14
         bg-gradient-to-b
         from-black
         via-[#080808]
@@ -32,13 +31,25 @@ export default function Network() {
 
       <Container>
 
-        <SectionHeading
-        eyebrow="THE SPORTS SCIENCE INDIA ECOSYSTEM"
-        title="One Organization. Seven Specialized Platforms."
-        description="Delivering healthcare, performance, education, media, networking and community initiatives through an integrated sports science ecosystem."
-        />
+        <div className="text-center max-w-4xl mx-auto mb-14">
 
-        <div className="mt-28 grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            THE SPORTS SCIENCE INDIA ECOSYSTEM
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            One Organization. <span className="text-orange-500">Seven</span> Specialized Platforms.
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            Delivering healthcare, performance, education, media, networking and community initiatives through an integrated sports science ecosystem.
+          </p>
+
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-3">
 
   {/* Row 1 */}
 
@@ -65,21 +76,21 @@ export default function Network() {
             <div className="lg:col-span-4">
                 <PlatformCard
                 {...platforms[4]}
-                height="h-[360px]"
+                height="h-[250px]"
                 />
             </div>
 
             <div className="lg:col-span-4">
                 <PlatformCard
                 {...platforms[5]}
-                height="h-[360px]"
+                height="h-[250px]"
                 />
             </div>
 
             <div className="lg:col-span-4">
                 <PlatformCard
                 {...platforms[6]}
-                height="h-[360px]"
+                height="h-[250px]"
                 />
             </div>
 

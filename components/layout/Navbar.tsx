@@ -3,21 +3,21 @@
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
+
 
 const navLinks = [
   { name: "Home", href: "#" },
+  { name: "Ecosystem", href: "#ecosystem" },
   { name: "Services", href: "#services" },
-  { name: "About", href: "#about" },
   { name: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
-  const closeMenu = () => {
-  setMenuOpen(false);
-};
+  const [activeSection, setActiveSection] = useState("home");
+  const [scrollProgress, setScrollProgress] = useState(0);
 
 const handleNavigation = (id: string) => {
   setMenuOpen(false);
@@ -36,38 +36,93 @@ const handleNavigation = (id: string) => {
 
 useEffect(() => {
   const handleScroll = () => {
-    setScrolled(window.scrollY > 10);
+  setScrolled(window.scrollY > 10);
+
+  const windowHeight =
+    document.documentElement.scrollHeight - window.innerHeight;
+
+  const progress = (window.scrollY / windowHeight) * 100;
+
+  setScrollProgress(progress);
+};
+
+  const sections = [
+    "home",
+    "ecosystem",
+    "services",
+    "contact",
+  ];
+
+  const handleActiveSection = () => {
+    const scrollPosition = window.scrollY + 200;
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+
+      if (
+        element &&
+        scrollPosition >= element.offsetTop &&
+        scrollPosition < element.offsetTop + element.offsetHeight
+      ) {
+        setActiveSection(section);
+      }
+    }
   };
 
-  window.addEventListener("scroll", handleScroll);
+  // Run once on page load
+  handleScroll();
+  handleActiveSection();
 
-  return () => window.removeEventListener("scroll", handleScroll);
+  // Listen while scrolling
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleActiveSection);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+    window.removeEventListener("scroll", handleActiveSection);
+  };
 }, []);
 
   return (
     <>
+
+    <div
+      className="fixed top-0 left-0 z-[60] h-[2px] bg-orange-500 transition-all duration-150"
+      style={{
+        width: `${scrollProgress}%`,
+        boxShadow: "0 0 10px rgba(249,115,22,0.8)",
+      }}
+    />
+      
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
         ${
           scrolled
-            ? "bg-black/90 backdrop-blur-xl border-b border-orange-500/20 shadow-lg shadow-black/30"
+            ? "bg-black/70 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/30"
             : "bg-transparent"
         }`}
       >
-        <div className={`max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-8 transition-all duration-300 ${
-          scrolled ? "h-16" : "h-20"
+        <div className={`max-w-[1600px] mx-auto flex items-center justify-between px-6 lg:px-8 transition-all duration-300 ${
+          scrolled ? "h-24" : "h-28"
           }`}>
 
           {/* Logo */}
-          <a
-            href="#"
-            className="text-2xl font-bold text-orange-500 whitespace-nowrap"
+          <button
+            onClick={() => handleNavigation("home")}
+            className="flex items-center transition-transform duration-300 hover:scale-105"
           >
-            Sports Science India
-          </a>
+            <Image
+              src="/images/logo/ssi-logo.png"
+              alt="Sports Science India"
+              width={380}
+              height={120}
+              priority
+              className="h-24 w-auto object-contain"
+            />
+          </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-12">
 
         {navLinks.map((item) => (
   <button
@@ -77,21 +132,28 @@ useEffect(() => {
         item.href === "#" ? "home" : item.href.replace("#", "")
               )
             }
-              className="
-                relative
-                text-white
-                font-medium
-                hover:text-orange-500
-                transition-colors
-                after:absolute
-                after:left-0
-                after:-bottom-2
-                after:h-[2px]
-                after:w-0
-                after:bg-orange-500
-                after:transition-all
-                hover:after:w-full
-              "
+              className={`
+              relative
+              font-medium
+              transition-all
+              duration-300
+
+              after:absolute
+              after:left-0
+              after:-bottom-2
+              after:h-[3px]
+              after:rounded-full
+              after:bg-orange-400
+              after:shadow-[0_0_8px_rgba(251,146,60,0.8)]
+              after:transition-all
+
+              ${
+                activeSection ===
+                (item.href === "#" ? "home" : item.href.replace("#", ""))
+                  ? "text-orange-300 [text-shadow:0_0_8px_rgba(249,115,22,0.8)] after:w-full"
+                  : "text-white hover:text-orange-500 after:w-0 hover:after:w-full"
+              }
+            `}
             >
               {item.name}
             </button>
@@ -137,9 +199,21 @@ useEffect(() => {
 
         <div className="flex items-center justify-between p-6 border-b border-gray-800">
 
-          <h2 className="text-xl font-bold text-orange-500">
-            Menu
-          </h2>
+          <Image
+            src="/images/logo/ssi-logo.png"
+            alt="Sports Science India"
+            width={380}
+            height={120}
+            priority
+            className="
+              h-20
+              w-auto
+              object-contain
+              transition-all
+              duration-500
+              hover:scale-105
+            "
+          />
 
           <button
             onClick={() => setMenuOpen(false)}
@@ -160,7 +234,18 @@ useEffect(() => {
                 item.href === "#" ? "home" : item.href.replace("#", "")
               )
             }
-            className="text-left text-xl text-white hover:text-orange-500 transition"
+            className={`
+            text-left
+            text-xl
+            transition-all
+            duration-300
+            ${
+              activeSection ===
+              (item.href === "#" ? "home" : item.href.replace("#", ""))
+                ? "text-orange-500"
+                : "text-white hover:text-orange-500"
+            }
+          `}
           >
             {item.name}
           </button>

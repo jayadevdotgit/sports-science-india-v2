@@ -1,7 +1,6 @@
 import Container from "@/components/ui/Container";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
 import {
   Activity,
   HeartPulse,
@@ -52,16 +51,28 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-black text-white py-28">
+    <section id="services" className="bg-black text-white py-20">
       <Container>
 
-        <SectionHeading
-          eyebrow="Our Services"
-          title="Sports Science Solutions"
-          description="Comprehensive services designed to improve performance, prevent injuries and accelerate recovery."
-        />
+        <div className="text-center max-w-4xl mx-auto mb-14">
 
-        <div className="grid md:grid-cols-3 gap-8">
+          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+            Our Services
+          </p>
+
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            Sports Science Solutions
+          </h2>
+
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
+
+          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
+            Comprehensive services designed to improve performance, prevent injuries and accelerate recovery.
+          </p>
+
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
 
