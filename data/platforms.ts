@@ -112,4 +112,36 @@ export const platforms = [
     status: "Healthcare",
     statusColor: "orange",
   },
+
+  {
+    id: "conclave",
+    category: "CONFERENCE",
+    title: "SSI Sports Conclave",
+    description:
+      "India's premier sports science conference bringing together experts, athletes and thought leaders.",
+    image: "/network/conclave.jpg",
+    link: "/sports-conclave",
+    button: "Learn More",
+    stats1: "Annual",
+    label1: "Event",
+    stats2: "1000+",
+    label2: "Delegates",
+    badgeColor: "amber",
+  },
+
+  {
+    id: "arthroscopy",
+    category: "MEDICAL",
+    title: "SSI International Arthroscopy Conference",
+    description:
+      "Global platform for arthroscopy surgeons and sports medicine professionals to share advances.",
+    image: "/network/arthroscopy.jpg",
+    link: "/arthroscopy-conference",
+    button: "Learn More",
+    stats1: "International",
+    label1: "Reach",
+    stats2: "Expert",
+    label2: "Faculty",
+    badgeColor: "rose",
+  },
 ];

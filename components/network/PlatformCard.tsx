@@ -51,9 +51,10 @@ export default function PlatformCard({
         backdrop-blur-md
         hover:border-orange-500/80
         transition-all
-        duration-500
+        duration-300
         hover:-translate-y-2
         hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]
+        active:scale-[0.97]
         `}
       >
         {/* Background Image */}
@@ -158,6 +159,10 @@ export default function PlatformCard({
                     ? "bg-cyan-500/20 border-cyan-500/40 text-cyan-300"
                     : badgeColor === "green"
                     ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300"
+                    : badgeColor === "amber"
+                    ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
+                    : badgeColor === "rose"
+                    ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
                     : "bg-orange-500/20 border-orange-500/40 text-orange-300"
                 }
               `}
@@ -170,7 +175,7 @@ export default function PlatformCard({
                 mt-3
                 text-xl
                 sm:text-2xl
-                font-black
+                font-bold
                 text-white
                 tracking-tight
                 transition-colors
@@ -200,7 +205,7 @@ export default function PlatformCard({
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-5">
                 <div>
-                  <p className="text-lg sm:text-xl font-black text-white leading-tight">
+                  <p className="text-lg sm:text-xl font-semibold text-white leading-tight">
                     {stats1}
                   </p>
                   <p className="text-[11px] uppercase tracking-wider text-gray-400">
@@ -211,7 +216,7 @@ export default function PlatformCard({
                 <div className="h-8 w-px bg-white/10" />
 
                 <div>
-                  <p className="text-lg sm:text-xl font-black text-white leading-tight">
+                  <p className="text-lg sm:text-xl font-semibold text-white leading-tight">
                     {stats2}
                   </p>
                   <p className="text-[11px] uppercase tracking-wider text-gray-400">

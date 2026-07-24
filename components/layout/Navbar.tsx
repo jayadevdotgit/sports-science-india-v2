@@ -103,7 +103,7 @@ useEffect(() => {
         }`}
       >
         <div className={`max-w-[1600px] mx-auto flex items-center justify-between px-6 lg:px-8 transition-all duration-300 ${
-          scrolled ? "h-24" : "h-28"
+          scrolled ? "h-28" : "h-32"
           }`}>
 
           {/* Logo */}
@@ -117,7 +117,7 @@ useEffect(() => {
               width={380}
               height={120}
               priority
-              className="h-24 w-auto object-contain"
+              className="h-24 w-auto object-contain lg:h-28"
             />
           </button>
 

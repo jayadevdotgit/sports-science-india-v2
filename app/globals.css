@@ -64,3 +64,66 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes marquee {
+
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+}
+
+.marquee {
+
+  animation: marquee 28s linear infinite;
+  width: max-content;
+
+}
+
+.marquee:hover {
+
+  animation-play-state: paused;
+
+}
+
+@keyframes pulseLine {
+
+0%{
+opacity:.5;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:.5;
+}
+
+}
+
+.animate-pulse-line{
+animation:pulseLine 2.5s ease-in-out infinite;
+}
+
+/* ==========================================
+   Journey Timeline Animation
+========================================== */
+
+@keyframes journeyFlow {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.animate-journey-flow {
+  animation: journeyFlow 4s linear infinite;
+}

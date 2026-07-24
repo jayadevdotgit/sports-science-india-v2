@@ -1,11 +1,12 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/hero/Hero";
+import Network from "@/components/network/Network";
 import Ecosystem from "@/components/ecosystem/Ecosystem";
 import Services from "@/components/services/services";
+import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Assessment from "@/components/assessment/Assessment";
 import WhyChooseUs from "@/components/why/WhyChooseUs";
 import Stats from "@/components/stats/Stats";
-import Network from "@/components/network/Network";
 import Testimonials from "@/components/testimonials/Testimonials";
 import FAQ from "@/components/faq/faq";
 import CTA from "@/components/cta/CTA";
@@ -20,12 +21,13 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <Network />
       <Ecosystem />
       <Services />
+      <JourneyTimeline />
       <Assessment />
       <WhyChooseUs />
       <Stats />
-      <Network />
       <Testimonials />
       <FAQ />
       <CTA />

@@ -69,8 +69,6 @@ export default function Hero() {
             <p className="mt-5 max-w-md text-base leading-7 text-gray-400 sm:mt-8 sm:text-xl sm:leading-8">
 
               India&apos;s first integrated sports science ecosystem combining
-
-              India&apos;s first integrated sports science ecosystem combining
               elite athlete performance, sports medicine, rehabilitation,
               education and community development.
 
@@ -125,7 +123,7 @@ export default function Hero() {
               alt="Elite Athlete"
               width={1536}
               height={1024}
-              unoptimized
+              priority
               className="
                 relative
                 z-20

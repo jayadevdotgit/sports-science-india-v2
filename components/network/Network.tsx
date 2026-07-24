@@ -38,13 +38,13 @@ export default function Network() {
           </p>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            One Organization. <span className="text-orange-500">Seven</span> Specialized Platforms.
+            One Organization. <span className="text-orange-500">Endless</span> Possibilities.
           </h2>
 
           <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
 
           <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
-            Delivering healthcare, performance, education, media, networking and community initiatives through an integrated sports science ecosystem.
+            A unified ecosystem connecting healthcare, performance, education, research, media, recognition and community to advance Indian sport.
           </p>
 
         </div>
@@ -72,6 +72,22 @@ export default function Network() {
             </div>
 
             {/* Row 3 */}
+
+            <div className="lg:col-span-6">
+                <PlatformCard
+                {...platforms[7]}
+                height="h-[250px]"
+                />
+            </div>
+
+            <div className="lg:col-span-6">
+                <PlatformCard
+                {...platforms[8]}
+                height="h-[250px]"
+                />
+            </div>
+
+            {/* Row 4 */}
 
             <div className="lg:col-span-4">
                 <PlatformCard
