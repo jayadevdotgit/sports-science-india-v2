@@ -22,7 +22,7 @@ export default function TestimonialCard({
     .toUpperCase();
 
   return (
-    <div className="group flex w-full flex-col rounded-3xl border-2 border-white/10 bg-[#0d0d0d] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500">
+    <div className="group flex w-full flex-col rounded-3xl border-2 border-orange-500/20 bg-[#0d0d0d] p-8 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500">
 
       <div className="flex items-center justify-between">
         <div className="flex h-14 w-14 items-center justify-center rounded-full border border-orange-500/20 bg-orange-500/10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:border-orange-500/40 group-hover:shadow-[0_0_25px_rgba(249,115,22,0.3)]">

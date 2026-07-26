@@ -46,10 +46,10 @@ export default function PlatformCard({
         ${height}
         cursor-pointer
         border
-        border-white/15
+        border-orange-500/20
         bg-black/60
         backdrop-blur-md
-        hover:border-orange-500/80
+        hover:border-orange-500/60
         transition-all
         duration-300
         hover:-translate-y-2

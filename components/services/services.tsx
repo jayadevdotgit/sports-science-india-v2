@@ -128,15 +128,15 @@ export default function Services() {
                   relative
                   rounded-3xl
                   border
-                  border-white/15
-                  bg-black/60
-                  backdrop-blur-md
-                  overflow-hidden
-                  p-5
-                  transition-all
-                  duration-300
-                  hover:-translate-y-2
-                  hover:border-orange-500/80
+                border-orange-500/20
+                bg-black/60
+                backdrop-blur-md
+                p-5
+                overflow-hidden
+                transition-all
+                duration-300
+                hover:-translate-y-2
+                hover:border-orange-500/60
                   hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]
                   active:scale-[0.97]
                   cursor-pointer
