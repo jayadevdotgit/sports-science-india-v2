@@ -83,23 +83,23 @@ export default function CTASection() {
     </p>
 
     {/* Buttons */}
-    <div className="mt-6 flex flex-row gap-4">
+    <div className="mt-6 flex flex-wrap gap-4">
 
       <Button
         variant="primary"
-        size="lg"
-        className="inline-flex items-center gap-3"
+        size="md"
+        className="inline-flex items-center gap-2"
       >
-        <Calendar size={20} />
+        <Calendar size={18} />
         Book Assessment
       </Button>
 
       <Button
         variant="outline"
-        size="lg"
-        className="inline-flex items-center gap-3"
+        size="md"
+        className="inline-flex items-center gap-2"
       >
-        <UserRound size={20} />
+        <UserRound size={18} />
         Contact Experts
       </Button>
 
