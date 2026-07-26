@@ -24,10 +24,10 @@ export default function Reveal({
       }}
       viewport={{
         once: true,
-        amount: 0.2,
+        amount: 0.05,
       }}
       transition={{
-        duration: 0.8,
+        duration: 0.3,
         delay,
         ease: "easeOut",
       }}
