@@ -83,12 +83,12 @@ export default function CTASection() {
     </p>
 
     {/* Buttons */}
-    <div className="mt-6 flex flex-wrap gap-4">
+    <div className="mt-6 flex flex-row gap-4">
 
       <Button
         variant="primary"
         size="lg"
-        className="gap-3"
+        className="inline-flex items-center gap-3"
       >
         <Calendar size={20} />
         Book Assessment
@@ -97,7 +97,7 @@ export default function CTASection() {
       <Button
         variant="outline"
         size="lg"
-        className="gap-3"
+        className="inline-flex items-center gap-3"
       >
         <UserRound size={20} />
         Contact Experts
