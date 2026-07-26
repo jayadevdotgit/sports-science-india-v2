@@ -41,25 +41,23 @@ export default function TechnologyDisplay({ technology }: Props) {
 
           {/* Image */}
 
-          <AnimatePresence>
+          <AnimatePresence mode="wait">
             <motion.div
                 key={technology.image}
                 initial={{ opacity: 0, scale: 1.08 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{
-                duration: 0.4,
+                duration: 0.5,
                 ease: "easeInOut",
                 }}
-                className="relative h-[210px] sm:h-[320px] lg:h-full lg:min-h-[500px] bg-[#0d0d0d]"
+                className="relative h-[210px] sm:h-[320px] lg:h-full lg:min-h-[500px]"
             >
 
             <Image
               src={technology.image}
               alt={technology.title}
               fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 50vw"
               className="
                 object-cover
                 transition-all
@@ -79,14 +77,14 @@ export default function TechnologyDisplay({ technology }: Props) {
           {/* Content */}
 
           <div className="relative min-h-[350px] sm:min-h-[400px] lg:min-h-[500px]">
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               <motion.div
                   key={technology.title}
-                  initial={{ opacity: 0, x: 30 }}
+                  initial={{ opacity: 0, x: 40 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -30 }}
+                  exit={{ opacity: 0, x: -40 }}
                   transition={{
-                  duration: 0.35,
+                  duration: 0.45,
                   ease: "easeInOut",
                   }}
                   className="absolute inset-0 p-5 sm:p-8 lg:p-14 flex flex-col justify-center"
