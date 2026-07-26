@@ -56,7 +56,7 @@ export default function MouseGlow() {
         h-[350px]
         w-[350px]
         rounded-full
-        bg-orange-500/20
+        bg-orange-500/5
         blur-[120px]
         mix-blend-screen
       "
