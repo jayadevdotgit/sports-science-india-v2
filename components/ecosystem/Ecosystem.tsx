@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Container from "@/components/ui/Container";
 import HumanBody from "./HumanBody";
+import Reveal from "@/components/animations/Reveal";
 
 export default function Ecosystem() {
   const [selected, setSelected] = useState("brain");
@@ -26,6 +27,7 @@ export default function Ecosystem() {
     "
   />  
 
+      <Reveal>
       <Container>
 
         {/* Heading */}
@@ -80,7 +82,7 @@ export default function Ecosystem() {
         
 
       </Container>
-
+      </Reveal>
     </section>
   );
 }

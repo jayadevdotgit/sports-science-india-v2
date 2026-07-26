@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Image from "next/image";
+import Reveal from "@/components/animations/Reveal";
 import {
   Brain,
   Dumbbell,
@@ -93,18 +94,7 @@ export default function Services() {
       {/* Orange Glow */}
       <div className="absolute left-1/2 top-20 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px] pointer-events-none" />
 
-      {/* Grid */}
-      <div
-        className="
-        absolute
-        inset-0
-        opacity-[0.04]
-        bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]
-        bg-[size:60px_60px]
-        pointer-events-none
-        "
-      />
-
+      <Reveal>
       <Container>
         <div className="text-center max-w-4xl mx-auto mb-14">
           <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
@@ -227,9 +217,8 @@ export default function Services() {
           })}
         </div>
 
-
-
       </Container>
+      </Reveal>
     </section>
   );
 }

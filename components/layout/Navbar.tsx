@@ -6,6 +6,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 
+
 const navLinks = [
   { name: "Home", href: "#" },
   { name: "Ecosystem", href: "#ecosystem" },
@@ -98,7 +99,7 @@ useEffect(() => {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
         ${
           scrolled
-            ? "bg-black/70 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/30"
+            ? "bg-[#050505]/60 bg-black/70 backdrop-blur-2xl border-b border-orange-500/20 shadow-lg shadow-black/30"
             : "bg-transparent"
         }`}
       >
@@ -107,19 +108,26 @@ useEffect(() => {
           }`}>
 
           {/* Logo */}
-          <button
-            onClick={() => handleNavigation("home")}
-            className="flex items-center transition-transform duration-300 hover:scale-105"
-          >
-            <Image
-              src="/images/logo/ssi-logo.png"
-              alt="Sports Science India"
-              width={380}
-              height={120}
-              priority
-              className="h-24 w-auto object-contain lg:h-28"
-            />
-          </button>
+          <div className="relative">
+
+            {/* Orange Glow */}
+            <div className="absolute inset-0 rounded-full bg-orange-500/10 blur-2xl" />
+
+            <button
+              onClick={() => handleNavigation("home")}
+              className="relative z-10 flex items-center transition-transform duration-300 hover:scale-105"
+            >
+              <Image
+                src="/images/logo/ssi-logo.png"
+                alt="Sports Science India"
+                width={380}
+                height={120}
+                priority
+                className="h-24 w-auto object-contain lg:h-28"
+              />
+            </button>
+
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-12">
@@ -151,7 +159,7 @@ useEffect(() => {
                 activeSection ===
                 (item.href === "#" ? "home" : item.href.replace("#", ""))
                   ? "text-orange-300 [text-shadow:0_0_8px_rgba(249,115,22,0.8)] after:w-full"
-                  : "text-white hover:text-orange-500 after:w-0 hover:after:w-full"
+                  : "text-white hover:text-orange-300 after:w-0 hover:after:w-full"
               }
             `}
             >
@@ -160,7 +168,12 @@ useEffect(() => {
           ))}
 
             <div onClick={() => handleNavigation("booking")}>
-            <Button>
+            <Button
+              className="
+              shadow-[0_0_25px_rgba(249,115,22,0.35)]
+              hover:shadow-[0_0_40px_rgba(249,115,22,0.65)]
+            "
+            >
             Book Assessment
             </Button>
             </div>
@@ -172,7 +185,11 @@ useEffect(() => {
             onClick={() => setMenuOpen((prev) => !prev)}
             className="md:hidden text-white"
           >
-            <Menu size={30} />
+           {menuOpen ? (
+              <X size={30} />
+            ) : (
+              <Menu size={30} />
+            )}
           </button>
 
         </div>
@@ -190,7 +207,7 @@ useEffect(() => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 right-0 h-full w-80 bg-[#111111] z-50 transform transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-80 bg-[#090909]/95 backdrop-blur-2xl z-50 transform transition-transform duration-300 ${
           menuOpen
             ? "translate-x-0"
             : "translate-x-full"

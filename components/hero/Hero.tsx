@@ -2,6 +2,7 @@ import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
 import HeroInfo from "./HeroInfo";
+import Reveal from "@/components/animations/Reveal";
 
 export default function Hero() {
   return (
@@ -35,6 +36,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,black_95%)]" />
 
       <Container>
+        <Reveal>
 
         <div className="relative z-10 grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-12">
 
@@ -42,7 +44,7 @@ export default function Hero() {
 
           <div>
 
-            <p className="text-xs uppercase tracking-[0.3em] text-orange-500 sm:text-sm sm:tracking-[0.35em]">
+            <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm mt-6 sm:mt-8">
               SPORTS SCIENCE INDIA
             </p>
 
@@ -205,7 +207,7 @@ export default function Hero() {
 
           </div>
         </div>
-
+        </Reveal>
       </Container>
 
       <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 sm:block">

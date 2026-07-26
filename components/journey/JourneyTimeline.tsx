@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Reveal from "@/components/animations/Reveal";
 import {
   ClipboardCheck,
   Activity,
@@ -46,8 +47,8 @@ export default function JourneyTimeline() {
   return (
     <section className="relative overflow-hidden bg-[#050505] py-14 text-white">
 
+      <Reveal>
       <Container>
-
 
         <div className="mx-auto max-w-4xl text-center mb-14">
 
@@ -165,6 +166,7 @@ export default function JourneyTimeline() {
         </div>
 
       </Container>
+      </Reveal>
 
     </section>
   );

@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 
 import { platforms } from "@/data/platforms";
 import PlatformCard from "./PlatformCard";
+import Reveal from "@/components/animations/Reveal";
 
 export default function Network() {
   return (
@@ -30,6 +31,7 @@ export default function Network() {
       </div>
 
       <Container>
+        <Reveal>
 
         <div className="text-center max-w-4xl mx-auto mb-14">
 
@@ -112,6 +114,7 @@ export default function Network() {
 
             </div>
 
+        </Reveal>
       </Container>
     </section>
   );

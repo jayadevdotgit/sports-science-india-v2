@@ -50,7 +50,6 @@ export default function HumanBody({
           src="/images/ecosystem/human-body.svg"
           alt="Human Body"
           fill
-          priority
           className="object-contain pointer-events-none"
         />
 
