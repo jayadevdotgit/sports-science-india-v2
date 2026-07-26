@@ -58,6 +58,8 @@ export default function TechnologyDisplay({ technology }: Props) {
               src={technology.image}
               alt={technology.title}
               fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="
                 object-cover
                 transition-all
