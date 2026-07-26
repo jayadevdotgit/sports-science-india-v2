@@ -65,6 +65,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Preserve touch scrolling while hiding decorative horizontal scrollbars. */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes marquee {
 
   from {

@@ -21,22 +21,25 @@ export default function CTASection() {
       </div>
 
       <Reveal>
-      <Container>
+      <Container className="px-4 sm:px-8">
 
-        <div className="relative overflow-hidden rounded-[40px] border border-orange-500/20 bg-[#0d0d0d] px-8 py-14 transition-all duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_20px_60px_rgba(249,115,22,0.15)]">
+        <div className="relative overflow-hidden rounded-[28px] border border-orange-500/20 bg-[#0d0d0d] px-4 py-8 transition-all duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[0_20px_60px_rgba(249,115,22,0.15)] min-[380px]:px-5 min-[380px]:py-10 sm:rounded-[40px] sm:px-8 sm:py-14">
 
           {/* Background Text */}
           <h2
             className="
               pointer-events-none
               absolute
-              left-10
-              top-10
-              text-8xl
+              left-5
+              top-7
+              text-6xl
               font-black
               uppercase
               leading-none
               text-white/[0.03]
+              sm:left-10
+              sm:top-10
+              sm:text-8xl
             "
           >
             Peak
@@ -45,10 +48,10 @@ export default function CTASection() {
           </h2>
 
           {/* Main Content */}
-<div className="relative z-10 grid items-center gap-16 lg:grid-cols-2">
+<div className="relative z-10 grid items-center gap-10 sm:gap-16 lg:grid-cols-2">
 
   {/* Left Side */}
-  <div>
+  <div className="min-w-0">
 
     {/* Badge */}
     <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
@@ -57,7 +60,7 @@ export default function CTASection() {
     </div>
 
     {/* Heading */}
-    <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+    <h2 className="mt-6 break-words text-[clamp(1.35rem,6vw,1.5rem)] font-bold leading-tight text-white sm:text-3xl md:text-4xl">
 
       Ready to Unlock Your{" "}
       <span className="text-orange-500">
@@ -70,9 +73,9 @@ export default function CTASection() {
     <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500 lg:mx-0" />
 
     {/* Description */}
-    <p className="mt-4 max-w-xl text-base leading-7 text-gray-400">
+    <p className="mt-4 max-w-xl break-words text-sm leading-6 text-gray-400 sm:text-base sm:leading-7">
 
-      Whether you're a professional athlete,
+      Whether you&apos;re a professional athlete,
       coach, or fitness enthusiast,
       our sports science assessments
       provide data-driven insights
@@ -83,23 +86,23 @@ export default function CTASection() {
     </p>
 
     {/* Buttons */}
-    <div className="mt-6 flex flex-wrap gap-4">
+    <div className="mt-6 flex flex-nowrap gap-2 sm:gap-4">
 
       <Button
         variant="primary"
         size="md"
-        className="inline-flex items-center gap-2"
+        className="inline-flex min-w-0 flex-1 items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
       >
-        <Calendar size={18} />
+        <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
         Book Assessment
       </Button>
 
       <Button
         variant="outline"
         size="md"
-        className="inline-flex items-center gap-2"
+        className="inline-flex min-w-0 flex-1 items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
       >
-        <UserRound size={18} />
+        <UserRound className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
         Contact Experts
       </Button>
 
@@ -109,11 +112,11 @@ export default function CTASection() {
 
   {/* Right Side */}
 
-  <div className="relative flex justify-center">
+  <div className="relative flex min-w-0 justify-center">
 
     <div className="group relative flex items-center justify-center">
-    <div className="absolute h-[520px] w-[520px] rounded-full bg-orange-500/20 blur-[120px] transition-all duration-700 group-hover:scale-110 group-hover:bg-orange-500/30" />
-    <div className="absolute h-[300px] w-[300px] rounded-full border border-orange-500/20 sm:h-[400px] sm:w-[400px]" />
+    <div className="absolute h-[320px] w-[320px] rounded-full bg-orange-500/20 blur-[100px] transition-all duration-700 group-hover:scale-110 group-hover:bg-orange-500/30 sm:h-[520px] sm:w-[520px] sm:blur-[120px]" />
+    <div className="absolute h-[260px] w-[260px] rounded-full border border-orange-500/20 sm:h-[400px] sm:w-[400px]" />
 
     <Image
       src="/images/cta/athlete-runner.png"
@@ -121,7 +124,7 @@ export default function CTASection() {
       width={620}
       height={620}
       priority
-      className="relative z-10 object-contain transition-all duration-700 group-hover:scale-105"
+      className="relative z-10 w-full max-w-[320px] object-contain transition-all duration-700 group-hover:scale-105 sm:max-w-[620px]"
     />
     </div>
 

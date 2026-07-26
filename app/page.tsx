@@ -6,7 +6,8 @@ import Services from "@/components/services/services";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
 import CTASection from "@/components/cta/CTASection";
-
+import Experts from "@/components/experts/Experts";
+import Technology from "@/components/technology/Technology";
 
 
 
@@ -27,6 +28,8 @@ export default function Home() {
       <JourneyTimeline />
       <Testimonials />
       <CTASection />
+      <Experts />
+      <Technology />
 
       <Booking />
       <Contact />
