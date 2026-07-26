@@ -10,15 +10,14 @@ export default function Hero() {
       id="home"
       className="
         relative
-        h-[100svh]
-        min-h-0
+        min-h-[100svh]
         overflow-hidden
         bg-black
         text-white
         flex
         items-start
         pt-28
-        pb-4
+        pb-8
         sm:min-h-screen
         sm:h-auto
         sm:items-center
@@ -102,7 +101,7 @@ export default function Hero() {
 
           {/* RIGHT */}
 
-          <div className="relative flex h-[230px] items-center justify-center sm:h-[560px] lg:h-[600px]">
+          <div className="relative flex h-[320px] items-center justify-center sm:h-[560px] lg:h-[600px]">
 
             {/* BIG GLOW */}
             <div className="absolute h-[320px] w-[320px] rounded-full bg-orange-500/15 blur-[100px] sm:h-[680px] sm:w-[680px] sm:blur-[180px]" />
@@ -152,7 +151,7 @@ export default function Hero() {
               className="
                 absolute
                 right-0
-                -top-7
+                top-4
                 rounded-2xl
                 border
                 border-white/10
@@ -179,7 +178,7 @@ export default function Hero() {
             <div
               className="
                 absolute
-                bottom-0
+                bottom-4
                 left-0
                 rounded-2xl
                 border
