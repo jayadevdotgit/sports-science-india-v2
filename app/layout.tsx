@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Loader from "@/components/loader/Loader";
 import MouseGlow from "@/components/effects/MouseGlow";
+import Kibo from "@/components/panda/Kibo";
 
 export const metadata: Metadata = {
   title: "Sports Science India | Perform Better, Recover Smarter",
@@ -27,7 +28,7 @@ export default function RootLayout({
         {children}
 
       </div>
-
+      <Kibo />
     </body>
     </html>
   );

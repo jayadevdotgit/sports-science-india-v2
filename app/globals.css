@@ -137,3 +137,12 @@ animation:pulseLine 2.5s ease-in-out infinite;
 .animate-journey-flow {
   animation: journeyFlow 4s linear infinite;
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

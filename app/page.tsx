@@ -11,6 +11,7 @@ import Technology from "@/components/technology/Technology";
 
 
 
+
 import Booking from "@/components/booking/Booking";
 import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
