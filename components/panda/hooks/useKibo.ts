@@ -20,9 +20,10 @@ export function useKibo() {
       return;
     }
 
+    const isMobile = window.innerWidth < 768;
     setPosition({
-      x: window.innerWidth - 140,
-      y: window.innerHeight - 160,
+      x: isMobile ? window.innerWidth - 100 : window.innerWidth - 140,
+      y: isMobile ? window.innerHeight - 120 : window.innerHeight - 160,
     });
   }, []);
 
