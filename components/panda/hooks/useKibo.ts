@@ -13,14 +13,19 @@ export function useKibo() {
   const [position, setPosition] = useState<KiboPosition | null>(null);
 
   useEffect(() => {
+    try {
     const saved = localStorage.getItem(STORAGE_KEY);
 
     if (saved) {
-      setPosition(JSON.parse(saved));
-      return;
+        setPosition(JSON.parse(saved));
+        return;
     }
-
-    const isMobile = window.innerWidth < 768;
+   } catch (error) {
+    console.error("Failed to restore Kibo position:", error);
+    localStorage.removeItem(STORAGE_KEY);
+    }
+    const MOBILE_BREAKPOINT = 768;
+    const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
     setPosition({
       x: isMobile ? window.innerWidth - 100 : window.innerWidth - 140,
       y: isMobile ? window.innerHeight - 120 : window.innerHeight - 160,
