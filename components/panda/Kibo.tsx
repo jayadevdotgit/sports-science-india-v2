@@ -20,6 +20,7 @@ export default function Kibo() {
   const posRef = useRef({ x: position?.x ?? 0, y: position?.y ?? 0 });
   const offsetRef = useRef({ x: 0, y: 0 });
   const draggedRef = useRef(false);
+  const startPosRef = useRef({ x: 0, y: 0 });
 
   // Keep current position updated
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function Kibo() {
   function handlePointerDown(e: React.PointerEvent) {
     draggedRef.current = false;
     setDragging(true);
+    startPosRef.current = { x: e.clientX, y: e.clientY };
 
     const rect = elRef.current?.getBoundingClientRect();
 
@@ -69,6 +71,9 @@ export default function Kibo() {
 
   function handlePointerMove(e: React.PointerEvent) {
     if (!dragging) return;
+    const dx = Math.abs(e.clientX - startPosRef.current.x);
+    const dy = Math.abs(e.clientY - startPosRef.current.y);
+    if (dx < 5 && dy < 5) return;
     draggedRef.current = true;
 
     const maxX = window.innerWidth - KIBO_SIZE;
