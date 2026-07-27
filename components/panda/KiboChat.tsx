@@ -87,49 +87,56 @@ export default function KiboChat({ open, onClose }: Props) {
   return (
     <AnimatePresence>
       {open && (
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 40 }}
-          transition={{ duration: 0.35 }}
-          className="
-            fixed
-            bottom-32
-            right-6
-            z-[9998]
-            w-[380px]
-            overflow-hidden
-            rounded-3xl
-            border
-            border-orange-500/20
-            bg-[#0B0B0B]/95
-            backdrop-blur-2xl
-            shadow-2xl
-            shadow-orange-500/10
-          "
-        >
-          {/* Header */}
+        <>
+          {/* Backdrop */}
+          <div
+            onClick={onClose}
+            className="fixed inset-0 z-[9997]"
+          />
 
-          <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 40 }}
+            transition={{ duration: 0.35 }}
+            className="
+              fixed
+              bottom-32
+              right-6
+              z-[9998]
+              w-[380px]
+              overflow-hidden
+              rounded-3xl
+              border
+              border-orange-500/20
+              bg-[#0B0B0B]/95
+              backdrop-blur-2xl
+              shadow-2xl
+              shadow-orange-500/10
+            "
+          >
+            {/* Header */}
 
-            <div>
-              <h2 className="font-semibold text-white">
-                🐼 Kibo
-              </h2>
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
 
-              <p className="text-xs text-orange-400">
-                Sports Science AI Coach
-              </p>
+              <div>
+                <h2 className="font-semibold text-white">
+                  🐼 Kibo
+                </h2>
+
+                <p className="text-xs text-orange-400">
+                  Sports Science AI Coach
+                </p>
+              </div>
+
+              <button
+                onClick={onClose}
+                className="rounded-full bg-orange-500 p-2 text-white transition hover:bg-orange-400"
+              >
+                <X size={18} />
+              </button>
+
             </div>
-
-            <button
-              onClick={onClose}
-              className="rounded-full p-2 transition hover:bg-white/10"
-            >
-              <X size={18} />
-            </button>
-
-          </div>
 
           {/* Messages */}
 
@@ -212,6 +219,7 @@ export default function KiboChat({ open, onClose }: Props) {
           </div>
 
         </motion.div>
+        </>
       )}
     </AnimatePresence>
   );

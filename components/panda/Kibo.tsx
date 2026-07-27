@@ -29,20 +29,15 @@ export default function Kibo() {
     }
   }, [position]);
 
-  // Show welcome bubble only once
+  // Show welcome bubble on every page load
   useEffect(() => {
-    const hasSeenIntro = localStorage.getItem("kibo-intro");
-
-    if (hasSeenIntro) return;
-
     const showTimer = setTimeout(() => {
       setShowBubble(true);
-      localStorage.setItem("kibo-intro", "true");
     }, 1200);
 
     const hideTimer = setTimeout(() => {
       setShowBubble(false);
-    }, 7200);
+    }, 6000);
 
     return () => {
       clearTimeout(showTimer);
