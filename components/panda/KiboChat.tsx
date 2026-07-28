@@ -127,8 +127,6 @@ export default function KiboChat({ open, onClose }: Props) {
     localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(initial));
   }
 
-  const showQuickActions = messages.length === 1 && messages[0]?.role === "assistant" && !loading;
-
   return (
     <AnimatePresence>
       {open && (
@@ -204,30 +202,28 @@ export default function KiboChat({ open, onClose }: Props) {
                 </div>
               )}
 
-              <div ref={bottomRef} />
-            </div>
-
-            {/* Quick Actions */}
-            {showQuickActions && (
-              <div className="border-t border-white/10 px-4 py-3 sm:px-5">
-                <p className="mb-2 text-[11px] text-gray-500">Quick actions</p>
-                <div className="flex flex-wrap gap-2">
+              {/* Quick actions inside chat */}
+              <div className="pt-2">
+                <p className="mb-2 text-[10px] text-gray-500">Quick actions</p>
+                <div className="flex flex-wrap gap-1.5">
                   {quickActions.map((action) => {
                     const Icon = action.icon;
                     return (
                       <button
                         key={action.label}
                         onClick={() => sendMessage(action.action)}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-gray-300 transition hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-300"
+                        className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] text-gray-400 transition hover:border-orange-500/50 hover:bg-orange-500/10 hover:text-orange-300"
                       >
-                        <Icon size={12} />
+                        <Icon size={10} />
                         {action.label}
                       </button>
                     );
                   })}
                 </div>
               </div>
-            )}
+
+              <div ref={bottomRef} />
+            </div>
 
             {/* Input */}
             <div className="border-t border-white/10 p-3 sm:p-4">
