@@ -22,11 +22,27 @@ export default function Kibo() {
   const draggedRef = useRef(false);
   const startPosRef = useRef({ x: 0, y: 0 });
 
-  // Keep current position updated
+  // Keep current position updated & clamp on resize
   useEffect(() => {
-    if (position) {
-      posRef.current = position;
+    if (!position) return;
+    posRef.current = position;
+
+    function clamp() {
+      const maxX = Math.max(0, window.innerWidth - KIBO_SIZE);
+      const maxY = Math.max(0, window.innerHeight - KIBO_SIZE);
+
+      const newX = Math.min(posRef.current.x, maxX);
+      const newY = Math.min(posRef.current.y, maxY);
+
+      posRef.current = { x: newX, y: newY };
+
+      if (elRef.current) {
+        elRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+      }
     }
+
+    window.addEventListener("resize", clamp);
+    return () => window.removeEventListener("resize", clamp);
   }, [position]);
 
   // Show welcome bubble on every page load
