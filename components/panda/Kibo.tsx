@@ -22,27 +22,25 @@ export default function Kibo() {
   const draggedRef = useRef(false);
   const startPosRef = useRef({ x: 0, y: 0 });
 
-  // Keep current position updated & clamp on resize
+  // Keep current position updated & snap to bottom-right on resize/orientation change
   useEffect(() => {
     if (!position) return;
     posRef.current = position;
 
-    function clamp() {
-      const maxX = Math.max(0, window.innerWidth - KIBO_SIZE);
-      const maxY = Math.max(0, window.innerHeight - KIBO_SIZE);
-
-      const newX = Math.min(posRef.current.x, maxX);
-      const newY = Math.min(posRef.current.y, maxY);
+    function snapToCorner() {
+      const newX = Math.max(0, window.innerWidth - KIBO_SIZE - 40);
+      const newY = Math.max(0, window.innerHeight - 100);
 
       posRef.current = { x: newX, y: newY };
+      savePosition({ x: newX, y: newY });
 
       if (elRef.current) {
         elRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
       }
     }
 
-    window.addEventListener("resize", clamp);
-    return () => window.removeEventListener("resize", clamp);
+    window.addEventListener("resize", snapToCorner);
+    return () => window.removeEventListener("resize", snapToCorner);
   }, [position]);
 
   // Show welcome bubble on every page load
