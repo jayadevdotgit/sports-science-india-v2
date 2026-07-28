@@ -48,13 +48,12 @@ export default function KiboChat({ open, onClose }: Props) {
       lower.includes("technology") ||
       lower.includes("technologies")
     ) {
-      document.getElementById("technology")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-
       setMessages((prev) => [
         ...prev,
+        {
+          role: "user",
+          content: userMessage,
+        },
         {
           role: "assistant",
           content: "🚀 Taking you to the Technology section.",
@@ -62,6 +61,14 @@ export default function KiboChat({ open, onClose }: Props) {
       ]);
 
       setInput("");
+
+      setTimeout(() => {
+        document.getElementById("technology")?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 300);
+
       return;
     }
 
