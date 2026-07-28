@@ -3,6 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import KiboTyping from "./KiboTyping";
 
 type Props = {
   open: boolean;
@@ -39,6 +42,37 @@ export default function KiboChat({ open, onClose }: Props) {
 
     const userMessage = input;
 
+    const lower = userMessage.toLowerCase();
+
+    if (
+      lower.includes("technology") ||
+      lower.includes("technologies")
+    ) {
+      document.getElementById("technology")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "🚀 Taking you to the Technology section.",
+        },
+      ]);
+
+      setInput("");
+      return;
+    }
+
+    const history = [
+      ...messages.slice(1),
+      {
+        role: "user" as const,
+        content: userMessage,
+      },
+    ];
+
     setMessages((prev) => [
       ...prev,
       {
@@ -58,6 +92,7 @@ export default function KiboChat({ open, onClose }: Props) {
         },
         body: JSON.stringify({
           message: userMessage,
+          history,
         }),
       });
 
@@ -67,7 +102,10 @@ export default function KiboChat({ open, onClose }: Props) {
         ...prev,
         {
           role: "assistant",
-          content: data.reply || data.error || "Sorry, I couldn't process that.",
+          content:
+            data.reply ||
+            data.error ||
+            "Sorry, I couldn't process that.",
         },
       ]);
     } catch {
@@ -143,25 +181,29 @@ export default function KiboChat({ open, onClose }: Props) {
           <div className="h-[60vh] sm:h-[420px] overflow-y-auto p-4 sm:p-5 space-y-3 sm:space-y-4">
 
             {messages.map((message, index) => (
-
               <div
                 key={index}
-                className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm ${
+                className={`prose prose-invert prose-sm max-w-[85%] rounded-2xl px-4 py-3 ${
                   message.role === "assistant"
                     ? "bg-orange-500 text-white"
                     : "ml-auto bg-white/10 text-white"
                 }`}
               >
-                {message.content}
+                {message.role === "assistant" ? (
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                    {message.content}
+                  </ReactMarkdown>
+                ) : (
+                  message.content
+                )}
               </div>
-
             ))}
 
             {loading && (
 
               <div className="max-w-[85%] rounded-2xl bg-orange-500 px-4 py-3 text-white">
 
-                Kibo is thinking...
+                <KiboTyping />
 
               </div>
 

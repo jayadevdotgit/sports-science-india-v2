@@ -15,7 +15,7 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
-    const { message } = await req.json();
+    const { message, history = [] } = await req.json();
 
     if (!message?.trim()) {
       return NextResponse.json(
@@ -30,15 +30,18 @@ export async function POST(req: NextRequest) {
       max_tokens: 700,
 
       messages: [
-        {
-          role: "system",
-          content: KIBO_SYSTEM_PROMPT,
-        },
-        {
-          role: "user",
-          content: message,
-        },
-      ],
+      {
+        role: "system",
+        content: KIBO_SYSTEM_PROMPT,
+      },
+
+      ...history,
+
+      {
+        role: "user",
+        content: message,
+      },
+    ],
     });
 
     const reply =
