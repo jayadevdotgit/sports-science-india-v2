@@ -26,9 +26,11 @@ export function useKibo() {
     }
     const MOBILE_BREAKPOINT = 768;
     const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
+    const DIST_FROM_BOTTOM = 100;
+    const DIST_FROM_RIGHT = 40;
     setPosition({
-      x: isMobile ? window.innerWidth - 100 : window.innerWidth - 140,
-      y: isMobile ? window.innerHeight - 120 : window.innerHeight - 160,
+      x: Math.max(0, window.innerWidth - DIST_FROM_RIGHT - 96),
+      y: Math.max(0, window.innerHeight - DIST_FROM_BOTTOM),
     });
   }, []);
 
