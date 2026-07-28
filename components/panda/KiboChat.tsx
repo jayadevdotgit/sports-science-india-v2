@@ -85,6 +85,7 @@ export default function KiboChat({ open, onClose }: Props) {
           { role: "assistant", content: `🚀 Taking you to the ${keyword.charAt(0).toUpperCase() + keyword.slice(1)} section.` },
         ]);
         setInput("");
+        onClose();
         setTimeout(() => navigateToSection(sectionId), 300);
         return;
       }
