@@ -101,12 +101,12 @@ export default function KiboChat({ open, onClose }: Props) {
             transition={{ duration: 0.35 }}
             className="
               fixed
-              bottom-32
-              right-6
+              bottom-0 sm:bottom-32
+              left-0 right-0 sm:left-auto sm:right-6
               z-[9998]
-              left-6 right-6 sm:left-auto sm:right-6 sm:w-[340px]
+              sm:w-[340px]
               overflow-hidden
-              rounded-3xl
+              rounded-t-3xl sm:rounded-3xl
               border
               border-orange-500/20
               bg-[#0B0B0B]/95
@@ -117,30 +117,30 @@ export default function KiboChat({ open, onClose }: Props) {
           >
             {/* Header */}
 
-            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
 
               <div>
-                <h2 className="font-semibold text-white">
+                <h2 className="text-sm font-semibold text-white sm:text-base">
                   🐼 Kibo
                 </h2>
 
-                <p className="text-xs text-orange-400">
+                <p className="text-[11px] text-orange-400 sm:text-xs">
                   Sports Science AI Coach
                 </p>
               </div>
 
               <button
                 onClick={onClose}
-                className="rounded-full bg-orange-500 p-2 text-white transition hover:bg-orange-400"
+                className="rounded-full bg-orange-500 p-1.5 text-white transition hover:bg-orange-400 sm:p-2"
               >
-                <X size={18} />
+                <X size={16} />
               </button>
 
             </div>
 
           {/* Messages */}
 
-          <div className="h-[420px] overflow-y-auto p-5 space-y-4">
+          <div className="h-[60vh] sm:h-[420px] overflow-y-auto p-4 sm:p-5 space-y-3 sm:space-y-4">
 
             {messages.map((message, index) => (
 
@@ -173,7 +173,7 @@ export default function KiboChat({ open, onClose }: Props) {
 
           {/* Input */}
 
-          <div className="border-t border-white/10 p-4">
+          <div className="border-t border-white/10 p-3 sm:p-4">
 
             <div className="flex items-center gap-2">
 
@@ -192,8 +192,7 @@ export default function KiboChat({ open, onClose }: Props) {
                   border
                   border-white/10
                   bg-white/5
-                  px-4
-                  py-3
+                  px-3 py-2.5 sm:px-4 sm:py-3
                   text-sm
                   text-white
                   outline-none
@@ -206,12 +205,12 @@ export default function KiboChat({ open, onClose }: Props) {
                 className="
                   rounded-full
                   bg-orange-500
-                  p-3
+                  p-2.5 sm:p-3
                   transition
                   hover:bg-orange-400
                 "
               >
-                <Send size={18} />
+                <Send size={16} />
               </button>
 
             </div>
