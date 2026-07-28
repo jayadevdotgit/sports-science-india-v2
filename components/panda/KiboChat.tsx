@@ -104,7 +104,7 @@ export default function KiboChat({ open, onClose }: Props) {
               bottom-32
               right-6
               z-[9998]
-              w-[380px]
+              left-4 right-4 sm:left-auto sm:right-6 sm:w-[380px]
               overflow-hidden
               rounded-3xl
               border
