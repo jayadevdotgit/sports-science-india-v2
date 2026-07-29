@@ -1,5 +1,9 @@
 "use client";
 
+import Image from "next/image";
+
+const SIZE = 96;
+
 type Props = {
   blinking: boolean;
   thinking: boolean;
@@ -24,48 +28,37 @@ export default function KiboImage({
         : "";
 
   return (
-    <div className={`group relative origin-bottom ${motionClass}`}>
-      <svg
-        viewBox="0 0 64 64"
-        width="100%"
-        height="100%"
-        style={{ display: "block", maxWidth: 130, maxHeight: 130 }}
-      >
-        {/* Tail */}
-        <path d="M50 40c6 4 10 10 8 14s-8 4-14 0-10-10-8-14 8-4 14 0z" fill="#d2691e" stroke="#000" strokeWidth="1"/>
-        <path d="M50 40c-2 1-4 3-6 4" stroke="#fff" strokeWidth="2"/>
-        <path d="M54 44c-2 1-4 3-6 4" stroke="#fff" strokeWidth="2"/>
+    <div className={`relative h-24 w-24 origin-bottom sm:h-[130px] sm:w-[130px] transition-transform duration-300 group-hover:scale-[1.06] group-hover:brightness-110 ${motionClass}`}>
+      <Image
+        src="/mascot/kibo.png"
+        alt="Kibo"
+        width={SIZE}
+        height={SIZE}
+        sizes={`${SIZE}px`}
+        priority
+        draggable={false}
+        className="h-auto w-24 select-none pointer-events-none"
+      />
 
-        {/* Body */}
-        <ellipse cx="32" cy="40" rx="14" ry="10" fill="#d2691e" stroke="#000" strokeWidth="1"/>
+      {/* Blink eyelids */}
+      <div
+        aria-hidden="true"
+        className={`absolute left-[29%] top-[34%] h-[13%] w-[16%] rounded-full bg-[#8c330f] transition-transform duration-75 ${
+          blinking ? "scale-y-100" : "scale-y-0"
+        }`}
+      />
+      <div
+        aria-hidden="true"
+        className={`absolute left-[56%] top-[34%] h-[13%] w-[16%] rounded-full bg-[#8c330f] transition-transform duration-75 ${
+          blinking ? "scale-y-100" : "scale-y-0"
+        }`}
+      />
 
-        {/* Head */}
-        <circle cx="32" cy="24" r="10" fill="#d2691e" stroke="#000" strokeWidth="1"/>
-
-        {/* Face mask */}
-        <path d="M24 22c2 4 12 4 16 0" fill="#fff"/>
-
-        {/* Eyes */}
-        <circle cx="28" cy="24" r="1.5" fill="#000"/>
-        <circle cx="36" cy="24" r="1.5" fill="#000"/>
-
-        {/* Blink eyelids */}
-        <g opacity={blinking ? "1" : "0"} style={{ transition: "opacity 0.08s" }}>
-          <rect x="26" y="22" width="4" height="4" rx="1" fill="#d2691e"/>
-          <rect x="34" y="22" width="4" height="4" rx="1" fill="#d2691e"/>
-        </g>
-
-        {/* Nose */}
-        <circle cx="32" cy="28" r="1" fill="#000"/>
-
-        {/* Ears */}
-        <polygon points="24,16 20,10 26,14" fill="#fff" stroke="#000" strokeWidth="1"/>
-        <polygon points="40,16 44,10 38,14" fill="#fff" stroke="#000" strokeWidth="1"/>
-      </svg>
-
-      {/* Thinking indicator */}
       {thinking && (
-        <span className="absolute -right-1 -top-2 rounded-full bg-orange-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white shadow-[0_0_12px_rgba(249,115,22,0.7)] animate-pulse">
+        <span
+          aria-label="Kibo is thinking"
+          className="absolute -right-1 -top-2 rounded-full bg-orange-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white shadow-[0_0_12px_rgba(249,115,22,0.7)] animate-pulse"
+        >
           ···
         </span>
       )}

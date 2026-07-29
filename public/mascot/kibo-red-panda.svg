@@ -1,34 +1,145 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 64 64"
-    width="200"
-    height="200">
-  <!-- Tail -->
-  <path d="M50 40c6 4 10 10 8 14s-8 4-14 0-10-10-8-14 8-4 14 0z"
-        fill="#d2691e" stroke="#000" stroke-width="1"/>
-  <path d="M50 40c-2 1-4 3-6 4" stroke="#fff" stroke-width="2"/>
-  <path d="M54 44c-2 1-4 3-6 4" stroke="#fff" stroke-width="2"/>
-  
-  <!-- Body -->
-  <ellipse cx="32" cy="40" rx="14" ry="10"
-           fill="#d2691e" stroke="#000" stroke-width="1"/>
-  
-  <!-- Head -->
-  <circle cx="32" cy="24" r="10"
-          fill="#d2691e" stroke="#000" stroke-width="1"/>
-  
-  <!-- Face mask -->
-  <path d="M24 22c2 4 12 4 16 0" fill="#fff"/>
-  
-  <!-- Eyes -->
-  <circle cx="28" cy="24" r="1.5" fill="#000"/>
-  <circle cx="36" cy="24" r="1.5" fill="#000"/>
-  
-  <!-- Nose -->
-  <circle cx="32" cy="28" r="1" fill="#000"/>
-  
-  <!-- Ears -->
-  <polygon points="24,16 20,10 26,14" fill="#fff" stroke="#000" stroke-width="1"/>
-  <polygon points="40,16 44,10 38,14" fill="#fff" stroke="#000" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380" role="img" aria-labelledby="title desc" style="overflow:visible">
+  <title id="title">VIVI, the Red Panda Mascot</title>
+  <desc id="desc">A clean, flat vector illustration of a cute sitting red panda with long tall ears, white eyebrow arches, black ears with white inner arcs, and a striped tail.</desc>
+
+  <defs>
+    <style>
+      .orange-fur { fill: #EE5326; }
+      .dark-fur { fill: #111111; }
+      .white-fur { fill: #FFFFFF; }
+      .blush-pink { fill: #FF8585; opacity: 0.55; }
+    </style>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="180" cy="358" rx="100" ry="8" fill="#C29A88" opacity="0.6"/>
+
+  <!-- Tail Layer (#tail: animated sway/idle) -->
+  <g id="tail">
+    <!-- Fluffy curved striped tail on the left side -->
+    <path d="M125 240 C50 220 20 280 45 320 C65 352 135 340 148 290 C155 265 140 245 125 240 Z" fill="#EE5326"/>
+    
+    <!-- White Tail Tip & White Stripes -->
+    <path d="M42 225 C40 205 68 185 85 208 C70 215 50 220 42 225 Z" fill="#FFFFFF"/>
+    <path d="M38 275 C24 250 52 230 78 250 C60 262 44 270 38 275 Z" fill="#FFFFFF"/>
+    <path d="M52 315 C38 295 72 272 100 288 C82 302 62 310 52 315 Z" fill="#FFFFFF"/>
+    <path d="M85 342 C68 330 102 308 128 320 C110 335 94 340 85 342 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Ears Layer (#ears: animated twitch - EXTRA LONG TALL EARS!) -->
+  <g id="ears">
+    <!-- LEFT EXTRA LONG EAR: Tall pointed ear like a red panda -->
+    <path d="M72 130 C20 -10 80 -35 148 85 C122 105 95 120 72 130 Z" fill="#111111"/>
+    <path d="M84 120 C38 10 88 -10 134 92 C116 105 96 115 84 120 Z" fill="#FFFFFF"/>
+
+    <!-- RIGHT EXTRA LONG EAR: Tall pointed ear like a red panda -->
+    <path d="M288 130 C340 -10 280 -35 212 85 C238 105 265 120 288 130 Z" fill="#111111"/>
+    <path d="M276 120 C322 10 272 -10 226 92 C244 105 264 115 276 120 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Body Layer (#body: sitting pose with black chest & white oval belly) -->
+  <g id="body">
+    <!-- Outer Lower Body (Orange back & sides) -->
+    <path d="M110 190 C92 220 85 310 105 340 C125 360 235 360 255 340 C275 310 268 220 250 190 Z" fill="#EE5326"/>
+
+    <!-- Solid Black Upper Chest & Collar -->
+    <path d="M125 185 C120 220 140 245 180 248 C220 245 240 220 235 185 C210 210 150 210 125 185 Z" fill="#111111"/>
+
+    <!-- Crisp White Belly Oval -->
+    <path d="M142 225 C135 270 142 328 180 330 C218 328 225 270 218 225 C195 242 165 242 142 225 Z" fill="#FFFFFF"/>
+
+    <!-- Solid Black Feet & Legs sitting on ground -->
+    <!-- Left Leg -->
+    <path d="M122 255 C108 275 105 330 115 348 C130 355 158 355 162 342 C165 320 150 270 142 255 Z" fill="#111111"/>
+    <!-- Right Leg -->
+    <path d="M238 255 C252 275 255 330 245 348 C230 355 202 355 198 342 C195 320 210 270 218 255 Z" fill="#111111"/>
+  </g>
+
+  <!-- Paws Layer (#paws: orange arms with black hands/claws) -->
+  <g id="paws">
+    <!-- Left Arm (Orange) -->
+    <path d="M120 195 C105 220 110 265 142 270 C155 270 162 258 152 245 C138 230 130 212 120 195 Z" fill="#EE5326"/>
+    <!-- Left Paw (Solid Black with white claws) -->
+    <ellipse cx="148" cy="256" rx="14" ry="16" fill="#111111" transform="rotate(-15 148 256)"/>
+    <!-- White Claws -->
+    <path d="M142 264 L140 270 M148 266 L148 272 M154 264 L156 270" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Right Arm (Orange) -->
+    <path d="M240 195 C255 220 250 265 218 270 C205 270 198 258 208 245 C222 230 230 212 240 195 Z" fill="#EE5326"/>
+    <!-- Right Paw (Solid Black with white claws) -->
+    <ellipse cx="212" cy="256" rx="14" ry="16" fill="#111111" transform="rotate(15 212 256)"/>
+    <!-- White Claws -->
+    <path d="M206 264 L204 270 M212 266 L212 272 M218 264 L220 270" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Head Layer (#head: wider round panda face, prominent white markings) -->
+  <g id="head">
+    <!-- Orange Head Base - wider and rounder at bottom like a red panda -->
+    <path d="M78 145 C65 100 100 50 180 50 C260 50 295 100 282 145 C275 185 240 215 180 215 C120 215 85 185 78 145 Z" fill="#EE5326"/>
+
+    <!-- Fluffy Cheek Tufts -->
+    <path d="M78 155 C60 160 55 180 65 195 C72 200 80 195 85 185 Z" fill="#EE5326"/>
+    <path d="M282 155 C300 160 305 180 295 195 C288 200 280 195 275 185 Z" fill="#EE5326"/>
+
+    <!-- Spiky Fur Tuft on top of Head between ears -->
+    <path d="M152 58 L165 42 L175 56 L188 38 L198 56 Z" fill="#EE5326"/>
+
+    <!-- Wide White Eyebrow Arches / Eyemask - more prominent -->
+    <path d="M88 155 C76 118 100 78 180 78 C260 78 284 118 272 155 C252 118 215 94 180 94 C145 94 108 118 88 155 Z" fill="#FFFFFF"/>
+
+    <!-- Dark Brown Teardrop Eye Patches - darker and more distinctive like red panda -->
+    <path d="M102 158 C90 180 110 210 140 210 C158 210 162 186 150 168 C135 158 115 156 102 158 Z" fill="#2D1B14"/>
+    <path d="M258 158 C270 180 250 210 220 210 C202 210 198 186 210 168 C225 158 245 156 258 158 Z" fill="#2D1B14"/>
+
+    <!-- White Muzzle & Snout Base - bigger and rounder -->
+    <path d="M130 165 C122 195 140 215 180 215 C220 215 238 195 230 165 C212 175 196 180 180 180 C164 180 148 175 130 165 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Empty Headphones Group for compatibility (#headphones) -->
+  <g id="headphones"/>
+
+  <!-- Eyes Layer (#eyes: interactive pupil tracking & blinking) -->
+  <g id="eyes">
+    <!-- Outer Eye Sockets -->
+    <circle cx="138" cy="148" r="16" fill="#111111"/>
+    <circle cx="222" cy="148" r="16" fill="#111111"/>
+
+    <!-- Left Pupil (#left-eye) -->
+    <g id="left-eye">
+      <circle cx="138" cy="148" r="15" fill="#111111"/>
+      <!-- Glossy White Highlight Circle -->
+      <circle cx="133" cy="142" r="5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Right Pupil (#right-eye) -->
+    <g id="right-eye">
+      <circle cx="222" cy="148" r="15" fill="#111111"/>
+      <!-- Glossy White Highlight Circle -->
+      <circle cx="217" cy="142" r="5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Eyelids for Blink Animation (#eyelids) -->
+    <g id="eyelids" fill="#FFFFFF" opacity="0">
+      <circle cx="138" cy="148" r="17"/>
+      <circle cx="222" cy="148" r="17"/>
+      <path d="M120 148 Q138 162 156 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+      <path d="M204 148 Q222 162 240 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Blush Layer (#blush) -->
+  <g id="blush">
+    <ellipse cx="112" cy="172" rx="10" ry="6" class="blush-pink"/>
+    <ellipse cx="248" cy="172" rx="10" ry="6" class="blush-pink"/>
+  </g>
+
+  <!-- Nose & Mouth Layer (#face) -->
+  <g id="face" stroke-linecap="round">
+    <!-- Black Nose - slightly bigger -->
+    <ellipse cx="180" cy="168" rx="9" ry="7" fill="#111111"/>
+    <ellipse cx="178" cy="165" rx="3" ry="2" fill="#FFFFFF" opacity="0.7"/>
+
+    <!-- Cute panda smile -->
+    <path d="M168 178 C174 184 186 184 192 178" fill="none" stroke="#111111" stroke-width="2.5"/>
+  </g>
 </svg>
