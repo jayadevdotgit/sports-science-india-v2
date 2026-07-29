@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380" role="img" aria-labelledby="title desc" style="overflow:visible">
   <title id="title">VIVI, the Red Panda Mascot</title>
-  <desc id="desc">A clean, flat vector illustration of a cute sitting red panda with long tall ears, white eyebrow arches, black ears with white inner arcs, and a striped tail.</desc>
+  <desc id="desc">A clean, flat vector illustration of a cute sitting red panda with white eyebrow arches, black ears with white inner arcs, and a striped tail.</desc>
 
+  <!-- Color Definitions matching the reference flat vector artwork -->
   <defs>
     <style>
       .orange-fur { fill: #EE5326; }
@@ -26,15 +27,15 @@
     <path d="M85 342 C68 330 102 308 128 320 C110 335 94 340 85 342 Z" fill="#FFFFFF"/>
   </g>
 
-  <!-- Ears Layer (#ears: animated twitch - EXTRA LONG TALL EARS!) -->
+  <!-- Ears Layer (#ears: animated twitch) -->
   <g id="ears">
-    <!-- LEFT EXTRA LONG EAR: Tall pointed ear like a red panda -->
-    <path d="M72 130 C20 -10 80 -35 148 85 C122 105 95 120 72 130 Z" fill="#111111"/>
-    <path d="M84 120 C38 10 88 -10 134 92 C116 105 96 115 84 120 Z" fill="#FFFFFF"/>
+    <!-- LEFT EAR: Solid black outer ear with white crescent inner arc -->
+    <path d="M72 130 C45 65 92 45 142 90 C118 108 95 122 72 130 Z" fill="#111111"/>
+    <path d="M84 120 C62 78 96 62 130 96 C114 108 96 116 84 120 Z" fill="#FFFFFF"/>
 
-    <!-- RIGHT EXTRA LONG EAR: Tall pointed ear like a red panda -->
-    <path d="M288 130 C340 -10 280 -35 212 85 C238 105 265 120 288 130 Z" fill="#111111"/>
-    <path d="M276 120 C322 10 272 -10 226 92 C244 105 264 115 276 120 Z" fill="#FFFFFF"/>
+    <!-- RIGHT EAR: Solid black outer ear with white crescent inner arc -->
+    <path d="M288 130 C315 65 268 45 218 90 C242 108 265 122 288 130 Z" fill="#111111"/>
+    <path d="M276 120 C298 78 264 62 230 96 C246 108 264 116 276 120 Z" fill="#FFFFFF"/>
   </g>
 
   <!-- Body Layer (#body: sitting pose with black chest & white oval belly) -->
@@ -77,10 +78,10 @@
     <!-- Orange Head Base -->
     <path d="M82 145 C70 102 100 55 180 55 C260 55 290 102 278 145 C270 180 240 205 180 205 C120 205 90 180 82 145 Z" fill="#EE5326"/>
 
-    <!-- Spiky Fur Tuft on top of Head between ears -->
+    <!-- Spiky Fur Tuft on top of Head between ears (exactly like reference image) -->
     <path d="M155 58 L168 45 L176 56 L188 42 L196 58 Z" fill="#EE5326"/>
 
-    <!-- Wide White Eyebrow Arches / Eyemask -->
+    <!-- Wide White Eyebrow Arches / Eyemask (Signature feature from reference image!) -->
     <path d="M92 152 C82 118 105 82 180 82 C255 82 278 118 268 152 C250 120 215 98 180 98 C145 98 110 120 92 152 Z" fill="#FFFFFF"/>
 
     <!-- Dark Auburn/Brown Cheek Patches under eyes -->
@@ -135,7 +136,7 @@
     <ellipse cx="180" cy="164" rx="8" ry="6" fill="#111111"/>
     <ellipse cx="178" cy="162" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.8"/>
 
-    <!-- Simple :3 Smile Lines -->
+    <!-- Simple :3 Smile Lines (matching reference image) -->
     <path d="M180 170 V173" stroke="#111111" stroke-width="2.5"/>
     <path d="M168 174 C174 180 180 178 180 173 C180 178 186 180 192 174" fill="none" stroke="#111111" stroke-width="2.5"/>
   </g>
