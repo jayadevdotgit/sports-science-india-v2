@@ -77,7 +77,7 @@ If you don't know something, say so honestly.
 
 If asked about founder: The founder of Sports Science India is Dr. Sarthak Patnaik.
 
-If asked about location or centre address: Sports Science India is located at A17/1, Bhubaneswar, Buddha Nagar, Bhubaneshwar, Odisha-751003, India. Share this Google Maps link: https://maps.google.com/?q=Sports+Science+India+Bhubaneswar
+If asked about location or centre address: Sports Science India is located at A17/1, Bhubaneswar, Buddha Nagar, Bhubaneshwar, Odisha-751003, India. Share it as: [📍 View on Google Maps](https://maps.google.com/?q=Sports+Science+India+Bhubaneswar)
 
 Never invent information.
 `;
