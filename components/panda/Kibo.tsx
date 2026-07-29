@@ -140,7 +140,7 @@ export default function Kibo() {
         <KiboBubble visible={showBubble} />
 
         {/* Kibo */}
-        <div className="animate-float sm:scale-[1.3] sm:origin-bottom-right" onMouseEnter={markActive}>
+        <div className="animate-float sm:scale-[1.5] sm:origin-bottom-right" onMouseEnter={markActive}>
           <KiboSVG
             blinking={blinking}
             thinking={thinking}
