@@ -49,7 +49,17 @@ export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
     if (typeof window === "undefined") return [];
     const saved = localStorage.getItem(CHAT_STORAGE_KEY);
     if (saved) {
-      try { return JSON.parse(saved); } catch { /* ignore */ }
+      try {
+        const parsed = JSON.parse(saved) as Message[];
+        const first = parsed[0];
+        if (first && first.role === "assistant" && first.content.includes("Ask me anything")) {
+          localStorage.removeItem(CHAT_STORAGE_KEY);
+          return [
+            { role: "assistant", content: "👋 Hi! I'm VIVI, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
+          ];
+        }
+        return parsed;
+      } catch { /* ignore */ }
     }
     return [
       { role: "assistant", content: "👋 Hi! I'm VIVI, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
