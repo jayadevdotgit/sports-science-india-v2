@@ -52,7 +52,7 @@ export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
       try { return JSON.parse(saved); } catch { /* ignore */ }
     }
     return [
-      { role: "assistant", content: "👋 Hi! I'm Kibo, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
+      { role: "assistant", content: "👋 Hi! I'm VIVI, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
     ];
   });
 
@@ -133,7 +133,7 @@ export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
 
   function clearChat() {
     const initial: Message[] = [
-      { role: "assistant", content: "👋 Hi! I'm Kibo, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
+      { role: "assistant", content: "👋 Hi! I'm VIVI, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
     ];
     setMessages(initial);
     localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(initial));
