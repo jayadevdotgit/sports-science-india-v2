@@ -9,7 +9,7 @@ import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
 
-const KIBO_SIZE = 128;
+const KIBO_SIZE = typeof window !== "undefined" && window.innerWidth < 768 ? 80 : 128;
 
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
@@ -33,19 +33,22 @@ export default function Kibo() {
     if (!position) return;
     posRef.current = position;
 
-    function snapToCorner() {
-      const newX = Math.max(0, window.innerWidth - KIBO_SIZE - 40);
-      const newY = Math.max(0, window.innerHeight - 100);
-      posRef.current = { x: newX, y: newY };
-      savePosition({ x: newX, y: newY });
-      if (elRef.current) {
-        elRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
+    function clampOnResize() {
+      const maxX = Math.max(0, window.innerWidth - 20);
+      const maxY = Math.max(0, window.innerHeight - 20);
+      const clampedX = Math.min(posRef.current.x, maxX);
+      const clampedY = Math.min(posRef.current.y, maxY);
+      if (clampedX !== posRef.current.x || clampedY !== posRef.current.y) {
+        posRef.current = { x: clampedX, y: clampedY };
+        if (elRef.current) {
+          elRef.current.style.transform = `translate(${clampedX}px, ${clampedY}px)`;
+        }
       }
     }
 
-    window.addEventListener("resize", snapToCorner);
-    return () => window.removeEventListener("resize", snapToCorner);
-  }, [position, savePosition]);
+    window.addEventListener("resize", clampOnResize);
+    return () => window.removeEventListener("resize", clampOnResize);
+  }, [position]);
 
   // Show welcome bubble on every page load
   useEffect(() => {
