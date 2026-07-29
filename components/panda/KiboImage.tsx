@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const SIZE = 96;
+const SIZE = 150;
 
 type Props = {
   blinking: boolean;
@@ -28,7 +28,7 @@ export default function KiboImage({
         : "";
 
   return (
-    <div className={`relative h-24 w-24 origin-bottom transition-transform duration-300 group-hover:scale-[1.06] group-hover:brightness-110 ${motionClass}`}>
+    <div className={`relative h-[150px] w-[150px] origin-bottom transition-transform duration-300 group-hover:scale-[1.06] group-hover:brightness-110 ${motionClass}`}>
       <Image
         src="/mascot/kibo.png"
         alt="Kibo"
