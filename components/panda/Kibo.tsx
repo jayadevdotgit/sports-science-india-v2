@@ -9,7 +9,7 @@ import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
 
-const KIBO_SIZE = 96;
+const KIBO_SIZE = 130;
 
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
