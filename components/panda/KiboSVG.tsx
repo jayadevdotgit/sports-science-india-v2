@@ -48,52 +48,30 @@ export default function KiboSVG({ blinking, thinking, idle, waving, bouncing }: 
     }
     if (ears) {
       ears.style.transformBox = "fill-box";
-      ears.style.transformOrigin = "center top";
-      ears.style.animation = idle ? "kibo-ear-twitch 4.6s ease-in-out infinite" : "";
+      ears.style.transformOrigin = "center";
+      ears.style.animation = thinking
+        ? "kibo-ears-twitch 0.25s ease-in-out 3"
+        : "";
     }
-  }, [blinking, idle, waving, svgMarkup]);
 
-  useEffect(() => {
-    const followPointer = (event: PointerEvent) => {
-      const svg = hostRef.current?.querySelector("svg");
-      if (!svg) return;
-      const rect = svg.getBoundingClientRect();
-      const x = Math.max(-3, Math.min(3, ((event.clientX - rect.left) / rect.width - 0.5) * 8));
-      const y = Math.max(-2, Math.min(2, ((event.clientY - rect.top) / rect.height - 0.42) * 6));
+    const face = svg.querySelector<SVGGElement>("#face");
+    if (face) {
+      face.style.transformBox = "fill-box";
+      face.style.transformOrigin = "center";
+      face.style.animation = bouncing
+        ? "kibo-bounce 0.4s ease"
+        : "";
+    }
+  }, [blinking, thinking, idle, waving, bouncing]);
 
-      ["#left-eye", "#right-eye"].forEach((selector) => {
-        const eye = svg.querySelector<SVGGElement>(selector);
-        if (!eye) return;
-        eye.style.transformBox = "fill-box";
-        eye.style.transformOrigin = "center";
-        eye.style.transform = `translate(${x}px, ${y}px)`;
-        eye.style.transition = "transform 120ms ease-out";
-      });
-    };
-
-    window.addEventListener("pointermove", followPointer, { passive: true });
-    return () => window.removeEventListener("pointermove", followPointer);
-  }, [svgMarkup]);
-
-  const motionClass = bouncing
-    ? "animate-[kibo-bounce_0.45s_ease-out]"
-    : idle
-      ? "animate-[kibo-breathe_3.8s_ease-in-out_infinite]"
-      : "";
+  if (!svgMarkup) return <div style={{ width: 96, height: 96 }} />;
 
   return (
-    <div className={`relative h-32 w-32 origin-bottom transition-transform duration-300 group-hover:scale-[1.06] ${motionClass}`}>
-      <div
-        ref={hostRef}
-        aria-label="VIVI, your red panda AI assistant"
-        className="h-32 w-32 [&_svg]:h-full [&_svg]:w-full"
-        dangerouslySetInnerHTML={{ __html: svgMarkup }}
-      />
-      {thinking && (
-        <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 px-1.5 py-0.5 text-[10px] font-bold leading-none text-white shadow-[0_0_12px_rgba(249,115,22,0.7)] animate-pulse">
-          💭
-        </span>
-      )}
-    </div>
+    <div
+      ref={hostRef}
+      className={`${waving ? "animate-kibo-wave" : ""} ${idle ? "animate-float" : ""}`}
+      style={{ width: 96, height: 96 }}
+      dangerouslySetInnerHTML={{ __html: svgMarkup }}
+    />
   );
 }
