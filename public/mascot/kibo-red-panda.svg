@@ -72,23 +72,27 @@
     <path d="M206 264 L204 270 M212 266 L212 272 M218 264 L220 270" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
   </g>
 
-  <!-- Head Layer (#head: flat orange head, spiky hair, white eyebrow arches, brown eye-patches) -->
+  <!-- Head Layer (#head: wider round panda face, prominent white markings) -->
   <g id="head">
-    <!-- Orange Head Base -->
-    <path d="M82 145 C70 102 100 55 180 55 C260 55 290 102 278 145 C270 180 240 205 180 205 C120 205 90 180 82 145 Z" fill="#EE5326"/>
+    <!-- Orange Head Base - wider and rounder at bottom like a red panda -->
+    <path d="M78 145 C65 100 100 50 180 50 C260 50 295 100 282 145 C275 185 240 215 180 215 C120 215 85 185 78 145 Z" fill="#EE5326"/>
+
+    <!-- Fluffy Cheek Tufts -->
+    <path d="M78 155 C60 160 55 180 65 195 C72 200 80 195 85 185 Z" fill="#EE5326"/>
+    <path d="M282 155 C300 160 305 180 295 195 C288 200 280 195 275 185 Z" fill="#EE5326"/>
 
     <!-- Spiky Fur Tuft on top of Head between ears -->
-    <path d="M155 58 L168 45 L176 56 L188 42 L196 58 Z" fill="#EE5326"/>
+    <path d="M152 58 L165 42 L175 56 L188 38 L198 56 Z" fill="#EE5326"/>
 
-    <!-- Wide White Eyebrow Arches / Eyemask -->
-    <path d="M92 152 C82 118 105 82 180 82 C255 82 278 118 268 152 C250 120 215 98 180 98 C145 98 110 120 92 152 Z" fill="#FFFFFF"/>
+    <!-- Wide White Eyebrow Arches / Eyemask - more prominent -->
+    <path d="M88 155 C76 118 100 78 180 78 C260 78 284 118 272 155 C252 118 215 94 180 94 C145 94 108 118 88 155 Z" fill="#FFFFFF"/>
 
-    <!-- Dark Auburn/Brown Cheek Patches under eyes -->
-    <path d="M104 158 C96 178 115 200 138 202 C152 200 156 182 146 168 C132 160 118 158 104 158 Z" fill="#C43812"/>
-    <path d="M256 158 C264 178 245 200 222 202 C208 200 204 182 214 168 C228 160 242 158 256 158 Z" fill="#C43812"/>
+    <!-- Dark Brown Teardrop Eye Patches - darker and more distinctive like red panda -->
+    <path d="M102 158 C90 180 110 210 140 210 C158 210 162 186 150 168 C135 158 115 156 102 158 Z" fill="#2D1B14"/>
+    <path d="M258 158 C270 180 250 210 220 210 C202 210 198 186 210 168 C225 158 245 156 258 158 Z" fill="#2D1B14"/>
 
-    <!-- White Muzzle & Snout Base -->
-    <path d="M136 162 C130 185 145 205 180 205 C215 205 230 185 224 162 C210 170 195 174 180 174 C165 174 150 170 136 162 Z" fill="#FFFFFF"/>
+    <!-- White Muzzle & Snout Base - bigger and rounder -->
+    <path d="M130 165 C122 195 140 215 180 215 C220 215 238 195 230 165 C212 175 196 180 180 180 C164 180 148 175 130 165 Z" fill="#FFFFFF"/>
   </g>
 
   <!-- Empty Headphones Group for compatibility (#headphones) -->
@@ -131,12 +135,11 @@
 
   <!-- Nose & Mouth Layer (#face) -->
   <g id="face" stroke-linecap="round">
-    <!-- Black Nose -->
-    <ellipse cx="180" cy="164" rx="8" ry="6" fill="#111111"/>
-    <ellipse cx="178" cy="162" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.8"/>
+    <!-- Black Nose - slightly bigger -->
+    <ellipse cx="180" cy="168" rx="9" ry="7" fill="#111111"/>
+    <ellipse cx="178" cy="165" rx="3" ry="2" fill="#FFFFFF" opacity="0.7"/>
 
-    <!-- Simple :3 Smile Lines -->
-    <path d="M180 170 V173" stroke="#111111" stroke-width="2.5"/>
-    <path d="M168 174 C174 180 180 178 180 173 C180 178 186 180 192 174" fill="none" stroke="#111111" stroke-width="2.5"/>
+    <!-- Cute panda smile -->
+    <path d="M168 178 C174 184 186 184 192 178" fill="none" stroke="#111111" stroke-width="2.5"/>
   </g>
 </svg>
