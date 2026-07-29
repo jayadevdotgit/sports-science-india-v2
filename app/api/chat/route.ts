@@ -9,7 +9,7 @@ const groq = new OpenAI({
 
 export async function GET() {
   return NextResponse.json({
-    message: "Kibo AI is online. Send a POST request with a message.",
+    message: "VIVI AI is online. Send a POST request with a message.",
   });
 }
 

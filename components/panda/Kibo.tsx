@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import KiboBubble from "./KiboBubble";
 import KiboChat from "./KiboChat";
-import KiboImage from "./KiboImage";
+import KiboSVG from "./KiboSVG";
 import { useKibo } from "./hooks/useKibo";
+import { useBlink } from "./hooks/useBlink";
+import { useIdle } from "./hooks/useIdle";
+import { useWave } from "./hooks/useWave";
 
 const KIBO_SIZE = 96;
 
@@ -14,6 +17,11 @@ export default function Kibo() {
   const [dragging, setDragging] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
+  const [thinking, setThinking] = useState(false);
+  const [bouncing, setBouncing] = useState(false);
+  const blinking = useBlink();
+  const waving = useWave();
+  const { idle, markActive } = useIdle();
 
   const elRef = useRef<HTMLDivElement>(null);
   const posRef = useRef({ x: position?.x ?? 0, y: position?.y ?? 0 });
@@ -49,6 +57,7 @@ export default function Kibo() {
   if (!ready || !position) return null;
 
   function handlePointerDown(e: React.PointerEvent) {
+    markActive();
     draggedRef.current = false;
     setDragging(true);
     startPosRef.current = { x: e.clientX, y: e.clientY };
@@ -79,6 +88,8 @@ export default function Kibo() {
     if (!dragging) return;
     setDragging(false);
     if (!draggedRef.current) {
+      setBouncing(true);
+      setTimeout(() => setBouncing(false), 450);
       setShowBubble(false);
       setChatOpen(true);
       return;
@@ -117,10 +128,10 @@ export default function Kibo() {
           userSelect: "none",
           cursor: dragging ? "grabbing" : "grab",
         }}
-        className="group"
+        className="group isolate"
       >
         {/* Glow */}
-        <div className="absolute inset-3 -z-10 rounded-full bg-orange-500/15 blur-2xl transition-all duration-1000" />
+        <div className="absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl animate-pulse transition-all duration-1000 group-hover:bg-orange-500/50" />
 
         {/* Ground Shadow */}
         <div className="absolute bottom-0 left-1/2 h-3 w-14 -translate-x-1/2 rounded-full bg-black/30 blur-md" />
@@ -129,14 +140,21 @@ export default function Kibo() {
         <KiboBubble visible={showBubble} />
 
         {/* Kibo */}
-        <div className="animate-float">
-          <KiboImage />
+        <div className="animate-float" onMouseEnter={markActive}>
+          <KiboSVG
+            blinking={blinking}
+            thinking={thinking}
+            idle={idle}
+            waving={waving}
+            bouncing={bouncing}
+          />
         </div>
       </div>
 
       <KiboChat
         open={chatOpen}
         onClose={() => setChatOpen(false)}
+        onThinkingChange={setThinking}
       />
     </>
   );

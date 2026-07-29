@@ -10,6 +10,7 @@ import KiboTyping from "./KiboTyping";
 type Props = {
   open: boolean;
   onClose: () => void;
+  onThinkingChange?: (thinking: boolean) => void;
 };
 
 type Message = {
@@ -40,7 +41,7 @@ const sections: Record<string, string> = {
   ecosystem: "ecosystem",
 };
 
-export default function KiboChat({ open, onClose }: Props) {
+export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -51,11 +52,15 @@ export default function KiboChat({ open, onClose }: Props) {
       try { return JSON.parse(saved); } catch { /* ignore */ }
     }
     return [
-      { role: "assistant", content: "👋 Hi! I'm Kibo. Ask me anything about Sports Science India." },
+      { role: "assistant", content: "👋 Hi! I'm Kibo, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
     ];
   });
 
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    onThinkingChange?.(loading);
+  }, [loading, onThinkingChange]);
 
   // Save messages to localStorage
   useEffect(() => {
@@ -124,11 +129,11 @@ export default function KiboChat({ open, onClose }: Props) {
     }
 
     setLoading(false);
-  }, [input, loading, messages, navigateToSection]);
+  }, [input, loading, messages, navigateToSection, onClose]);
 
   function clearChat() {
     const initial: Message[] = [
-      { role: "assistant", content: "👋 Hi! I'm Kibo. Ask me anything about Sports Science India." },
+      { role: "assistant", content: "👋 Hi! I'm Kibo, your Sports Science AI Coach. Whether you're an athlete, coach, or parent, I'm here to help you train smarter, recover faster, and perform better." },
     ];
     setMessages(initial);
     localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(initial));
@@ -162,7 +167,7 @@ export default function KiboChat({ open, onClose }: Props) {
             {/* Header */}
             <div className="flex items-center justify-between border-b border-white/10 px-4 py-3 sm:px-5 sm:py-4">
               <div>
-                <h2 className="text-sm font-semibold text-white sm:text-base">🐼 Kibo</h2>
+                <h2 className="text-sm font-semibold text-white sm:text-base">🐼 VIVI</h2>
                 <p className="text-[11px] text-orange-400 sm:text-xs">Sports Science AI Coach</p>
               </div>
               <div className="flex items-center gap-2">
@@ -241,7 +246,7 @@ export default function KiboChat({ open, onClose }: Props) {
                   onKeyDown={(e) => {
                     if (e.key === "Enter") sendMessage();
                   }}
-                  placeholder="Ask Kibo anything..."
+                  placeholder="Ask VIVI anything..."
                   className="
                     flex-1 rounded-full border border-white/10 bg-white/5
                     px-3 py-2.5 text-sm text-white outline-none

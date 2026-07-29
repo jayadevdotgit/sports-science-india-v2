@@ -63,7 +63,7 @@ export default function KiboBubble({ visible }: KiboBubbleProps) {
           />
 
           <h3 className="text-lg font-semibold text-white">
-            👋 Hi! I'm Kibo
+            👋 Hi! I'm VIVI
           </h3>
 
           <p className="mt-3 text-sm leading-6 text-gray-300">

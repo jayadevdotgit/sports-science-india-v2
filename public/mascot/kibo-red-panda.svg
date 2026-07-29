@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-labelledby="title desc" style="overflow:visible">
+  <title id="title">VIVI, the Sports Science India red panda assistant</title>
+  <desc id="desc">A friendly orange red panda wearing headphones and a black SSI hoodie.</desc>
+  <defs>
+    <linearGradient id="fur" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff9a1f"/>
+      <stop offset="1" stop-color="#e94a0b"/>
+    </linearGradient>
+    <linearGradient id="hoodie" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#2d3138"/>
+      <stop offset="1" stop-color="#101217"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff6e7"/>
+      <stop offset="1" stop-color="#e9bea0"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity=".34"/>
+    </filter>
+  </defs>
+
+  <!-- Separate tail layer: ready for tail sway animation. -->
+  <g id="tail" filter="url(#shadow)" transform="rotate(12 246 224)">
+    <path d="M228 201c58-27 77 15 61 59-14 37-50 48-78 28 21-11 27-27 17-42-9-13-10-29 0-45Z" fill="url(#fur)" stroke="#8e2b12" stroke-width="5"/>
+    <path d="M250 204c16 6 25 19 25 34M239 222c19 3 33 16 35 32M227 240c17 0 29 10 34 24" fill="none" stroke="#ffe1ad" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+  </g>
+
+  <!-- Separate ears layer: ready for ear twitch animation. -->
+  <g id="ears" filter="url(#shadow)">
+    <path d="M66 95C36 46 68 25 112 76Z" fill="url(#fur)" stroke="#8e2b12" stroke-width="5"/>
+    <path d="M78 84C61 57 79 48 100 77Z" fill="url(#ear)"/>
+    <path d="M254 95c30-49-2-70-46-19Z" fill="url(#fur)" stroke="#8e2b12" stroke-width="5"/>
+    <path d="M242 84c17-27-1-36-22-7Z" fill="url(#ear)"/>
+  </g>
+
+  <!-- Head and cheek fur. -->
+  <g id="head" filter="url(#shadow)">
+    <path d="M68 143c0-65 36-103 92-103s92 38 92 103c0 58-35 95-92 95s-92-37-92-95Z" fill="url(#fur)" stroke="#8e2b12" stroke-width="5"/>
+    <path d="M92 165c-12 13-5 41 23 48 20 5 32-6 45-20 13 14 25 25 45 20 28-7 35-35 23-48-16 5-31 10-47 4-9-3-14-9-21-16-7 7-12 13-21 16-16 6-31 1-47-4Z" fill="#fff3df"/>
+    <path d="M97 87c20-20 42-28 63-28s43 8 63 28" fill="none" stroke="#ffbb58" stroke-width="7" stroke-linecap="round" opacity=".75"/>
+  </g>
+
+  <!-- Headphones layer. -->
+  <g id="headphones" fill="none" stroke="#181b20" stroke-linecap="round">
+    <path d="M74 133c0-71 36-100 86-100s86 29 86 100" stroke-width="15"/>
+    <path d="M78 131c0-68 34-92 82-92s82 24 82 92" stroke="#525864" stroke-width="4"/>
+    <rect x="57" y="121" width="35" height="67" rx="17" fill="#1b1e25" stroke="#090a0d" stroke-width="5"/>
+    <rect x="228" y="121" width="35" height="67" rx="17" fill="#1b1e25" stroke="#090a0d" stroke-width="5"/>
+    <path d="M257 176c11 9 4 30-14 35" stroke-width="7"/>
+    <path d="M245 207h-25" stroke-width="8"/>
+  </g>
+
+  <!-- Separate eye layer: pupils can follow the cursor later. -->
+  <g id="eyes">
+    <ellipse cx="122" cy="132" rx="33" ry="36" fill="#fff8ed"/>
+    <ellipse cx="198" cy="132" rx="33" ry="36" fill="#fff8ed"/>
+    <g id="left-eye"><ellipse cx="122" cy="137" rx="23" ry="27" fill="#25140d"/><ellipse cx="115" cy="125" rx="8" ry="9" fill="#fff"/><circle cx="130" cy="144" r="4" fill="#fff"/></g>
+    <g id="right-eye"><ellipse cx="198" cy="137" rx="23" ry="27" fill="#25140d"/><ellipse cx="191" cy="125" rx="8" ry="9" fill="#fff"/><circle cx="206" cy="144" r="4" fill="#fff"/></g>
+    <!-- Separate eyelids for blink animation. -->
+    <g id="eyelids" fill="#ed6414" opacity="0"><ellipse cx="122" cy="132" rx="34" ry="37"/><ellipse cx="198" cy="132" rx="34" ry="37"/></g>
+  </g>
+
+  <!-- Blush and sparkles make Kibo read as warm and playful. -->
+  <g id="blush" fill="#ff8e73" opacity=".72">
+    <ellipse cx="101" cy="171" rx="17" ry="8" transform="rotate(-14 101 171)"/>
+    <ellipse cx="219" cy="171" rx="17" ry="8" transform="rotate(14 219 171)"/>
+  </g>
+  <g id="sparkles" fill="#ffd27a">
+    <path d="m78 146 3 7 7 3-7 3-3 7-3-7-7-3 7-3Z"/>
+    <path d="m247 157 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/>
+  </g>
+
+  <!-- Nose and smile. -->
+  <g id="face" stroke-linecap="round">
+    <path d="M148 166q12-9 24 0-12 15-24 0Z" fill="#2a1711"/>
+    <path d="M160 177v5m0 0q-14 15-28 1m28-1q14 15 28 1" fill="none" stroke="#2a1711" stroke-width="4"/>
+    <path d="M144 194q16 19 32 0" fill="none" stroke="#c54d31" stroke-width="5"/>
+  </g>
+
+  <!-- Body and paws. -->
+  <g id="body" filter="url(#shadow)">
+    <path d="M99 210c17-12 39-15 61-15s44 3 61 15l15 76H84Z" fill="url(#hoodie)" stroke="#090a0d" stroke-width="5"/>
+    <path d="M114 211c12 22 29 29 46 29s34-7 46-29" fill="none" stroke="#5d6570" stroke-width="5"/>
+    <path d="M130 233h60" stroke="#ff6b17" stroke-width="5" stroke-linecap="round"/>
+    <text x="160" y="238" text-anchor="middle" fill="#ff861c" font-family="Arial, sans-serif" font-size="18" font-weight="800" font-style="italic">SSI</text>
+  </g>
+  <g id="paws" fill="#5d301d" stroke="#2b160e" stroke-width="4">
+    <ellipse cx="111" cy="268" rx="29" ry="24" transform="rotate(-18 111 268)"/>
+    <ellipse cx="209" cy="268" rx="29" ry="24" transform="rotate(18 209 268)"/>
+    <ellipse cx="111" cy="270" rx="12" ry="9" fill="#f08b64" stroke="none"/>
+    <ellipse cx="209" cy="270" rx="12" ry="9" fill="#f08b64" stroke="none"/>
+  </g>
+</svg>
