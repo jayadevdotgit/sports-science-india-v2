@@ -74,8 +74,8 @@ export default function Kibo() {
     const dy = Math.abs(e.clientY - startPosRef.current.y);
     if (dx < 5 && dy < 5) return;
     draggedRef.current = true;
-    const maxX = window.innerWidth - KIBO_SIZE;
-    const maxY = window.innerHeight - KIBO_SIZE;
+    const maxX = window.innerWidth - 20;
+    const maxY = window.innerHeight - 20;
     const newX = Math.min(maxX, Math.max(0, e.clientX - offsetRef.current.x));
     const newY = Math.min(maxY, Math.max(0, e.clientY - offsetRef.current.y));
     posRef.current = { x: newX, y: newY };
