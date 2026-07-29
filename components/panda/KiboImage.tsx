@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-const SIZE = 250;
+const SIZE = 96;
 
 type Props = {
   blinking: boolean;
@@ -28,7 +28,7 @@ export default function KiboImage({
         : "";
 
   return (
-    <div className={`relative h-[250px] w-[250px] origin-bottom transition-transform duration-300 group-hover:scale-[1.06] group-hover:brightness-110 ${motionClass}`}>
+    <div className={`relative h-24 w-24 origin-bottom transition-transform duration-300 group-hover:scale-[1.06] group-hover:brightness-110 ${motionClass}`}>
       <Image
         src="/mascot/kibo.png"
         alt="Kibo"
@@ -37,7 +37,7 @@ export default function KiboImage({
         sizes={`${SIZE}px`}
         priority
         draggable={false}
-        className="h-auto w-24 select-none pointer-events-none"
+        className="h-auto w-24 select-none pointer-events-none sm:w-auto"
       />
 
       {/* A lightweight eyelid treatment until Kibo moves to an animatable SVG. */}
