@@ -9,7 +9,7 @@ import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
 
-const KIBO_SIZE = 96;
+const KIBO_SIZE = 128;
 
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
@@ -134,7 +134,7 @@ export default function Kibo() {
         <div className="absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl animate-pulse transition-all duration-1000 group-hover:bg-orange-500/50" />
 
         {/* Ground Shadow */}
-        <div className="absolute bottom-0 left-1/2 h-3 w-14 -translate-x-1/2 rounded-full bg-black/30 blur-md" />
+        <div className="absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md" />
 
         {/* Welcome Bubble */}
         <KiboBubble visible={showBubble} />

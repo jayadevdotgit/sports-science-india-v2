@@ -29,7 +29,7 @@ export function useKibo() {
     const DIST_FROM_BOTTOM = 100;
     const DIST_FROM_RIGHT = 40;
     setPosition({
-      x: Math.max(0, window.innerWidth - DIST_FROM_RIGHT - 96),
+      x: Math.max(0, window.innerWidth - DIST_FROM_RIGHT - 128),
       y: Math.max(0, window.innerHeight - DIST_FROM_BOTTOM),
     });
   }, []);

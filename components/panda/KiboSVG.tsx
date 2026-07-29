@@ -82,11 +82,11 @@ export default function KiboSVG({ blinking, thinking, idle, waving, bouncing }: 
       : "";
 
   return (
-    <div className={`relative h-24 w-24 origin-bottom transition-transform duration-300 group-hover:scale-[1.06] ${motionClass}`}>
+    <div className={`relative h-32 w-32 origin-bottom transition-transform duration-300 group-hover:scale-[1.06] ${motionClass}`}>
       <div
         ref={hostRef}
         aria-label="VIVI, your red panda AI assistant"
-        className="h-24 w-24 [&_svg]:h-full [&_svg]:w-full"
+        className="h-32 w-32 [&_svg]:h-full [&_svg]:w-full"
         dangerouslySetInnerHTML={{ __html: svgMarkup }}
       />
       {thinking && (

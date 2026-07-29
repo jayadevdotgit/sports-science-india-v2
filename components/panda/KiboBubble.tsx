@@ -32,7 +32,7 @@ export default function KiboBubble({ visible }: KiboBubbleProps) {
           }}
           className="
             absolute
-            bottom-24
+            bottom-32
             right-2
             w-[290px]
             rounded-2xl
