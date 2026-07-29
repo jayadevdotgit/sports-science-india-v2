@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+.orange-fur { fill: #EE5326; }
+.dark-fur { fill: #111111; }
+.white-fur { fill: #FFFFFF; }
+.blush-pink { fill: #FF8585; opacity: 0.55; }
+
+.group .left-arm { transform-origin: 135px 235px; transition: transform 0.3s ease; }
+.group:hover .left-arm { transform: rotate(-25deg); }
+.group .right-arm { transform-origin: 225px 235px; transition: transform 0.3s ease; }
+.group:hover .right-arm { transform: rotate(25deg); }
+.group .face { transition: transform 0.3s ease; }
+.group:hover .face { transform: scale(1.02); }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
