@@ -147,12 +147,10 @@ export default function Kibo() {
       <div
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100vw",
-          height: "100dvh",
+          inset: 0,
           pointerEvents: "none",
-          overflow: "hidden",
+          overflow: "clip",
+          isolation: "isolate",
           zIndex: 9999,
         }}
       >
