@@ -10,11 +10,9 @@ type Props = {
   bouncing: boolean;
   walking: boolean;
   hovering: boolean;
-  mouseX: number;
-  mouseY: number;
 };
 
-export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, walking, hovering, mouseX, mouseY }: Props) {
+export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, walking, hovering }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [svgMarkup, setSvgMarkup] = useState("");
 
@@ -136,48 +134,54 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     apply();
   }, [apply]);
 
+  // Eye tracking: own mousemove listener + rAF throttle, no forced layout on hot path
   useEffect(() => {
     const svg = hostRef.current?.querySelector("svg");
     if (!svg) return;
     const leftPupil = svg.querySelector<SVGGElement>("#left-eye");
     const rightPupil = svg.querySelector<SVGGElement>("#right-eye");
     if (!leftPupil || !rightPupil) return;
+    const lp = leftPupil;
+    const rp = rightPupil;
 
     const rect = svg.getBoundingClientRect();
     const vw = rect.width;
     const vh = rect.height;
     if (vw === 0 || vh === 0) return;
 
-    const pupilCxL = 138;
-    const pupilCyL = 148;
-    const pupilCxR = 222;
-    const pupilCyR = 148;
-
-    const cxL = rect.left + vw * (pupilCxL / 360);
-    const cyL = rect.top + vh * (pupilCyL / 380);
-    const cxR = rect.left + vw * (pupilCxR / 360);
-    const cyR = rect.top + vh * (pupilCyR / 380);
+    const cxL = rect.left + vw * (138 / 360);
+    const cyL = rect.top + vh * (148 / 380);
+    const cxR = rect.left + vw * (222 / 360);
+    const cyR = rect.top + vh * (148 / 380);
 
     const maxMove = 4;
+    let rafId = 0;
+    let mx = 0;
+    let my = 0;
 
-    const calcOffset = (cx: number, cy: number) => {
-      const dx = mouseX - cx;
-      const dy = mouseY - cy;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const maxDist = 200;
-      const factor = Math.min(dist, maxDist) / maxDist;
-      return {
-        x: Math.max(-maxMove, Math.min(maxMove, dx * factor * 0.3)),
-        y: Math.max(-maxMove, Math.min(maxMove, dy * factor * 0.3)),
-      };
+    function update() {
+      const dxL = mx - cxL, dyL = my - cyL;
+      const dxR = mx - cxR, dyR = my - cyR;
+      const distL = Math.sqrt(dxL * dxL + dyL * dyL);
+      const distR = Math.sqrt(dxR * dxR + dyR * dyR);
+      const factorL = Math.min(distL, 200) / 200;
+      const factorR = Math.min(distR, 200) / 200;
+      lp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, dxL * factorL * 0.3))}px, ${Math.max(-maxMove, Math.min(maxMove, dyL * factorL * 0.3))}px)`;
+      rp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, dxR * factorR * 0.3))}px, ${Math.max(-maxMove, Math.min(maxMove, dyR * factorR * 0.3))}px)`;
+    }
+
+    function onMove(e: MouseEvent) {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
+    }
+
+    window.addEventListener("mousemove", onMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      if (rafId) cancelAnimationFrame(rafId);
     };
-
-    const offL = calcOffset(cxL, cyL);
-    const offR = calcOffset(cxR, cyR);
-
-    leftPupil.style.transform = `translate(${offL.x}px, ${offL.y}px)`;
-    rightPupil.style.transform = `translate(${offR.x}px, ${offR.y}px)`;
-  }, [mouseX, mouseY]);
+  }, [svgMarkup]);
 
   if (!svgMarkup) return <div style={{ width: 96, height: 96 }} />;
 

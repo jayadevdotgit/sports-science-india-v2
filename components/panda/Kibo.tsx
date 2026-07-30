@@ -21,8 +21,6 @@ export default function Kibo() {
   const [bouncing, setBouncing] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [walking, setWalking] = useState(false);
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
   const blinking = useBlink();
   const waving = useWave();
   const { idle, markActive } = useIdle();
@@ -94,15 +92,7 @@ export default function Kibo() {
     return () => timers.forEach(clearTimeout);
   }, [idle, dragging]);
 
-  const handleGlobalMouseMove = useCallback((e: MouseEvent) => {
-    setMouseX(e.clientX);
-    setMouseY(e.clientY);
-  }, []);
 
-  useEffect(() => {
-    window.addEventListener("mousemove", handleGlobalMouseMove);
-    return () => window.removeEventListener("mousemove", handleGlobalMouseMove);
-  }, [handleGlobalMouseMove]);
 
   if (!ready || !position) return null;
 
@@ -192,17 +182,15 @@ export default function Kibo() {
           <KiboBubble visible={showBubble} />
 
           <div className={`${idle && !walking ? "animate-float" : ""}`} onMouseEnter={markActive}>
-            <ViviSVG
-              blinking={blinking}
-              thinking={thinking}
-              idle={idle}
-              waving={waving}
-              bouncing={bouncing}
-              walking={walking}
-              hovering={hovering}
-              mouseX={mouseX}
-              mouseY={mouseY}
-            />
+          <ViviSVG
+            blinking={blinking}
+            thinking={thinking}
+            idle={idle}
+            waving={waving}
+            bouncing={bouncing}
+            walking={walking}
+            hovering={hovering}
+          />
           </div>
         </div>
       </div>
