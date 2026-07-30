@@ -9,6 +9,15 @@ import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
 
+const MASCOT_SIZE = 96;
+
+function toCSS(x: number, y: number) {
+  return {
+    right: Math.max(0, window.innerWidth - x - MASCOT_SIZE),
+    bottom: Math.max(0, window.innerHeight - y - MASCOT_SIZE),
+  };
+}
+
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
 
@@ -32,9 +41,18 @@ export default function Kibo() {
   const startPosRef = useRef({ x: 0, y: 0 });
   const walkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const applyPosition = useCallback((x: number, y: number) => {
+    const el = elRef.current;
+    if (!el) return;
+    const { right, bottom } = toCSS(x, y);
+    el.style.right = `${right}px`;
+    el.style.bottom = `${bottom}px`;
+    posRef.current = { x, y };
+  }, []);
+
   useEffect(() => {
     if (!position || !elRef.current) return;
-    posRef.current = position;
+    applyPosition(position.x, position.y);
     const el = elRef.current;
     el.dataset.vw = String(window.innerWidth);
     el.dataset.vh = String(window.innerHeight);
@@ -43,14 +61,14 @@ export default function Kibo() {
       if (!elRef.current) return;
       const newW = window.innerWidth;
       const newH = window.innerHeight;
-      const oldW = parseInt(el.dataset.vw!, 10);
-      const oldH = parseInt(el.dataset.vh!, 10);
+      const oldW = parseInt(elRef.current.dataset.vw!, 10);
+      const oldH = parseInt(elRef.current.dataset.vh!, 10);
       if (oldW === newW) return;
       const distRight = oldW - posRef.current.x;
       const distBottom = oldH - posRef.current.y;
-      posRef.current.x = Math.max(0, Math.min(newW - distRight, newW - 20));
-      posRef.current.y = Math.max(0, Math.min(newH - distBottom, newH - 20));
-      elRef.current.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
+      const newX = Math.max(0, Math.min(newW - distRight, newW - 20));
+      const newY = Math.max(0, Math.min(newH - distBottom, newH - 20));
+      applyPosition(newX, newY);
       elRef.current.dataset.vw = String(newW);
       elRef.current.dataset.vh = String(newH);
     }
@@ -58,7 +76,7 @@ export default function Kibo() {
     const mql = window.matchMedia("(orientation: portrait)");
     mql.addEventListener("change", onOrientationChange);
     return () => mql.removeEventListener("change", onOrientationChange);
-  }, [position]);
+  }, [position, applyPosition]);
 
   useEffect(() => {
     const showTimer = setTimeout(() => setShowBubble(true), 1200);
@@ -114,10 +132,7 @@ export default function Kibo() {
     const maxY = window.innerHeight - 20;
     const newX = Math.min(maxX, Math.max(0, e.clientX - offsetRef.current.x));
     const newY = Math.min(maxY, Math.max(0, e.clientY - offsetRef.current.y));
-    posRef.current = { x: newX, y: newY };
-    if (elRef.current) {
-      elRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
-    }
+    applyPosition(newX, newY);
   }
 
   function handlePointerUp() {
@@ -134,16 +149,14 @@ export default function Kibo() {
   }
 
   function resetPosition() {
-    const defaultPosition = {
-      x: Math.max(0, window.innerWidth - 108),
-      y: Math.max(0, window.innerHeight - 108),
-    };
-    posRef.current = defaultPosition;
-    savePosition(defaultPosition);
-    if (elRef.current) {
-      elRef.current.style.transform = `translate(${defaultPosition.x}px, ${defaultPosition.y}px)`;
-    }
+    applyPosition(
+      Math.max(0, window.innerWidth - 108),
+      Math.max(0, window.innerHeight - 108),
+    );
+    savePosition({ x: posRef.current.x, y: posRef.current.y });
   }
+
+  const { right, bottom } = toCSS(position.x, position.y);
 
   return (
     <>
@@ -157,9 +170,10 @@ export default function Kibo() {
         onMouseLeave={() => setHovering(false)}
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          transform: `translate(${position.x}px, ${position.y}px)`,
+          right,
+          bottom,
+          top: "auto",
+          left: "auto",
           zIndex: 9999,
           touchAction: "none",
           userSelect: "none",
