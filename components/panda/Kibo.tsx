@@ -135,10 +135,9 @@ export default function Kibo() {
   }
 
   function resetPosition() {
-    const isMobile = window.innerWidth < 768;
     const defaultPosition = {
-      x: isMobile ? window.innerWidth - 100 : window.innerWidth - 140,
-      y: isMobile ? window.innerHeight - 120 : window.innerHeight - 160,
+      x: Math.max(0, window.innerWidth - 108),
+      y: Math.max(0, window.innerHeight - 108),
     };
     posRef.current = defaultPosition;
     savePosition(defaultPosition);
