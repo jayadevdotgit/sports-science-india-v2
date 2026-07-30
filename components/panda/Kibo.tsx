@@ -156,51 +156,59 @@ export default function Kibo() {
     savePosition({ x: posRef.current.x, y: posRef.current.y });
   }
 
-  const { right, bottom } = toCSS(position.x, position.y);
-
   return (
     <>
+      {/* Fixed full-viewport wrapper that absorbs Chrome URL-bar jitter */}
       <div
-        ref={elRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onDoubleClick={resetPosition}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
         style={{
           position: "fixed",
-          right,
-          bottom,
-          top: "auto",
-          left: "auto",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100dvh",
+          pointerEvents: "none",
+          overflow: "hidden",
           zIndex: 9999,
-          touchAction: "none",
-          userSelect: "none",
-          cursor: dragging ? "grabbing" : "grab",
-          transform: "translateZ(0)",
-          willChange: "bottom, right",
         }}
-        className="group isolate"
       >
-        <div className={`absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl transition-all duration-1000 group-hover:bg-orange-500/50 ${idle ? "animate-pulse" : ""}`} />
+        <div
+          ref={elRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onDoubleClick={resetPosition}
+          onMouseEnter={() => setHovering(true)}
+          onMouseLeave={() => setHovering(false)}
+          style={{
+            position: "absolute",
+            right: toCSS(position.x, position.y).right,
+            bottom: toCSS(position.x, position.y).bottom,
+            pointerEvents: "auto",
+            touchAction: "none",
+            userSelect: "none",
+            cursor: dragging ? "grabbing" : "grab",
+          }}
+          className="group isolate"
+        >
+          <div className={`absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl transition-all duration-1000 group-hover:bg-orange-500/50 ${idle ? "animate-pulse" : ""}`} />
 
-        <div className={`absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md ${walking ? "animate-vivi-shadow-walk" : ""}`} />
+          <div className={`absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md ${walking ? "animate-vivi-shadow-walk" : ""}`} />
 
-        <KiboBubble visible={showBubble} />
+          <KiboBubble visible={showBubble} />
 
-        <div className={`${idle && !walking ? "animate-float" : ""}`} onMouseEnter={markActive}>
-          <ViviSVG
-            blinking={blinking}
-            thinking={thinking}
-            idle={idle}
-            waving={waving}
-            bouncing={bouncing}
-            walking={walking}
-            hovering={hovering}
-            mouseX={mouseX}
-            mouseY={mouseY}
-          />
+          <div className={`${idle && !walking ? "animate-float" : ""}`} onMouseEnter={markActive}>
+            <ViviSVG
+              blinking={blinking}
+              thinking={thinking}
+              idle={idle}
+              waving={waving}
+              bouncing={bouncing}
+              walking={walking}
+              hovering={hovering}
+              mouseX={mouseX}
+              mouseY={mouseY}
+            />
+          </div>
         </div>
       </div>
 
