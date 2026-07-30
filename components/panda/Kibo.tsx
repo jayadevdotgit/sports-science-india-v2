@@ -35,30 +35,29 @@ export default function Kibo() {
   useEffect(() => {
     if (!position || !elRef.current) return;
     posRef.current = position;
+    const el = elRef.current;
+    el.dataset.vw = String(window.innerWidth);
+    el.dataset.vh = String(window.innerHeight);
 
-    function repositionOnResize() {
-      const el = elRef.current;
-      if (!el) return;
+    function onOrientationChange() {
+      if (!elRef.current) return;
       const newW = window.innerWidth;
       const newH = window.innerHeight;
-      if (el.dataset.vw) {
-        const oldW = parseInt(el.dataset.vw!, 10);
-        const oldH = parseInt(el.dataset.vh!, 10);
-        if (oldW !== newW) {
-          const distRight = oldW - posRef.current.x;
-          const distBottom = oldH - posRef.current.y;
-          posRef.current.x = Math.max(0, Math.min(newW - distRight, newW - 20));
-          posRef.current.y = Math.max(0, Math.min(newH - distBottom, newH - 20));
-          el.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
-        }
-      }
-      el.dataset.vw = String(newW);
-      el.dataset.vh = String(newH);
+      const oldW = parseInt(el.dataset.vw!, 10);
+      const oldH = parseInt(el.dataset.vh!, 10);
+      if (oldW === newW) return;
+      const distRight = oldW - posRef.current.x;
+      const distBottom = oldH - posRef.current.y;
+      posRef.current.x = Math.max(0, Math.min(newW - distRight, newW - 20));
+      posRef.current.y = Math.max(0, Math.min(newH - distBottom, newH - 20));
+      elRef.current.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
+      elRef.current.dataset.vw = String(newW);
+      elRef.current.dataset.vh = String(newH);
     }
 
-    repositionOnResize();
-    window.addEventListener("resize", repositionOnResize);
-    return () => window.removeEventListener("resize", repositionOnResize);
+    const mql = window.matchMedia("(orientation: portrait)");
+    mql.addEventListener("change", onOrientationChange);
+    return () => mql.removeEventListener("change", onOrientationChange);
   }, [position]);
 
   useEffect(() => {
