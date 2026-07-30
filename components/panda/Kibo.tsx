@@ -11,13 +11,6 @@ import { useWave } from "./hooks/useWave";
 
 const MASCOT_SIZE = 96;
 
-function toCSS(x: number, y: number) {
-  return {
-    right: Math.max(0, window.innerWidth - x - MASCOT_SIZE),
-    bottom: Math.max(0, window.innerHeight - y - MASCOT_SIZE),
-  };
-}
-
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
 
@@ -40,11 +33,14 @@ export default function Kibo() {
   const draggedRef = useRef(false);
   const startPosRef = useRef({ x: 0, y: 0 });
   const walkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cssRef = useRef({ right: 12, bottom: 12 });
 
   const applyPosition = useCallback((x: number, y: number) => {
     const el = elRef.current;
     if (!el) return;
-    const { right, bottom } = toCSS(x, y);
+    const right = Math.max(0, window.innerWidth - x - MASCOT_SIZE);
+    const bottom = Math.max(0, window.innerHeight - y - MASCOT_SIZE);
+    cssRef.current = { right, bottom };
     el.style.right = `${right}px`;
     el.style.bottom = `${bottom}px`;
     posRef.current = { x, y };
@@ -158,7 +154,6 @@ export default function Kibo() {
 
   return (
     <>
-      {/* Fixed full-viewport wrapper that absorbs Chrome URL-bar jitter */}
       <div
         style={{
           position: "fixed",
@@ -181,8 +176,8 @@ export default function Kibo() {
           onMouseLeave={() => setHovering(false)}
           style={{
             position: "absolute",
-            right: toCSS(position.x, position.y).right,
-            bottom: toCSS(position.x, position.y).bottom,
+            right: cssRef.current.right,
+            bottom: cssRef.current.bottom,
             pointerEvents: "auto",
             touchAction: "none",
             userSelect: "none",
