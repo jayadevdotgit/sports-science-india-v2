@@ -131,8 +131,9 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
   }, [blinking, thinking, idle, waving, bouncing, walking, hovering]);
 
   useEffect(() => {
+    if (!svgMarkup) return;
     apply();
-  }, [apply]);
+  }, [apply, svgMarkup]);
 
   // Eye tracking: own mousemove listener + rAF throttle, no forced layout on hot path
   useEffect(() => {
