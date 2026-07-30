@@ -35,36 +35,6 @@ export default function Kibo() {
   useEffect(() => {
     if (!position) return;
     posRef.current = position;
-
-    let prevH = window.innerHeight;
-
-    function clampOnResize() {
-      const vw = window.visualViewport?.width ?? window.innerWidth;
-      const vh = window.visualViewport?.height ?? window.innerHeight;
-      const dh = Math.abs(vh - prevH);
-      prevH = vh;
-
-      // Ignore small viewport changes (URL bar show/hide on mobile)
-      if (dh > 0 && dh < 100) return;
-
-      const maxX = Math.max(0, vw - 20);
-      const maxY = Math.max(0, vh - 20);
-      const clampedX = Math.min(posRef.current.x, maxX);
-      const clampedY = Math.min(posRef.current.y, maxY);
-      if (clampedX !== posRef.current.x || clampedY !== posRef.current.y) {
-        posRef.current = { x: clampedX, y: clampedY };
-        if (elRef.current) {
-          elRef.current.style.transform = `translate(${clampedX}px, ${clampedY}px)`;
-        }
-      }
-    }
-
-    window.addEventListener("resize", clampOnResize);
-    window.visualViewport?.addEventListener("resize", clampOnResize);
-    return () => {
-      window.removeEventListener("resize", clampOnResize);
-      window.visualViewport?.removeEventListener("resize", clampOnResize);
-    };
   }, [position]);
 
   // Show welcome bubble on every page load
@@ -133,6 +103,15 @@ export default function Kibo() {
   function handlePointerUp() {
     if (!dragging) return;
     setDragging(false);
+    const maxX = Math.max(0, window.innerWidth - 20);
+    const maxY = Math.max(0, window.innerHeight - 20);
+    posRef.current = {
+      x: Math.min(posRef.current.x, maxX),
+      y: Math.min(posRef.current.y, maxY),
+    };
+    if (elRef.current) {
+      elRef.current.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
+    }
     if (!draggedRef.current) {
       setBouncing(true);
       setTimeout(() => setBouncing(false), 450);
