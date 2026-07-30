@@ -33,24 +33,30 @@ export default function Kibo() {
   const walkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    if (!position) return;
+    if (!position || !elRef.current) return;
     posRef.current = position;
 
-    function clampOnResize() {
-      const maxX = Math.max(0, window.innerWidth - 20);
-      const maxY = Math.max(0, window.innerHeight - 20);
-      const clampedX = Math.min(posRef.current.x, maxX);
-      const clampedY = Math.min(posRef.current.y, maxY);
-      if (clampedX !== posRef.current.x || clampedY !== posRef.current.y) {
-        posRef.current = { x: clampedX, y: clampedY };
-        if (elRef.current) {
-          elRef.current.style.transform = `translate(${clampedX}px, ${clampedY}px)`;
-        }
+    function repositionOnResize() {
+      const el = elRef.current;
+      if (!el) return;
+      const oldW = parseInt(el.dataset.vw || "0", 10);
+      const oldH = parseInt(el.dataset.vh || "0", 10);
+      const newW = window.innerWidth;
+      const newH = window.innerHeight;
+      if (oldW && oldH && (oldW !== newW || oldH !== newH)) {
+        const ratioX = posRef.current.x / oldW;
+        const ratioY = posRef.current.y / oldH;
+        posRef.current.x = Math.max(0, Math.min(ratioX * newW, newW - 20));
+        posRef.current.y = Math.max(0, Math.min(ratioY * newH, newH - 20));
+        el.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
       }
+      el.dataset.vw = String(newW);
+      el.dataset.vh = String(newH);
     }
 
-    window.addEventListener("resize", clampOnResize);
-    return () => window.removeEventListener("resize", clampOnResize);
+    repositionOnResize();
+    window.addEventListener("resize", repositionOnResize);
+    return () => window.removeEventListener("resize", repositionOnResize);
   }, [position]);
 
   useEffect(() => {
