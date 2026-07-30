@@ -157,12 +157,17 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     let mx = 0, my = 0;
 
     function update() {
-      const maxMove = 4;
-      const scale = (d: number) => Math.min(Math.sqrt(d * d), 200) / 200;
-      const clamp = (v: number) => Math.max(-maxMove, Math.min(maxMove, v));
-      const sL = scale(mx - cxL) * 0.3, sR = scale(mx - cxR) * 0.3;
-      lp.style.transform = `translate(${clamp((mx - cxL) * sL)}px,${clamp((my - cyL) * sL)}px)`;
-      rp.style.transform = `translate(${clamp((mx - cxR) * sR)}px,${clamp((my - cyR) * sR)}px)`;
+      const maxMove = 8;
+      const dL = Math.sqrt((mx - cxL) ** 2 + (my - cyL) ** 2);
+      const dR = Math.sqrt((mx - cxR) ** 2 + (my - cyR) ** 2);
+      const factorL = Math.min(dL, 300) / 300;
+      const factorR = Math.min(dR, 300) / 300;
+      const offLx = (mx - cxL) * factorL * 0.4;
+      const offLy = (my - cyL) * factorL * 0.4;
+      const offRx = (mx - cxR) * factorR * 0.4;
+      const offRy = (my - cyR) * factorR * 0.4;
+      lp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, offLx))}px,${Math.max(-maxMove, Math.min(maxMove, offLy))}px)`;
+      rp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, offRx))}px,${Math.max(-maxMove, Math.min(maxMove, offRy))}px)`;
     }
 
     function onMove(e: PointerEvent) {
