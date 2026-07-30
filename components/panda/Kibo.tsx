@@ -39,16 +39,18 @@ export default function Kibo() {
     function repositionOnResize() {
       const el = elRef.current;
       if (!el) return;
-      const oldW = parseInt(el.dataset.vw || "0", 10);
-      const oldH = parseInt(el.dataset.vh || "0", 10);
       const newW = window.innerWidth;
       const newH = window.innerHeight;
-      if (oldW && oldH && (oldW !== newW || oldH !== newH)) {
-        const ratioX = posRef.current.x / oldW;
-        const ratioY = posRef.current.y / oldH;
-        posRef.current.x = Math.max(0, Math.min(ratioX * newW, newW - 20));
-        posRef.current.y = Math.max(0, Math.min(ratioY * newH, newH - 20));
-        el.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
+      if (el.dataset.vw) {
+        const oldW = parseInt(el.dataset.vw!, 10);
+        const oldH = parseInt(el.dataset.vh!, 10);
+        if (oldW !== newW || oldH !== newH) {
+          const distRight = oldW - posRef.current.x;
+          const distBottom = oldH - posRef.current.y;
+          posRef.current.x = Math.max(0, Math.min(newW - distRight, newW - 20));
+          posRef.current.y = Math.max(0, Math.min(newH - distBottom, newH - 20));
+          el.style.transform = `translate(${posRef.current.x}px, ${posRef.current.y}px)`;
+        }
       }
       el.dataset.vw = String(newW);
       el.dataset.vh = String(newH);
