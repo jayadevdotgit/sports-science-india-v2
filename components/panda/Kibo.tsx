@@ -1,13 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import KiboBubble from "./KiboBubble";
 import KiboChat from "./KiboChat";
-import ViviSVG from "./ViviSVG";
+import KiboSVG from "./KiboSVG";
 import { useKibo } from "./hooks/useKibo";
 import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
+
+const KIBO_SIZE = typeof window !== "undefined" && window.innerWidth < 768 ? 80 : 128;
 
 export default function Kibo() {
   const { position, savePosition, ready } = useKibo();
@@ -17,10 +19,6 @@ export default function Kibo() {
   const [chatOpen, setChatOpen] = useState(false);
   const [thinking, setThinking] = useState(false);
   const [bouncing, setBouncing] = useState(false);
-  const [hovering, setHovering] = useState(false);
-  const [walking, setWalking] = useState(false);
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
   const blinking = useBlink();
   const waving = useWave();
   const { idle, markActive } = useIdle();
@@ -30,7 +28,6 @@ export default function Kibo() {
   const offsetRef = useRef({ x: 0, y: 0 });
   const draggedRef = useRef(false);
   const startPosRef = useRef({ x: 0, y: 0 });
-  const walkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (!position) return;
@@ -59,32 +56,6 @@ export default function Kibo() {
     const hideTimer = setTimeout(() => setShowBubble(false), 6000);
     return () => { clearTimeout(showTimer); clearTimeout(hideTimer); };
   }, []);
-
-  // Walk cycle when idle for extended period
-  useEffect(() => {
-    const timers: ReturnType<typeof setTimeout>[] = [];
-    if (idle && !dragging) {
-      timers.push(setTimeout(() => {
-        setWalking(true);
-        timers.push(setTimeout(() => setWalking(false), 3000));
-      }, 8000));
-    } else {
-      if (walkTimerRef.current) clearTimeout(walkTimerRef.current);
-      timers.push(setTimeout(() => setWalking(false), 0));
-    }
-    return () => timers.forEach(clearTimeout);
-  }, [idle, dragging]);
-
-  // Track mouse for eye-follow
-  const handleGlobalMouseMove = useCallback((e: MouseEvent) => {
-    setMouseX(e.clientX);
-    setMouseY(e.clientY);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("mousemove", handleGlobalMouseMove);
-    return () => window.removeEventListener("mousemove", handleGlobalMouseMove);
-  }, [handleGlobalMouseMove]);
 
   if (!ready || !position) return null;
 
@@ -150,8 +121,6 @@ export default function Kibo() {
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onDoubleClick={resetPosition}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
         style={{
           position: "fixed",
           top: 0,
@@ -165,26 +134,22 @@ export default function Kibo() {
         className="group isolate"
       >
         {/* Glow */}
-        <div className={`absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl transition-all duration-1000 group-hover:bg-orange-500/50 ${idle ? "animate-pulse" : ""}`} />
+        <div className="absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl animate-pulse transition-all duration-1000 group-hover:bg-orange-500/50" />
 
         {/* Ground Shadow */}
-        <div className={`absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md ${walking ? "animate-vivi-shadow-walk" : ""}`} />
+        <div className="absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md" />
 
         {/* Welcome Bubble */}
         <KiboBubble visible={showBubble} />
 
-        {/* Vivi Mascot */}
-        <div className={`${idle && !walking ? "animate-float" : ""}`} onMouseEnter={markActive}>
-          <ViviSVG
+        {/* Kibo */}
+        <div className="animate-float" onMouseEnter={markActive}>
+          <KiboSVG
             blinking={blinking}
             thinking={thinking}
             idle={idle}
             waving={waving}
             bouncing={bouncing}
-            walking={walking}
-            hovering={hovering}
-            mouseX={mouseX}
-            mouseY={mouseY}
           />
         </div>
       </div>
