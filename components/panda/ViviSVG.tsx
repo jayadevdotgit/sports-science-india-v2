@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   blinking: boolean;
@@ -27,115 +27,114 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     return () => { active = false; };
   }, []);
 
-  const prevRef = useRef({ blinking: false, thinking: false, idle: false, waving: false, bouncing: false, walking: false, hovering: false });
-
-  const apply = useCallback(() => {
+  // Blinking
+  useEffect(() => {
     const svg = hostRef.current?.querySelector("svg");
     if (!svg) return;
+    const eyelids = svg.querySelector<SVGGElement>("#eyelids");
+    if (!eyelids) return;
+    eyelids.style.opacity = blinking ? "1" : "0";
+    eyelids.style.transition = "opacity 70ms ease";
+  }, [blinking, svgMarkup]);
 
-    const p = prevRef.current;
-    const n = { blinking, thinking, idle, waving, bouncing, walking, hovering };
-
-    if (p.blinking !== n.blinking) {
-      const eyelids = svg.querySelector<SVGGElement>("#eyelids");
-      if (eyelids) {
-        eyelids.style.opacity = blinking ? "1" : "0";
-        eyelids.style.transition = "opacity 70ms ease";
-      }
-    }
-
-    if (p.waving !== n.waving || p.idle !== n.idle) {
-      const tail = svg.querySelector<SVGGElement>("#tail");
-      if (tail) {
-        tail.style.transformBox = "fill-box";
-        tail.style.transformOrigin = "right center";
-        tail.style.animation = "";
-        void (tail as unknown as HTMLElement).offsetWidth;
-        if (waving) {
-          tail.style.animation = "vivi-tail-wave 0.35s ease-in-out 4";
-        } else if (idle) {
-          tail.style.animation = "vivi-tail-idle 2.8s ease-in-out infinite";
-        } else {
-          tail.style.animation = "";
-        }
-      }
-
-      const leftPaw = svg.querySelector<SVGGElement>("#left-paw");
-      const rightPaw = svg.querySelector<SVGGElement>("#right-paw");
-      if (leftPaw) {
-        leftPaw.style.transformBox = "fill-box";
-        leftPaw.style.transformOrigin = "center bottom";
-        leftPaw.style.animation = waving ? "vivi-paw-raise-left 0.35s ease-in-out 4" : "";
-      }
-      if (rightPaw) {
-        rightPaw.style.transformBox = "fill-box";
-        rightPaw.style.transformOrigin = "center bottom";
-        rightPaw.style.animation = waving ? "vivi-paw-raise-right 0.35s ease-in-out 4" : "";
-      }
-    }
-
-    if (p.thinking !== n.thinking) {
-      const ears = svg.querySelector<SVGGElement>("#ears");
-      if (ears) {
-        ears.style.transformBox = "fill-box";
-        ears.style.transformOrigin = "center bottom";
-        ears.style.animation = thinking ? "vivi-ears-twitch 0.25s ease-in-out 3" : "";
-      }
-    }
-
-    if (p.bouncing !== n.bouncing) {
-      const face = svg.querySelector<SVGGElement>("#face");
-      if (face) {
-        face.style.transformBox = "fill-box";
-        face.style.transformOrigin = "center";
-        face.style.animation = bouncing ? "vivi-bounce 0.4s ease" : "";
-      }
-    }
-
-    if (p.thinking !== n.thinking || p.hovering !== n.hovering) {
-      const neutral = svg.querySelector<SVGGElement>("#mouth-neutral");
-      const happy = svg.querySelector<SVGGElement>("#mouth-happy");
-      const thinkingMouth = svg.querySelector<SVGGElement>("#mouth-thinking");
-      if (neutral) neutral.style.display = "none";
-      if (happy) happy.style.display = "none";
-      if (thinkingMouth) thinkingMouth.style.display = "none";
-      if (thinking) {
-        if (thinkingMouth) thinkingMouth.style.display = "inline";
-      } else if (hovering) {
-        if (happy) happy.style.display = "inline";
-      } else {
-        if (neutral) neutral.style.display = "inline";
-      }
-    }
-
-    if (p.walking !== n.walking) {
-      const legLeft = svg.querySelector<SVGGElement>("#leg-left");
-      const legRight = svg.querySelector<SVGGElement>("#leg-right");
-      if (legLeft) {
-        legLeft.style.transformBox = "fill-box";
-        legLeft.style.transformOrigin = "center top";
-        legLeft.style.animation = walking ? "vivi-walk-left 0.5s ease-in-out infinite" : "";
-      }
-      if (legRight) {
-        legRight.style.transformBox = "fill-box";
-        legRight.style.transformOrigin = "center top";
-        legRight.style.animation = walking ? "vivi-walk-right 0.5s ease-in-out infinite" : "";
-      }
-    }
-
-    if (p.idle !== n.idle) {
-      svg.style.animation = idle && !walking ? "vivi-idle-breathe 4s ease-in-out infinite" : "";
-    }
-
-    prevRef.current = n;
-  }, [blinking, thinking, idle, waving, bouncing, walking, hovering]);
-
+  // Waving + idle tail + paws
   useEffect(() => {
-    if (!svgMarkup) return;
-    apply();
-  }, [apply, svgMarkup]);
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    const tail = svg.querySelector<SVGGElement>("#tail");
+    const leftPaw = svg.querySelector<SVGGElement>("#left-paw");
+    const rightPaw = svg.querySelector<SVGGElement>("#right-paw");
 
-  // Eye tracking: own mousemove listener + rAF throttle, no forced layout on hot path
+    if (tail) {
+      tail.style.transformBox = "fill-box";
+      tail.style.transformOrigin = "right center";
+      tail.style.animation = "";
+      if (waving) {
+        tail.style.animation = "vivi-tail-wave 0.35s ease-in-out 4";
+      } else if (idle) {
+        tail.style.animation = "vivi-tail-idle 2.8s ease-in-out infinite";
+      }
+    }
+    if (leftPaw) {
+      leftPaw.style.transformBox = "fill-box";
+      leftPaw.style.transformOrigin = "center bottom";
+      leftPaw.style.animation = waving ? "vivi-paw-raise-left 0.35s ease-in-out 4" : "";
+    }
+    if (rightPaw) {
+      rightPaw.style.transformBox = "fill-box";
+      rightPaw.style.transformOrigin = "center bottom";
+      rightPaw.style.animation = waving ? "vivi-paw-raise-right 0.35s ease-in-out 4" : "";
+    }
+  }, [waving, idle, svgMarkup]);
+
+  // Thinking → ear twitch
+  useEffect(() => {
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    const ears = svg.querySelector<SVGGElement>("#ears");
+    if (!ears) return;
+    ears.style.transformBox = "fill-box";
+    ears.style.transformOrigin = "center bottom";
+    ears.style.animation = thinking ? "vivi-ears-twitch 0.25s ease-in-out 3" : "";
+  }, [thinking, svgMarkup]);
+
+  // Bouncing
+  useEffect(() => {
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    const face = svg.querySelector<SVGGElement>("#face");
+    if (!face) return;
+    face.style.transformBox = "fill-box";
+    face.style.transformOrigin = "center";
+    face.style.animation = bouncing ? "vivi-bounce 0.4s ease" : "";
+  }, [bouncing, svgMarkup]);
+
+  // Mouth: thinking / hover / neutral
+  useEffect(() => {
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    const neutral = svg.querySelector<SVGGElement>("#mouth-neutral");
+    const happy = svg.querySelector<SVGGElement>("#mouth-happy");
+    const thinkingMouth = svg.querySelector<SVGGElement>("#mouth-thinking");
+    if (!neutral || !happy || !thinkingMouth) return;
+    neutral.style.display = "none";
+    happy.style.display = "none";
+    thinkingMouth.style.display = "none";
+    if (thinking) {
+      thinkingMouth.style.display = "inline";
+    } else if (hovering) {
+      happy.style.display = "inline";
+    } else {
+      neutral.style.display = "inline";
+    }
+  }, [thinking, hovering, svgMarkup]);
+
+  // Walking legs
+  useEffect(() => {
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    const legLeft = svg.querySelector<SVGGElement>("#leg-left");
+    const legRight = svg.querySelector<SVGGElement>("#leg-right");
+    if (legLeft) {
+      legLeft.style.transformBox = "fill-box";
+      legLeft.style.transformOrigin = "center top";
+      legLeft.style.animation = walking ? "vivi-walk-left 0.5s ease-in-out infinite" : "";
+    }
+    if (legRight) {
+      legRight.style.transformBox = "fill-box";
+      legRight.style.transformOrigin = "center top";
+      legRight.style.animation = walking ? "vivi-walk-right 0.5s ease-in-out infinite" : "";
+    }
+  }, [walking, svgMarkup]);
+
+  // Idle breathing
+  useEffect(() => {
+    const svg = hostRef.current?.querySelector("svg");
+    if (!svg) return;
+    svg.style.animation = idle && !walking ? "vivi-idle-breathe 4s ease-in-out infinite" : "";
+  }, [idle, walking, svgMarkup]);
+
+  // Eye tracking: own mousemove listener + rAF throttle
   useEffect(() => {
     const svg = hostRef.current?.querySelector("svg");
     if (!svg) return;
