@@ -178,6 +178,8 @@ export default function Kibo() {
           touchAction: "none",
           userSelect: "none",
           cursor: dragging ? "grabbing" : "grab",
+          transform: "translateZ(0)",
+          willChange: "bottom, right",
         }}
         className="group isolate"
       >
