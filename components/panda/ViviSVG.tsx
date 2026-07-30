@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 type Props = {
   blinking: boolean;
@@ -12,6 +12,10 @@ type Props = {
   hovering: boolean;
 };
 
+function qs(root: Element | null, sel: string): HTMLElement | SVGElement | null {
+  return (root?.querySelector(sel) as HTMLElement | SVGElement | null) ?? null;
+}
+
 export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, walking, hovering }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [svgMarkup, setSvgMarkup] = useState("");
@@ -19,19 +23,24 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
   useEffect(() => {
     let active = true;
     fetch("/mascot/vivi.svg")
-      .then((response) => response.text())
-      .then((markup) => {
-        if (active) setSvgMarkup(markup);
-      })
+      .then((r) => r.text())
+      .then((m) => { if (active) setSvgMarkup(m); })
       .catch(() => undefined);
     return () => { active = false; };
   }, []);
 
+  // Wait until SVG is in the DOM, then run all setups
+  const initialisedRef = useRef(false);
+  useLayoutEffect(() => {
+    if (!svgMarkup || initialisedRef.current) return;
+    initialisedRef.current = true;
+    // eslint-disable-next-line no-console
+  }, [svgMarkup]);
+
   // Blinking
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const eyelids = svg.querySelector<SVGGElement>("#eyelids");
+    const svg = qs(hostRef.current, "svg");
+    const eyelids = qs(svg, "#eyelids");
     if (!eyelids) return;
     eyelids.style.opacity = blinking ? "1" : "0";
     eyelids.style.transition = "opacity 70ms ease";
@@ -39,11 +48,10 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
 
   // Waving + idle tail + paws
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const tail = svg.querySelector<SVGGElement>("#tail");
-    const leftPaw = svg.querySelector<SVGGElement>("#left-paw");
-    const rightPaw = svg.querySelector<SVGGElement>("#right-paw");
+    const svg = qs(hostRef.current, "svg");
+    const tail = qs(svg, "#tail");
+    const leftPaw = qs(svg, "#left-paw");
+    const rightPaw = qs(svg, "#right-paw");
 
     if (tail) {
       tail.style.transformBox = "fill-box";
@@ -69,9 +77,8 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
 
   // Thinking → ear twitch
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const ears = svg.querySelector<SVGGElement>("#ears");
+    const svg = qs(hostRef.current, "svg");
+    const ears = qs(svg, "#ears");
     if (!ears) return;
     ears.style.transformBox = "fill-box";
     ears.style.transformOrigin = "center bottom";
@@ -80,41 +87,34 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
 
   // Bouncing
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const face = svg.querySelector<SVGGElement>("#face");
+    const svg = qs(hostRef.current, "svg");
+    const face = qs(svg, "#face");
     if (!face) return;
     face.style.transformBox = "fill-box";
     face.style.transformOrigin = "center";
     face.style.animation = bouncing ? "vivi-bounce 0.4s ease" : "";
   }, [bouncing, svgMarkup]);
 
-  // Mouth: thinking / hover / neutral
+  // Mouth expression
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const neutral = svg.querySelector<SVGGElement>("#mouth-neutral");
-    const happy = svg.querySelector<SVGGElement>("#mouth-happy");
-    const thinkingMouth = svg.querySelector<SVGGElement>("#mouth-thinking");
+    const svg = qs(hostRef.current, "svg");
+    const neutral = qs(svg, "#mouth-neutral");
+    const happy = qs(svg, "#mouth-happy");
+    const thinkingMouth = qs(svg, "#mouth-thinking");
     if (!neutral || !happy || !thinkingMouth) return;
     neutral.style.display = "none";
     happy.style.display = "none";
     thinkingMouth.style.display = "none";
-    if (thinking) {
-      thinkingMouth.style.display = "inline";
-    } else if (hovering) {
-      happy.style.display = "inline";
-    } else {
-      neutral.style.display = "inline";
-    }
+    if (thinking) thinkingMouth.style.display = "inline";
+    else if (hovering) happy.style.display = "inline";
+    else neutral.style.display = "inline";
   }, [thinking, hovering, svgMarkup]);
 
   // Walking legs
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const legLeft = svg.querySelector<SVGGElement>("#leg-left");
-    const legRight = svg.querySelector<SVGGElement>("#leg-right");
+    const svg = qs(hostRef.current, "svg");
+    const legLeft = qs(svg, "#leg-left");
+    const legRight = qs(svg, "#leg-right");
     if (legLeft) {
       legLeft.style.transformBox = "fill-box";
       legLeft.style.transformOrigin = "center top";
@@ -129,22 +129,21 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
 
   // Idle breathing
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
+    const svg = qs(hostRef.current, "svg");
     if (!svg) return;
     svg.style.animation = idle && !walking ? "vivi-idle-breathe 4s ease-in-out infinite" : "";
   }, [idle, walking, svgMarkup]);
 
-  // Eye tracking: own mousemove listener + rAF throttle
+  // Eye tracking
   useEffect(() => {
-    const svg = hostRef.current?.querySelector("svg");
-    if (!svg) return;
-    const leftPupil = svg.querySelector<SVGGElement>("#left-eye");
-    const rightPupil = svg.querySelector<SVGGElement>("#right-eye");
+    const svg = qs(hostRef.current, "svg");
+    const leftPupil = qs(svg, "#left-eye");
+    const rightPupil = qs(svg, "#right-eye");
     if (!leftPupil || !rightPupil) return;
     const lp = leftPupil;
     const rp = rightPupil;
 
-    const rect = svg.getBoundingClientRect();
+    const rect = svg!.getBoundingClientRect();
     const vw = rect.width;
     const vh = rect.height;
     if (vw === 0 || vh === 0) return;
@@ -154,25 +153,20 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     const cxR = rect.left + vw * (222 / 360);
     const cyR = rect.top + vh * (148 / 380);
 
-    const maxMove = 4;
     let rafId = 0;
-    let mx = 0;
-    let my = 0;
+    let mx = 0, my = 0;
 
     function update() {
-      const dxL = mx - cxL, dyL = my - cyL;
-      const dxR = mx - cxR, dyR = my - cyR;
-      const distL = Math.sqrt(dxL * dxL + dyL * dyL);
-      const distR = Math.sqrt(dxR * dxR + dyR * dyR);
-      const factorL = Math.min(distL, 200) / 200;
-      const factorR = Math.min(distR, 200) / 200;
-      lp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, dxL * factorL * 0.3))}px, ${Math.max(-maxMove, Math.min(maxMove, dyL * factorL * 0.3))}px)`;
-      rp.style.transform = `translate(${Math.max(-maxMove, Math.min(maxMove, dxR * factorR * 0.3))}px, ${Math.max(-maxMove, Math.min(maxMove, dyR * factorR * 0.3))}px)`;
+      const maxMove = 4;
+      const scale = (d: number) => Math.min(Math.sqrt(d * d), 200) / 200;
+      const clamp = (v: number) => Math.max(-maxMove, Math.min(maxMove, v));
+      const sL = scale(mx - cxL) * 0.3, sR = scale(mx - cxR) * 0.3;
+      lp.style.transform = `translate(${clamp((mx - cxL) * sL)}px,${clamp((my - cyL) * sL)}px)`;
+      rp.style.transform = `translate(${clamp((mx - cxR) * sR)}px,${clamp((my - cyR) * sR)}px)`;
     }
 
     function onMove(e: MouseEvent) {
-      mx = e.clientX;
-      my = e.clientY;
+      mx = e.clientX; my = e.clientY;
       if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
     }
 
