@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 380" role="img" aria-labelledby="title desc" style="overflow:visible">
+  <title id="title">VIVI, the Red Panda Mascot</title>
+  <desc id="desc">An interactive red panda mascot with animated features.</desc>
+
+  <defs>
+    <style>
+      .orange-fur { fill: #EE5326; }
+      .dark-fur { fill: #111111; }
+      .white-fur { fill: #FFFFFF; }
+      .blush-pink { fill: #FF8585; opacity: 0.55; }
+    </style>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="180" cy="358" rx="100" ry="8" fill="#C29A88" opacity="0.6"/>
+
+  <!-- Tail Layer -->
+  <g id="tail">
+    <path d="M125 240 C50 220 20 280 45 320 C65 352 135 340 148 290 C155 265 140 245 125 240 Z" fill="#EE5326"/>
+    <path d="M42 225 C40 205 68 185 85 208 C70 215 50 220 42 225 Z" fill="#FFFFFF"/>
+    <path d="M38 275 C24 250 52 230 78 250 C60 262 44 270 38 275 Z" fill="#FFFFFF"/>
+    <path d="M52 315 C38 295 72 272 100 288 C82 302 62 310 52 315 Z" fill="#FFFFFF"/>
+    <path d="M85 342 C68 330 102 308 128 320 C110 335 94 340 85 342 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Legs Layer -->
+  <g id="legs">
+    <path id="leg-left" d="M122 255 C108 275 105 330 115 348 C130 355 158 355 162 342 C165 320 150 270 142 255 Z" fill="#111111"/>
+    <path id="leg-right" d="M238 255 C252 275 255 330 245 348 C230 355 202 355 198 342 C195 320 210 270 218 255 Z" fill="#111111"/>
+  </g>
+
+  <!-- Ears Layer (extra-long red panda ears) -->
+  <g id="ears">
+    <path d="M72 130 C20 -10 80 -35 148 85 C122 105 95 120 72 130 Z" fill="#111111"/>
+    <path d="M84 120 C38 10 88 -10 134 92 C116 105 96 115 84 120 Z" fill="#FFFFFF"/>
+    <path d="M288 130 C340 -10 280 -35 212 85 C238 105 265 120 288 130 Z" fill="#111111"/>
+    <path d="M276 120 C322 10 272 -10 226 92 C244 105 264 115 276 120 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Body Layer -->
+  <g id="body">
+    <path d="M110 190 C92 220 85 310 105 340 C125 360 235 360 255 340 C275 310 268 220 250 190 Z" fill="#EE5326"/>
+    <path d="M125 185 C120 220 140 245 180 248 C220 245 240 220 235 185 C210 210 150 210 125 185 Z" fill="#111111"/>
+    <path d="M142 225 C135 270 142 328 180 330 C218 328 225 270 218 225 C195 242 165 242 142 225 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Paws Layer -->
+  <g id="paws">
+    <g id="left-paw">
+      <path d="M120 195 C105 220 110 265 142 270 C155 270 162 258 152 245 C138 230 130 212 120 195 Z" fill="#EE5326"/>
+      <ellipse cx="148" cy="256" rx="14" ry="16" fill="#111111" transform="rotate(-15 148 256)"/>
+      <path d="M142 264 L140 270 M148 266 L148 272 M154 264 L156 270" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+    <g id="right-paw">
+      <path d="M240 195 C255 220 250 265 218 270 C205 270 198 258 208 245 C222 230 230 212 240 195 Z" fill="#EE5326"/>
+      <ellipse cx="212" cy="256" rx="14" ry="16" fill="#111111" transform="rotate(15 212 256)"/>
+      <path d="M206 264 L204 270 M212 266 L212 272 M218 264 L220 270" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Head Layer -->
+  <g id="head">
+    <path d="M82 145 C70 102 100 55 180 55 C260 55 290 102 278 145 C270 180 240 205 180 205 C120 205 90 180 82 145 Z" fill="#EE5326"/>
+    <path d="M155 58 L168 45 L176 56 L188 42 L196 58 Z" fill="#EE5326"/>
+    <path d="M92 152 C82 118 105 82 180 82 C255 82 278 118 268 152 C250 120 215 98 180 98 C145 98 110 120 92 152 Z" fill="#FFFFFF"/>
+    <path d="M104 158 C96 178 115 200 138 202 C152 200 156 182 146 168 C132 160 118 158 104 158 Z" fill="#C43812"/>
+    <path d="M256 158 C264 178 245 200 222 202 C208 200 204 182 214 168 C228 160 242 158 256 158 Z" fill="#C43812"/>
+    <path d="M136 162 C130 185 145 205 180 205 C215 205 230 185 224 162 C210 170 195 174 180 174 C165 174 150 170 136 162 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Empty Headphones Group -->
+  <g id="headphones"/>
+
+  <!-- Eyes Layer -->
+  <g id="eyes">
+    <circle cx="138" cy="148" r="16" fill="#111111"/>
+    <circle cx="222" cy="148" r="16" fill="#111111"/>
+    <g id="left-eye">
+      <circle cx="138" cy="148" r="15" fill="#111111"/>
+      <circle cx="133" cy="142" r="5" fill="#FFFFFF"/>
+    </g>
+    <g id="right-eye">
+      <circle cx="222" cy="148" r="15" fill="#111111"/>
+      <circle cx="217" cy="142" r="5" fill="#FFFFFF"/>
+    </g>
+    <g id="eyelids" fill="#FFFFFF" opacity="0">
+      <circle cx="138" cy="148" r="17"/>
+      <circle cx="222" cy="148" r="17"/>
+      <path d="M120 148 Q138 162 156 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+      <path d="M204 148 Q222 162 240 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Blush Layer -->
+  <g id="blush">
+    <ellipse cx="112" cy="172" rx="10" ry="6" class="blush-pink"/>
+    <ellipse cx="248" cy="172" rx="10" ry="6" class="blush-pink"/>
+  </g>
+
+  <!-- Face Layer (Nose & Mouth) -->
+  <g id="face" stroke-linecap="round">
+    <ellipse cx="180" cy="164" rx="8" ry="6" fill="#111111"/>
+    <ellipse cx="178" cy="162" rx="2.5" ry="1.5" fill="#FFFFFF" opacity="0.8"/>
+
+    <!-- Default neutral/happy smile -->
+    <g id="mouth-neutral">
+      <path d="M180 170 V173" stroke="#111111" stroke-width="2.5"/>
+      <path d="M168 174 C174 180 180 178 180 173 C180 178 186 180 192 174" fill="none" stroke="#111111" stroke-width="2.5"/>
+    </g>
+
+    <!-- Happy open mouth (hover) -->
+    <g id="mouth-happy" style="display:none">
+      <path d="M168 176 Q180 186 192 176" fill="#111111" stroke="none"/>
+      <path d="M172 178 Q180 183 188 178" fill="#FF6666" stroke="none"/>
+    </g>
+
+    <!-- Thinking pouty mouth -->
+    <g id="mouth-thinking" style="display:none">
+      <path d="M180 170 V173" stroke="#111111" stroke-width="2.5"/>
+      <path d="M170 176 L190 176" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+      <ellipse cx="172" cy="172" rx="3" ry="2" fill="none" stroke="#111111" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>
