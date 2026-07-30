@@ -165,14 +165,14 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
       rp.style.transform = `translate(${clamp((mx - cxR) * sR)}px,${clamp((my - cyR) * sR)}px)`;
     }
 
-    function onMove(e: MouseEvent) {
+    function onMove(e: PointerEvent) {
       mx = e.clientX; my = e.clientY;
       if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
     }
 
-    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("pointermove", onMove, { passive: true });
     return () => {
-      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("pointermove", onMove);
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [svgMarkup]);
