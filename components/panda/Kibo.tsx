@@ -36,9 +36,19 @@ export default function Kibo() {
     if (!position) return;
     posRef.current = position;
 
+    let prevH = window.innerHeight;
+
     function clampOnResize() {
-      const maxX = Math.max(0, window.innerWidth - 20);
-      const maxY = Math.max(0, window.innerHeight - 20);
+      const vw = window.visualViewport?.width ?? window.innerWidth;
+      const vh = window.visualViewport?.height ?? window.innerHeight;
+      const dh = Math.abs(vh - prevH);
+      prevH = vh;
+
+      // Ignore small viewport changes (URL bar show/hide on mobile)
+      if (dh > 0 && dh < 100) return;
+
+      const maxX = Math.max(0, vw - 20);
+      const maxY = Math.max(0, vh - 20);
       const clampedX = Math.min(posRef.current.x, maxX);
       const clampedY = Math.min(posRef.current.y, maxY);
       if (clampedX !== posRef.current.x || clampedY !== posRef.current.y) {
@@ -50,7 +60,11 @@ export default function Kibo() {
     }
 
     window.addEventListener("resize", clampOnResize);
-    return () => window.removeEventListener("resize", clampOnResize);
+    window.visualViewport?.addEventListener("resize", clampOnResize);
+    return () => {
+      window.removeEventListener("resize", clampOnResize);
+      window.visualViewport?.removeEventListener("resize", clampOnResize);
+    };
   }, [position]);
 
   // Show welcome bubble on every page load
