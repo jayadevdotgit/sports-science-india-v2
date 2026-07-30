@@ -44,7 +44,7 @@ export default function Kibo() {
       if (el.dataset.vw) {
         const oldW = parseInt(el.dataset.vw!, 10);
         const oldH = parseInt(el.dataset.vh!, 10);
-        if (oldW !== newW || oldH !== newH) {
+        if (oldW !== newW) {
           const distRight = oldW - posRef.current.x;
           const distBottom = oldH - posRef.current.y;
           posRef.current.x = Math.max(0, Math.min(newW - distRight, newW - 20));
