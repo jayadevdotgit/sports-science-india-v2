@@ -183,13 +183,12 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     };
   }, [svgMarkup]);
 
-  if (!svgMarkup) return <div style={{ width: 96, height: 96 }} />;
+  if (!svgMarkup) return <div className="w-full h-full" />;
 
   return (
     <div
       ref={hostRef}
-      className={`${waving && !walking ? "animate-vivi-wave" : ""} ${walking ? "animate-vivi-walk-cycle" : ""}`}
-      style={{ width: 96, height: 96 }}
+      className={`${waving && !walking ? "animate-vivi-wave" : ""} ${walking ? "animate-vivi-walk-cycle" : ""} w-full h-full`}
       dangerouslySetInnerHTML={{ __html: svgMarkup }}
     />
   );

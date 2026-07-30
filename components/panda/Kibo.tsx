@@ -179,7 +179,7 @@ export default function Kibo() {
 
           <KiboBubble visible={showBubble} />
 
-          <div className={`${idle && !walking ? "animate-float" : ""}`} onMouseEnter={markActive}>
+          <div className={`${idle && !walking ? "animate-float" : ""} w-20 h-20 md:w-28 md:h-28`} onMouseEnter={markActive}>
           <ViviSVG
             blinking={blinking}
             thinking={thinking}
