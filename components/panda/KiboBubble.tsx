@@ -34,7 +34,7 @@ export default function KiboBubble({ visible }: KiboBubbleProps) {
             absolute
             bottom-32
             right-2
-            w-[290px]
+            w-[220px]
             rounded-2xl
             border
             border-orange-500/20
@@ -67,12 +67,7 @@ export default function KiboBubble({ visible }: KiboBubbleProps) {
           </h3>
 
           <p className="mt-3 text-sm leading-6 text-gray-300">
-            I'm here to help you improve performance,
-            prevent injuries, and find the right assessment.
-          </p>
-
-          <p className="mt-4 font-medium text-orange-400">
-            How can I help today?
+            How can I help you?
           </p>
         </motion.div>
       )}
