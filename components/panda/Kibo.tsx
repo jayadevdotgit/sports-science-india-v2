@@ -74,7 +74,7 @@ export default function Kibo() {
 
   useEffect(() => {
     const showTimer = setTimeout(() => setShowBubble(true), 1200);
-    const hideTimer = setTimeout(() => setShowBubble(false), 6000);
+    const hideTimer = setTimeout(() => setShowBubble(false), 4200);
     return () => { clearTimeout(showTimer); clearTimeout(hideTimer); };
   }, []);
 
