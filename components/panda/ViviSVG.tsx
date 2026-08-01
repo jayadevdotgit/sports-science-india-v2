@@ -34,7 +34,6 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
   useLayoutEffect(() => {
     if (!svgMarkup || initialisedRef.current) return;
     initialisedRef.current = true;
-    // eslint-disable-next-line no-console
   }, [svgMarkup]);
 
   // Blinking
@@ -134,7 +133,7 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     svg.style.animation = idle && !walking ? "vivi-idle-breathe 4s ease-in-out infinite" : "";
   }, [idle, walking, svgMarkup]);
 
-  // Eye tracking
+  // Eye tracking (follows pointer) + idle look-around
   useEffect(() => {
     const svg = qs(hostRef.current, "svg");
     const leftPupil = qs(svg, "#left-eye");
@@ -152,30 +151,65 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     const cyL = rect.top + vh * (148 / 380);
     const cxR = rect.left + vw * (222 / 360);
     const cyR = rect.top + vh * (148 / 380);
+    const cxC = (cxL + cxR) / 2;
+    const cyC = (cyL + cyR) / 2;
+
+    const maxMove = 4;
+    const scale = (d: number) => Math.min(Math.sqrt(d * d), 200) / 200;
+    const clamp = (v: number) => Math.max(-maxMove, Math.min(maxMove, v));
 
     let rafId = 0;
     let mx = 0, my = 0;
+    let lookX = 0, lookY = 0;
+    let curX = 0, curY = 0;
+    let lookTimer: ReturnType<typeof setTimeout> | null = null;
+
+    function apply(px: number, py: number) {
+      const sL = scale(px - cxL) * 0.3, sR = scale(px - cxR) * 0.3;
+      lp.style.transform = `translate(${clamp((px - cxL) * sL)}px,${clamp((py - cyL) * sL)}px)`;
+      rp.style.transform = `translate(${clamp((px - cxR) * sR)}px,${clamp((py - cyR) * sR)}px)`;
+    }
+
+    function lookAround() {
+      lookX = cxC + (Math.random() * 2 - 1) * 90;
+      lookY = cyC + (Math.random() * 2 - 1) * 60;
+      curX = lookX; curY = lookY;
+    }
 
     function update() {
-      const maxMove = 4;
-      const scale = (d: number) => Math.min(Math.sqrt(d * d), 200) / 200;
-      const clamp = (v: number) => Math.max(-maxMove, Math.min(maxMove, v));
-      const sL = scale(mx - cxL) * 0.3, sR = scale(mx - cxR) * 0.3;
-      lp.style.transform = `translate(${clamp((mx - cxL) * sL)}px,${clamp((my - cyL) * sL)}px)`;
-      rp.style.transform = `translate(${clamp((mx - cxR) * sR)}px,${clamp((my - cyR) * sR)}px)`;
+      rafId = 0;
+      if (idle) {
+        curX += (lookX - curX) * 0.12;
+        curY += (lookY - curY) * 0.12;
+        apply(curX, curY);
+        if (Math.abs(lookX - curX) > 0.5 || Math.abs(lookY - curY) > 0.5) {
+          rafId = requestAnimationFrame(update);
+        }
+      } else {
+        apply(mx, my);
+      }
     }
 
     function onMove(e: PointerEvent) {
       mx = e.clientX; my = e.clientY;
-      if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
+      if (!idle && !rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
+    }
+
+    if (idle) {
+      lookAround();
+      lookTimer = setInterval(() => {
+        lookAround();
+        if (!rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
+      }, 2600);
     }
 
     window.addEventListener("pointermove", onMove, { passive: true });
     return () => {
       window.removeEventListener("pointermove", onMove);
       if (rafId) cancelAnimationFrame(rafId);
+      if (lookTimer) clearInterval(lookTimer);
     };
-  }, [svgMarkup]);
+  }, [idle, svgMarkup]);
 
   if (!svgMarkup) return <div className="w-full h-full" />;
 

@@ -9,6 +9,15 @@
       .white-fur { fill: #FFFFFF; }
       .blush-pink { fill: #FF8585; opacity: 0.55; }
     </style>
+    <linearGradient id="kibo-fur" x1="92" y1="72" x2="256" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF9B24"/>
+      <stop offset="0.5" stop-color="#F46A19"/>
+      <stop offset="1" stop-color="#C63A16"/>
+    </linearGradient>
+    <linearGradient id="kibo-hoodie" x1="180" y1="194" x2="180" y2="342" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A2A2E"/>
+      <stop offset="1" stop-color="#0B0B0D"/>
+    </linearGradient>
   </defs>
 
   <ellipse cx="180" cy="358" rx="100" ry="8" fill="#C29A88" opacity="0.6"/>
@@ -34,9 +43,16 @@
   </g>
 
   <g id="body">
-    <path d="M110 190 C92 220 85 310 105 340 C125 360 235 360 255 340 C275 310 268 220 250 190 Z" fill="#EE5326"/>
+    <path d="M110 190 C92 220 85 310 105 340 C125 360 235 360 255 340 C275 310 268 220 250 190 Z" fill="url(#kibo-fur)"/>
     <path d="M125 185 C120 220 140 245 180 248 C220 245 240 220 235 185 C210 210 150 210 125 185 Z" fill="#111111"/>
     <path d="M142 225 C135 270 142 328 180 330 C218 328 225 270 218 225 C195 242 165 242 142 225 Z" fill="#FFFFFF"/>
+    <path d="M112 206 C118 188 142 180 180 184 C218 180 242 188 248 206 L262 322 C248 347 112 347 98 322 Z" fill="url(#kibo-hoodie)" stroke="#3D3D42" stroke-width="3"/>
+    <path d="M137 194 C145 216 158 226 180 226 C202 226 215 216 223 194" fill="none" stroke="#56565D" stroke-width="7" stroke-linecap="round"/>
+    <path d="M155 217 L150 245 M205 217 L210 245" stroke="#FF7A18" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="150" cy="248" r="4" fill="#FF8A1E"/>
+    <circle cx="210" cy="248" r="4" fill="#FF8A1E"/>
+    <path d="M155 272 Q180 258 205 272 L200 302 Q180 312 160 302 Z" fill="#151519" stroke="#FF7A18" stroke-width="2"/>
+    <text x="180" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="800" font-style="italic" fill="#FF7A18">SSI</text>
   </g>
 
   <g id="paws">
@@ -53,7 +69,7 @@
   </g>
 
   <g id="head">
-    <path d="M82 145 C70 102 100 55 180 55 C260 55 290 102 278 145 C270 180 240 205 180 205 C120 205 90 180 82 145 Z" fill="#EE5326"/>
+    <path d="M82 145 C70 102 100 55 180 55 C260 55 290 102 278 145 C270 180 240 205 180 205 C120 205 90 180 82 145 Z" fill="url(#kibo-fur)"/>
     <path d="M155 58 L168 45 L176 56 L188 42 L196 58 Z" fill="#EE5326"/>
     <path d="M92 152 C82 118 105 82 180 82 C255 82 278 118 268 152 C250 120 215 98 180 98 C145 98 110 120 92 152 Z" fill="#FFFFFF"/>
     <path d="M104 158 C96 178 115 200 138 202 C152 200 156 182 146 168 C132 160 118 158 104 158 Z" fill="#C43812"/>
@@ -61,22 +77,30 @@
     <path d="M136 162 C130 185 145 205 180 205 C215 205 230 185 224 162 C210 170 195 174 180 174 C165 174 150 170 136 162 Z" fill="#FFFFFF"/>
   </g>
 
-  <g id="headphones"/>
+  <g id="headphones">
+    <path d="M87 142 C87 38 273 38 273 142" fill="none" stroke="#121216" stroke-width="20" stroke-linecap="round"/>
+    <path d="M93 137 C94 54 266 54 267 137" fill="none" stroke="#4B4B52" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+    <rect x="72" y="118" width="34" height="65" rx="16" fill="#17171B" stroke="#08080A" stroke-width="4"/>
+    <rect x="254" y="118" width="34" height="65" rx="16" fill="#17171B" stroke="#08080A" stroke-width="4"/>
+    <path d="M83 132 V168 M94 132 V168 M265 132 V168 M276 132 V168" stroke="#FF7A18" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+    <path d="M274 174 C297 185 292 216 261 220" fill="none" stroke="#18181C" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="258" cy="221" rx="13" ry="8" fill="#24242A" stroke="#08080A" stroke-width="2"/>
+  </g>
 
   <g id="eyes">
-    <circle cx="138" cy="148" r="16" fill="#111111"/>
-    <circle cx="222" cy="148" r="16" fill="#111111"/>
+    <circle cx="138" cy="148" r="20" fill="#111111"/>
+    <circle cx="222" cy="148" r="20" fill="#111111"/>
     <g id="left-eye">
-      <circle cx="138" cy="148" r="15" fill="#111111"/>
+      <circle cx="138" cy="148" r="19" fill="#111111"/>
       <circle cx="133" cy="142" r="5" fill="#FFFFFF"/>
     </g>
     <g id="right-eye">
-      <circle cx="222" cy="148" r="15" fill="#111111"/>
+      <circle cx="222" cy="148" r="19" fill="#111111"/>
       <circle cx="217" cy="142" r="5" fill="#FFFFFF"/>
     </g>
     <g id="eyelids" fill="#FFFFFF" opacity="0">
-      <circle cx="138" cy="148" r="17"/>
-      <circle cx="222" cy="148" r="17"/>
+      <circle cx="138" cy="148" r="21"/>
+      <circle cx="222" cy="148" r="21"/>
       <path d="M120 148 Q138 162 156 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
       <path d="M204 148 Q222 162 240 148" fill="none" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
     </g>

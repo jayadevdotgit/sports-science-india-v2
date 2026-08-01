@@ -15,8 +15,8 @@ export function useWave() {
     const startTimer = setTimeout(() => {
       setWaving(true);
       localStorage.setItem(STORAGE_KEY, "true");
-      stopTimer = setTimeout(() => setWaving(false), 1400);
-    }, 0);
+      stopTimer = setTimeout(() => setWaving(false), 2600);
+    }, 500);
 
     return () => {
       clearTimeout(startTimer);
