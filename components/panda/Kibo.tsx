@@ -21,8 +21,10 @@ export default function Kibo() {
   const [bouncing, setBouncing] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [walking, setWalking] = useState(false);
+  const [interactionWave, setInteractionWave] = useState(false);
   const blinking = useBlink();
-  const waving = useWave();
+  const welcomeWave = useWave();
+  const waving = welcomeWave || interactionWave;
   const { idle, markActive } = useIdle();
 
   const elRef = useRef<HTMLDivElement>(null);
@@ -31,6 +33,7 @@ export default function Kibo() {
   const draggedRef = useRef(false);
   const startPosRef = useRef({ x: 0, y: 0 });
   const walkTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const waveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cssRef = useRef({ right: 12, bottom: 12 });
 
   const applyPosition = useCallback((x: number, y: number) => {
@@ -76,6 +79,10 @@ export default function Kibo() {
     const showTimer = setTimeout(() => setShowBubble(true), 1200);
     const hideTimer = setTimeout(() => setShowBubble(false), 4200);
     return () => { clearTimeout(showTimer); clearTimeout(hideTimer); };
+  }, []);
+
+  useEffect(() => () => {
+    if (waveTimerRef.current) clearTimeout(waveTimerRef.current);
   }, []);
 
   useEffect(() => {
@@ -142,6 +149,14 @@ export default function Kibo() {
     savePosition({ x: posRef.current.x, y: posRef.current.y });
   }
 
+  function handleMascotEnter() {
+    markActive();
+    setHovering(true);
+    setInteractionWave(true);
+    if (waveTimerRef.current) clearTimeout(waveTimerRef.current);
+    waveTimerRef.current = setTimeout(() => setInteractionWave(false), 1600);
+  }
+
   return (
     <>
       <div
@@ -160,7 +175,7 @@ export default function Kibo() {
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onDoubleClick={resetPosition}
-          onMouseEnter={() => setHovering(true)}
+          onMouseEnter={handleMascotEnter}
           onMouseLeave={() => setHovering(false)}
           style={{
             position: "absolute",
