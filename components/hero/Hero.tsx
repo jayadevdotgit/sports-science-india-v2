@@ -105,6 +105,7 @@ export default function Hero() {
               [mask-image:radial-gradient(circle,white_30%,transparent_100%)]
               bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]
               bg-[size:60px_60px]
+              pointer-events-none
             "
           />
 
