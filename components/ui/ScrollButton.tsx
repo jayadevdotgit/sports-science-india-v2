@@ -20,8 +20,8 @@ export default function ScrollButton({
     e.preventDefault();
     const el = document.getElementById(target);
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
-      window.scrollTo({ top, behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(null, "", `#${target}`);
     }
   }
 

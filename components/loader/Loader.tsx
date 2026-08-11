@@ -4,14 +4,14 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Loader() {
-  const alreadyShown =
-    typeof window !== "undefined" && Boolean(sessionStorage.getItem("loaderShown"));
-
-  const [visible, setVisible] = useState(!alreadyShown);
-  const [hide, setHide] = useState(alreadyShown);
+  const [visible, setVisible] = useState(true);
+  const [hide, setHide] = useState(false);
 
   useEffect(() => {
-    if (alreadyShown) return;
+    if (sessionStorage.getItem("loaderShown")) {
+      const t = setTimeout(() => setHide(true), 0);
+      return () => clearTimeout(t);
+    }
 
     const timer = setTimeout(() => {
       setVisible(false);
@@ -23,7 +23,7 @@ export default function Loader() {
     }, 2500);
 
     return () => clearTimeout(timer);
-  }, [alreadyShown]);
+  }, []);
 
   if (hide) return null;
 
