@@ -4,16 +4,14 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Loader() {
-  const [visible, setVisible] = useState(false);
-  const [hide, setHide] = useState(false);
+  const alreadyShown =
+    typeof window !== "undefined" && Boolean(sessionStorage.getItem("loaderShown"));
+
+  const [visible, setVisible] = useState(!alreadyShown);
+  const [hide, setHide] = useState(alreadyShown);
 
   useEffect(() => {
-    if (sessionStorage.getItem("loaderShown")) {
-      setHide(true);
-      return;
-    }
-
-    setVisible(true);
+    if (alreadyShown) return;
 
     const timer = setTimeout(() => {
       setVisible(false);
@@ -25,7 +23,7 @@ export default function Loader() {
     }, 2500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [alreadyShown]);
 
   if (hide) return null;
 
@@ -37,7 +35,7 @@ export default function Loader() {
         bg-[#050505]
         overflow-hidden
         transition-opacity duration-700
-        ${visible ? "opacity-100" : "opacity-0"}
+        ${visible ? "opacity-100" : "opacity-0 pointer-events-none"}
       `}
     >
       {/* Background Glow */}

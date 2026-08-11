@@ -19,11 +19,14 @@ export default function ScrollButton({
   function handleClick(e: React.MouseEvent) {
     e.preventDefault();
     const el = document.getElementById(target);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
   }
 
   return (
-    <Button variant={variant} onClick={handleClick} className={className}>
+    <Button type="button" variant={variant} onClick={handleClick} className={className}>
       {children}
     </Button>
   );
