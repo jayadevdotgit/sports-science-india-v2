@@ -4,12 +4,16 @@ import { FormEvent, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import {
-  Brain,
-  Dumbbell,
+  Stethoscope,
+  Syringe,
+  Bone,
+  ShieldPlus,
+  Microscope,
   HeartPulse,
   Activity,
-  ShieldAlert,
-  GraduationCap,
+  ClipboardCheck,
+  Dumbbell,
+  Trophy,
   Calendar as CalendarIcon,
   Clock,
   Check,
@@ -17,7 +21,6 @@ import {
   User,
   Mail,
   Phone,
-  Trophy,
   ChevronRight,
   ArrowLeft,
   AlertCircle,
@@ -27,40 +30,64 @@ import {
 // Service options matching SSI core offerings
 const AVAILABLE_SERVICES = [
   {
-    id: "psychology",
-    title: "Sports Psychology",
-    description: "Mental toughness, focus, and performance under pressure.",
-    icon: Brain,
+    id: "sports-medicine",
+    title: "Sports Medicine",
+    description: "Medical consultation, injury prevention, and pain management.",
+    icon: Stethoscope,
   },
   {
-    id: "strength",
+    id: "sports-surgery",
+    title: "Sports Surgery",
+    description: "Minimally invasive surgery for sports injuries and rapid recovery.",
+    icon: Syringe,
+  },
+  {
+    id: "ligament-surgery",
+    title: "Ligament Surgery",
+    description: "ACL and ligament reconstruction to restore joint stability.",
+    icon: Bone,
+  },
+  {
+    id: "joint-preservation",
+    title: "Joint Preservation",
+    description: "Treatments to delay or avoid joint replacement.",
+    icon: ShieldPlus,
+  },
+  {
+    id: "sports-science",
+    title: "Sports Science",
+    description: "Data-driven performance analysis and athletic profiling.",
+    icon: Microscope,
+  },
+  {
+    id: "sports-rehabilitation",
+    title: "Sports Rehabilitation",
+    description: "Structured rehab programs for a safe return to sport.",
+    icon: HeartPulse,
+  },
+  {
+    id: "physiotherapy",
+    title: "Physiotherapy",
+    description: "Manual therapy and exercise-based recovery.",
+    icon: Activity,
+  },
+  {
+    id: "assessments",
+    title: "Assessments",
+    description: "Comprehensive physical and performance assessments.",
+    icon: ClipboardCheck,
+  },
+  {
+    id: "strength-conditioning",
     title: "Strength & Conditioning",
     description: "Science-based power, speed, agility, and endurance building.",
     icon: Dumbbell,
   },
   {
-    id: "medicine",
-    title: "Sports Medicine",
-    description: "Medical consultation, injury prevention, and pain management.",
-    icon: HeartPulse,
-  },
-  {
-    id: "biomechanics",
-    title: "Biomechanics & Motion",
-    description: "3D movement analysis, technique, and gait optimization.",
-    icon: Activity,
-  },
-  {
-    id: "rehab",
-    title: "Rehabilitation & Recovery",
-    description: "Physiotherapy, ACL rehab, manual therapy, return to play.",
-    icon: ShieldAlert,
-  },
-  {
-    id: "education",
-    title: "Performance Testing & Research",
-    description: "Advanced athlete assessment, VO2 max, and physiological profiling.",
-    icon: GraduationCap,
+    id: "return-to-sports",
+    title: "Return to Sports",
+    description: "Guided return-to-play planning after injury.",
+    icon: Trophy,
   },
 ];
 
@@ -133,19 +160,17 @@ function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
 
 export default function Booking() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
-  const [selectedServices, setSelectedServices] = useState<string[]>([
-    "Biomechanics & Motion",
-  ]);
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   // Date selection
   const [selectedDate, setSelectedDate] = useState<string>("");
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("10:00 AM");
 
-  // Athlete details
+  // Patient details
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    sport: "Cricket",
+    sport: "",
     notes: "",
   });
 
@@ -265,14 +290,14 @@ export default function Booking() {
       name: "",
       email: "",
       phone: "",
-      sport: "Cricket",
+      sport: "",
       notes: "",
     });
-    setSelectedServices(["Biomechanics & Motion"]);
+    setSelectedServices([]);
   }
 
   return (
-    <section id="booking" className="relative overflow-hidden bg-[#050505] py-14 text-white">
+    <section id="booking" className="relative overflow-hidden bg-[#050505] py-14 text-white scroll-mt-32">
       {/* Glow Backdrops */}
       <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[150px] pointer-events-none" />
       <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
@@ -303,7 +328,7 @@ export default function Booking() {
               <div className="flex items-center justify-between gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
                 <span className={currentStep === 1 ? "text-orange-400" : ""}>1. Services</span>
                 <span className={currentStep === 2 ? "text-orange-400" : ""}>2. Timing</span>
-                <span className={currentStep === 3 ? "text-orange-400" : ""}>3. Athlete Info</span>
+                <span className={currentStep === 3 ? "text-orange-400" : ""}>3. Your Details</span>
               </div>
               <div className="mt-3 flex h-1.5 w-full overflow-hidden rounded-full bg-gray-800">
                 <div
@@ -335,7 +360,7 @@ export default function Booking() {
               </div>
 
               <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
-                {AVAILABLE_SERVICES.map((service) => {
+                {AVAILABLE_SERVICES.filter((s) => s.title !== "Return to Sports").map((service) => {
                   const Icon = service.icon;
                   const isSelected = selectedServices.includes(service.title);
 
@@ -355,10 +380,10 @@ export default function Booking() {
                       <div>
                         <div className="flex items-center justify-between mb-2 sm:mb-3">
                           <div
-                            className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all ${
+                            className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
                               isSelected
-                                ? "border-orange-500/40 bg-orange-500/20 text-orange-400"
-                                : "border-gray-800 bg-gray-900 text-gray-400 group-hover:text-white"
+                                ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+                                : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
                             }`}
                           >
                             <Icon size={16} className="sm:hidden" />
@@ -386,6 +411,63 @@ export default function Booking() {
                     </div>
                   );
                 })}
+
+                {/* Return to Sports featured card (centered in the last row) */}
+                {(() => {
+                  const feature = AVAILABLE_SERVICES.find((s) => s.title === "Return to Sports");
+                  if (!feature) return null;
+                  const Icon = feature.icon;
+                  const isSelected = selectedServices.includes(feature.title);
+                  return (
+                    <>
+                      <div aria-hidden="true" />
+                      <div
+                        onClick={() => toggleService(feature.title)}
+                        className={`
+                          group relative flex flex-col justify-between rounded-2xl border p-3 sm:p-5 cursor-pointer transition-all duration-300
+                          ${
+                            isSelected
+                              ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
+                              : "border-gray-800 bg-[#0e0e12] hover:border-gray-700 hover:bg-[#14141a]"
+                          }
+                        `}
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-2 sm:mb-3">
+                            <div
+                              className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
+                                isSelected
+                                  ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+                                  : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
+                              }`}
+                            >
+                              <Icon size={16} className="sm:hidden" />
+                              <Icon size={20} className="hidden sm:block" />
+                            </div>
+
+                            <div
+                              className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border transition-all ${
+                                isSelected
+                                  ? "border-orange-500 bg-orange-500 text-black"
+                                  : "border-gray-700 bg-gray-900 text-transparent"
+                              }`}
+                            >
+                              <Check size={14} strokeWidth={3} />
+                            </div>
+                          </div>
+
+                          <h4 className="font-bold text-white text-sm sm:text-base leading-snug">
+                            {feature.title}
+                          </h4>
+                          <p className="hidden sm:block text-xs text-gray-400 mt-2 leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                      <div aria-hidden="true" />
+                    </>
+                  );
+                })()}
               </div>
 
               <div className="mt-8 flex justify-end">
@@ -485,7 +567,7 @@ export default function Booking() {
                   onClick={() => setCurrentStep(3)}
                   className="flex items-center gap-2 group"
                 >
-                  <span>Continue to Athlete Info</span>
+                  <span>Continue to Your Details</span>
                   <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
                 </Button>
               </div>
@@ -497,7 +579,7 @@ export default function Booking() {
             <form onSubmit={handleSubmit}>
               <div className="flex items-center justify-between mb-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white">Athlete Details & Confirmation</h3>
+                  <h3 className="text-xl font-bold text-white">Your Details & Confirmation</h3>
                   <p className="text-sm text-gray-400 mt-1">Provide your contact info to finalize your booking.</p>
                 </div>
                 <button
@@ -568,7 +650,7 @@ export default function Booking() {
                 <div>
                   <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
                     <Trophy size={14} className="text-orange-400" />
-                    Primary Sport / Activity
+                    Sport / Activity <span className="font-normal normal-case text-gray-500">(optional)</span>
                   </label>
                   <select
                     name="sport"
@@ -576,6 +658,7 @@ export default function Booking() {
                     onChange={handleInputChange}
                     className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
                   >
+                    <option value="">None / Not an athlete</option>
                     <option value="Cricket">Cricket</option>
                     <option value="Football">Football</option>
                     <option value="Badminton">Badminton</option>
@@ -597,7 +680,7 @@ export default function Booking() {
                   rows={3}
                   value={formData.notes}
                   onChange={handleInputChange}
-                  placeholder="Tell us about your performance goals or any past injuries..."
+                  placeholder="Tell us about your concerns, symptoms, goals, or any past injuries..."
                   className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
                 />
               </div>

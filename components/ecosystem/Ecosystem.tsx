@@ -11,7 +11,7 @@ export default function Ecosystem() {
   return (
     <section
       id="ecosystem"
-      className="relative overflow-hidden bg-[#050505] py-14"
+      className="relative overflow-hidden bg-[#050505] py-14 scroll-mt-32"
     >
 
   {/* Background Glow */}

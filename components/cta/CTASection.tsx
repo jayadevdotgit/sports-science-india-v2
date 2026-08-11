@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Calendar,
   UserRound,
@@ -88,23 +89,27 @@ export default function CTASection() {
     {/* Buttons */}
     <div className="mt-6 flex flex-nowrap gap-2 sm:gap-4">
 
-      <Button
-        variant="primary"
-        size="md"
-        className="inline-flex min-w-0 flex-1 items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
+      <a
+        href="#booking"
+        className="flex min-w-0 flex-1 sm:flex-none"
       >
-        <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
-        Book Assessment
-      </Button>
+        <Button
+          variant="primary"
+          size="md"
+          className="inline-flex min-w-0 flex-1 items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
+        >
+          <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
+          Book Assessment
+        </Button>
+      </a>
 
-      <Button
-        variant="outline"
-        size="md"
-        className="inline-flex min-w-0 flex-1 items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
+      <Link
+        href="/experts"
+        className="inline-flex min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-full border border-white font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-white hover:text-black !gap-1 !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:flex-none sm:!gap-2 sm:!px-6 sm:!text-base"
       >
         <UserRound className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
         Contact Experts
-      </Button>
+      </Link>
 
     </div>
 

@@ -1,9 +1,9 @@
-import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
 import { Calendar, Search } from "lucide-react";
 import HeroInfo from "./HeroInfo";
 import Reveal from "@/components/animations/Reveal";
+import ScrollButton from "@/components/ui/ScrollButton";
 
 export default function Hero() {
   return (
@@ -77,26 +77,22 @@ export default function Hero() {
             </p>
 
             <div className="mt-7 flex flex-nowrap gap-2 sm:mt-12 sm:gap-4">
-              <a href="#booking" className="flex min-w-0 flex-1 sm:flex-none">
-                <Button
-                  size="md"
-                  className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
-                >
-                  <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
-                  Book Assessment
-                </Button>
-              </a>
+              <ScrollButton
+                target="booking"
+                className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
+              >
+                <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
+                Book Assessment
+              </ScrollButton>
 
-              <a href="#ecosystem" className="flex min-w-0 flex-1 sm:flex-none">
-                <Button
-                  variant="outline"
-                  size="md"
-                  className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
-                >
-                  <Search className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
-                  Explore Ecosystem
-                </Button>
-              </a>
+              <ScrollButton
+                target="ecosystem"
+                variant="outline"
+                className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
+              >
+                <Search className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
+                Explore Ecosystem
+              </ScrollButton>
             </div>
 
           </div>

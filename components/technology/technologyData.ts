@@ -2,7 +2,7 @@ export const technology = [
   {
     id: 1,
     title: "Force Plate",
-    image: "/images/technology/force-plate.jpg",
+    image: "/images/technology/force-plate.png",
     short: "Elite force and jump analysis.",
     description:
       "Measure explosive strength, landing mechanics and force production with laboratory-grade precision.",
@@ -17,7 +17,7 @@ export const technology = [
   {
     id: 2,
     title: "3D Motion Capture",
-    image: "/images/technology/motion-capture.jpg",
+    image: "/images/technology/motion-capture.png",
     short: "Advanced movement analysis.",
     description:
       "Capture every movement in real time to optimize technique and reduce injury risk.",
@@ -32,7 +32,7 @@ export const technology = [
   {
     id: 3,
     title: "VO₂ Max Testing",
-    image: "/images/technology/vo2max.jpg",
+    image: "/images/technology/vo2max.png",
     short: "Measure endurance scientifically.",
     description:
       "Understand aerobic capacity and endurance using gold-standard metabolic testing.",
@@ -47,7 +47,7 @@ export const technology = [
   {
     id: 4,
     title: "Recovery Systems",
-    image: "/images/technology/recovery.jpg",
+    image: "/images/technology/recovery.png",
     short: "Accelerate athlete recovery.",
     description:
       "Advanced recovery solutions that help athletes return stronger and faster.",
@@ -62,7 +62,7 @@ export const technology = [
   {
     id: 5,
     title: "Body Composition",
-    image: "/images/technology/body-composition.jpg",
+    image: "/images/technology/body-composition.png",
     short: "Know your body better.",
     description:
       "Track muscle mass, fat percentage and body balance to guide training decisions.",
@@ -77,7 +77,7 @@ export const technology = [
   {
     id: 6,
     title: "Speed Gates",
-    image: "/images/technology/speed-gates.jpg",
+    image: "/images/technology/speed-gates.png",
     short: "Elite sprint timing.",
     description:
       "Accurately measure sprint speed, acceleration and reaction time.",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "@/components/ui/Button";
 import { Menu, X, Lock } from "lucide-react";
 import Image from "next/image";
@@ -9,32 +10,50 @@ import Link from "next/link";
 
 
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "Ecosystem", href: "#ecosystem" },
-  { name: "Services", href: "#services" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "#", target: "home" },
+  { name: "Ecosystem", href: "#ecosystem", target: "ecosystem" },
+  { name: "Services", href: "#services", target: "services" },
+  { name: "Technology", href: "/technology", target: "technology" },
+  { name: "Experts", href: "/experts", target: "experts" },
+  { name: "Contact", href: "/contact", target: "contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
-const handleNavigation = (id: string) => {
-  setMenuOpen(false);
-
-  setTimeout(() => {
+  const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
-
     if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, 300);
-};
+  };
+
+  const handleNavigation = (target: string) => {
+    setMenuOpen(false);
+
+    if (target === "experts" || target === "contact" || target === "technology") {
+      const route = `/${target}`;
+      if (pathname !== route) router.push(route);
+      return;
+    }
+
+    if (pathname !== "/") {
+      // Navigate home first, then scroll to the section.
+      router.push("/");
+      setTimeout(() => scrollToSection(target), 450);
+      return;
+    }
+
+    scrollToSection(target);
+  };
+
+  const normalizeTarget = (item: { href: string; target: string }) =>
+    item.target;
 
 useEffect(() => {
   const handleScroll = () => {
@@ -84,6 +103,18 @@ useEffect(() => {
     window.removeEventListener("scroll", handleActiveSection);
   };
 }, []);
+
+const routeActive =
+    pathname === "/experts"
+      ? "experts"
+      : pathname === "/contact"
+        ? "contact"
+        : pathname === "/technology"
+          ? "technology"
+          : null;
+
+  // Keep active section in sync when navigating between pages.
+  const currentActive = routeActive ?? activeSection;
 
   return (
     <>
@@ -138,7 +169,7 @@ useEffect(() => {
     key={item.name}
     onClick={() =>
       handleNavigation(
-        item.href === "#" ? "home" : item.href.replace("#", "")
+        normalizeTarget(item)
               )
             }
               className={`
@@ -157,8 +188,8 @@ useEffect(() => {
               after:transition-all
 
               ${
-                activeSection ===
-                (item.href === "#" ? "home" : item.href.replace("#", ""))
+                currentActive ===
+                normalizeTarget(item)
                   ? "text-orange-300 [text-shadow:0_0_8px_rgba(249,115,22,0.8)] after:w-full"
                   : "text-white hover:text-orange-300 after:w-0 hover:after:w-full"
               }
@@ -257,7 +288,7 @@ useEffect(() => {
             key={item.name}
             onClick={() =>
               handleNavigation(
-                item.href === "#" ? "home" : item.href.replace("#", "")
+                normalizeTarget(item)
               )
             }
             className={`
@@ -266,8 +297,8 @@ useEffect(() => {
             transition-all
             duration-300
             ${
-              activeSection ===
-              (item.href === "#" ? "home" : item.href.replace("#", ""))
+              currentActive ===
+              normalizeTarget(item)
                 ? "text-orange-500"
                 : "text-white hover:text-orange-500"
             }

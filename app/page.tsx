@@ -6,14 +6,7 @@ import Services from "@/components/services/services";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
 import CTASection from "@/components/cta/CTASection";
-import Experts from "@/components/experts/Experts";
-import Technology from "@/components/technology/Technology";
-
-
-
-
 import Booking from "@/components/booking/Booking";
-import Contact from "@/components/contact/Contact";
 import Footer from "@/components/footer/Footer";
 
 
@@ -27,13 +20,10 @@ export default function Home() {
       <Ecosystem />
       <Services />
       <JourneyTimeline />
+      <CTASection />
       <Booking />
       <Testimonials />
-      <CTASection />
-      <Experts />
-      <Technology />
 
-      <Contact />
       <Footer />
     </>
   );

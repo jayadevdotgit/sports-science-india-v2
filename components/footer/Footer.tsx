@@ -2,8 +2,8 @@ import Container from "@/components/ui/Container";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 const links = [
-  ["Home", "#home"], ["Services", "#services"], ["About", "#about"],
-  ["Assessment", "#booking"], ["Contact", "#contact"],
+  ["Home", "/#home"], ["Services", "/#services"], ["About", "/#about"],
+  ["Assessment", "/#booking"], ["Contact", "/contact"],
 ];
 
 export default function Footer() {
