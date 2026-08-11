@@ -334,7 +334,7 @@ export default function Booking() {
                 </span>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
                 {AVAILABLE_SERVICES.map((service) => {
                   const Icon = service.icon;
                   const isSelected = selectedServices.includes(service.title);
@@ -344,7 +344,7 @@ export default function Booking() {
                       key={service.id}
                       onClick={() => toggleService(service.title)}
                       className={`
-                        group relative flex flex-col justify-between rounded-2xl border p-5 cursor-pointer transition-all duration-300
+                        group relative flex flex-col justify-between rounded-2xl border p-3 sm:p-5 cursor-pointer transition-all duration-300
                         ${
                           isSelected
                             ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
@@ -353,19 +353,20 @@ export default function Booking() {
                       `}
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center justify-between mb-2 sm:mb-3">
                           <div
-                            className={`flex h-11 w-11 items-center justify-center rounded-xl border transition-all ${
+                            className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all ${
                               isSelected
                                 ? "border-orange-500/40 bg-orange-500/20 text-orange-400"
                                 : "border-gray-800 bg-gray-900 text-gray-400 group-hover:text-white"
                             }`}
                           >
-                            <Icon size={20} />
+                            <Icon size={16} className="sm:hidden" />
+                            <Icon size={20} className="hidden sm:block" />
                           </div>
 
                           <div
-                            className={`flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
+                            className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border transition-all ${
                               isSelected
                                 ? "border-orange-500 bg-orange-500 text-black"
                                 : "border-gray-700 bg-gray-900 text-transparent"
@@ -375,10 +376,10 @@ export default function Booking() {
                           </div>
                         </div>
 
-                        <h4 className="font-bold text-white text-base leading-snug">
+                        <h4 className="font-bold text-white text-sm sm:text-base leading-snug">
                           {service.title}
                         </h4>
-                        <p className="text-xs text-gray-400 mt-2 leading-relaxed">
+                        <p className="hidden sm:block text-xs text-gray-400 mt-2 leading-relaxed">
                           {service.description}
                         </p>
                       </div>
@@ -416,40 +417,24 @@ export default function Booking() {
                 </button>
               </div>
 
-              {/* Date Selection Pills */}
+              {/* Date Selection Dropdown */}
               <div className="mb-8">
                 <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
                   <CalendarIcon size={14} className="text-orange-400" />
                   Select Date
                 </label>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
-                  {nextDates.map((dateObj) => {
-                    const isSelected = selectedDate === dateObj.iso;
-                    return (
-                      <button
-                        key={dateObj.iso}
-                        type="button"
-                        onClick={() => setSelectedDate(dateObj.iso)}
-                        className={`
-                          flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all
-                          ${
-                            isSelected
-                              ? "border-orange-500 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.2)]"
-                              : "border-gray-800 bg-[#0e0e12] text-gray-300 hover:border-gray-700 hover:bg-[#14141a]"
-                          }
-                        `}
-                      >
-                        <span className="text-xs font-medium uppercase opacity-80">
-                          {dateObj.label.split(",")[0]}
-                        </span>
-                        <span className="text-sm font-bold mt-1">
-                          {dateObj.label.split(",")[1]}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
+                <select
+                  value={selectedDate}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                  className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500"
+                >
+                  {nextDates.map((dateObj) => (
+                    <option key={dateObj.iso} value={dateObj.iso}>
+                      {dateObj.label}
+                    </option>
+                  ))}
+                </select>
 
                 {/* Custom Date Input Fallback */}
                 <div className="mt-4 flex items-center gap-2">
@@ -464,45 +449,28 @@ export default function Booking() {
                 </div>
               </div>
 
-              {/* Time Slot Selection */}
+              {/* Time Slot Selection Dropdown */}
               <div className="mb-8">
                 <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
                   <Clock size={14} className="text-orange-400" />
                   Select Time Slot
                 </label>
 
-                <div className="space-y-4">
+                <select
+                  value={selectedTimeSlot}
+                  onChange={(e) => setSelectedTimeSlot(e.target.value)}
+                  className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500"
+                >
                   {TIME_SLOTS.map((group) => (
-                    <div key={group.group}>
-                      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
-                        {group.group}
-                      </h4>
-                      <div className="grid gap-2 grid-cols-2 sm:grid-cols-4">
-                        {group.slots.map((slot) => {
-                          const isSelected = selectedTimeSlot === slot;
-                          return (
-                            <button
-                              key={slot}
-                              type="button"
-                              onClick={() => setSelectedTimeSlot(slot)}
-                              className={`
-                                flex items-center justify-between px-3 py-2.5 rounded-xl border text-xs font-semibold transition-all
-                                ${
-                                  isSelected
-                                    ? "border-orange-500 bg-orange-500/20 text-orange-400 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
-                                    : "border-gray-800 bg-[#0e0e12] text-gray-300 hover:border-gray-700 hover:bg-[#14141a]"
-                                }
-                              `}
-                            >
-                              <span>{slot}</span>
-                              {isSelected && <CheckCircle2 size={14} className="text-orange-500" />}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <optgroup key={group.group} label={group.group}>
+                      {group.slots.map((slot) => (
+                        <option key={slot} value={slot}>
+                          {slot}
+                        </option>
+                      ))}
+                    </optgroup>
                   ))}
-                </div>
+                </select>
               </div>
 
               <div className="mt-8 flex items-center justify-between">
