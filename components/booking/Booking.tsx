@@ -373,7 +373,7 @@ export default function Booking() {
                         ${
                           isSelected
                             ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
-                            : "border-gray-800 bg-[#0e0e12] hover:border-gray-700 hover:bg-[#14141a]"
+                            : "border-orange-500/20 bg-[#0e0e12] hover:border-orange-500/60 hover:bg-[#14141a]"
                         }
                       `}
                     >
@@ -428,7 +428,7 @@ export default function Booking() {
                           ${
                             isSelected
                               ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
-                              : "border-gray-800 bg-[#0e0e12] hover:border-gray-700 hover:bg-[#14141a]"
+                              : "border-orange-500/20 bg-[#0e0e12] hover:border-orange-500/60 hover:bg-[#14141a]"
                           }
                         `}
                       >
