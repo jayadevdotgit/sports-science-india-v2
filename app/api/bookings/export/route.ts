@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import ExcelJS from "exceljs";
 import { readBookings } from "@/lib/bookings";
+import { fetchBookingsFromSheet } from "@/lib/sheets";
 import { verifySessionToken, SESSION_COOKIE } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,18 @@ export async function GET() {
   }
 
   try {
-    const bookings = await readBookings();
+    // Prefer Google Sheets (persists on serverless); fall back to local JSON.
+    let bookings;
+    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+      try {
+        bookings = await fetchBookingsFromSheet();
+      } catch (sheetError: unknown) {
+        console.error("Sheets read failed, falling back to local store:", sheetError);
+        bookings = await readBookings();
+      }
+    } else {
+      bookings = await readBookings();
+    }
 
     const workbook = new ExcelJS.Workbook();
     workbook.creator = "Sports Science India";

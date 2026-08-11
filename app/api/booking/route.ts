@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { appendBooking } from "@/lib/bookings";
+import { appendBookingToSheet } from "@/lib/sheets";
 
 export async function POST(req: Request) {
   try {
@@ -179,21 +180,32 @@ export async function POST(req: Request) {
     }
 
     // Persist booking for admin Excel export
+    const bookingRecord = {
+      bookingCode,
+      name,
+      email,
+      phone,
+      services: selectedServicesText,
+      date,
+      timeSlot,
+      sport: sport || "Not specified",
+      notes: notes || "None",
+      submittedAt: new Date().toISOString(),
+    };
+
     try {
-      await appendBooking({
-        bookingCode,
-        name,
-        email,
-        phone,
-        services: selectedServicesText,
-        date,
-        timeSlot,
-        sport: sport || "Not specified",
-        notes: notes || "None",
-        submittedAt: new Date().toISOString(),
-      });
+      await appendBooking(bookingRecord);
     } catch (storageError: unknown) {
-      console.error("Failed to persist booking:", storageError);
+      console.error("Failed to persist booking locally:", storageError);
+    }
+
+    // Sync to Google Sheets (production-safe persistence on serverless)
+    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+      try {
+        await appendBookingToSheet(bookingRecord);
+      } catch (sheetError: unknown) {
+        console.error("Failed to sync booking to Google Sheets:", sheetError);
+      }
     }
 
     return NextResponse.json({
