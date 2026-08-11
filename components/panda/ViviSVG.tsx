@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import type { ViviState } from "./hooks/useViviState";
 
 type Props = {
   blinking: boolean;
@@ -10,13 +11,14 @@ type Props = {
   bouncing: boolean;
   walking: boolean;
   hovering: boolean;
+  state: ViviState;
 };
 
 function qs(root: Element | null, sel: string): HTMLElement | SVGElement | null {
   return (root?.querySelector(sel) as HTMLElement | SVGElement | null) ?? null;
 }
 
-export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, walking, hovering }: Props) {
+export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, walking, hovering, state }: Props) {
   const hostRef = useRef<HTMLDivElement>(null);
   const [svgMarkup, setSvgMarkup] = useState("");
 
@@ -56,8 +58,12 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
       tail.style.transformBox = "fill-box";
       tail.style.transformOrigin = "right center";
       tail.style.animation = "";
-      if (waving) {
+      if (thinking) {
+        tail.style.animation = "";
+      } else if (waving) {
         tail.style.animation = "vivi-tail-wave 0.35s ease-in-out 4";
+      } else if (hovering || state === "celebrating") {
+        tail.style.animation = "vivi-tail-happy 0.55s ease-in-out infinite";
       } else if (idle) {
         tail.style.animation = "vivi-tail-idle 2.8s ease-in-out infinite";
       }
@@ -72,7 +78,7 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
       rightPaw.style.transformOrigin = "center bottom";
       rightPaw.style.animation = waving ? "vivi-paw-raise-right 0.35s ease-in-out 4" : "";
     }
-  }, [waving, idle, svgMarkup]);
+  }, [thinking, waving, idle, hovering, state, svgMarkup]);
 
   // Thinking → ear twitch
   useEffect(() => {
@@ -126,23 +132,40 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
     }
   }, [walking, svgMarkup]);
 
-  // Idle breathing
+  // Gentle Breathing - Outer SVG, Body (Chest & Hoodie), and Head rise and fall in natural rhythm
   useEffect(() => {
     const svg = qs(hostRef.current, "svg");
     if (!svg) return;
     svg.style.animation = idle && !walking ? "vivi-idle-breathe 4s ease-in-out infinite" : "";
   }, [idle, walking, svgMarkup]);
 
+  useEffect(() => {
+    const svg = qs(hostRef.current, "svg");
+    const body = qs(svg, "#body");
+    const head = qs(svg, "#head");
+
+    if (body) {
+      body.style.transformBox = "fill-box";
+      body.style.transformOrigin = "center bottom";
+      body.style.animation = !walking ? "vivi-hoodie-breathe 4s ease-in-out infinite" : "";
+    }
+    if (head) {
+      head.style.transformBox = "fill-box";
+      head.style.transformOrigin = "center bottom";
+      head.style.animation = !walking ? "vivi-head-breathe 4s ease-in-out infinite" : "";
+    }
+  }, [walking, svgMarkup]);
+
   // Eye tracking (follows pointer) + idle look-around
   useEffect(() => {
     const svg = qs(hostRef.current, "svg");
     const leftPupil = qs(svg, "#left-eye");
     const rightPupil = qs(svg, "#right-eye");
-    if (!leftPupil || !rightPupil) return;
+    if (!leftPupil || !rightPupil || !svg) return;
     const lp = leftPupil;
     const rp = rightPupil;
 
-    const rect = svg!.getBoundingClientRect();
+    const rect = svg.getBoundingClientRect();
     const vw = rect.width;
     const vh = rect.height;
     if (vw === 0 || vh === 0) return;
@@ -190,6 +213,11 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
       }
     }
 
+    if (thinking) {
+      apply(cxC, cyC - 90);
+      return;
+    }
+
     function onMove(e: PointerEvent) {
       mx = e.clientX; my = e.clientY;
       if (!idle && !rafId) rafId = requestAnimationFrame(() => { rafId = 0; update(); });
@@ -209,14 +237,14 @@ export default function ViviSVG({ blinking, thinking, idle, waving, bouncing, wa
       if (rafId) cancelAnimationFrame(rafId);
       if (lookTimer) clearInterval(lookTimer);
     };
-  }, [idle, svgMarkup]);
+  }, [idle, thinking, svgMarkup]);
 
   if (!svgMarkup) return <div className="w-full h-full" />;
 
   return (
     <div
       ref={hostRef}
-      className={`${waving && !walking ? "animate-vivi-wave" : ""} ${walking ? "animate-vivi-walk-cycle" : ""} w-full h-full`}
+      className={`${waving && !walking ? "animate-vivi-wave" : ""} ${walking ? "animate-vivi-walk-cycle" : ""} ${state === "celebrating" ? "animate-[vivi-celebrate_0.7s_ease-in-out_2]" : ""} w-full h-full`}
       dangerouslySetInnerHTML={{ __html: svgMarkup }}
     />
   );

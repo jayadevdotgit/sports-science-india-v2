@@ -11,6 +11,7 @@ type Props = {
   open: boolean;
   onClose: () => void;
   onThinkingChange?: (thinking: boolean) => void;
+  onHelpComplete?: () => void;
 };
 
 type Message = {
@@ -41,7 +42,7 @@ const sections: Record<string, string> = {
   ecosystem: "ecosystem",
 };
 
-export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
+export default function KiboChat({ open, onClose, onThinkingChange, onHelpComplete }: Props) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -67,10 +68,16 @@ export default function KiboChat({ open, onClose, onThinkingChange }: Props) {
   });
 
   const bottomRef = useRef<HTMLDivElement>(null);
+  const wasLoadingRef = useRef(false);
 
   useEffect(() => {
     onThinkingChange?.(loading);
   }, [loading, onThinkingChange]);
+
+  useEffect(() => {
+    if (wasLoadingRef.current && !loading) onHelpComplete?.();
+    wasLoadingRef.current = loading;
+  }, [loading, onHelpComplete]);
 
   // Save messages to localStorage
   useEffect(() => {

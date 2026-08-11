@@ -22,7 +22,17 @@ export function useBlink() {
         setBlinking(true);
         blinkTimer = setTimeout(() => {
           setBlinking(false);
-          scheduleBlink();
+          if (Math.random() < 0.28) {
+            blinkTimer = setTimeout(() => {
+              setBlinking(true);
+              blinkTimer = setTimeout(() => {
+                setBlinking(false);
+                scheduleBlink();
+              }, BLINK_DURATION);
+            }, 150);
+          } else {
+            scheduleBlink();
+          }
         }, BLINK_DURATION);
       }, delay);
     };

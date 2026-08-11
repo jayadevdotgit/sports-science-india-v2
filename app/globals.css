@@ -110,48 +110,31 @@ html {
 }
 
 @keyframes marquee {
-
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
-
 }
 
 .marquee {
-
   animation: marquee 28s linear infinite;
   width: max-content;
-
 }
 
 .marquee:hover {
-
   animation-play-state: paused;
-
 }
 
 @keyframes pulseLine {
-
-0%{
-opacity:.5;
+  0% { opacity: .5; }
+  50% { opacity: 1; }
+  100% { opacity: .5; }
 }
 
-50%{
-opacity:1;
-}
-
-100%{
-opacity:.5;
-}
-
-}
-
-.animate-pulse-line{
-animation:pulseLine 2.5s ease-in-out infinite;
+.animate-pulse-line {
+  animation: pulseLine 2.5s ease-in-out infinite;
 }
 
 /* ==========================================
@@ -159,13 +142,8 @@ animation:pulseLine 2.5s ease-in-out infinite;
 ========================================== */
 
 @keyframes journeyFlow {
-  0% {
-    transform: translateX(-120%);
-  }
-
-  100% {
-    transform: translateX(120%);
-  }
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
 }
 
 .animate-journey-flow {
@@ -190,7 +168,12 @@ animation:pulseLine 2.5s ease-in-out infinite;
 
 @keyframes vivi-tail-idle {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(6deg); }
+  50% { transform: rotate(3deg); }
+}
+
+@keyframes vivi-tail-happy {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(9deg); }
 }
 
 @keyframes vivi-ears-twitch {
@@ -230,8 +213,8 @@ animation:pulseLine 2.5s ease-in-out infinite;
 }
 
 @keyframes vivi-idle-breathe {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-2px) scale(1.01); }
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-2.5px) scale(1.008, 1.018); }
 }
 
 @keyframes vivi-walk-cycle {
@@ -248,8 +231,33 @@ animation:pulseLine 2.5s ease-in-out infinite;
   75% { transform: translateX(-50%) scale(0.92); }
 }
 
+@keyframes vivi-hoodie-breathe {
+  0%, 100% { transform: translateY(0) scale(1, 1); }
+  50% { transform: translateY(-1.8px) scale(1.012, 1.028); }
+}
+
+@keyframes vivi-head-breathe {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-1.2px); }
+}
+
+@keyframes vivi-glow {
+  0%, 100% { opacity: .2; transform: scale(.96); }
+  50% { opacity: .35; transform: scale(1.06); }
+}
+
+@keyframes vivi-celebrate {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-10px) rotate(-5deg) scale(1.06); }
+  60% { transform: translateY(-4px) rotate(5deg) scale(1.03); }
+}
+
 .animate-vivi-wave {
   animation: kibo-wave 0.35s ease-in-out 4;
+}
+
+.animate-vivi-glow {
+  animation: vivi-glow 4.5s ease-in-out infinite;
 }
 
 .animate-vivi-walk-cycle {

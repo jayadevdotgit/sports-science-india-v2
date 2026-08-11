@@ -1,55 +1,763 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import {
+  Brain,
+  Dumbbell,
+  HeartPulse,
+  Activity,
+  ShieldAlert,
+  GraduationCap,
+  Calendar as CalendarIcon,
+  Clock,
+  Check,
+  CheckCircle2,
+  User,
+  Mail,
+  Phone,
+  Trophy,
+  ChevronRight,
+  ArrowLeft,
+  AlertCircle,
+  Loader2,
+} from "lucide-react";
+
+// Service options matching SSI core offerings
+const AVAILABLE_SERVICES = [
+  {
+    id: "psychology",
+    title: "Sports Psychology",
+    description: "Mental toughness, focus, and performance under pressure.",
+    icon: Brain,
+  },
+  {
+    id: "strength",
+    title: "Strength & Conditioning",
+    description: "Science-based power, speed, agility, and endurance building.",
+    icon: Dumbbell,
+  },
+  {
+    id: "medicine",
+    title: "Sports Medicine",
+    description: "Medical consultation, injury prevention, and pain management.",
+    icon: HeartPulse,
+  },
+  {
+    id: "biomechanics",
+    title: "Biomechanics & Motion",
+    description: "3D movement analysis, technique, and gait optimization.",
+    icon: Activity,
+  },
+  {
+    id: "rehab",
+    title: "Rehabilitation & Recovery",
+    description: "Physiotherapy, ACL rehab, manual therapy, return to play.",
+    icon: ShieldAlert,
+  },
+  {
+    id: "education",
+    title: "Performance Testing & Research",
+    description: "Advanced athlete assessment, VO2 max, and physiological profiling.",
+    icon: GraduationCap,
+  },
+];
+
+// 15-Minute Time Slot Options (10:00 AM to 08:00 PM)
+const TIME_SLOTS = [
+  {
+    group: "Morning (10:00 AM - 12:00 PM)",
+    slots: [
+      "10:00 AM",
+      "10:15 AM",
+      "10:30 AM",
+      "10:45 AM",
+      "11:00 AM",
+      "11:15 AM",
+      "11:30 AM",
+      "11:45 AM",
+    ],
+  },
+  {
+    group: "Afternoon (12:00 PM - 04:00 PM)",
+    slots: [
+      "12:00 PM",
+      "12:15 PM",
+      "12:30 PM",
+      "12:45 PM",
+      "01:00 PM",
+      "01:15 PM",
+      "01:30 PM",
+      "01:45 PM",
+      "02:00 PM",
+      "02:15 PM",
+      "02:30 PM",
+      "02:45 PM",
+      "03:00 PM",
+      "03:15 PM",
+      "03:30 PM",
+      "03:45 PM",
+    ],
+  },
+  {
+    group: "Evening (04:00 PM - 08:00 PM)",
+    slots: [
+      "04:00 PM",
+      "04:15 PM",
+      "04:30 PM",
+      "04:45 PM",
+      "05:00 PM",
+      "05:15 PM",
+      "05:30 PM",
+      "05:45 PM",
+      "06:00 PM",
+      "06:15 PM",
+      "06:30 PM",
+      "06:45 PM",
+      "07:00 PM",
+      "07:15 PM",
+      "07:30 PM",
+      "07:45 PM",
+    ],
+  },
+];
+
+// Format a "YYYY-MM-DD" string without UTC timezone shifting.
+function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-").map(Number);
+  const date = new Date(y, m - 1, d);
+  return date.toLocaleDateString("en-US", opts);
+}
 
 export default function Booking() {
-  const [submitted, setSubmitted] = useState(false);
+  const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
+  const [selectedServices, setSelectedServices] = useState<string[]>([
+    "Biomechanics & Motion",
+  ]);
+  // Date selection
+  const [selectedDate, setSelectedDate] = useState<string>("");
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("10:00 AM");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
+  // Athlete details
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    sport: "Cricket",
+    notes: "",
+  });
+
+  // Submission state
+  const [submitting, setSubmitting] = useState(false);
+  const [submittedData, setSubmittedData] = useState<{
+    bookingCode: string;
+    name: string;
+    email: string;
+    phone: string;
+    services: string[];
+    date: string;
+    timeSlot: string;
+  } | null>(null);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Next 7 available dates calculation (local timezone)
+  const nextDates = useMemo(() => {
+    const dates = [];
+    const today = new Date();
+    const toLocalISO = (d: Date) => {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    };
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(today);
+      d.setDate(today.getDate() + i);
+      const iso = toLocalISO(d);
+      const label = d.toLocaleDateString("en-US", {
+        weekday: "short",
+        month: "short",
+        day: "numeric",
+      });
+      dates.push({ iso, label, isSunday: d.getDay() === 0 });
+    }
+    return dates;
+  }, []);
+
+  // Default date selection to today if empty
+  if (!selectedDate && nextDates.length > 0) {
+    setSelectedDate(nextDates[0].iso);
+  }
+
+  function toggleService(serviceTitle: string) {
+    setSelectedServices((prev) =>
+      prev.includes(serviceTitle)
+        ? prev.length > 1
+          ? prev.filter((s) => s !== serviceTitle)
+          : prev // keep at least 1 selected
+        : [...prev, serviceTitle]
+    );
+  }
+
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+    setErrorMessage("");
+
+    if (!formData.name || !formData.email || !formData.phone) {
+      setErrorMessage("Please complete all contact details (Name, Email, Phone).");
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/booking", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          sport: formData.sport,
+          notes: formData.notes,
+          services: selectedServices,
+          date: selectedDate,
+          timeSlot: selectedTimeSlot,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit booking.");
+      }
+
+      setSubmittedData({
+        bookingCode: data.data?.bookingCode || "",
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        services: selectedServices,
+        date: selectedDate,
+        timeSlot: selectedTimeSlot,
+      });
+      setCurrentStep(4);
+    } catch (err: unknown) {
+      console.error("Booking submission error:", err);
+      setErrorMessage(err instanceof Error ? err.message : "An unexpected error occurred. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  function resetForm() {
+    setSubmittedData(null);
+    setCurrentStep(1);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      sport: "Cricket",
+      notes: "",
+    });
+    setSelectedServices(["Biomechanics & Motion"]);
   }
 
   return (
-    <section id="booking" className="bg-black py-20 text-white">
+    <section id="booking" className="relative overflow-hidden bg-[#050505] py-14 text-white">
+      {/* Glow Backdrops */}
+      <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[150px] pointer-events-none" />
+      <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-amber-500/5 blur-[120px] pointer-events-none" />
+
       <Container>
-
-        <div className="text-center max-w-4xl mx-auto mb-14">
-
+        {/* Section Header */}
+        <div className="mx-auto max-w-3xl text-center">
           <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            Book Assessment
+            BOOK ASSESSMENT
           </p>
 
           <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            Start Your Performance Journey
+            Schedule Your <span className="text-orange-500">Performance</span> Evaluation
           </h2>
 
           <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
 
-          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
-            Tell us a little about your goals and our sports science team will contact you.
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
+            Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email.
           </p>
-
         </div>
 
-        <div className="mx-auto mt-14 max-w-3xl rounded-3xl border border-gray-800 bg-[#111111] p-6 sm:p-10">
-          {submitted ? (
-            <div className="rounded-2xl border border-orange-500/40 bg-orange-500/10 p-8 text-center">
-              <p className="text-2xl font-bold">Assessment request received.</p>
-              <p className="mt-3 text-gray-300">Thank you — our team will be in touch shortly.</p>
-              <Button className="mt-6" onClick={() => setSubmitted(false)}>Submit another request</Button>
+        {/* Booking Card Container */}
+        <div className="mx-auto max-w-4xl rounded-3xl border border-orange-500/20 bg-black/70 backdrop-blur-xl p-6 sm:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.8)]">
+          {/* Step Progress Bar */}
+          {currentStep < 4 && (
+            <div className="mb-10">
+              <div className="flex items-center justify-between gap-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">
+                <span className={currentStep === 1 ? "text-orange-400" : ""}>1. Services</span>
+                <span className={currentStep === 2 ? "text-orange-400" : ""}>2. Timing</span>
+                <span className={currentStep === 3 ? "text-orange-400" : ""}>3. Athlete Info</span>
+              </div>
+              <div className="mt-3 flex h-1.5 w-full overflow-hidden rounded-full bg-gray-800">
+                <div
+                  className="bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-500 ease-out"
+                  style={{
+                    width:
+                      currentStep === 1
+                        ? "33%"
+                        : currentStep === 2
+                        ? "66%"
+                        : "100%",
+                  }}
+                />
+              </div>
             </div>
-          ) : (
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <label className="block"><span className="sr-only">Full Name</span><input required name="name" type="text" placeholder="Full Name" className="w-full rounded-xl border border-gray-700 bg-black p-4 outline-none transition focus:border-orange-500" /></label>
-              <label className="block"><span className="sr-only">Email Address</span><input required name="email" type="email" placeholder="Email Address" className="w-full rounded-xl border border-gray-700 bg-black p-4 outline-none transition focus:border-orange-500" /></label>
-              <label className="block"><span className="sr-only">Phone Number</span><input required name="phone" type="tel" placeholder="Phone Number" className="w-full rounded-xl border border-gray-700 bg-black p-4 outline-none transition focus:border-orange-500" /></label>
-              <label className="block"><span className="sr-only">Sport</span><select required name="sport" defaultValue="" className="w-full rounded-xl border border-gray-700 bg-black p-4 outline-none transition focus:border-orange-500"><option value="" disabled>Select Your Sport</option><option>Cricket</option><option>Football</option><option>Badminton</option><option>Running</option><option>Cycling</option><option>Other</option></select></label>
-              <label className="block"><span className="sr-only">Your goals</span><textarea required name="goals" rows={5} placeholder="Tell us about your goals..." className="w-full rounded-xl border border-gray-700 bg-black p-4 outline-none transition focus:border-orange-500" /></label>
-              <Button type="submit">Request Assessment</Button>
+          )}
+
+          {/* STEP 1: SERVICE SELECTION */}
+          {currentStep === 1 && (
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white">Select Required Services</h3>
+                  <p className="text-sm text-gray-400 mt-1">You can select one or multiple specialized assessments.</p>
+                </div>
+                <span className="rounded-full bg-orange-500/20 text-orange-400 text-xs px-3 py-1 font-semibold border border-orange-500/30">
+                  {selectedServices.length} Selected
+                </span>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {AVAILABLE_SERVICES.map((service) => {
+                  const Icon = service.icon;
+                  const isSelected = selectedServices.includes(service.title);
+
+                  return (
+                    <div
+                      key={service.id}
+                      onClick={() => toggleService(service.title)}
+                      className={`
+                        group relative flex flex-col justify-between rounded-2xl border p-5 cursor-pointer transition-all duration-300
+                        ${
+                          isSelected
+                            ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
+                            : "border-gray-800 bg-[#0e0e12] hover:border-gray-700 hover:bg-[#14141a]"
+                        }
+                      `}
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-3">
+                          <div
+                            className={`flex h-11 w-11 items-center justify-center rounded-xl border transition-all ${
+                              isSelected
+                                ? "border-orange-500/40 bg-orange-500/20 text-orange-400"
+                                : "border-gray-800 bg-gray-900 text-gray-400 group-hover:text-white"
+                            }`}
+                          >
+                            <Icon size={20} />
+                          </div>
+
+                          <div
+                            className={`flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
+                              isSelected
+                                ? "border-orange-500 bg-orange-500 text-black"
+                                : "border-gray-700 bg-gray-900 text-transparent"
+                            }`}
+                          >
+                            <Check size={14} strokeWidth={3} />
+                          </div>
+                        </div>
+
+                        <h4 className="font-bold text-white text-base leading-snug">
+                          {service.title}
+                        </h4>
+                        <p className="text-xs text-gray-400 mt-2 leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-8 flex justify-end">
+                <Button
+                  onClick={() => setCurrentStep(2)}
+                  className="flex items-center gap-2 group"
+                >
+                  <span>Continue to Date & Time</span>
+                  <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* STEP 2: DATE & TIME SELECTION */}
+          {currentStep === 2 && (
+            <div>
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white">Choose Appointment Schedule</h3>
+                  <p className="text-sm text-gray-400 mt-1">Select your preferred date and available time slot.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition"
+                >
+                  <ArrowLeft size={14} /> Back to Services
+                </button>
+              </div>
+
+              {/* Date Selection Pills */}
+              <div className="mb-8">
+                <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <CalendarIcon size={14} className="text-orange-400" />
+                  Select Date
+                </label>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+                  {nextDates.map((dateObj) => {
+                    const isSelected = selectedDate === dateObj.iso;
+                    return (
+                      <button
+                        key={dateObj.iso}
+                        type="button"
+                        onClick={() => setSelectedDate(dateObj.iso)}
+                        className={`
+                          flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all
+                          ${
+                            isSelected
+                              ? "border-orange-500 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.2)]"
+                              : "border-gray-800 bg-[#0e0e12] text-gray-300 hover:border-gray-700 hover:bg-[#14141a]"
+                          }
+                        `}
+                      >
+                        <span className="text-xs font-medium uppercase opacity-80">
+                          {dateObj.label.split(",")[0]}
+                        </span>
+                        <span className="text-sm font-bold mt-1">
+                          {dateObj.label.split(",")[1]}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {/* Custom Date Input Fallback */}
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-xs text-gray-500">Or choose specific date:</span>
+                  <input
+                    type="date"
+                    min={nextDates[0]?.iso}
+                    value={selectedDate}
+                    onChange={(e) => setSelectedDate(e.target.value)}
+                    className="rounded-lg border border-gray-800 bg-[#0e0e12] px-3 py-1.5 text-xs text-white outline-none focus:border-orange-500"
+                  />
+                </div>
+              </div>
+
+              {/* Time Slot Selection */}
+              <div className="mb-8">
+                <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                  <Clock size={14} className="text-orange-400" />
+                  Select Time Slot
+                </label>
+
+                <div className="space-y-4">
+                  {TIME_SLOTS.map((group) => (
+                    <div key={group.group}>
+                      <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">
+                        {group.group}
+                      </h4>
+                      <div className="grid gap-2 grid-cols-2 sm:grid-cols-4">
+                        {group.slots.map((slot) => {
+                          const isSelected = selectedTimeSlot === slot;
+                          return (
+                            <button
+                              key={slot}
+                              type="button"
+                              onClick={() => setSelectedTimeSlot(slot)}
+                              className={`
+                                flex items-center justify-between px-3 py-2.5 rounded-xl border text-xs font-semibold transition-all
+                                ${
+                                  isSelected
+                                    ? "border-orange-500 bg-orange-500/20 text-orange-400 shadow-[0_0_15px_rgba(249,115,22,0.3)]"
+                                    : "border-gray-800 bg-[#0e0e12] text-gray-300 hover:border-gray-700 hover:bg-[#14141a]"
+                                }
+                              `}
+                            >
+                              <span>{slot}</span>
+                              {isSelected && <CheckCircle2 size={14} className="text-orange-500" />}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(1)}
+                  className="text-xs text-gray-400 hover:text-white transition"
+                >
+                  ← Back
+                </button>
+                <Button
+                  onClick={() => setCurrentStep(3)}
+                  className="flex items-center gap-2 group"
+                >
+                  <span>Continue to Athlete Info</span>
+                  <ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* STEP 3: ATHLETE DETAILS & SUBMIT */}
+          {currentStep === 3 && (
+            <form onSubmit={handleSubmit}>
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-xl font-bold text-white">Athlete Details & Confirmation</h3>
+                  <p className="text-sm text-gray-400 mt-1">Provide your contact info to finalize your booking.</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(2)}
+                  className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition"
+                >
+                  <ArrowLeft size={14} /> Back to Schedule
+                </button>
+              </div>
+
+              {errorMessage && (
+                <div className="mb-6 flex items-center gap-3 rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-400">
+                  <AlertCircle size={18} className="shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
+
+              <div className="grid gap-5 sm:grid-cols-2 mb-6">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <User size={14} className="text-orange-400" />
+                    Full Name *
+                  </label>
+                  <input
+                    required
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    placeholder="e.g. Rahul Sharma"
+                    className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <Mail size={14} className="text-orange-400" />
+                    Email Address *
+                  </label>
+                  <input
+                    required
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="rahul@example.com"
+                    className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <Phone size={14} className="text-orange-400" />
+                    Phone Number *
+                  </label>
+                  <input
+                    required
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    placeholder="+91 98765 43210"
+                    className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2 flex items-center gap-2">
+                    <Trophy size={14} className="text-orange-400" />
+                    Primary Sport / Activity
+                  </label>
+                  <select
+                    name="sport"
+                    value={formData.sport}
+                    onChange={handleInputChange}
+                    className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
+                  >
+                    <option value="Cricket">Cricket</option>
+                    <option value="Football">Football</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Tennis">Tennis</option>
+                    <option value="Running">Running / Marathon</option>
+                    <option value="Athletics">Track & Field / Athletics</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="Other">Other Sport / Fitness</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="mb-6">
+                <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">
+                  Goals, Medical History or Specific Concerns
+                </label>
+                <textarea
+                  name="notes"
+                  rows={3}
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  placeholder="Tell us about your performance goals or any past injuries..."
+                  className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
+                />
+              </div>
+
+              {/* Booking Summary Box */}
+              <div className="mb-8 rounded-2xl border border-orange-500/30 bg-orange-500/5 p-5">
+                <h4 className="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3">
+                  Summary Review
+                </h4>
+                <div className="grid gap-2 text-xs text-gray-300 sm:grid-cols-2">
+                  <div>
+                    <span className="text-gray-500">Selected Services:</span>{" "}
+                    <span className="font-semibold text-white">
+                      {selectedServices.join(", ")}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Appointment Date:</span>{" "}
+                    <span className="font-semibold text-white">
+                      {formatDateDisplay(selectedDate, {
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Time Slot:</span>{" "}
+                    <span className="font-semibold text-orange-400">
+                      {selectedTimeSlot}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Location:</span>{" "}
+                    <span className="font-semibold text-white">
+                      Sports Science India Clinic
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <button
+                  type="button"
+                  onClick={() => setCurrentStep(2)}
+                  className="text-xs text-gray-400 hover:text-white transition"
+                >
+                  ← Back
+                </button>
+
+                <Button
+                  type="submit"
+                  disabled={submitting}
+                  className="flex items-center gap-2"
+                >
+                  {submitting ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Processing Booking...</span>
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle2 size={18} />
+                      <span>Confirm & Send Confirmation Email</span>
+                    </>
+                  )}
+                </Button>
+              </div>
             </form>
+          )}
+
+          {/* STEP 4: SUCCESS CONFIRMATION */}
+          {currentStep === 4 && submittedData && (
+            <div className="py-6 text-center">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-orange-500/40 bg-orange-500/20 text-orange-400 mb-6 shadow-[0_0_50px_rgba(249,115,22,0.3)]">
+                <CheckCircle2 size={44} />
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                Booking Request Submitted!
+              </h3>
+
+              <p className="mt-3 text-sm text-gray-300 max-w-lg mx-auto leading-relaxed">
+                Thank you, <strong className="text-white">{submittedData.name}</strong>! A confirmation email has been dispatched to <strong className="text-orange-400">{submittedData.email}</strong>, and our sports science team has received your request.
+              </p>
+
+              <div className="mt-8 mx-auto max-w-md rounded-2xl border border-gray-800 bg-[#0e0e12] p-5 text-left text-xs space-y-2.5">
+                {submittedData.bookingCode && (
+                  <div className="rounded-xl border border-dashed border-orange-500/40 bg-orange-500/10 p-3 text-center mb-2">
+                    <p className="text-gray-400">Your Booking Code</p>
+                    <p className="mt-1 text-lg font-extrabold tracking-widest text-orange-400">
+                      {submittedData.bookingCode}
+                    </p>
+                    <p className="mt-1 text-[10px] text-gray-500">Keep this code for reference.</p>
+                  </div>
+                )}
+                <div className="flex justify-between border-b border-gray-800/80 pb-2">
+                  <span className="text-gray-400">Services:</span>
+                  <span className="font-semibold text-white">{submittedData.services.join(", ")}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-800/80 pb-2">
+                  <span className="text-gray-400">Date:</span>
+                  <span className="font-semibold text-white">
+                    {formatDateDisplay(submittedData.date, {
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </span>
+                </div>
+                <div className="flex justify-between border-b border-gray-800/80 pb-2">
+                  <span className="text-gray-400">Time Slot:</span>
+                  <span className="font-semibold text-orange-400">{submittedData.timeSlot}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">Phone:</span>
+                  <span className="font-semibold text-white">{submittedData.phone}</span>
+                </div>
+              </div>
+
+              <div className="mt-8 flex justify-center gap-4">
+                <Button onClick={resetForm} variant="outline" className="text-xs">
+                  Book Another Session
+                </Button>
+              </div>
+            </div>
           )}
         </div>
       </Container>

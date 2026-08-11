@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const IDLE_DELAY = 7000;
+const IDLE_DELAY = 20000;
 
 export function useIdle() {
   const [idle, setIdle] = useState(true);

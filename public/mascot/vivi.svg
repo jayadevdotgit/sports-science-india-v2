@@ -88,15 +88,15 @@
   </g>
 
   <g id="eyes">
-    <circle cx="138" cy="148" r="20" fill="#111111"/>
-    <circle cx="222" cy="148" r="20" fill="#111111"/>
+    <circle cx="138" cy="148" r="22" fill="#111111"/>
+    <circle cx="222" cy="148" r="22" fill="#111111"/>
     <g id="left-eye">
-      <circle cx="138" cy="148" r="19" fill="#111111"/>
-      <circle cx="133" cy="142" r="5" fill="#FFFFFF"/>
+      <circle cx="138" cy="148" r="21" fill="#111111"/>
+      <circle cx="132" cy="141" r="6" fill="#FFFFFF"/>
     </g>
     <g id="right-eye">
-      <circle cx="222" cy="148" r="19" fill="#111111"/>
-      <circle cx="217" cy="142" r="5" fill="#FFFFFF"/>
+      <circle cx="222" cy="148" r="21" fill="#111111"/>
+      <circle cx="216" cy="141" r="6" fill="#FFFFFF"/>
     </g>
     <g id="eyelids" fill="#FFFFFF" opacity="0">
       <circle cx="138" cy="148" r="21"/>

@@ -8,6 +8,7 @@ import { useKibo } from "./hooks/useKibo";
 import { useBlink } from "./hooks/useBlink";
 import { useIdle } from "./hooks/useIdle";
 import { useWave } from "./hooks/useWave";
+import { useViviState } from "./hooks/useViviState";
 
 const MASCOT_SIZE = 96;
 
@@ -22,10 +23,19 @@ export default function Kibo() {
   const [hovering, setHovering] = useState(false);
   const [walking, setWalking] = useState(false);
   const [interactionWave, setInteractionWave] = useState(false);
+  const [celebrating, setCelebrating] = useState(false);
   const blinking = useBlink();
   const welcomeWave = useWave();
   const waving = welcomeWave || interactionWave;
   const { idle, markActive } = useIdle();
+  const characterState = useViviState({
+    idle,
+    hovering,
+    thinking,
+    celebrating,
+    walking,
+    waving,
+  });
 
   const elRef = useRef<HTMLDivElement>(null);
   const posRef = useRef({ x: position?.x ?? 0, y: position?.y ?? 0 });
@@ -179,8 +189,8 @@ export default function Kibo() {
           onMouseLeave={() => setHovering(false)}
           style={{
             position: "absolute",
-            right: cssRef.current.right,
-            bottom: cssRef.current.bottom,
+            right: 12,
+            bottom: 12,
             pointerEvents: "auto",
             touchAction: "none",
             userSelect: "none",
@@ -188,7 +198,7 @@ export default function Kibo() {
           }}
           className="group isolate"
         >
-          <div className={`absolute inset-2 -z-10 rounded-full bg-orange-500/35 blur-xl transition-all duration-1000 group-hover:bg-orange-500/50 ${idle ? "animate-pulse" : ""}`} />
+          <div className="absolute inset-2 -z-10 rounded-full bg-orange-500/25 blur-xl animate-vivi-glow group-hover:bg-orange-500/40" />
 
           <div className={`absolute bottom-0 left-1/2 h-4 w-20 -translate-x-1/2 rounded-full bg-black/30 blur-md ${walking ? "animate-vivi-shadow-walk" : ""}`} />
 
@@ -203,6 +213,7 @@ export default function Kibo() {
             bouncing={bouncing}
             walking={walking}
             hovering={hovering}
+            state={characterState}
           />
           </div>
         </div>
@@ -212,6 +223,10 @@ export default function Kibo() {
         open={chatOpen}
         onClose={() => setChatOpen(false)}
         onThinkingChange={setThinking}
+        onHelpComplete={() => {
+          setCelebrating(true);
+          setTimeout(() => setCelebrating(false), 1400);
+        }}
       />
     </>
   );

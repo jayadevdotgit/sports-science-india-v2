@@ -27,12 +27,12 @@ export default function Home() {
       <Ecosystem />
       <Services />
       <JourneyTimeline />
+      <Booking />
       <Testimonials />
       <CTASection />
       <Experts />
       <Technology />
 
-      <Booking />
       <Contact />
       <Footer />
     </>

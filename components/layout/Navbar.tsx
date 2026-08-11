@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Lock } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 
@@ -178,6 +179,14 @@ useEffect(() => {
             </Button>
             </div>
 
+            <Link
+              href="/admin"
+              className="flex items-center gap-1.5 font-medium text-gray-300 transition-all duration-300 hover:text-orange-300"
+            >
+              <Lock size={14} />
+              Login
+            </Link>
+
           </div>
 
           {/* Mobile Menu Button */}
@@ -275,6 +284,15 @@ useEffect(() => {
             </Button>
           </div>
           </div>
+
+          <Link
+            href="/admin"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center gap-2 text-xl text-white transition-all duration-300 hover:text-orange-500"
+          >
+            <Lock size={20} />
+            Login
+          </Link>
 
         </div>
 
