@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
 import {
   Stethoscope,
@@ -19,6 +20,7 @@ const services = [
   {
     icon: Stethoscope,
     title: "Sports Medicine",
+    link: "/services/sports-medicine",
     description: "Expert medical care for injury prevention, diagnosis and treatment.",
     image: "/images/services/sports-medicine.png",
     features: [
@@ -31,6 +33,7 @@ const services = [
   {
     icon: Syringe,
     title: "Sports Surgery",
+    link: "/services/sports-surgery",
     description: "Minimally invasive surgery for sports injuries and rapid recovery.",
     image: "/images/services/sports-surgery.png",
     features: [
@@ -43,6 +46,7 @@ const services = [
   {
     icon: Bone,
     title: "Ligament Surgery",
+    link: "/services/ligament-surgery",
     description: "ACL and ligament reconstruction to restore joint stability.",
     image: "/images/services/ligament-surgery.png",
     features: [
@@ -55,6 +59,7 @@ const services = [
   {
     icon: ShieldPlus,
     title: "Joint Preservation",
+    link: "/services/joint-preservation",
     description: "Treatments to delay or avoid joint replacement.",
     image: "/images/services/joint-preservation.png",
     features: [
@@ -67,6 +72,7 @@ const services = [
   {
     icon: Microscope,
     title: "Sports Science",
+    link: "/services/sports-science",
     description: "Data-driven performance analysis and athletic profiling.",
     image: "/images/services/sports-science.png",
     features: [
@@ -79,6 +85,7 @@ const services = [
   {
     icon: Activity,
     title: "Musculoskeletal Rehab",
+    link: "/services/musculoskeletal-rehab",
     description: "Targeted rehab for muscles, joints, and soft tissue.",
     image: "/images/services/musculoskeletal-rehab.png",
     features: [
@@ -91,6 +98,7 @@ const services = [
   {
     icon: HeartPulse,
     title: "Sports Rehabilitation",
+    link: "/services/sports-rehabilitation",
     description: "Structured rehab programs for a safe return to sport.",
     image: "/images/services/sports-rehabilitation.png",
     features: [
@@ -103,6 +111,7 @@ const services = [
   {
     icon: Activity,
     title: "Physiotherapy",
+    link: "/services/physiotherapy",
     description: "Manual therapy and exercise-based recovery.",
     image: "/images/services/physiotherapy.png",
     features: [
@@ -115,6 +124,7 @@ const services = [
   {
     icon: ClipboardCheck,
     title: "Assessments",
+    link: "/services/assessments",
     description: "Comprehensive physical and performance assessments.",
     image: "/images/services/assessments.png",
     features: [
@@ -127,6 +137,7 @@ const services = [
   {
     icon: Dumbbell,
     title: "Strength & Conditioning",
+    link: "/services/strength-conditioning",
     description: "Science-based training programs to build strength, power, speed and endurance.",
     image: "/images/services/strength-conditioning.png",
     features: [
@@ -139,6 +150,7 @@ const services = [
   {
     icon: Trophy,
     title: "Return to Sports",
+    link: "/services/return-to-sports",
     description: "Guided return-to-play planning after injury.",
     image: "/images/services/return-to-sport.png",
     features: [
@@ -151,6 +163,7 @@ const services = [
   {
     icon: HeartPulse,
     title: "Pre & Post Natal Rehab",
+    link: "/services/pre-post-natal-rehab",
     description: "Safe exercise and recovery during and after pregnancy.",
     image: "/images/services/pre-post-natal-rehab.png",
     features: [
@@ -163,6 +176,7 @@ const services = [
   {
     icon: Stethoscope,
     title: "Obstetrics & Gynaecology Consultation",
+    link: "/services/obstetrics-gynaecology-consultation",
     description: "Specialist consultation with Dr. Nisha Kaushik Patnaik.",
     image: "/images/services/obstetrics-gynaecology-consultation.png",
     features: [
@@ -173,6 +187,8 @@ const services = [
     ]
   },
 ];
+
+export const servicesList = services;
 
 export default function Services() {
   return (
@@ -205,7 +221,6 @@ export default function Services() {
             .filter((s) => s.title !== "Obstetrics & Gynaecology Consultation")
             .map((service, index) => {
             const Icon = service.icon;
-
             return (
               <div
                 key={index}
@@ -294,10 +309,13 @@ export default function Services() {
 
                   {/* Learn More */}
                   <div className="pt-3 border-t border-white/5 mt-6">
-                    <span className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer">
+                    <Link
+                      href={service.link}
+                      className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"
+                    >
                       <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className="text-orange-500">More</span>
                       <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                    </span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -354,10 +372,13 @@ export default function Services() {
                     </div>
 
                     <div className="pt-3 border-t border-white/5 mt-6">
-                      <span className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer">
+                      <Link
+                        href={feature.link}
+                        className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"
+                      >
                         <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className="text-orange-500">More</span>
                         <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
-                      </span>
+                      </Link>
                     </div>
                   </div>
                 </div>

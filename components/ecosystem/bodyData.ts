@@ -48,6 +48,7 @@ export const bodyData = [
     description:
       "Develop explosive strength, mobility and athletic performance.",
     icon: "💪",
+    image: "/images/services/strength-conditioning.png",
     features: [
       "Strength Testing",
       "Mobility Screening",
@@ -90,6 +91,7 @@ export const bodyData = [
     description:
       "Medical screening, recovery, injury prevention and athlete monitoring.",
     icon: "❤️",
+    image: "/images/services/sports-medicine.png",
     features: [
       "Medical Screening",
       "Recovery Programs",

@@ -1,6 +1,7 @@
 "use client";
 
 import { bodyData } from "./bodyData";
+import Link from "next/link";
 
 type Props = {
   selected: string;
@@ -98,15 +99,18 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         ))}
       </div>
 
-      <button
+      <Link
+        href={data.link}
         className="
           mt-8
+          block
           w-full
           rounded-xl
           border
           border-orange-500
           bg-orange-500/10
           py-3
+          text-center
           font-semibold
           text-orange-400
           transition-all
@@ -115,7 +119,7 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         "
       >
         Learn More
-      </button>
+      </Link>
     </div>
   );
 }

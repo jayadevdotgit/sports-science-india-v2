@@ -1,4 +1,5 @@
 import { bodyData } from "./bodyData";
+import Link from "next/link";
 
 type Props = {
   selected: string;
@@ -52,9 +53,11 @@ export default function InfoPanel({ selected }: Props) {
 
       </div>
 
-      <button
+      <Link
+        href={info.link}
         className="
           mt-10
+          inline-flex
           rounded-xl
           bg-orange-500
           px-6
@@ -65,7 +68,7 @@ export default function InfoPanel({ selected }: Props) {
         "
       >
         Learn More →
-      </button>
+      </Link>
     </div>
   );
 }
