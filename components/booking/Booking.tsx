@@ -255,7 +255,9 @@ export default function Booking() {
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   // Date selection
   const [selectedDate, setSelectedDate] = useState<string>("");
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("10:00 AM");
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>(
+    DOCTORS[0].eveningOnly ? "04:00 PM" : "10:00 AM"
+  );
 
   // Patient details
   const [formData, setFormData] = useState({
@@ -378,7 +380,9 @@ export default function Booking() {
         ? DOCTORS
         : DOCTORS.filter((doc) => next.some((svc) => doc.services.includes(svc)));
       if (eligible.length > 0 && !eligible.some((d) => d.name === selectedDoctor)) {
-        setSelectedDoctor(eligible[0].name);
+        const newDoc = eligible[0];
+        setSelectedDoctor(newDoc.name);
+        if (newDoc.eveningOnly) setSelectedTimeSlot("04:00 PM");
       }
       return next;
     });
@@ -691,8 +695,9 @@ export default function Booking() {
                 <select
                   value={selectedDoctor}
                   onChange={(e) => {
-                    setSelectedDoctor(e.target.value);
-                    const doc = DOCTORS.find((d) => d.name === e.target.value);
+                    const nextDoctor = e.target.value;
+                    setSelectedDoctor(nextDoctor);
+                    const doc = DOCTORS.find((d) => d.name === nextDoctor);
                     if (doc?.eveningOnly) {
                       setSelectedTimeSlot("04:00 PM");
                     }
