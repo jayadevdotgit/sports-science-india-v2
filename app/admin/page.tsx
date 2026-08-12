@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { LogOut, Download, Loader2, Lock, User, FileSpreadsheet, CalendarClock, Save } from "lucide-react";
 import { DOCTORS, TIME_SLOTS, defaultDoctorConfigs, type DoctorConfig } from "@/lib/booking-config";
+import Navbar from "@/components/layout/Navbar";
 
 type AuthState = "checking" | "authed" | "guest";
 type Tab = "bookings" | "manage";
@@ -192,14 +193,19 @@ export default function AdminPage() {
 
   if (authState === "checking") {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#050505] text-white">
-        <Loader2 size={24} className="animate-spin text-orange-500" />
-      </main>
+      <>
+        <Navbar />
+        <main className="flex min-h-screen items-center justify-center bg-[#050505] pt-32 text-white">
+          <Loader2 size={24} className="animate-spin text-orange-500" />
+        </main>
+      </>
     );
   }
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#050505] p-6 text-white">
+    <>
+      <Navbar />
+      <main className="flex min-h-screen items-center justify-center bg-[#050505] p-6 pt-32 text-white">
       {authState === "guest" ? (
         <div className="w-full max-w-sm rounded-3xl border border-orange-500/20 bg-[#0c0c0e] p-8 shadow-[0_20px_80px_rgba(0,0,0,0.8)]">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-orange-500/40 bg-orange-500/10 text-orange-400">
@@ -432,5 +438,6 @@ export default function AdminPage() {
         </div>
       )}
     </main>
+    </>
   );
 }
