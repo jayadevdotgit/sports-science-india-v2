@@ -369,7 +369,7 @@ export default function Booking() {
                       key={service.id}
                       onClick={() => toggleService(service.title)}
                       className={`
-                        group relative flex flex-col justify-between rounded-2xl border p-3 sm:p-5 cursor-pointer transition-all duration-300
+                        group relative flex flex-col justify-between rounded-xl border p-2.5 sm:p-3 cursor-pointer transition-all duration-300
                         ${
                           isSelected
                             ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
@@ -378,33 +378,33 @@ export default function Booking() {
                       `}
                     >
                       <div>
-                        <div className="flex items-center justify-between mb-2 sm:mb-3">
+                        <div className="flex items-center justify-between mb-1.5">
                           <div
-                            className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
+                            className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
                               isSelected
                                 ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
                                 : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
                             }`}
                           >
-                            <Icon size={16} className="sm:hidden" />
-                            <Icon size={20} className="hidden sm:block" />
+                            <Icon size={15} className="sm:hidden" />
+                            <Icon size={17} className="hidden sm:block" />
                           </div>
 
                           <div
-                            className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border transition-all ${
+                            className={`flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full border transition-all ${
                               isSelected
                                 ? "border-orange-500 bg-orange-500 text-black"
                                 : "border-gray-700 bg-gray-900 text-transparent"
                             }`}
                           >
-                            <Check size={14} strokeWidth={3} />
+                            <Check size={12} strokeWidth={3} />
                           </div>
                         </div>
 
-                        <h4 className="font-bold text-white text-sm sm:text-base leading-snug">
+                        <h4 className="font-bold text-white text-xs sm:text-sm leading-tight">
                           {service.title}
                         </h4>
-                        <p className="hidden sm:block text-xs text-gray-400 mt-2 leading-relaxed">
+                        <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-snug">
                           {service.description}
                         </p>
                       </div>
@@ -424,7 +424,7 @@ export default function Booking() {
                       <div
                         onClick={() => toggleService(feature.title)}
                         className={`
-                          group relative flex flex-col justify-between rounded-2xl border p-3 sm:p-5 cursor-pointer transition-all duration-300
+                          group relative flex flex-col justify-between rounded-xl border p-2.5 sm:p-3 cursor-pointer transition-all duration-300
                           ${
                             isSelected
                               ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
@@ -433,33 +433,33 @@ export default function Booking() {
                         `}
                       >
                         <div>
-                          <div className="flex items-center justify-between mb-2 sm:mb-3">
+                          <div className="flex items-center justify-between mb-1.5">
                             <div
-                              className={`flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
+                              className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
                                 isSelected
                                   ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
                                   : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
                               }`}
                             >
-                              <Icon size={16} className="sm:hidden" />
-                              <Icon size={20} className="hidden sm:block" />
+                              <Icon size={15} className="sm:hidden" />
+                              <Icon size={17} className="hidden sm:block" />
                             </div>
 
                             <div
-                              className={`flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full border transition-all ${
+                              className={`flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full border transition-all ${
                                 isSelected
                                   ? "border-orange-500 bg-orange-500 text-black"
                                   : "border-gray-700 bg-gray-900 text-transparent"
                               }`}
                             >
-                              <Check size={14} strokeWidth={3} />
+                              <Check size={12} strokeWidth={3} />
                             </div>
                           </div>
 
-                          <h4 className="font-bold text-white text-sm sm:text-base leading-snug">
+                          <h4 className="font-bold text-white text-xs sm:text-sm leading-tight">
                             {feature.title}
                           </h4>
-                          <p className="hidden sm:block text-xs text-gray-400 mt-2 leading-relaxed">
+                          <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-snug">
                             {feature.description}
                           </p>
                         </div>
