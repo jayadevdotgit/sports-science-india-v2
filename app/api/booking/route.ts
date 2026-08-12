@@ -1,18 +1,39 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { appendBooking } from "@/lib/bookings";
+import { appendBooking, getAllBookings } from "@/lib/bookings";
 import { appendBookingToSheet } from "@/lib/sheets";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, services, date, timeSlot, sport, notes } = body;
+    const { name, email, phone, services, date, timeSlot, sport, notes, doctor } = body;
 
     // Basic Validation
     if (!name || !email || !phone || !date || !timeSlot) {
       return NextResponse.json(
         { error: "Please fill in all required fields (Name, Email, Phone, Date, Time Slot)." },
         { status: 400 }
+      );
+    }
+
+    // Block Sundays (holiday)
+    const parsedDate = new Date(`${date}T00:00:00`);
+    if (!Number.isNaN(parsedDate.getTime()) && parsedDate.getDay() === 0) {
+      return NextResponse.json(
+        { error: "Sundays are holidays. Please pick another day." },
+        { status: 400 }
+      );
+    }
+
+    // Prevent double-booking the same date + time slot
+    const existing = await getAllBookings();
+    const alreadyBooked = existing.some(
+      (b) => b.date === date && b.timeSlot === timeSlot
+    );
+    if (alreadyBooked) {
+      return NextResponse.json(
+        { error: "Sorry, that time slot has already been booked. Please choose another." },
+        { status: 409 }
       );
     }
 
@@ -43,6 +64,7 @@ export async function POST(req: Request) {
     console.log("=== NEW BOOKING ASSESSMENT SUBMISSION ===");
     console.log({
       bookingCode,
+      doctor: doctor || "Not specified",
       name,
       email,
       phone,
@@ -82,6 +104,7 @@ export async function POST(req: Request) {
             <div style="background-color: #16161c; padding: 20px; border-radius: 8px; border-left: 4px solid #ff6b17; margin-bottom: 20px;">
               <h3 style="margin-top: 0; color: #ffffff; font-size: 16px;">Appointment Details</h3>
               <p style="margin: 6px 0; color: #d0d0e0; font-size: 14px;"><strong>Booking Code:</strong> <span style="color: #ff8c38; font-weight: 700;">${bookingCode}</span></p>
+              <p style="margin: 6px 0; color: #d0d0e0; font-size: 14px;"><strong>Doctor:</strong> ${doctor || "Not specified"}</p>
               <p style="margin: 6px 0; color: #d0d0e0; font-size: 14px;"><strong>Date:</strong> ${formattedDate}</p>
               <p style="margin: 6px 0; color: #d0d0e0; font-size: 14px;"><strong>Time Slot:</strong> ${timeSlot}</p>
               <p style="margin: 6px 0; color: #d0d0e0; font-size: 14px;"><strong>Requested Services:</strong> <span style="color: #ff8c38; font-weight: 600;">${selectedServicesText}</span></p>
@@ -137,6 +160,10 @@ export async function POST(req: Request) {
                   <td style="padding: 8px 0; font-weight: 600; color: #ffffff;">${formattedDate}</td>
                 </tr>
                 <tr>
+                  <td style="padding: 8px 0; color: #71717a;">Doctor:</td>
+                  <td style="padding: 8px 0; font-weight: 600; color: #ffffff;">${doctor || "Not specified"}</td>
+                </tr>
+                <tr>
                   <td style="padding: 8px 0; color: #71717a;">Time Slot:</td>
                   <td style="padding: 8px 0; font-weight: 600; color: #ff6b17;">${timeSlot}</td>
                 </tr>
@@ -182,6 +209,7 @@ export async function POST(req: Request) {
     // Persist booking for admin Excel export
     const bookingRecord = {
       bookingCode,
+      doctor: doctor || "Not specified",
       name,
       email,
       phone,

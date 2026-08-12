@@ -77,6 +77,18 @@ const services = [
     ]
   },
   {
+    icon: Activity,
+    title: "Musculoskeletal Rehab",
+    description: "Targeted rehab for muscles, joints, and soft tissue.",
+    image: "/images/services/physiotherapy.png",
+    features: [
+      "Muscle & Joint Rehab",
+      "Soft Tissue Therapy",
+      "Posture Correction",
+      "Pain Management"
+    ]
+  },
+  {
     icon: HeartPulse,
     title: "Sports Rehabilitation",
     description: "Structured rehab programs for a safe return to sport.",
@@ -134,6 +146,30 @@ const services = [
       "Milestone Testing",
       "Injury Recurrence Prevention",
       "Confidence Rebuild"
+    ]
+  },
+  {
+    icon: HeartPulse,
+    title: "Pre & Post Natal Rehab",
+    description: "Safe exercise and recovery during and after pregnancy.",
+    image: "/images/services/sports-rehabilitation.png",
+    features: [
+      "Antenatal Care",
+      "Postnatal Recovery",
+      "Core & Pelvic Health",
+      "Safe Exercise Plans"
+    ]
+  },
+  {
+    icon: Stethoscope,
+    title: "Obstetrics & Gynaecology Consultation",
+    description: "Specialist consultation with Dr. Nisha Kaushik Patnaik.",
+    image: "/images/services/sports-medicine.png",
+    features: [
+      "Gynaecology Care",
+      "Pregnancy Consultation",
+      "Women's Health",
+      "Expert Guidance"
     ]
   }
 ];

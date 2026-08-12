@@ -89,8 +89,8 @@ export default function CTASection() {
     {/* Buttons */}
     <div className="mt-6 flex flex-nowrap gap-2 sm:gap-4">
 
-      <a
-        href="#booking"
+      <Link
+        href="/booking"
         className="flex min-w-0 flex-1 sm:flex-none"
       >
         <Button
@@ -101,7 +101,7 @@ export default function CTASection() {
           <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
           Book Assessment
         </Button>
-      </a>
+      </Link>
 
       <Link
         href="/experts"

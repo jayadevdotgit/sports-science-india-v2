@@ -3,6 +3,7 @@ import path from "path";
 
 export type BookingRecord = {
   bookingCode: string;
+  doctor?: string;
   name: string;
   email: string;
   phone: string;
@@ -32,4 +33,19 @@ export async function appendBooking(record: BookingRecord): Promise<void> {
   bookings.push(record);
   await fs.mkdir(STORE_DIR, { recursive: true });
   await fs.writeFile(STORE_FILE, JSON.stringify(bookings, null, 2), "utf-8");
+}
+
+/**
+ * Reads bookings preferring Google Sheets (production-safe) with a local JSON fallback.
+ */
+export async function getAllBookings(): Promise<BookingRecord[]> {
+  if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
+    try {
+      const { fetchBookingsFromSheet } = await import("@/lib/sheets");
+      return await fetchBookingsFromSheet();
+    } catch (error: unknown) {
+      console.error("Sheets read failed, falling back to local store:", error);
+    }
+  }
+  return readBookings();
 }

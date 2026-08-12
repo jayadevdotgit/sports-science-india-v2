@@ -88,7 +88,7 @@ export default function Contact() {
                   </p>
 
                   <p className="text-gray-400">
-                    +91 7847922850
+                    +91 8280381010
                   </p>
 
                 </div>

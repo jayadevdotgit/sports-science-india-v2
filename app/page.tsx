@@ -6,7 +6,6 @@ import Services from "@/components/services/services";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
 import CTASection from "@/components/cta/CTASection";
-import Booking from "@/components/booking/Booking";
 import Footer from "@/components/footer/Footer";
 
 
@@ -21,7 +20,6 @@ export default function Home() {
       <Services />
       <JourneyTimeline />
       <CTASection />
-      <Booking />
       <Testimonials />
 
       <Footer />

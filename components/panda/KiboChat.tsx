@@ -96,6 +96,10 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
   }, [open]);
 
   const navigateToSection = useCallback((sectionId: string) => {
+    if (sectionId === "booking") {
+      window.location.href = "/booking";
+      return;
+    }
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 

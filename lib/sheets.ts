@@ -32,6 +32,7 @@ export async function fetchBookingsFromSheet(): Promise<BookingRecord[]> {
 
   const keyMap: Record<string, keyof BookingRecord> = {
     "Booking Code": "bookingCode",
+    Doctor: "doctor",
     Name: "name",
     Email: "email",
     Phone: "phone",

@@ -36,7 +36,12 @@ export default function Navbar() {
   const handleNavigation = (target: string) => {
     setMenuOpen(false);
 
-    if (target === "experts" || target === "contact" || target === "technology") {
+    if (
+      target === "experts" ||
+      target === "contact" ||
+      target === "technology" ||
+      target === "booking"
+    ) {
       const route = `/${target}`;
       if (pathname !== route) router.push(route);
       return;

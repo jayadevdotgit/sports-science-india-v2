@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import ExcelJS from "exceljs";
-import { readBookings } from "@/lib/bookings";
-import { fetchBookingsFromSheet } from "@/lib/sheets";
+import { getAllBookings } from "@/lib/bookings";
 import { verifySessionToken, SESSION_COOKIE } from "@/lib/auth";
 
 export const dynamic = "force-dynamic";
@@ -17,18 +16,7 @@ export async function GET() {
   }
 
   try {
-    // Prefer Google Sheets (persists on serverless); fall back to local JSON.
-    let bookings;
-    if (process.env.GOOGLE_SHEETS_WEBHOOK_URL) {
-      try {
-        bookings = await fetchBookingsFromSheet();
-      } catch (sheetError: unknown) {
-        console.error("Sheets read failed, falling back to local store:", sheetError);
-        bookings = await readBookings();
-      }
-    } else {
-      bookings = await readBookings();
-    }
+    const bookings = await getAllBookings();
 
     const workbook = new ExcelJS.Workbook();
     workbook.creator = "Sports Science India";
@@ -38,6 +26,7 @@ export async function GET() {
 
     sheet.columns = [
       { header: "Booking Code", key: "bookingCode", width: 18 },
+      { header: "Doctor", key: "doctor", width: 24 },
       { header: "Name", key: "name", width: 22 },
       { header: "Email", key: "email", width: 30 },
       { header: "Phone", key: "phone", width: 18 },
@@ -61,6 +50,7 @@ export async function GET() {
     bookings.forEach((b) => {
       sheet.addRow({
         bookingCode: b.bookingCode,
+        doctor: b.doctor || "",
         name: b.name,
         email: b.email,
         phone: b.phone,
@@ -75,7 +65,7 @@ export async function GET() {
       });
     });
 
-    sheet.autoFilter = { from: "A1", to: "J1" };
+    sheet.autoFilter = { from: "A1", to: "K1" };
 
     const buffer = await workbook.xlsx.writeBuffer();
 

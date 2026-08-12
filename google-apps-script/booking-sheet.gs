@@ -13,7 +13,7 @@
  *      (and in Vercel env vars).
  *
  * NOTE: The sheet must have a "Bookings" tab. Headers:
- * Booking Code | Name | Email | Phone | Services | Date | Time Slot | Sport | Notes | Submitted At
+ * Booking Code | Doctor | Name | Email | Phone | Services | Date | Time Slot | Sport | Notes | Submitted At
  */
 
 const SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
@@ -32,6 +32,7 @@ function ensureHeaders_() {
   if (sheet.getLastRow() === 0) {
     sheet.appendRow([
       "Booking Code",
+      "Doctor",
       "Name",
       "Email",
       "Phone",
@@ -55,6 +56,7 @@ function doPost(e) {
     const sheet = ensureHeaders_();
     sheet.appendRow([
       payload.bookingCode || "",
+      payload.doctor || "",
       payload.name || "",
       payload.email || "",
       payload.phone || "",

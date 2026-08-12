@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import Link from "next/link";
 import {
   ClipboardCheck,
   Activity,
@@ -157,9 +158,11 @@ export default function JourneyTimeline() {
 
         </p>
 
-        <Button variant="primary" size="lg">
-        Begin Your Assessment →
-        </Button>
+        <Link href="/booking">
+          <Button variant="primary" size="lg">
+          Begin Your Assessment →
+          </Button>
+        </Link>
 
         </div>
 

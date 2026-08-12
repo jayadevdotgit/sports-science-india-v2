@@ -1,6 +1,7 @@
 "use client";
 
 import Button from "@/components/ui/Button";
+import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 
 type Props = {
@@ -16,8 +17,14 @@ export default function ScrollButton({
   className = "",
   children,
 }: Props) {
+  const router = useRouter();
+
   function handleClick(e: React.MouseEvent) {
     e.preventDefault();
+    if (target === "booking") {
+      router.push("/booking");
+      return;
+    }
     const el = document.getElementById(target);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });

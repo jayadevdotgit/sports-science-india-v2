@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import {
@@ -60,6 +60,12 @@ const AVAILABLE_SERVICES = [
     icon: Microscope,
   },
   {
+    id: "musculoskeletal-rehab",
+    title: "Musculoskeletal Rehab",
+    description: "Targeted rehab for muscles, joints, and soft tissue.",
+    icon: Activity,
+  },
+  {
     id: "sports-rehabilitation",
     title: "Sports Rehabilitation",
     description: "Structured rehab programs for a safe return to sport.",
@@ -88,6 +94,20 @@ const AVAILABLE_SERVICES = [
     title: "Return to Sports",
     description: "Guided return-to-play planning after injury.",
     icon: Trophy,
+  },
+  {
+    id: "pre-post-natal",
+    title: "Pre & Post Natal Rehab",
+    description: "Safe exercise and recovery during and after pregnancy.",
+    icon: HeartPulse,
+    requiresNisha: true,
+  },
+  {
+    id: "obgyn",
+    title: "Obstetrics & Gynaecology Consultation",
+    description: "Available with Dr. Nisha Kaushik Patnaik.",
+    icon: Stethoscope,
+    requiresNisha: true,
   },
 ];
 
@@ -150,6 +170,78 @@ const TIME_SLOTS = [
   },
 ];
 
+// Doctors available for booking; eveningOnly doctors can only take 4 PM+ slots.
+// services lists which booking services each doctor handles.
+const DOCTORS = [
+  {
+    name: "Dr. Sarthak Patnaik",
+    eveningOnly: true,
+    services: [
+      "Sports Medicine",
+      "Sports Surgery",
+      "Ligament Surgery",
+      "Joint Preservation",
+    ],
+  },
+  {
+    name: "Dr. Nisha Kaushik Patnaik",
+    eveningOnly: true,
+    services: ["Pre & Post Natal Rehab", "Obstetrics & Gynaecology Consultation"],
+  },
+  {
+    name: "Dr. Dibyaprakash Kar",
+    eveningOnly: false,
+    services: [
+      "Sports Science",
+      "Musculoskeletal Rehab",
+      "Sports Rehabilitation",
+      "Physiotherapy",
+      "Assessments",
+      "Strength & Conditioning",
+      "Return to Sports",
+    ],
+  },
+  {
+    name: "Dr. Gayatri Upasana Acharya",
+    eveningOnly: false,
+    services: [
+      "Sports Science",
+      "Musculoskeletal Rehab",
+      "Sports Rehabilitation",
+      "Physiotherapy",
+      "Assessments",
+      "Strength & Conditioning",
+      "Return to Sports",
+    ],
+  },
+  {
+    name: "Dr. Pooja Mehta",
+    eveningOnly: false,
+    services: [
+      "Sports Science",
+      "Musculoskeletal Rehab",
+      "Sports Rehabilitation",
+      "Physiotherapy",
+      "Assessments",
+      "Strength & Conditioning",
+      "Return to Sports",
+    ],
+  },
+  {
+    name: "Dr. Dawa Sherpa",
+    eveningOnly: false,
+    services: [
+      "Sports Science",
+      "Musculoskeletal Rehab",
+      "Sports Rehabilitation",
+      "Physiotherapy",
+      "Assessments",
+      "Strength & Conditioning",
+      "Return to Sports",
+    ],
+  },
+];
+
 // Format a "YYYY-MM-DD" string without UTC timezone shifting.
 function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
   if (!iso) return "";
@@ -174,10 +266,34 @@ export default function Booking() {
     notes: "",
   });
 
+  // Selected doctor for the appointment
+  const [selectedDoctor, setSelectedDoctor] = useState<string>(DOCTORS[0].name);
+
+  // Doctors who can handle at least one selected service (any doctor if none selected)
+  const eligibleDoctors = useMemo(() => {
+    if (selectedServices.length === 0) return DOCTORS;
+    return DOCTORS.filter((doc) =>
+      selectedServices.some((svc) => doc.services.includes(svc))
+    );
+  }, [selectedServices]);
+
+  const currentDoctor =
+    DOCTORS.find((d) => d.name === selectedDoctor) ?? DOCTORS[0];
+
+  // Evening-only doctors can only take 4 PM+ slots
+  const availableTimeSlots = useMemo(
+    () =>
+      currentDoctor.eveningOnly
+        ? TIME_SLOTS.filter((g) => g.group.startsWith("Evening"))
+        : TIME_SLOTS,
+    [currentDoctor]
+  );
+
   // Submission state
   const [submitting, setSubmitting] = useState(false);
   const [submittedData, setSubmittedData] = useState<{
     bookingCode: string;
+    doctor: string;
     name: string;
     email: string;
     phone: string;
@@ -211,19 +327,59 @@ export default function Booking() {
     return dates;
   }, []);
 
-  // Default date selection to today if empty
-  if (!selectedDate && nextDates.length > 0) {
-    setSelectedDate(nextDates[0].iso);
+  // Exclude Sundays (holiday)
+  const availableDates = useMemo(
+    () => nextDates.filter((d) => !d.isSunday),
+    [nextDates]
+  );
+
+  // Already-booked slots: { date, timeSlot } pairs
+  const [bookedSlots, setBookedSlots] = useState<{ date: string; timeSlot: string }[]>([]);
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/bookings/slots")
+      .then((r) => r.json())
+      .then((data) => {
+        if (active && Array.isArray(data?.slots)) setBookedSlots(data.slots);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const isSlotBooked = (slot: string) =>
+    bookedSlots.some((b) => b.date === selectedDate && b.timeSlot === slot);
+
+  // O&G and Pre/Post Natal services require Dr. Nisha
+  const nishaOnlySelected =
+    selectedServices.includes("Obstetrics & Gynaecology Consultation") ||
+    selectedServices.includes("Pre & Post Natal Rehab");
+  const ogDoctorMismatch = nishaOnlySelected && !selectedDoctor.includes("Nisha");
+
+  // Default date selection to the first available (non-Sunday) date
+  if (!selectedDate && availableDates.length > 0) {
+    setSelectedDate(availableDates[0].iso);
   }
 
   function toggleService(serviceTitle: string) {
-    setSelectedServices((prev) =>
-      prev.includes(serviceTitle)
+    setSelectedServices((prev) => {
+      const next = prev.includes(serviceTitle)
         ? prev.length > 1
           ? prev.filter((s) => s !== serviceTitle)
           : prev // keep at least 1 selected
-        : [...prev, serviceTitle]
-    );
+        : [...prev, serviceTitle];
+
+      // If the currently selected doctor can't handle any of the new set, switch to the first eligible one
+      const eligible = next.length === 0
+        ? DOCTORS
+        : DOCTORS.filter((doc) => next.some((svc) => doc.services.includes(svc)));
+      if (eligible.length > 0 && !eligible.some((d) => d.name === selectedDoctor)) {
+        setSelectedDoctor(eligible[0].name);
+      }
+      return next;
+    });
   }
 
   function handleInputChange(
@@ -238,6 +394,16 @@ export default function Booking() {
 
     if (!formData.name || !formData.email || !formData.phone) {
       setErrorMessage("Please complete all contact details (Name, Email, Phone).");
+      return;
+    }
+
+    if (ogDoctorMismatch) {
+      setErrorMessage("Pre & Post Natal Rehab and Obstetrics & Gynaecology Consultation are only available with Dr. Nisha Kaushik Patnaik.");
+      return;
+    }
+
+    if (isSlotBooked(selectedTimeSlot)) {
+      setErrorMessage("Sorry, that time slot has already been booked. Please choose another.");
       return;
     }
 
@@ -256,6 +422,7 @@ export default function Booking() {
           services: selectedServices,
           date: selectedDate,
           timeSlot: selectedTimeSlot,
+          doctor: selectedDoctor,
         }),
       });
 
@@ -267,6 +434,7 @@ export default function Booking() {
 
       setSubmittedData({
         bookingCode: data.data?.bookingCode || "",
+        doctor: selectedDoctor,
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -294,6 +462,7 @@ export default function Booking() {
       notes: "",
     });
     setSelectedServices([]);
+    setSelectedDoctor(DOCTORS[0].name);
   }
 
   return (
@@ -360,7 +529,7 @@ export default function Booking() {
               </div>
 
               <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-3">
-                {AVAILABLE_SERVICES.filter((s) => s.title !== "Return to Sports").map((service) => {
+                {AVAILABLE_SERVICES.filter((s) => s.title !== "Obstetrics & Gynaecology Consultation").map((service) => {
                   const Icon = service.icon;
                   const isSelected = selectedServices.includes(service.title);
 
@@ -404,6 +573,11 @@ export default function Booking() {
                         <h4 className="font-bold text-white text-xs sm:text-sm leading-tight">
                           {service.title}
                         </h4>
+                        {service.requiresNisha && (
+                          <span className="mt-1 inline-block rounded-full border border-pink-400/30 bg-pink-500/10 px-1.5 py-0.5 text-[9px] font-semibold text-pink-300 sm:text-[10px]">
+                            Dr. Nisha only
+                          </span>
+                        )}
                         <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-snug">
                           {service.description}
                         </p>
@@ -412,9 +586,9 @@ export default function Booking() {
                   );
                 })}
 
-                {/* Return to Sports featured card (centered in the last row) */}
+                {/* Obstetrics & Gynaecology featured card (centered in the last row) */}
                 {(() => {
-                  const feature = AVAILABLE_SERVICES.find((s) => s.title === "Return to Sports");
+                  const feature = AVAILABLE_SERVICES.find((s) => s.title === "Obstetrics & Gynaecology Consultation");
                   if (!feature) return null;
                   const Icon = feature.icon;
                   const isSelected = selectedServices.includes(feature.title);
@@ -459,6 +633,9 @@ export default function Booking() {
                           <h4 className="font-bold text-white text-xs sm:text-sm leading-tight">
                             {feature.title}
                           </h4>
+                          <span className="mt-1 inline-block rounded-full border border-pink-400/30 bg-pink-500/10 px-1.5 py-0.5 text-[9px] font-semibold text-pink-300 sm:text-[10px]">
+                            Dr. Nisha only
+                          </span>
                           <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-snug">
                             {feature.description}
                           </p>
@@ -499,6 +676,53 @@ export default function Booking() {
                 </button>
               </div>
 
+              {/* Select Doctor */}
+              <div className="mb-8">
+                <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex">
+                  <span className="flex items-center gap-2">
+                    <User size={14} className="text-orange-400" />
+                    Select Doctor
+                  </span>
+                </label>
+
+                <select
+                  value={selectedDoctor}
+                  onChange={(e) => {
+                    setSelectedDoctor(e.target.value);
+                    const doc = DOCTORS.find((d) => d.name === e.target.value);
+                    if (doc?.eveningOnly) {
+                      setSelectedTimeSlot("04:00 PM");
+                    }
+                  }}
+                  className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500 disabled:opacity-50"
+                  disabled={eligibleDoctors.length === 0}
+                >
+                  {eligibleDoctors.map((doc) => (
+                    <option key={doc.name} value={doc.name}>
+                      {doc.name}
+                    </option>
+                  ))}
+                </select>
+                {eligibleDoctors.length === 0 ? (
+                  <p className="mt-2 text-[11px] text-red-400">
+                    No doctor is available for the selected services. Please adjust your selection.
+                  </p>
+                ) : (
+                  <p className="mt-2 text-[11px] text-gray-500">
+                    {selectedServices.length > 1
+                      ? "Choose the doctor for this appointment from those who handle your selected services."
+                      : currentDoctor.eveningOnly
+                        ? `${currentDoctor.name.split(" ")[1]} is available from 4:00 PM (evening appointments only).`
+                        : "Available all day."}
+                  </p>
+                )}
+                {ogDoctorMismatch && (
+                  <p className="mt-2 text-[11px] text-red-400">
+                    Obstetrics & Gynaecology Consultation is only available with Dr. Nisha Kaushik Patnaik.
+                  </p>
+                )}
+              </div>
+
               {/* Date Selection Dropdown */}
               <div className="mb-8">
                 <label className="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-3 flex items-center gap-2">
@@ -511,19 +735,22 @@ export default function Booking() {
                   onChange={(e) => setSelectedDate(e.target.value)}
                   className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500"
                 >
-                  {nextDates.map((dateObj) => (
+                  {availableDates.map((dateObj) => (
                     <option key={dateObj.iso} value={dateObj.iso}>
                       {dateObj.label}
                     </option>
                   ))}
                 </select>
+                <p className="mt-2 text-[11px] text-gray-500">
+                  Sundays are holidays.
+                </p>
 
                 {/* Custom Date Input Fallback */}
                 <div className="mt-4 flex items-center gap-2">
                   <span className="text-xs text-gray-500">Or choose specific date:</span>
                   <input
                     type="date"
-                    min={nextDates[0]?.iso}
+                    min={availableDates[0]?.iso}
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     className="rounded-lg border border-gray-800 bg-[#0e0e12] px-3 py-1.5 text-xs text-white outline-none focus:border-orange-500"
@@ -543,16 +770,27 @@ export default function Booking() {
                   onChange={(e) => setSelectedTimeSlot(e.target.value)}
                   className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500"
                 >
-                  {TIME_SLOTS.map((group) => (
+                  {availableTimeSlots.map((group) => (
                     <optgroup key={group.group} label={group.group}>
-                      {group.slots.map((slot) => (
-                        <option key={slot} value={slot}>
-                          {slot}
-                        </option>
-                      ))}
+                      {group.slots.map((slot) => {
+                        const booked = isSlotBooked(slot);
+                        return (
+                          <option
+                            key={slot}
+                            value={slot}
+                            disabled={booked}
+                            className={booked ? "text-gray-600 line-through" : ""}
+                          >
+                            {booked ? `${slot} (Booked)` : slot}
+                          </option>
+                        );
+                      })}
                     </optgroup>
                   ))}
                 </select>
+                <p className="mt-2 text-[11px] text-gray-500">
+                  Greyed-out slots are already booked.
+                </p>
               </div>
 
               <div className="mt-8 flex items-center justify-between">
@@ -709,6 +947,12 @@ export default function Booking() {
                     </span>
                   </div>
                   <div>
+                    <span className="text-gray-500">Doctor:</span>{" "}
+                    <span className="font-semibold text-white">
+                      {selectedDoctor}
+                    </span>
+                  </div>
+                  <div>
                     <span className="text-gray-500">Time Slot:</span>{" "}
                     <span className="font-semibold text-orange-400">
                       {selectedTimeSlot}
@@ -792,6 +1036,10 @@ export default function Booking() {
                       year: "numeric",
                     })}
                   </span>
+                </div>
+                <div className="flex justify-between border-b border-gray-800/80 pb-2">
+                  <span className="text-gray-400">Doctor:</span>
+                  <span className="font-semibold text-white">{submittedData.doctor}</span>
                 </div>
                 <div className="flex justify-between border-b border-gray-800/80 pb-2">
                   <span className="text-gray-400">Time Slot:</span>
