@@ -6,6 +6,7 @@ import { EXPERT_INFO } from "./knowledge/experts";
 import { ECOSYSTEM_INFO } from "./knowledge/ecosystem";
 import { BOOKING_INFO } from "./knowledge/booking";
 import { FAQ_INFO } from "./knowledge/faq";
+import { DESIGNER_INFO } from "./knowledge/jayadev";
 import { SITE_CONTENT_INDEX } from "./knowledge/siteContent";
 
 export const KIBO_SYSTEM_PROMPT = `
@@ -65,6 +66,12 @@ ${ECOSYSTEM_INFO}
 ${BOOKING_INFO}
 
 ${FAQ_INFO}
+
+=========================
+WEBSITE DESIGNER
+=========================
+
+${DESIGNER_INFO}
 
 =========================
 LIVE SITE CONTENT DATA

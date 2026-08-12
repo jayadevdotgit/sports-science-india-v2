@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, Trash2, Calendar, Sparkles, Users, Phone } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -37,12 +38,21 @@ const sections: Record<string, string> = {
   expert: "experts",
   contact: "contact",
   "book assessment": "booking",
+  "book an assessment": "booking",
   booking: "booking",
   schedule: "booking",
   ecosystem: "ecosystem",
 };
 
+const PAGE_ROUTES: Record<string, string> = {
+  booking: "/booking",
+  technology: "/technology",
+  experts: "/experts",
+  contact: "/contact",
+};
+
 export default function KiboChat({ open, onClose, onThinkingChange, onHelpComplete }: Props) {
+  const router = useRouter();
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -96,12 +106,21 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
   }, [open]);
 
   const navigateToSection = useCallback((sectionId: string) => {
-    if (sectionId === "booking") {
-      window.location.href = "/booking";
+    const route = PAGE_ROUTES[sectionId];
+    if (route) {
+      if (window.location.pathname !== route) router.push(route);
+      return;
+    }
+    // Home-page sections (services, ecosystem, etc.)
+    if (window.location.pathname !== "/") {
+      router.push("/");
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 450);
       return;
     }
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, []);
+  }, [router]);
 
   const sendMessage = useCallback(async (text?: string) => {
     const userMessage = text || input;

@@ -32,6 +32,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 border-t border-gray-800 pt-8 text-center text-gray-500">© 2026 Sports Science India. All rights reserved.</div>
+        <p className="mt-3 text-center text-sm text-gray-600">Designed by <span className="font-semibold text-orange-500">Jayadev</span></p>
       </Container>
     </footer>
   );
