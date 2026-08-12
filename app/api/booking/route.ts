@@ -81,7 +81,7 @@ export async function POST(req: Request) {
     const smtpPort = Number(process.env.SMTP_PORT) || 587;
     const smtpUser = process.env.SMTP_USER;
     const smtpPass = process.env.SMTP_PASS;
-    const clinicEmail = process.env.CLINIC_EMAIL || "info@sportsscienceindia.com";
+    const clinicEmail = process.env.CLINIC_EMAIL || "sportsscienceindia.office@gmail.com";
 
     // Format human-readable date (no UTC shifting)
     const [y, m, d] = String(date).split("-").map(Number);
@@ -221,7 +221,7 @@ export async function POST(req: Request) {
             <div style="text-align: center; padding-top: 20px; border-top: 1px solid #27272a;">
               <p style="color: #a1a1aa; font-size: 13px; margin-bottom: 6px;">Need to reschedule or have questions?</p>
               <p style="margin: 0; font-size: 14px; font-weight: 600;">
-                <a href="mailto:info@sportsscienceindia.com" style="color: #ff6b17; text-decoration: none;">info@sportsscienceindia.com</a>
+                <a href="mailto:sportsscienceindia.office@gmail.com" style="color: #ff6b17; text-decoration: none;">sportsscienceindia.office@gmail.com</a>
               </p>
             </div>
           </div>
