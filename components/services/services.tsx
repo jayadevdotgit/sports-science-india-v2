@@ -80,7 +80,7 @@ const services = [
     icon: Activity,
     title: "Musculoskeletal Rehab",
     description: "Targeted rehab for muscles, joints, and soft tissue.",
-    image: "/images/services/physiotherapy.png",
+    image: "/images/services/musculoskeletal-rehab.png",
     features: [
       "Muscle & Joint Rehab",
       "Soft Tissue Therapy",
@@ -152,7 +152,7 @@ const services = [
     icon: HeartPulse,
     title: "Pre & Post Natal Rehab",
     description: "Safe exercise and recovery during and after pregnancy.",
-    image: "/images/services/sports-rehabilitation.png",
+    image: "/images/services/pre-post-natal-rehab.png",
     features: [
       "Antenatal Care",
       "Postnatal Recovery",
@@ -164,14 +164,14 @@ const services = [
     icon: Stethoscope,
     title: "Obstetrics & Gynaecology Consultation",
     description: "Specialist consultation with Dr. Nisha Kaushik Patnaik.",
-    image: "/images/services/sports-medicine.png",
+    image: "/images/services/obstetrics-gynaecology-consultation.png",
     features: [
       "Gynaecology Care",
       "Pregnancy Consultation",
       "Women's Health",
       "Expert Guidance"
     ]
-  }
+  },
 ];
 
 export default function Services() {
@@ -202,7 +202,7 @@ export default function Services() {
 
         <div className="mt-6 sm:mt-10 lg:mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {services
-            .filter((s) => s.title !== "Return to Sports")
+            .filter((s) => s.title !== "Obstetrics & Gynaecology Consultation")
             .map((service, index) => {
             const Icon = service.icon;
 
@@ -304,9 +304,9 @@ export default function Services() {
             );
           })}
 
-          {/* Return to Sports featured card (centered in the last row) */}
+          {/* Obstetrics & Gynaecology Consultation featured card (centered in the last row) */}
           {(() => {
-            const feature = services.find((s) => s.title === "Return to Sports");
+            const feature = services.find((s) => s.title === "Obstetrics & Gynaecology Consultation");
             if (!feature) return null;
             const Icon = feature.icon;
             return (
