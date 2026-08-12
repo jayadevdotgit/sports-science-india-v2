@@ -26,6 +26,7 @@ import {
   AlertCircle,
   Loader2,
 } from "lucide-react";
+import { DOCTORS, TIME_SLOTS, type DoctorConfig } from "@/lib/booking-config";
 
 // Service options matching SSI core offerings
 const AVAILABLE_SERVICES = [
@@ -111,137 +112,6 @@ const AVAILABLE_SERVICES = [
   },
 ];
 
-// 15-Minute Time Slot Options (10:00 AM to 08:00 PM)
-const TIME_SLOTS = [
-  {
-    group: "Morning (10:00 AM - 12:00 PM)",
-    slots: [
-      "10:00 AM",
-      "10:15 AM",
-      "10:30 AM",
-      "10:45 AM",
-      "11:00 AM",
-      "11:15 AM",
-      "11:30 AM",
-      "11:45 AM",
-    ],
-  },
-  {
-    group: "Afternoon (12:00 PM - 04:00 PM)",
-    slots: [
-      "12:00 PM",
-      "12:15 PM",
-      "12:30 PM",
-      "12:45 PM",
-      "01:00 PM",
-      "01:15 PM",
-      "01:30 PM",
-      "01:45 PM",
-      "02:00 PM",
-      "02:15 PM",
-      "02:30 PM",
-      "02:45 PM",
-      "03:00 PM",
-      "03:15 PM",
-      "03:30 PM",
-      "03:45 PM",
-    ],
-  },
-  {
-    group: "Evening (04:00 PM - 08:00 PM)",
-    slots: [
-      "04:00 PM",
-      "04:15 PM",
-      "04:30 PM",
-      "04:45 PM",
-      "05:00 PM",
-      "05:15 PM",
-      "05:30 PM",
-      "05:45 PM",
-      "06:00 PM",
-      "06:15 PM",
-      "06:30 PM",
-      "06:45 PM",
-      "07:00 PM",
-      "07:15 PM",
-      "07:30 PM",
-      "07:45 PM",
-    ],
-  },
-];
-
-// Doctors available for booking; eveningOnly doctors can only take 4 PM+ slots.
-// services lists which booking services each doctor handles.
-const DOCTORS = [
-  {
-    name: "Dr. Sarthak Patnaik",
-    eveningOnly: true,
-    services: [
-      "Sports Medicine",
-      "Sports Surgery",
-      "Ligament Surgery",
-      "Joint Preservation",
-    ],
-  },
-  {
-    name: "Dr. Nisha Kaushik Patnaik",
-    eveningOnly: true,
-    services: ["Pre & Post Natal Rehab", "Obstetrics & Gynaecology Consultation"],
-  },
-  {
-    name: "Dr. Dibyaprakash Kar",
-    eveningOnly: false,
-    services: [
-      "Sports Science",
-      "Musculoskeletal Rehab",
-      "Sports Rehabilitation",
-      "Physiotherapy",
-      "Assessments",
-      "Strength & Conditioning",
-      "Return to Sports",
-    ],
-  },
-  {
-    name: "Dr. Gayatri Upasana Acharya",
-    eveningOnly: false,
-    services: [
-      "Sports Science",
-      "Musculoskeletal Rehab",
-      "Sports Rehabilitation",
-      "Physiotherapy",
-      "Assessments",
-      "Strength & Conditioning",
-      "Return to Sports",
-    ],
-  },
-  {
-    name: "Dr. Pooja Mehta",
-    eveningOnly: false,
-    services: [
-      "Sports Science",
-      "Musculoskeletal Rehab",
-      "Sports Rehabilitation",
-      "Physiotherapy",
-      "Assessments",
-      "Strength & Conditioning",
-      "Return to Sports",
-    ],
-  },
-  {
-    name: "Dr. Dawa Sherpa",
-    eveningOnly: false,
-    services: [
-      "Sports Science",
-      "Musculoskeletal Rehab",
-      "Sports Rehabilitation",
-      "Physiotherapy",
-      "Assessments",
-      "Strength & Conditioning",
-      "Return to Sports",
-    ],
-  },
-];
-
 // Format a "YYYY-MM-DD" string without UTC timezone shifting.
 function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
   if (!iso) return "";
@@ -250,15 +120,22 @@ function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
   return date.toLocaleDateString("en-US", opts);
 }
 
-// Convert a "HH:MM AM/PM" slot into minutes since midnight.
+// Convert a "HH:MM AM/PM" slot into minutes since midnight. Returns NaN for unparseable input.
 function slotToMinutes(slot: string): number {
-  const [time, meridiem] = slot.split(" ");
-  const [hStr, mStr] = time.split(":");
-  let h = Number(hStr);
-  const m = Number(mStr);
+  const match = slot?.match(/^(\d{1,2}):(\d{2})\s*(AM|PM)$/i);
+  if (!match) return NaN;
+  let h = Number(match[1]);
+  const m = Number(match[2]);
+  const meridiem = match[3].toUpperCase();
   if (meridiem === "PM" && h !== 12) h += 12;
   if (meridiem === "AM" && h === 12) h = 0;
   return h * 60 + m;
+}
+
+// Returns slot minutes, or 0 when unparseable (caller treats 0 as "no window").
+function safeSlotMinutes(slot: string | undefined): number {
+  const m = slotToMinutes(slot || "");
+  return Number.isNaN(m) ? 0 : m;
 }
 
 export default function Booking() {
@@ -282,25 +159,80 @@ export default function Booking() {
   // Selected doctor for the appointment
   const [selectedDoctor, setSelectedDoctor] = useState<string>(DOCTORS[0].name);
 
-  // Doctors who can handle at least one selected service (any doctor if none selected)
+  // Doctor availability config from admin (Google Sheet Config tab)
+  const [doctorConfigs, setDoctorConfigs] = useState<Record<string, DoctorConfig>>({});
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/booking/config")
+      .then((r) => r.json())
+      .then((data) => {
+        if (!active) return;
+        const map: Record<string, DoctorConfig> = {};
+        if (Array.isArray(data?.config)) {
+          for (const c of data.config as DoctorConfig[]) {
+            if (c?.name) map[c.name] = c;
+          }
+        }
+        setDoctorConfigs(map);
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const configFor = useCallback(
+    (name: string): DoctorConfig | undefined => doctorConfigs[name],
+    [doctorConfigs]
+  );
+
+  // Doctors who can handle at least one selected service (any doctor if none selected),
+  // limited to those the admin has marked available.
   const eligibleDoctors = useMemo(() => {
-    if (selectedServices.length === 0) return DOCTORS;
-    return DOCTORS.filter((doc) =>
-      selectedServices.some((svc) => doc.services.includes(svc))
-    );
-  }, [selectedServices]);
+    const base =
+      selectedServices.length === 0
+        ? DOCTORS
+        : DOCTORS.filter((doc) =>
+            selectedServices.some((svc) => doc.services.includes(svc))
+          );
+    return base.filter((doc) => configFor(doc.name)?.available !== false);
+  }, [selectedServices, configFor]);
 
   const currentDoctor =
     DOCTORS.find((d) => d.name === selectedDoctor) ?? DOCTORS[0];
 
-  // Evening-only doctors can only take 4 PM+ slots
-  const availableTimeSlots = useMemo(
-    () =>
-      currentDoctor.eveningOnly
-        ? TIME_SLOTS.filter((g) => g.group.startsWith("Evening"))
-        : TIME_SLOTS,
-    [currentDoctor]
-  );
+  // Doctors take slots inside their admin-configured time window (default: full day).
+  const availableTimeSlots = useMemo(() => {
+    const cfg = configFor(currentDoctor.name);
+    const defaultStart = 10 * 60; // 10:00 AM
+    const defaultEnd = 20 * 60; // 08:00 PM
+    let start = cfg?.start ? safeSlotMinutes(cfg.start) : defaultStart;
+    let end = cfg?.end ? safeSlotMinutes(cfg.end) : defaultEnd;
+    // Guard: unparseable or invalid window → full day.
+    if (!start || !end || end <= start) {
+      start = defaultStart;
+      end = defaultEnd;
+    }
+    return TIME_SLOTS.map((group) => ({
+      ...group,
+      slots: group.slots.filter((s) => {
+        const m = slotToMinutes(s);
+        return m >= start && m <= end;
+      }),
+    })).filter((g) => g.slots.length > 0);
+  }, [currentDoctor, configFor]);
+
+  // If the currently selected doctor becomes unavailable, switch to an eligible one.
+  if (configFor(selectedDoctor)?.available === false && eligibleDoctors.length > 0) {
+    const next = eligibleDoctors[0].name;
+    if (next !== selectedDoctor) {
+      const cfg = configFor(next);
+      const start = cfg?.start && !Number.isNaN(slotToMinutes(cfg.start)) ? cfg.start : "";
+      if (start) setSelectedTimeSlot(start);
+      setSelectedDoctor(next);
+    }
+  }
 
   // Submission state
   const [submitting, setSubmitting] = useState(false);
@@ -407,7 +339,10 @@ export default function Booking() {
       if (eligible.length > 0 && !eligible.some((d) => d.name === selectedDoctor)) {
         const newDoc = eligible[0];
         setSelectedDoctor(newDoc.name);
-        if (newDoc.eveningOnly) setSelectedTimeSlot("04:00 PM");
+        const cfg = configFor(newDoc.name);
+        const start = cfg?.start && !Number.isNaN(slotToMinutes(cfg.start)) ? cfg.start : "";
+        if (start) setSelectedTimeSlot(start);
+        else if (newDoc.eveningOnly) setSelectedTimeSlot("04:00 PM");
       }
       return next;
     });
@@ -726,9 +661,10 @@ export default function Booking() {
                     const nextDoctor = e.target.value;
                     setSelectedDoctor(nextDoctor);
                     const doc = DOCTORS.find((d) => d.name === nextDoctor);
-                    if (doc?.eveningOnly) {
-                      setSelectedTimeSlot("04:00 PM");
-                    }
+                    const cfg = configFor(nextDoctor);
+                    const start = cfg?.start && !Number.isNaN(slotToMinutes(cfg.start)) ? cfg.start : "";
+                    if (start) setSelectedTimeSlot(start);
+                    else if (doc?.eveningOnly) setSelectedTimeSlot("04:00 PM");
                   }}
                   className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] px-3 py-3 text-sm text-white outline-none transition focus:border-orange-500 disabled:opacity-50"
                   disabled={eligibleDoctors.length === 0}
@@ -740,16 +676,40 @@ export default function Booking() {
                   ))}
                 </select>
                 {eligibleDoctors.length === 0 ? (
-                  <p className="mt-2 text-[11px] text-red-400">
-                    No doctor is available for the selected services. Please adjust your selection.
-                  </p>
+                  (() => {
+                    // Are there doctors for these services at all, just not marked available today?
+                    const anyMatching =
+                      selectedServices.length === 0
+                        ? DOCTORS.length > 0
+                        : DOCTORS.some((doc) =>
+                            selectedServices.some((svc) => doc.services.includes(svc))
+                          );
+                    return (
+                      <p className="mt-2 text-[11px] text-red-400">
+                        {anyMatching
+                          ? "The doctor for your selected services is not available today. Please pick another date or adjust your selection."
+                          : "No doctor is available for the selected services. Please adjust your selection."}
+                      </p>
+                    );
+                  })()
                 ) : (
                   <p className="mt-2 text-[11px] text-gray-500">
                     {selectedServices.length > 1
                       ? "Choose the doctor for this appointment from those who handle your selected services."
-                      : currentDoctor.eveningOnly
-                        ? `${currentDoctor.name.split(" ")[1]} is available from 4:00 PM (evening appointments only).`
-                        : "Available all day."}
+                      : (() => {
+                          const cfg = configFor(currentDoctor.name);
+                          let start = cfg?.start || (currentDoctor.eveningOnly ? "04:00 PM" : "10:00 AM");
+                          let end = cfg?.end || "08:00 PM";
+                          // Guard: unparseable/invalid window → show all-day fallback.
+                          const sMin = slotToMinutes(start);
+                          const eMin = slotToMinutes(end);
+                          if (Number.isNaN(sMin) || Number.isNaN(eMin) || eMin <= sMin) {
+                            start = "10:00 AM";
+                            end = "08:00 PM";
+                          }
+                          if (start === "10:00 AM" && end === "08:00 PM") return "Available all day.";
+                          return `${currentDoctor.name.split(" ")[1]} is available from ${start} to ${end}.`;
+                        })()}
                   </p>
                 )}
                 {ogDoctorMismatch && (

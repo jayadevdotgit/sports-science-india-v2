@@ -14,11 +14,15 @@
  *
  * NOTE: The sheet must have a "Bookings" tab. Headers:
  * Booking Code | Doctor | Name | Email | Phone | Services | Date | Time Slot | Sport | Notes | Submitted At
+ *
+ * A second "Config" tab holds per-doctor availability. Headers:
+ * Doctor | Available | Start Time | End Time | Updated At
  */
 
 const SHEET_ID = "YOUR_GOOGLE_SHEET_ID_HERE";
 const SHARED_TOKEN = "YOUR_SHARED_SECRET_HERE";
 const SHEET_NAME = "Bookings";
+const CONFIG_SHEET_NAME = "Config";
 
 function authorize_(key) {
   if (key !== SHARED_TOKEN) throw new Error("Unauthorized");
@@ -48,12 +52,49 @@ function ensureHeaders_() {
   return sheet;
 }
 
+function ensureConfigHeaders_() {
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  let sheet = ss.getSheetByName(CONFIG_SHEET_NAME);
+  if (!sheet) {
+    sheet = ss.insertSheet(CONFIG_SHEET_NAME);
+  }
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(["Doctor", "Available", "Start Time", "End Time", "Updated At"]);
+  }
+  return sheet;
+}
+
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
     authorize_(e.parameter.key);
     const payload = JSON.parse(e.postData.contents);
+
+    // Admin config updates
+    if (payload.action === "config") {
+      const doctors = Array.isArray(payload.doctors) ? payload.doctors : [];
+      const sheet = ensureConfigHeaders_();
+      // Store times as text (apostrophe prefix) so Google Sheets doesn't convert them to dates.
+      const rows = doctors.map((doc) => [
+        String(doc.name || ""),
+        doc.available ? "Yes" : "No",
+        "'" + String(doc.start || ""),
+        "'" + String(doc.end || ""),
+        new Date().toISOString(),
+      ]);
+      // Clear existing config rows (keep header) and rewrite
+      const lastRow = sheet.getLastRow();
+      if (lastRow > 1) {
+        sheet.getRange(2, 1, lastRow - 1, sheet.getLastColumn()).clearContent();
+      }
+      if (rows.length > 0) {
+        sheet.getRange(2, 1, rows.length, rows[0].length).setValues(rows);
+      }
+      return jsonOutput_({ ok: true });
+    }
+
+    // Normal booking append
     const sheet = ensureHeaders_();
     sheet.appendRow([
       payload.bookingCode || "",
@@ -88,6 +129,35 @@ function formatDate_(iso) {
 
 function doGet(e) {
   authorize_(e.parameter.key);
+
+  // Config read
+  if (e.parameter.action === "config") {
+    const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(CONFIG_SHEET_NAME);
+    if (!sheet || sheet.getLastRow() === 0) return jsonOutput_({ ok: true, data: [] });
+    const values = sheet.getDataRange().getValues();
+    const headers = values[0];
+    const rows = [];
+    for (let i = 1; i < values.length; i++) {
+      const row = values[i];
+      if (!row[0]) continue; // skip empty rows
+      const obj = {};
+      headers.forEach((h, idx) => {
+        const v = row[idx];
+        let text;
+        // Google Sheets stores "04:00 PM" as a Date or with a text-forcing apostrophe; normalize both.
+        if (v instanceof Date) {
+          text = Utilities.formatDate(v, Session.getScriptTimeZone(), "hh:mm a");
+        } else {
+          text = v != null ? String(v) : "";
+        }
+        obj[h] = text.replace(/^'/, "");
+      });
+      rows.push(obj);
+    }
+    return jsonOutput_({ ok: true, data: rows });
+  }
+
+  // Bookings read
   const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
   if (!sheet) return jsonOutput_({ ok: true, data: [] });
 
