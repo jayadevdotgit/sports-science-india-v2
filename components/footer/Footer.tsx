@@ -1,5 +1,6 @@
 import Container from "@/components/ui/Container";
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 
 const links = [
   ["Home", "/#home"], ["Services", "/#services"], ["About", "/#about"],
@@ -12,7 +13,13 @@ export default function Footer() {
       <Container>
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <h2 className="text-2xl font-bold">Sports Science<span className="text-orange-500"> India</span></h2>
+            <Image
+              src="/images/logo/ssi-logo.png"
+              alt="Sports Science India"
+              width={160}
+              height={60}
+              className="h-14 w-auto object-contain"
+            />
             <p className="mt-6 max-w-md leading-7 text-gray-400">India&apos;s integrated sports science platform for performance assessment, rehabilitation and athlete development.</p>
           </div>
           <div>

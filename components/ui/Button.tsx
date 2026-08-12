@@ -31,6 +31,10 @@ export default function Button({
       className={`
         ${styles[variant]}
         ${sizes[size]}
+        inline-flex
+        items-center
+        justify-center
+        gap-2
         rounded-full
         font-semibold
         transition-all
