@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import {
@@ -336,7 +336,7 @@ export default function Booking() {
   // Already-booked slots: { date, timeSlot } pairs
   const [bookedSlots, setBookedSlots] = useState<{ date: string; timeSlot: string }[]>([]);
 
-  useEffect(() => {
+  const refreshBookedSlots = useCallback(() => {
     let active = true;
     fetch("/api/bookings/slots")
       .then((r) => r.json())
@@ -348,6 +348,8 @@ export default function Booking() {
       active = false;
     };
   }, []);
+
+  useEffect(refreshBookedSlots, [refreshBookedSlots]);
 
   const isSlotBooked = (slot: string) =>
     bookedSlots.some((b) => b.date === selectedDate && b.timeSlot === slot);
@@ -443,6 +445,7 @@ export default function Booking() {
         timeSlot: selectedTimeSlot,
       });
       setCurrentStep(4);
+      refreshBookedSlots();
     } catch (err: unknown) {
       console.error("Booking submission error:", err);
       setErrorMessage(err instanceof Error ? err.message : "An unexpected error occurred. Please try again.");
