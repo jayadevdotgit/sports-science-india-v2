@@ -43,6 +43,14 @@ function sanitizeConfig(config: DoctorConfig[]): DoctorConfig[] {
   });
 }
 
+// Reorder config to match the canonical DOCTORS sequence.
+function sortConfig(config: DoctorConfig[]): DoctorConfig[] {
+  const order = new Map(DOCTORS.map((d, i) => [d.name, i]));
+  return [...config].sort(
+    (a, b) => (order.get(a.name) ?? 999) - (order.get(b.name) ?? 999)
+  );
+}
+
 export default function AdminPage() {
   const [authState, setAuthState] = useState<AuthState>("checking");
   const [username, setUsername] = useState("");
@@ -81,7 +89,7 @@ export default function AdminPage() {
         .then((data) => {
           if (!active) return;
           if (Array.isArray(data?.config) && data.config.length > 0) {
-            setConfig(sanitizeConfig(data.config));
+            setConfig(sortConfig(sanitizeConfig(data.config)));
           } else {
             setConfig(defaultDoctorConfigs());
           }

@@ -89,19 +89,6 @@ export const DOCTORS: DoctorDefaults[] = [
     services: ["Pre & Post Natal Rehab", "Obstetrics & Gynaecology Consultation"],
   },
   {
-    name: "Dr. Dibyaprakash Kar",
-    eveningOnly: false,
-    services: [
-      "Sports Science",
-      "Musculoskeletal Rehab",
-      "Sports Rehabilitation",
-      "Physiotherapy",
-      "Assessments",
-      "Strength & Conditioning",
-      "Return to Sports",
-    ],
-  },
-  {
     name: "Dr. Gayatri Upasana Acharya",
     eveningOnly: false,
     services: [
@@ -115,7 +102,7 @@ export const DOCTORS: DoctorDefaults[] = [
     ],
   },
   {
-    name: "Dr. Pooja Mehta",
+    name: "Dr. Dibyaprakash Kar",
     eveningOnly: false,
     services: [
       "Sports Science",
@@ -129,6 +116,19 @@ export const DOCTORS: DoctorDefaults[] = [
   },
   {
     name: "Dr. Dawa Sherpa",
+    eveningOnly: false,
+    services: [
+      "Sports Science",
+      "Musculoskeletal Rehab",
+      "Sports Rehabilitation",
+      "Physiotherapy",
+      "Assessments",
+      "Strength & Conditioning",
+      "Return to Sports",
+    ],
+  },
+  {
+    name: "Dr. Pooja Mehta",
     eveningOnly: false,
     services: [
       "Sports Science",
