@@ -25,9 +25,10 @@ function authorize_(key) {
 }
 
 function ensureHeaders_() {
-  const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName(SHEET_NAME);
+  const ss = SpreadsheetApp.openById(SHEET_ID);
+  let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
-    return SpreadsheetApp.openById(SHEET_ID).insertSheet(SHEET_NAME);
+    sheet = ss.insertSheet(SHEET_NAME);
   }
   if (sheet.getLastRow() === 0) {
     sheet.appendRow([
@@ -65,13 +66,23 @@ function doPost(e) {
       payload.timeSlot || "",
       payload.sport || "",
       payload.notes || "",
-      payload.submittedAt || new Date().toISOString(),
+      formatDate_(payload.submittedAt),
     ]);
     return jsonOutput_({ ok: true });
   } catch (err) {
     return jsonOutput_({ ok: false, error: String(err) }, 500);
   } finally {
     lock.releaseLock();
+  }
+}
+
+function formatDate_(iso) {
+  try {
+    const d = new Date(iso || new Date().toISOString());
+    if (isNaN(d.getTime())) return iso || "";
+    return Utilities.formatDate(d, Session.getScriptTimeZone(), "dd MMM yyyy, hh:mm a");
+  } catch (err) {
+    return iso || "";
   }
 }
 

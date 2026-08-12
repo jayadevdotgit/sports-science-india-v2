@@ -3,6 +3,17 @@ import nodemailer from "nodemailer";
 import { appendBooking, getAllBookings } from "@/lib/bookings";
 import { appendBookingToSheet } from "@/lib/sheets";
 
+// Convert a "HH:MM AM/PM" slot into minutes since midnight.
+function slotToMinutes(slot: string): number {
+  const [time, meridiem] = slot.split(" ");
+  const [hStr, mStr] = time.split(":");
+  let h = Number(hStr);
+  const m = Number(mStr);
+  if (meridiem === "PM" && h !== 12) h += 12;
+  if (meridiem === "AM" && h === 12) h = 0;
+  return h * 60 + m;
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -23,6 +34,26 @@ export async function POST(req: Request) {
         { error: "Sundays are holidays. Please pick another day." },
         { status: 400 }
       );
+    }
+
+    // Block past dates and past time slots on today's date
+    const now = new Date();
+    const todayISO = now.toLocaleDateString("en-CA");
+    if (parsedDate.getTime() < new Date(`${todayISO}T00:00:00`).getTime()) {
+      return NextResponse.json(
+        { error: "That date has already passed. Please choose a future date." },
+        { status: 400 }
+      );
+    }
+    if (date === todayISO && typeof timeSlot === "string") {
+      const slotMinutes = slotToMinutes(timeSlot);
+      const nowMinutes = now.getHours() * 60 + now.getMinutes();
+      if (slotMinutes <= nowMinutes) {
+        return NextResponse.json(
+          { error: "That time slot has already passed for today. Please choose a later time." },
+          { status: 400 }
+        );
+      }
     }
 
     // Prevent double-booking the same date + time slot

@@ -250,6 +250,17 @@ function formatDateDisplay(iso: string, opts: Intl.DateTimeFormatOptions) {
   return date.toLocaleDateString("en-US", opts);
 }
 
+// Convert a "HH:MM AM/PM" slot into minutes since midnight.
+function slotToMinutes(slot: string): number {
+  const [time, meridiem] = slot.split(" ");
+  const [hStr, mStr] = time.split(":");
+  let h = Number(hStr);
+  const m = Number(mStr);
+  if (meridiem === "PM" && h !== 12) h += 12;
+  if (meridiem === "AM" && h === 12) h = 0;
+  return h * 60 + m;
+}
+
 export default function Booking() {
   const [currentStep, setCurrentStep] = useState<1 | 2 | 3 | 4>(1);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
@@ -356,6 +367,20 @@ export default function Booking() {
   const isSlotBooked = (slot: string) =>
     bookedSlots.some((b) => b.date === selectedDate && b.timeSlot === slot);
 
+  // Slots that have already passed on today's date
+  const isSlotInPast = (slot: string) => {
+    if (!selectedDate) return false;
+    const now = new Date();
+    const toLocalISO = (d: Date) => {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    };
+    if (selectedDate !== toLocalISO(now)) return false;
+    return slotToMinutes(slot) <= now.getHours() * 60 + now.getMinutes();
+  };
+
   // O&G and Pre/Post Natal services require Dr. Nisha
   const nishaOnlySelected =
     selectedServices.includes("Obstetrics & Gynaecology Consultation") ||
@@ -410,6 +435,11 @@ export default function Booking() {
 
     if (isSlotBooked(selectedTimeSlot)) {
       setErrorMessage("Sorry, that time slot has already been booked. Please choose another.");
+      return;
+    }
+
+    if (isSlotInPast(selectedTimeSlot)) {
+      setErrorMessage("Sorry, that time slot has already passed for today. Please choose a later time.");
       return;
     }
 
@@ -601,11 +631,11 @@ export default function Booking() {
                   const isSelected = selectedServices.includes(feature.title);
                   return (
                     <>
-                      <div aria-hidden="true" />
+                      <div aria-hidden="true" className="hidden lg:block" />
                       <div
                         onClick={() => toggleService(feature.title)}
                         className={`
-                          group relative flex flex-col justify-between rounded-xl border p-2.5 sm:p-3 cursor-pointer transition-all duration-300
+                          group relative col-span-2 lg:col-span-1 flex flex-col items-center justify-center rounded-xl border p-2.5 sm:p-3 cursor-pointer transition-all duration-300
                           ${
                             isSelected
                               ? "border-orange-500 bg-orange-500/10 shadow-[0_0_25px_rgba(249,115,22,0.25)]"
@@ -613,42 +643,40 @@ export default function Booking() {
                           }
                         `}
                       >
-                        <div>
-                          <div className="flex items-center justify-between mb-1.5">
-                            <div
-                              className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
-                                isSelected
-                                  ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
-                                  : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
-                              }`}
-                            >
-                              <Icon size={15} className="sm:hidden" />
-                              <Icon size={17} className="hidden sm:block" />
-                            </div>
+                        <div
+                          className={`absolute top-2.5 right-2.5 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full border transition-all ${
+                            isSelected
+                              ? "border-orange-500 bg-orange-500 text-black"
+                              : "border-gray-700 bg-gray-900 text-transparent"
+                          }`}
+                        >
+                          <Check size={12} strokeWidth={3} />
+                        </div>
 
-                            <div
-                              className={`flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center rounded-full border transition-all ${
-                                isSelected
-                                  ? "border-orange-500 bg-orange-500 text-black"
-                                  : "border-gray-700 bg-gray-900 text-transparent"
-                              }`}
-                            >
-                              <Check size={12} strokeWidth={3} />
-                            </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div
+                            className={`flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-lg border transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.35)] ${
+                              isSelected
+                                ? "border-orange-500/40 bg-orange-500/20 text-orange-400 shadow-[0_0_20px_rgba(249,115,22,0.35)]"
+                                : "border-orange-500/20 bg-orange-500/10 text-orange-400 group-hover:scale-110 group-hover:rotate-6"
+                            }`}
+                          >
+                            <Icon size={15} className="sm:hidden" />
+                            <Icon size={17} className="hidden sm:block" />
                           </div>
 
-                          <h4 className="font-bold text-white text-xs sm:text-sm leading-tight">
+                          <h4 className="mt-2 font-bold text-white text-xs sm:text-sm leading-tight">
                             {feature.title}
                           </h4>
-                          <span className="mt-1 inline-block rounded-full border border-pink-400/30 bg-pink-500/10 px-1.5 py-0.5 text-[9px] font-semibold text-pink-300 sm:text-[10px]">
+                          <span className="mt-1.5 inline-block rounded-full border border-pink-400/30 bg-pink-500/10 px-1.5 py-0.5 text-[9px] font-semibold text-pink-300 sm:text-[10px]">
                             Dr. Nisha only
                           </span>
-                          <p className="hidden sm:block text-[11px] text-gray-400 mt-1 leading-snug">
+                          <p className="text-[11px] text-gray-400 mt-1.5 leading-snug">
                             {feature.description}
                           </p>
                         </div>
                       </div>
-                      <div aria-hidden="true" />
+                      <div aria-hidden="true" className="hidden lg:block" />
                     </>
                   );
                 })()}
@@ -782,14 +810,16 @@ export default function Booking() {
                     <optgroup key={group.group} label={group.group}>
                       {group.slots.map((slot) => {
                         const booked = isSlotBooked(slot);
+                        const past = isSlotInPast(slot);
+                        const disabled = booked || past;
                         return (
                           <option
                             key={slot}
                             value={slot}
-                            disabled={booked}
-                            className={booked ? "text-gray-600 line-through" : ""}
+                            disabled={disabled}
+                            className={disabled ? "text-gray-600 line-through" : ""}
                           >
-                            {booked ? `${slot} (Booked)` : slot}
+                            {booked ? `${slot} (Booked)` : past ? `${slot} (Past)` : slot}
                           </option>
                         );
                       })}
