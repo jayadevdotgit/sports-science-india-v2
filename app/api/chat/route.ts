@@ -1,6 +1,7 @@
 import OpenAI from "openai";
 import { NextRequest, NextResponse } from "next/server";
 import { KIBO_SYSTEM_PROMPT } from "@/lib/kiboPrompt";
+import { retrieveSiteContent } from "@/lib/knowledge/siteContent";
 
 const groq = new OpenAI({
   apiKey: process.env.GROQ_API_KEY!,
@@ -24,6 +25,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const relevantContent = retrieveSiteContent(message, 9000);
+
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",
       temperature: 0.6,
@@ -34,6 +37,15 @@ export async function POST(req: NextRequest) {
         role: "system",
         content: KIBO_SYSTEM_PROMPT,
       },
+
+      ...(relevantContent
+        ? [
+            {
+              role: "system",
+              content: relevantContent,
+            },
+          ]
+        : []),
 
       ...history,
 
@@ -51,7 +63,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       reply,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Kibo API Error:", error);
 
     return NextResponse.json(

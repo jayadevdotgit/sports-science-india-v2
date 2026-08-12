@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "collect:content": "node scripts/collect-content.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

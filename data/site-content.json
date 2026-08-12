@@ -1,0 +1,3735 @@
+{
+  "generatedAt": "2026-08-12T19:24:23.575Z",
+  "baseUrl": "http://localhost:3000",
+  "totalPages": 29,
+  "pages": [
+    {
+      "route": "",
+      "name": "home",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Maximize Performance. Prevent Injury. Extend Careers."
+        },
+        {
+          "level": 3,
+          "text": "Athlete Analysis"
+        },
+        {
+          "level": 2,
+          "text": "One Organization. Endless Possibilities."
+        },
+        {
+          "level": 3,
+          "text": "Sports Injury Medicine Centre"
+        },
+        {
+          "level": 3,
+          "text": "SSI Awards"
+        },
+        {
+          "level": 3,
+          "text": "SSI Sports"
+        },
+        {
+          "level": 3,
+          "text": "SSI Fanzine"
+        },
+        {
+          "level": 3,
+          "text": "SSI Sports Conclave"
+        },
+        {
+          "level": 3,
+          "text": "SSI International Arthroscopy Conference"
+        },
+        {
+          "level": 3,
+          "text": "SSI Sports Connect"
+        },
+        {
+          "level": 3,
+          "text": "Young Athlete Program"
+        },
+        {
+          "level": 3,
+          "text": "SSI Foundation"
+        },
+        {
+          "level": 2,
+          "text": "Every Athlete. Every Body Part."
+        },
+        {
+          "level": 3,
+          "text": "Sports Psychology"
+        },
+        {
+          "level": 3,
+          "text": "Sports Psychology"
+        },
+        {
+          "level": 2,
+          "text": "Elite Performance Solutions"
+        },
+        {
+          "level": 3,
+          "text": "Sports Medicine"
+        },
+        {
+          "level": 3,
+          "text": "Sports Surgery"
+        },
+        {
+          "level": 3,
+          "text": "Ligament Surgery"
+        },
+        {
+          "level": 3,
+          "text": "Joint Preservation"
+        },
+        {
+          "level": 3,
+          "text": "Sports Science"
+        },
+        {
+          "level": 3,
+          "text": "Musculoskeletal Rehab"
+        },
+        {
+          "level": 3,
+          "text": "Sports Rehabilitation"
+        },
+        {
+          "level": 3,
+          "text": "Physiotherapy"
+        },
+        {
+          "level": 3,
+          "text": "Assessments"
+        },
+        {
+          "level": 3,
+          "text": "Strength & Conditioning"
+        },
+        {
+          "level": 3,
+          "text": "Return to Sports"
+        },
+        {
+          "level": 3,
+          "text": "Pre & Post Natal Rehab"
+        },
+        {
+          "level": 3,
+          "text": "Obstetrics & Gynaecology Consultation"
+        },
+        {
+          "level": 2,
+          "text": "Your Path to Peak Performance"
+        },
+        {
+          "level": 3,
+          "text": "Assessment"
+        },
+        {
+          "level": 3,
+          "text": "Evaluation"
+        },
+        {
+          "level": 3,
+          "text": "Analysis"
+        },
+        {
+          "level": 3,
+          "text": "Training"
+        },
+        {
+          "level": 3,
+          "text": "Recovery"
+        },
+        {
+          "level": 3,
+          "text": "Peak Performance"
+        },
+        {
+          "level": 2,
+          "text": "Peak Performance"
+        },
+        {
+          "level": 2,
+          "text": "Ready to Unlock Your Peak Performance?"
+        },
+        {
+          "level": 3,
+          "text": "Science-Backed Assessments"
+        },
+        {
+          "level": 3,
+          "text": "Personalized Insights"
+        },
+        {
+          "level": 3,
+          "text": "Injury Prevention"
+        },
+        {
+          "level": 3,
+          "text": "Peak Performance"
+        },
+        {
+          "level": 2,
+          "text": "Trusted by Athletes. Driven by Results."
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login SPORTS SCIENCE INDIA",
+        "India's first integrated sports science ecosystem combining elite athlete performance, sports medicine, rehabilitation, education and community development.",
+        "Book Assessment Explore Ecosystem Performance Lab",
+        "VO₂ MAX",
+        "+18%",
+        "RECOVERY",
+        "96%",
+        "THE SPORTS SCIENCE INDIA ECOSYSTEM",
+        "A unified ecosystem connecting healthcare, performance, education, research, media, recognition and community to advance Indian sport.",
+        "Advanced diagnosis, physiotherapy, rehabilitation and return-to-play programs for athletes.",
+        "15+",
+        "Years",
+        "1000+",
+        "Athletes",
+        "Recognising excellence in sports through prestigious awards and celebrations.",
+        "Annual",
+        "Event",
+        "50+",
+        "Awards",
+        "Athlete development, performance enhancement and elite sports training.",
+        "25+",
+        "Sports",
+        "500+",
+        "Athletes",
+        "India's sports science publication featuring research and athlete stories.",
+        "100+",
+        "Articles",
+        "Monthly",
+        "Edition",
+        "India's premier sports science conference bringing together experts, athletes and thought leaders.",
+        "Annual",
+        "Event",
+        "1000+",
+        "Delegates",
+        "Global platform for arthroscopy surgeons and sports medicine professionals to share advances.",
+        "International",
+        "Reach",
+        "Expert",
+        "Faculty",
+        "Connecting athletes, coaches, academies and sports professionals.",
+        "100+",
+        "Members",
+        "Pan India",
+        "Network",
+        "Developing tomorrow's champions using sports science and long-term athlete development.",
+        "U10-U18",
+        "Age",
+        "Future",
+        "Champions",
+        "Promoting sports education, youth development and community wellness.",
+        "Community",
+        "Impact",
+        "Social",
+        "Initiatives",
+        "HUMAN PERFORMANCE",
+        "Explore how every part of the human body contributes to athletic performance, injury prevention and long-term development.",
+        "Peak Mental Performance",
+        "Improve focus, confidence, reaction time and decision making under pressure.",
+        "Peak Mental Performance",
+        "Improve focus, confidence, reaction time and decision making under pressure.",
+        "SERVICES",
+        "Integrated sports science services designed to enhance performance, prevent injuries and extend athletic careers.",
+        "Sports Medicine Expert medical care for injury prevention, diagnosis and treatment.",
+        "Sports Surgery Minimally invasive surgery for sports injuries and rapid recovery.",
+        "Ligament Surgery ACL and ligament reconstruction to restore joint stability.",
+        "Joint Preservation Treatments to delay or avoid joint replacement.",
+        "Sports Science Data-driven performance analysis and athletic profiling.",
+        "Musculoskeletal Rehab Targeted rehab for muscles, joints, and soft tissue.",
+        "Sports Rehabilitation Structured rehab programs for a safe return to sport.",
+        "Physiotherapy Manual therapy and exercise-based recovery.",
+        "Assessments Comprehensive physical and performance assessments.",
+        "Strength & Conditioning Science-based training programs to build strength, power, speed and endurance.",
+        "Return to Sports Guided return-to-play planning after injury.",
+        "Pre & Post Natal Rehab Safe exercise and recovery during and after pregnancy.",
+        "Obstetrics & Gynaecology Consultation Specialist consultation with Dr. Nisha Kaushik Patnaik.",
+        "Athlete Journey",
+        "Every athlete follows a structured science-driven process from assessment to elite performance.",
+        "STEP 01 Assessment STEP 02 Evaluation STEP 03 Analysis STEP 04 Training STEP 05 Recovery STEP 06 Peak Performance Your performance journey starts with a comprehensive sports science assessment.",
+        "Whether you're a professional athlete, coach, or fitness enthusiast, our sports science assessments provide data-driven insights to help you train smarter, prevent injuries, and achieve peak performance.",
+        "Book Assessment Contact Experts Science-Backed Assessments Accurate. Reliable. Proven.",
+        "Personalized Insights Tailored to your goals.",
+        "Injury Prevention Train smarter. Stay stronger.",
+        "Perform. Improve. Excel.",
+        "Reviews & Testimonials",
+        "Hear from athletes, coaches, and professionals who have elevated their performance through evidence-based sports science, personalized assessments, and expert guidance.",
+        "4.8",
+        "Based on Google Reviews",
+        "View All Reviews on Google The sports science assessment completely changed the way I train. My strength, speed and confidence have improved significantly.",
+        "Rahul Sharma",
+        "Football Player",
+        "Google",
+        "Verified",
+        "Recovery is much faster now. The team helped me understand my body better through scientific testing.",
+        "Priya Nair",
+        "Marathon Runner",
+        "Google",
+        "Verified",
+        "Professional staff, detailed reports and excellent guidance. Highly recommended for every athlete.",
+        "Arjun Patel",
+        "Cricketer",
+        "Google",
+        "Verified",
+        "Sports Science India gave me the edge I needed. My sprint times improved significantly after biomechanical analysis.",
+        "Sneha Patel",
+        "State-Level Track Athlete",
+        "Google",
+        "Verified",
+        "The strength and conditioning program was tailored perfectly for my sport. I feel much more explosive in the ring.",
+        "Vikram Joshi",
+        "Amateur Boxer",
+        "Google",
+        "Verified",
+        "Recovery science made a huge difference. I'm training harder while recovering faster. Truly world-class facility.",
+        "Ananya Reddy",
+        "Swimming Champion",
+        "Google",
+        "Verified",
+        "The biomechanical analysis helped me correct my movement patterns. My performance on the mat has improved dramatically.",
+        "Rohit Desai",
+        "National Kabaddi Player",
+        "Google",
+        "Verified",
+        "As a young athlete, this program gave me the right foundation. My coaches noticed the difference within weeks.",
+        "Kavya Iyer",
+        "Junior Tennis Athlete",
+        "Google",
+        "Verified",
+        "I refer my patients here with complete confidence. The integration of sports science and clinical care is outstanding.",
+        "Dr. Manoj Verma",
+        "Sports Physician",
+        "Google",
+        "Verified",
+        "500+ Athletes Assessed",
+        "25+ Sports Supported",
+        "98% Client Satisfaction",
+        "Years of Experience",
+        "India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE HEALTHCARE Sports Injury Medicine Centre Advanced diagnosis, physiotherapy, rehabilitation and return-to-play programs for athletes. 15+ Years 1000+ Athletes Explore Platform →",
+          "href": "/clinic",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE RECOGNITION SSI Awards Recognising excellence in sports through prestigious awards and celebrations. Annual Event 50+ Awards Explore Platform →",
+          "href": "/awards",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE PERFORMANCE SSI Sports Athlete development, performance enhancement and elite sports training. 25+ Sports 500+ Athletes Explore Platform →",
+          "href": "/ssi-sports",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE MEDIA SSI Fanzine India's sports science publication featuring research and athlete stories. 100+ Articles Monthly Edition Read Articles →",
+          "href": "/fanzine",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE CONFERENCE SSI Sports Conclave India's premier sports science conference bringing together experts, athletes and thought leaders. Annual Event 1000+ Delegates Learn More →",
+          "href": "/sports-conclave",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE MEDICAL SSI International Arthroscopy Conference Global platform for arthroscopy surgeons and sports medicine professionals to share advances. International Reach Expert Faculty Learn More →",
+          "href": "/arthroscopy-conference",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE COMMUNITY SSI Sports Connect Connecting athletes, coaches, academies and sports professionals. 100+ Members Pan India Network Join Network →",
+          "href": "/sports-connect",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE DEVELOPMENT Young Athlete Program Developing tomorrow's champions using sports science and long-term athlete development. U10-U18 Age Future Champions Explore Program →",
+          "href": "/young-athlete-program",
+          "internal": true
+        },
+        {
+          "text": "ACTIVE FOUNDATION SSI Foundation Promoting sports education, youth development and community wellness. Community Impact Social Initiatives Discover More →",
+          "href": "/foundation",
+          "internal": true
+        },
+        {
+          "text": "Learn More",
+          "href": "/services/sports-psychology",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/sports-medicine",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/sports-surgery",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/ligament-surgery",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/joint-preservation",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/sports-science",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/musculoskeletal-rehab",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/sports-rehabilitation",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/physiotherapy",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/assessments",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/strength-conditioning",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/return-to-sports",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/pre-post-natal-rehab",
+          "internal": true
+        },
+        {
+          "text": "Learn More →",
+          "href": "/services/obstetrics-gynaecology-consultation",
+          "internal": true
+        },
+        {
+          "text": "Begin Your Assessment →",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Book Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact Experts",
+          "href": "/experts",
+          "internal": true
+        },
+        {
+          "text": "View All Reviews on Google",
+          "href": "https://search.google.com/local/writereview?placeid=ChIJq6qqqlmnGToRH0Ga5zV48u8",
+          "internal": false
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India",
+        "Elite Athlete",
+        "Sports Injury Medicine Centre",
+        "SSI Awards",
+        "SSI Sports",
+        "SSI Fanzine",
+        "SSI Sports Conclave",
+        "SSI International Arthroscopy Conference",
+        "SSI Sports Connect",
+        "Young Athlete Program",
+        "SSI Foundation",
+        "Human Body",
+        "Sports Medicine",
+        "Sports Surgery",
+        "Ligament Surgery",
+        "Joint Preservation",
+        "Sports Science",
+        "Musculoskeletal Rehab",
+        "Sports Rehabilitation",
+        "Physiotherapy",
+        "Assessments",
+        "Strength & Conditioning",
+        "Return to Sports",
+        "Pre & Post Natal Rehab",
+        "Obstetrics & Gynaecology Consultation",
+        "Elite Athlete"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nSPORTS SCIENCE INDIA\nMaximize Performance. Prevent Injury. Extend Careers.\nIndia's first integrated sports science ecosystem combining elite athlete performance, sports medicine, rehabilitation, education and community development.\nBook Assessment Explore Ecosystem\nPerformance Lab\nAthlete Analysis\n94\nREADINESS SCORE OPTIMAL\nMovement quality 92 %\nStrength output 88 %\nInjury resilience 95 %\nVO₂ MAX\n+18%\nRECOVERY\n96%\nTHE SPORTS SCIENCE INDIA ECOSYSTEM\nOne Organization. Endless Possibilities.\nA unified ecosystem connecting healthcare, performance, education, research, media, recognition and community to advance Indian sport.\nACTIVE\nHEALTHCARE Sports Injury Medicine Centre\nAdvanced diagnosis, physiotherapy, rehabilitation and return-to-play programs for athletes.\n15+\nYears\n1000+\nAthletes\nExplore Platform →\nACTIVE\nRECOGNITION SSI Awards\nRecognising excellence in sports through prestigious awards and celebrations.\nAnnual\nEvent\n50+\nAwards\nExplore Platform →\nACTIVE\nPERFORMANCE SSI Sports\nAthlete development, performance enhancement and elite sports training.\n25+\nSports\n500+\nAthletes\nExplore Platform →\nACTIVE\nMEDIA SSI Fanzine\nIndia's sports science publication featuring research and athlete stories.\n100+\nArticles\nMonthly\nEdition\nRead Articles →\nACTIVE\nCONFERENCE SSI Sports Conclave\nIndia's premier sports science conference bringing together experts, athletes and thought leaders.\nAnnual\nEvent\n1000+\nDelegates\nLearn More →\nACTIVE\nMEDICAL SSI International Arthroscopy Conference\nGlobal platform for arthroscopy surgeons and sports medicine professionals to share advances.\nInternational\nReach\nExpert\nFaculty\nLearn More →\nACTIVE\nCOMMUNITY SSI Sports Connect\nConnecting athletes, coaches, academies and sports professionals.\n100+\nMembers\nPan India\nNetwork\nJoin Network →\nACTIVE\nDEVELOPMENT Young Athlete Program\nDeveloping tomorrow's champions using sports science and long-term athlete development.\nU10-U18\nAge\nFuture\nChampions\nExplore Program →\nACTIVE\nFOUNDATION SSI Foundation\nPromoting sports education, youth development and community wellness.\nCommunity\nImpact\nSocial\nInitiatives\nDiscover More →\nHUMAN PERFORMANCE\nEvery Athlete. Every Body Part.\nExplore how every part of the human body contributes to athletic performance, injury prevention and long-term development.\nClick a highlighted point to explore each body area\n🧠\nSports Psychology\nPeak Mental Performance\nImprove focus, confidence, reaction time and decision making under pressure.\nReaction Time\nDecision Making\nMental Toughness\nFocus Training\nLearn More\n🧠\nSports Psychology\nPeak Mental Performance\nImprove focus, confidence, reaction time and decision making under pressure.\nReaction Time\nDecision Making\nMental Toughness\nFocus Training\nLearn More\nSERVICES\nElite Performance Solutions\nIntegrated sports science services designed to enhance performance, prevent injuries and extend athletic careers.\nSports Medicine\nExpert medical care for injury prevention, diagnosis and treatment.\n✓ Injury Prevention\n✓ Medical Consultation\n✓ Pain Management\n✓ On-field Support\nLearn More →\nSports Surgery\nMinimally invasive surgery for sports injuries and rapid recovery.\n✓ Arthroscopy\n✓ Minimally Invasive\n✓ Rapid Recovery\n✓ Surgical Expertise\nLearn More →\nLigament Surgery\nACL and ligament reconstruction to restore joint stability.\n✓ ACL Reconstruction\n✓ Ligament Repair\n✓ Joint Stability\n✓ Return to Play\nLearn More →\nJoint Preservation\nTreatments to delay or avoid joint replacement.\n✓ Cartilage Repair\n✓ Joint Injection\n✓ Osteotomy\n✓ Long-term Mobility\nLearn More →\nSports Science\nData-driven performance analysis and athletic profiling.\n✓ Performance Testing\n✓ Athlete Profiling\n✓ Data Analytics\n✓ Load Monitoring\nLearn More →\nMusculoskeletal Rehab\nTargeted rehab for muscles, joints, and soft tissue.\n✓ Muscle & Joint Rehab\n✓ Soft Tissue Therapy\n✓ Posture Correction\n✓ Pain Management\nLearn More →\nSports Rehabilitation\nStructured rehab programs for a safe return to sport.\n✓ Structured Rehab\n✓ Progressive Loading\n✓ Pain-free Recovery\n✓ Sport-specific Rehab\nLearn More →\nPhysiotherapy\nManual therapy and exercise-based recovery.\n✓ Manual Therapy\n✓ Exercise Therapy\n✓ Pain Relief\n✓ Mobility Restore\nLearn More →\nAssessments\nComprehensive physical and performance assessments.\n✓ Movement Screening\n✓ Strength Testing\n✓ VO2 Max\n✓ Body Composition\nLearn More →\nStrength & Conditioning\nScience-based training programs to build strength, power, speed and endurance.\n✓ Performance Training\n✓ Speed & Agility\n✓ Power Development\n✓ Endurance Building\nLearn More →\nReturn to Sports\nGuided return-to-play planning after injury.\n✓ Return-to-play Plan\n✓ Milestone Testing\n✓ Injury Recurrence Prevention\n✓ Confidence Rebuild\nLearn More →\nPre & Post Natal Rehab\nSafe exercise and recovery during and after pregnancy.\n✓ Antenatal Care\n✓ Postnatal Recovery\n✓ Core & Pelvic Health\n✓ Safe Exercise Plans\nLearn More →\nObstetrics & Gynaecology Consultation\nSpecialist consultation with Dr. Nisha Kaushik Patnaik.\n✓ Gynaecology Care\n✓ Pregnancy Consultation\n✓ Women's Health\n✓ Expert Guidance\nLearn More →\nAthlete Journey\nYour Path to Peak Performance\nEvery athlete follows a structured science-driven process from assessment to elite performance.\nSTEP 01\nAssessment\nSTEP 02\nEvaluation\nSTEP 03\nAnalysis\nSTEP 04\nTraining\nSTEP 05\nRecovery\nSTEP 06\nPeak Performance\nYour performance journey starts with a comprehensive sports science assessment.\nBegin Your Assessment →\nPeak\nPerformance\nGet Started\nReady to Unlock Your Peak Performance?\nWhether you're a professional athlete, coach, or fitness enthusiast, our sports science assessments provide data-driven insights to help you train smarter, prevent injuries, and achieve peak performance.\nBook Assessment Contact Experts\nScience-Backed Assessments\nAccurate. Reliable. Proven.\nPersonalized Insights\nTailored to your goals.\nInjury Prevention\nTrain smarter. Stay stronger.\nPeak Performance\nPerform. Improve. Excel.\nReviews & Testimonials\nTrusted by Athletes.\nDriven by Results.\nHear from athletes, coaches, and professionals who have elevated their performance through evidence-based sports science, personalized assessments, and expert guidance.\n4.8\nBased on Google Reviews\nView All Reviews on Google\nThe sports science assessment completely changed the way I train. My strength, speed and confidence have improved significantly.\nRS\nRahul Sharma\nFootball Player\nGoogle\nVerified\nRecovery is much faster now. The team helped me understand my body better through scientific testing.\nPN\nPriya Nair\nMarathon Runner\nGoogle\nVerified\nProfessional staff, detailed reports and excellent guidance. Highly recommended for every athlete.\nAP\nArjun Patel\nCricketer\nGoogle\nVerified\nSports Science India gave me the edge I needed. My sprint times improved significantly after biomechanical analysis.\nSP\nSneha Patel\nState-Level Track Athlete\nGoogle\nVerified\nThe strength and conditioning program was tailored perfectly for my sport. I feel much more explosive in the ring.\nVJ\nVikram Joshi\nAmateur Boxer\nGoogle\nVerified\nRecovery science made a huge difference. I'm training harder while recovering faster. Truly world-class facility.\nAR\nAnanya Reddy\nSwimming Champion\nGoogle\nVerified\nThe biomechanical analysis helped me correct my movement patterns. My performance on the mat has improved dramatically.\nRD\nRohit Desai\nNational Kabaddi Player\nGoogle\nVerified\nAs a young athlete, this program gave me the right foundation. My coaches noticed the difference within weeks.\nKI\nKavya Iyer\nJunior Tennis Athlete\nGoogle\nVerified\nI refer my patients here with complete confidence. The integration of sports science and clinical care is outstanding.\nDM\nDr. Manoj Verma\nSports Physician\nGoogle\nVerified\n500+\nAthletes Assessed\n25+\nSports Supported\n98%\nClient Satisfaction\n15+\nYears of Experience\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "technology",
+      "name": "technology",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Powered by Science. Driven by Precision."
+        },
+        {
+          "level": 3,
+          "text": "Force Plate"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Technology & Equipment",
+        "Discover the advanced sports science technology used to assess, optimize and elevate athletic performance.",
+        "Elite force and jump analysis.",
+        "Measure explosive strength, landing mechanics and force production with laboratory-grade precision.",
+        "Jump Performance Landing Analysis Force Production Learn More Force Plate 3D Motion Capture VO₂ Max Testing Recovery Systems Body Composition Speed Gates Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India",
+        "Force Plate"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nTechnology & Equipment\nPowered by Science. Driven by Precision.\nDiscover the advanced sports science technology used to assess, optimize and elevate athletic performance.\nFeatured Technology Force Plate\nElite force and jump analysis.\nMeasure explosive strength, landing mechanics and force production with laboratory-grade precision.\nJump Performance\nLanding Analysis\nForce Production\nLearn More\nForce Plate 3D Motion Capture VO₂ Max Testing Recovery Systems Body Composition Speed Gates\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "experts",
+      "name": "experts",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 2,
+          "text": "The Minds Behind Athletic Excellence"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Sarthak Patnaik"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Nisha Kaushik Patnaik"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Dibyaprakash Kar"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Gayatri Upasana Acharya"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Pooja Mehta"
+        },
+        {
+          "level": 3,
+          "text": "Dr. Dawa Sherpa"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Meet Our Experts",
+        "Our multidisciplinary team combines sports science, physiotherapy, biomechanics and performance coaching to help athletes unlock their highest potential.",
+        "Founder · Arthroscopy & Sports Surgeon · Joint Preservation Surgeon",
+        "MS Ortho FSSISA (USA) FASM · FHA (Spain) FSSM (USA) Available for Consultation Dr. Nisha Kaushik Patnaik Founder · Obstetrics & Gynaecology",
+        "MBBS, MS MRCOG (London, UK) FRM FMAS (Spain) Available for Consultation Dr. Dibyaprakash Kar Physiotherapist",
+        "MPT (Sports) Sports Injury Rehab Performance Enhancement Return to Play Available for Consultation Dr. Gayatri Upasana Acharya Physiotherapist",
+        "MPT (Musculoskeletal & Sports) Musculoskeletal Rehab Sports Injury Management Manual Therapy Available for Consultation Dr. Pooja Mehta Physiotherapist",
+        "BPT Physiotherapy Injury Prevention Rehabilitation Available for Consultation Dr. Dawa Sherpa Physiotherapist",
+        "MPT (Sports) Sports Physiotherapy Rehabilitation Performance Available for Consultation Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India",
+        "Dr. Sarthak Patnaik",
+        "Dr. Nisha Kaushik Patnaik",
+        "Dr. Dibyaprakash Kar",
+        "Dr. Gayatri Upasana Acharya",
+        "Dr. Pooja Mehta",
+        "Dr. Dawa Sherpa"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nMeet Our Experts\nThe Minds Behind Athletic Excellence\nOur multidisciplinary team combines sports science, physiotherapy, biomechanics and performance coaching to help athletes unlock their highest potential.\nDr. Sarthak Patnaik\nFounder · Arthroscopy & Sports Surgeon · Joint Preservation Surgeon\nMS Ortho\nFSSISA (USA)\nFASM · FHA (Spain)\nFSSM (USA)\nAvailable for Consultation\nDr. Nisha Kaushik Patnaik\nFounder · Obstetrics & Gynaecology\nMBBS, MS\nMRCOG (London, UK)\nFRM\nFMAS (Spain)\nAvailable for Consultation\nDr. Dibyaprakash Kar\nPhysiotherapist\nMPT (Sports)\nSports Injury Rehab\nPerformance Enhancement\nReturn to Play\nAvailable for Consultation\nDr. Gayatri Upasana Acharya\nPhysiotherapist\nMPT (Musculoskeletal & Sports)\nMusculoskeletal Rehab\nSports Injury Management\nManual Therapy\nAvailable for Consultation\nDr. Pooja Mehta\nPhysiotherapist\nBPT\nPhysiotherapy\nInjury Prevention\nRehabilitation\nAvailable for Consultation\nDr. Dawa Sherpa\nPhysiotherapist\nMPT (Sports)\nSports Physiotherapy\nRehabilitation\nPerformance\nAvailable for Consultation\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "booking",
+      "name": "booking",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Schedule Your Performance Evaluation"
+        },
+        {
+          "level": 3,
+          "text": "Select Required Services"
+        },
+        {
+          "level": 4,
+          "text": "Sports Medicine"
+        },
+        {
+          "level": 4,
+          "text": "Sports Surgery"
+        },
+        {
+          "level": 4,
+          "text": "Ligament Surgery"
+        },
+        {
+          "level": 4,
+          "text": "Joint Preservation"
+        },
+        {
+          "level": 4,
+          "text": "Sports Science"
+        },
+        {
+          "level": 4,
+          "text": "Musculoskeletal Rehab"
+        },
+        {
+          "level": 4,
+          "text": "Sports Rehabilitation"
+        },
+        {
+          "level": 4,
+          "text": "Physiotherapy"
+        },
+        {
+          "level": 4,
+          "text": "Assessments"
+        },
+        {
+          "level": 4,
+          "text": "Strength & Conditioning"
+        },
+        {
+          "level": 4,
+          "text": "Return to Sports"
+        },
+        {
+          "level": 4,
+          "text": "Pre & Post Natal Rehab"
+        },
+        {
+          "level": 4,
+          "text": "Obstetrics & Gynaecology Consultation"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login BOOK ASSESSMENT",
+        "Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email.",
+        "You can select one or multiple specialized assessments.",
+        "Sports Medicine Medical consultation, injury prevention, and pain management.",
+        "Sports Surgery Minimally invasive surgery for sports injuries and rapid recovery.",
+        "Ligament Surgery ACL and ligament reconstruction to restore joint stability.",
+        "Joint Preservation Treatments to delay or avoid joint replacement.",
+        "Sports Science Data-driven performance analysis and athletic profiling.",
+        "Musculoskeletal Rehab Targeted rehab for muscles, joints, and soft tissue.",
+        "Sports Rehabilitation Structured rehab programs for a safe return to sport.",
+        "Physiotherapy Manual therapy and exercise-based recovery.",
+        "Assessments Comprehensive physical and performance assessments.",
+        "Strength & Conditioning Science-based power, speed, agility, and endurance building.",
+        "Return to Sports Guided return-to-play planning after injury.",
+        "Pre & Post Natal Rehab Dr. Nisha only Safe exercise and recovery during and after pregnancy.",
+        "Obstetrics & Gynaecology Consultation Dr. Nisha only Available with Dr. Nisha Kaushik Patnaik.",
+        "Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBOOK ASSESSMENT\nSchedule Your Performance Evaluation\nChoose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email.\n1. Services 2. Timing 3. Your Details\nSelect Required Services\nYou can select one or multiple specialized assessments.\n0 Selected\nSports Medicine\nMedical consultation, injury prevention, and pain management.\nSports Surgery\nMinimally invasive surgery for sports injuries and rapid recovery.\nLigament Surgery\nACL and ligament reconstruction to restore joint stability.\nJoint Preservation\nTreatments to delay or avoid joint replacement.\nSports Science\nData-driven performance analysis and athletic profiling.\nMusculoskeletal Rehab\nTargeted rehab for muscles, joints, and soft tissue.\nSports Rehabilitation\nStructured rehab programs for a safe return to sport.\nPhysiotherapy\nManual therapy and exercise-based recovery.\nAssessments\nComprehensive physical and performance assessments.\nStrength & Conditioning\nScience-based power, speed, agility, and endurance building.\nReturn to Sports\nGuided return-to-play planning after injury.\nPre & Post Natal Rehab\nDr. Nisha only Safe exercise and recovery during and after pregnancy.\nObstetrics & Gynaecology Consultation\nDr. Nisha only Available with Dr. Nisha Kaushik Patnaik.\nContinue to Date & Time\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "contact",
+      "name": "contact",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Let's Build Better Athletes Together"
+        },
+        {
+          "level": 3,
+          "text": "Address"
+        },
+        {
+          "level": 3,
+          "text": "Phone"
+        },
+        {
+          "level": 3,
+          "text": "Email"
+        },
+        {
+          "level": 3,
+          "text": "Office Hours"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Contact Us",
+        "Whether you're an athlete, coach, or organization, we'd love to hear from you.",
+        "Address Sports Science India Plot No. A17/1A Surya Nagar In front of S.P Vigilance Office Bhubaneswar – 751003",
+        "Phone +91 7381380010",
+        "+91 8280381010",
+        "Email sportscienceindia@gmail.com",
+        "Office Hours Monday - Saturday",
+        "9:00 AM - 8:00 PM",
+        "Send Message Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nContact Us\nLet's Build Better Athletes Together\nWhether you're an athlete, coach, or organization, we'd love to hear from you.\nAddress\nSports Science India\nPlot No. A17/1A\nSurya Nagar\nIn front of S.P Vigilance Office\nBhubaneswar – 751003\nPhone\n+91 7381380010\n+91 8280381010\nEmail\nsportscienceindia@gmail.com\nOffice Hours\nMonday - Saturday\n9:00 AM - 8:00 PM\nSend Message\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "admin",
+      "name": "admin",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance..."
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin"
+    },
+    {
+      "route": "services/assessments",
+      "name": "service-assessments",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Assessments"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Comprehensive physical and performance assessments.",
+        "Assessments give you a complete picture of your body and performance — from movement quality and strength to VO₂ max and body composition.",
+        "Whether you're starting a new programme, returning from injury or chasing a PB, a comprehensive assessment is the smart first step.",
+        "What's Included Movement Screening Strength Testing VO2 Max Body Composition Who It's For Athletes starting a new training cycle Anyone returning to sport after a break or injury People who want a full baseline of their fitness Coaches screening a new athlete What To Expect Movement screening and strength testing VO₂ max and body composition measurement A clear report and recommendations Benefits Know exactly where you stand Baseline data to measure progress against Targeted recommendations for your goals Frequently Asked Questions What should I bring to an assessment?",
+        "Comfortable athletic clothing, any previous reports or imaging, and details of your training and goals.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nAssessments\nComprehensive physical and performance assessments.\nAssessments give you a complete picture of your body and performance — from movement quality and strength to VO₂ max and body composition.\nWhether you're starting a new programme, returning from injury or chasing a PB, a comprehensive assessment is the smart first step.\nWhat's Included\nMovement Screening\nStrength Testing\nVO2 Max\nBody Composition\nWho It's For\nAthletes starting a new training cycle\nAnyone returning to sport after a break or injury\nPeople who want a full baseline of their fitness\nCoaches screening a new athlete\nWhat To Expect\nMovement screening and strength testing\nVO₂ max and body composition measurement\nA clear report and recommendations\nBenefits\nKnow exactly where you stand\nBaseline data to measure progress against\nTargeted recommendations for your goals\nFrequently Asked Questions\nWhat should I bring to an assessment?\nComfortable athletic clothing, any previous reports or imaging, and details of your training and goals.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/biomechanics",
+      "name": "service-biomechanics",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Biomechanics"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Movement Analysis",
+        "3D motion capture and movement optimization for elite athletes.",
+        "Biomechanics is the study of how you move. Using 3D motion capture and video analysis, we break down your running, jumping, throwing and lifting technique to find inefficiencies and injury risks.",
+        "The result is a clear picture of your movement quality and a personalised plan to optimise technique and protect your body.",
+        "What's Included 3D Motion Capture Movement Analysis Technique Correction Performance Optimization Who It's For Athletes wanting to refine technique and gain a competitive edge Runners, jumpers and team-sport players with recurring injuries Coaches looking for objective movement data on their athletes Anyone who wants to understand exactly how their body moves What To Expect A 3D motion capture or video movement analysis A detailed movement quality report Targeted technique correction and optimisation plan Benefits More efficient, powerful movement Identification of hidden injury risk factors Objective, data-backed training decisions Frequently Asked Questions What happens in a motion capture session?",
+        "You perform key movements (run, jump, squat, throw) while sensors or cameras record them. Our analysts then break down the data and show you exactly what to change.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nMovement Analysis\nBiomechanics\n3D motion capture and movement optimization for elite athletes.\nBiomechanics is the study of how you move. Using 3D motion capture and video analysis, we break down your running, jumping, throwing and lifting technique to find inefficiencies and injury risks.\nThe result is a clear picture of your movement quality and a personalised plan to optimise technique and protect your body.\nWhat's Included\n3D Motion Capture\nMovement Analysis\nTechnique Correction\nPerformance Optimization\nWho It's For\nAthletes wanting to refine technique and gain a competitive edge\nRunners, jumpers and team-sport players with recurring injuries\nCoaches looking for objective movement data on their athletes\nAnyone who wants to understand exactly how their body moves\nWhat To Expect\nA 3D motion capture or video movement analysis\nA detailed movement quality report\nTargeted technique correction and optimisation plan\nBenefits\nMore efficient, powerful movement\nIdentification of hidden injury risk factors\nObjective, data-backed training decisions\nFrequently Asked Questions\nWhat happens in a motion capture session?\nYou perform key movements (run, jump, squat, throw) while sensors or cameras record them. Our analysts then break down the data and show you exactly what to change.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/cardiovascular-training",
+      "name": "service-cardiovascular-training",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Cardiovascular Training"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Endurance & Recovery",
+        "VO₂ max testing, respiratory training and conditioning programs to boost endurance.",
+        "Cardiovascular conditioning is the engine of athletic performance. We measure your VO₂ max and heart-rate response, then build a training plan that improves your endurance, recovery and ability to sustain intensity.",
+        "Our approach is data-driven — we test, prescribe, and re-test so your conditioning improves measurably, not just by feel.",
+        "What's Included VO₂ Max Testing Respiratory Training Conditioning Endurance Programs Who It's For Endurance athletes in running, cycling, swimming or team sports Athletes who tire quickly or recover slowly between efforts Anyone wanting to improve heart health and fitness safely Returning athletes rebuilding their aerobic base What To Expect A VO₂ max and heart-rate assessment A structured endurance and interval training plan Respiratory and recovery training techniques Benefits Higher VO₂ max and better endurance Faster recovery between and after sessions Stronger heart and lung health Frequently Asked Questions What is VO₂ max?",
+        "It is the maximum amount of oxygen your body can use during intense exercise — a key indicator of aerobic fitness. We measure it to personalise your training zones.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nEndurance & Recovery\nCardiovascular Training\nVO₂ max testing, respiratory training and conditioning programs to boost endurance.\nCardiovascular conditioning is the engine of athletic performance. We measure your VO₂ max and heart-rate response, then build a training plan that improves your endurance, recovery and ability to sustain intensity.\nOur approach is data-driven — we test, prescribe, and re-test so your conditioning improves measurably, not just by feel.\nWhat's Included\nVO₂ Max Testing\nRespiratory Training\nConditioning\nEndurance Programs\nWho It's For\nEndurance athletes in running, cycling, swimming or team sports\nAthletes who tire quickly or recover slowly between efforts\nAnyone wanting to improve heart health and fitness safely\nReturning athletes rebuilding their aerobic base\nWhat To Expect\nA VO₂ max and heart-rate assessment\nA structured endurance and interval training plan\nRespiratory and recovery training techniques\nBenefits\nHigher VO₂ max and better endurance\nFaster recovery between and after sessions\nStronger heart and lung health\nFrequently Asked Questions\nWhat is VO₂ max?\nIt is the maximum amount of oxygen your body can use during intense exercise — a key indicator of aerobic fitness. We measure it to personalise your training zones.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/core-stability",
+      "name": "service-core-stability",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Core Stability"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Foundation Strength",
+        "Build core strength and stability that transfers power between the upper and lower body.",
+        "Your core is the bridge that transfers power between your upper and lower body. A strong, stable core improves balance, protects your spine and makes every movement more efficient.",
+        "Our Core Stability programme builds functional strength — not just sit-ups — so your power, balance and control improve in the movements your sport actually demands.",
+        "What's Included Core Strength Balance Rotational Power Functional Stability Who It's For Athletes wanting more power and stability in their sport Anyone with lower-back discomfort during activity Athletes looking to improve balance and rotational power Returning athletes rebuilding their foundation after injury What To Expect A core strength and stability assessment Progressive functional core exercises Sport-specific rotational and balance training Benefits Better power transfer and movement efficiency Improved balance, posture and spinal protection Reduced risk of back injuries Frequently Asked Questions How is this different from doing sit-ups?",
+        "We train core control in real movement patterns — rotations, balance and anti-movement strength — which carries over to sport far better than isolated crunches.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nFoundation Strength\nCore Stability\nBuild core strength and stability that transfers power between the upper and lower body.\nYour core is the bridge that transfers power between your upper and lower body. A strong, stable core improves balance, protects your spine and makes every movement more efficient.\nOur Core Stability programme builds functional strength — not just sit-ups — so your power, balance and control improve in the movements your sport actually demands.\nWhat's Included\nCore Strength\nBalance\nRotational Power\nFunctional Stability\nWho It's For\nAthletes wanting more power and stability in their sport\nAnyone with lower-back discomfort during activity\nAthletes looking to improve balance and rotational power\nReturning athletes rebuilding their foundation after injury\nWhat To Expect\nA core strength and stability assessment\nProgressive functional core exercises\nSport-specific rotational and balance training\nBenefits\nBetter power transfer and movement efficiency\nImproved balance, posture and spinal protection\nReduced risk of back injuries\nFrequently Asked Questions\nHow is this different from doing sit-ups?\nWe train core control in real movement patterns — rotations, balance and anti-movement strength — which carries over to sport far better than isolated crunches.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/elbow-performance",
+      "name": "service-elbow-performance",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Upper Limb Performance"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Throwing & Racquet Sports",
+        "Elbow load management and technique work for throwing, racquet and lifting athletes.",
+        "The elbow is heavily loaded in throwing, racquet and lifting sports. Repetitive stress can cause pain, tendinopathy and loss of performance.",
+        "Our Upper Limb Performance programme analyses your technique and load, strengthens the supporting muscles and gives you a clear plan to keep your elbow healthy and powerful.",
+        "What's Included Throwing Analysis Grip Strength Load Monitoring Mobility Who It's For Cricket, tennis, badminton and squash players Throwers, bowlers and weightlifters Athletes with elbow pain, tennis elbow or golfer's elbow Anyone wanting to protect their elbow from overuse injuries What To Expect A throwing/technique and grip-strength analysis A targeted strengthening and load-management plan Sport-specific return-to-training guidance Benefits Reduced elbow pain and overuse risk Improved grip strength and power transfer Smarter training loads for long-term elbow health Frequently Asked Questions Can I keep playing while managing elbow pain?",
+        "Often yes, with adjusted loads. We help you manage symptoms while keeping you as active as possible.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nThrowing & Racquet Sports\nUpper Limb Performance\nElbow load management and technique work for throwing, racquet and lifting athletes.\nThe elbow is heavily loaded in throwing, racquet and lifting sports. Repetitive stress can cause pain, tendinopathy and loss of performance.\nOur Upper Limb Performance programme analyses your technique and load, strengthens the supporting muscles and gives you a clear plan to keep your elbow healthy and powerful.\nWhat's Included\nThrowing Analysis\nGrip Strength\nLoad Monitoring\nMobility\nWho It's For\nCricket, tennis, badminton and squash players\nThrowers, bowlers and weightlifters\nAthletes with elbow pain, tennis elbow or golfer's elbow\nAnyone wanting to protect their elbow from overuse injuries\nWhat To Expect\nA throwing/technique and grip-strength analysis\nA targeted strengthening and load-management plan\nSport-specific return-to-training guidance\nBenefits\nReduced elbow pain and overuse risk\nImproved grip strength and power transfer\nSmarter training loads for long-term elbow health\nFrequently Asked Questions\nCan I keep playing while managing elbow pain?\nOften yes, with adjusted loads. We help you manage symptoms while keeping you as active as possible.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/hip-mobility",
+      "name": "service-hip-mobility",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Hip & Mobility Training"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Functional Movement",
+        "Improve hip mobility, rotational power and functional movement patterns.",
+        "The hip is the powerhouse of athletic movement — it drives sprinting, jumping, kicking and change of direction. Limited hip mobility or weakness quietly robs you of power and increases injury risk.",
+        "Our Hip & Mobility Training programme improves range of motion, rotational power and movement quality so your hips fire the way they should.",
+        "What's Included Hip Mobility Power Development Movement Quality Flexibility Who It's For Sprinters, jumpers and kicking-sport athletes Athletes with stiff hips or a history of groin/hamstring issues Anyone wanting better movement quality and flexibility Returning athletes rebuilding lower-body function What To Expect A hip mobility and movement quality assessment A personalised mobility and strength programme Sport-specific power and control exercises Benefits Greater range of motion and flexibility More powerful, efficient movement Reduced risk of groin, hamstring and hip injuries Frequently Asked Questions I'm not flexible — can I still improve?",
+        "Absolutely. Mobility improves with consistent, targeted work and our programme is built to your current level.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nFunctional Movement\nHip & Mobility Training\nImprove hip mobility, rotational power and functional movement patterns.\nThe hip is the powerhouse of athletic movement — it drives sprinting, jumping, kicking and change of direction. Limited hip mobility or weakness quietly robs you of power and increases injury risk.\nOur Hip & Mobility Training programme improves range of motion, rotational power and movement quality so your hips fire the way they should.\nWhat's Included\nHip Mobility\nPower Development\nMovement Quality\nFlexibility\nWho It's For\nSprinters, jumpers and kicking-sport athletes\nAthletes with stiff hips or a history of groin/hamstring issues\nAnyone wanting better movement quality and flexibility\nReturning athletes rebuilding lower-body function\nWhat To Expect\nA hip mobility and movement quality assessment\nA personalised mobility and strength programme\nSport-specific power and control exercises\nBenefits\nGreater range of motion and flexibility\nMore powerful, efficient movement\nReduced risk of groin, hamstring and hip injuries\nFrequently Asked Questions\nI'm not flexible — can I still improve?\nAbsolutely. Mobility improves with consistent, targeted work and our programme is built to your current level.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/injury-prevention",
+      "name": "service-injury-prevention",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Injury Prevention"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Stability & Balance",
+        "Ankle stability training and proprioception work to reduce injury risk and improve balance.",
+        "The best injury is the one that never happens. Our Injury Prevention programme identifies your risk factors through screening and builds balance, stability and movement quality to keep you on the field.",
+        "From ankle stability to landing mechanics and proprioception, we train your body to absorb forces safely and react quickly.",
+        "What's Included Balance Training Ankle Stability Landing Mechanics Injury Prevention Who It's For Athletes with a history of recurrent injuries Anyone entering a new or more intense training phase Teams wanting a structured injury-prevention block Athletes wanting to play longer and stay healthier What To Expect A comprehensive movement and risk-factor screen A personalised balance, stability and control programme Sport-specific landing and change-of-direction training Benefits Fewer injuries and less time lost to training Better balance, stability and body control Longer, healthier athletic career Frequently Asked Questions What is proprioception?",
+        "It's your body's sense of where it is in space. Better proprioception means faster reactions and better balance — key to avoiding injury.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nStability & Balance\nInjury Prevention\nAnkle stability training and proprioception work to reduce injury risk and improve balance.\nThe best injury is the one that never happens. Our Injury Prevention programme identifies your risk factors through screening and builds balance, stability and movement quality to keep you on the field.\nFrom ankle stability to landing mechanics and proprioception, we train your body to absorb forces safely and react quickly.\nWhat's Included\nBalance Training\nAnkle Stability\nLanding Mechanics\nInjury Prevention\nWho It's For\nAthletes with a history of recurrent injuries\nAnyone entering a new or more intense training phase\nTeams wanting a structured injury-prevention block\nAthletes wanting to play longer and stay healthier\nWhat To Expect\nA comprehensive movement and risk-factor screen\nA personalised balance, stability and control programme\nSport-specific landing and change-of-direction training\nBenefits\nFewer injuries and less time lost to training\nBetter balance, stability and body control\nLonger, healthier athletic career\nFrequently Asked Questions\nWhat is proprioception?\nIt's your body's sense of where it is in space. Better proprioception means faster reactions and better balance — key to avoiding injury.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/joint-preservation",
+      "name": "service-joint-preservation",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Joint Preservation"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Treatments to delay or avoid joint replacement.",
+        "Joint Preservation focuses on treatments that delay or avoid joint replacement — keeping your own cartilage, bone and ligaments working as long as possible.",
+        "From cartilage repair and injections to osteotomy, we use targeted, evidence-based techniques to protect your joints and maintain long-term mobility.",
+        "What's Included Cartilage Repair Joint Injection Osteotomy Long-term Mobility Who It's For Athletes and active people with early joint wear or damage Anyone wanting to avoid or postpone joint replacement Those with cartilage injuries or early arthritis Active adults who want to keep moving pain-free for years What To Expect A detailed joint assessment and imaging review A personalised plan — injections, repair or realignment as needed Ongoing joint health and activity guidance Benefits Delay or avoid joint replacement Preserve natural movement and function Long-term mobility and pain control Frequently Asked Questions Can joint replacement really be avoided?",
+        "For many people, yes. Early treatment, load management and targeted procedures can significantly extend the life of a joint.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nJoint Preservation\nTreatments to delay or avoid joint replacement.\nJoint Preservation focuses on treatments that delay or avoid joint replacement — keeping your own cartilage, bone and ligaments working as long as possible.\nFrom cartilage repair and injections to osteotomy, we use targeted, evidence-based techniques to protect your joints and maintain long-term mobility.\nWhat's Included\nCartilage Repair\nJoint Injection\nOsteotomy\nLong-term Mobility\nWho It's For\nAthletes and active people with early joint wear or damage\nAnyone wanting to avoid or postpone joint replacement\nThose with cartilage injuries or early arthritis\nActive adults who want to keep moving pain-free for years\nWhat To Expect\nA detailed joint assessment and imaging review\nA personalised plan — injections, repair or realignment as needed\nOngoing joint health and activity guidance\nBenefits\nDelay or avoid joint replacement\nPreserve natural movement and function\nLong-term mobility and pain control\nFrequently Asked Questions\nCan joint replacement really be avoided?\nFor many people, yes. Early treatment, load management and targeted procedures can significantly extend the life of a joint.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/ligament-surgery",
+      "name": "service-ligament-surgery",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Ligament Surgery"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "ACL and ligament reconstruction to restore joint stability.",
+        "Ligament injuries — especially the ACL — are among the most common serious injuries in sport. Ligament Surgery restores joint stability so you can return to cutting, pivoting and landing safely.",
+        "We specialise in ACL reconstruction and ligament repair, using techniques that protect your cartilage and meniscus while rebuilding a stable knee or other joint.",
+        "What's Included ACL Reconstruction Ligament Repair Joint Stability Return to Play Who It's For Athletes with a torn ACL or other ligament injury Anyone with knee giving way or instability after injury Returning athletes who want to protect their long-term knee health Those considering surgery and wanting an expert opinion What To Expect A full assessment including imaging review A personalised surgical and rehab plan Guided return-to-sport milestones after surgery Benefits Restored joint stability and confidence Reduced risk of cartilage and meniscus damage A clear, structured path back to sport Frequently Asked Questions How long until I can play again after ACL surgery?",
+        "Typically 9–12 months with structured rehab. We progress you by milestones, not dates, so you return when your knee is truly ready.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nLigament Surgery\nACL and ligament reconstruction to restore joint stability.\nLigament injuries — especially the ACL — are among the most common serious injuries in sport. Ligament Surgery restores joint stability so you can return to cutting, pivoting and landing safely.\nWe specialise in ACL reconstruction and ligament repair, using techniques that protect your cartilage and meniscus while rebuilding a stable knee or other joint.\nWhat's Included\nACL Reconstruction\nLigament Repair\nJoint Stability\nReturn to Play\nWho It's For\nAthletes with a torn ACL or other ligament injury\nAnyone with knee giving way or instability after injury\nReturning athletes who want to protect their long-term knee health\nThose considering surgery and wanting an expert opinion\nWhat To Expect\nA full assessment including imaging review\nA personalised surgical and rehab plan\nGuided return-to-sport milestones after surgery\nBenefits\nRestored joint stability and confidence\nReduced risk of cartilage and meniscus damage\nA clear, structured path back to sport\nFrequently Asked Questions\nHow long until I can play again after ACL surgery?\nTypically 9–12 months with structured rehab. We progress you by milestones, not dates, so you return when your knee is truly ready.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/musculoskeletal-rehab",
+      "name": "service-musculoskeletal-rehab",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Musculoskeletal Rehab"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Targeted rehab for muscles, joints, and soft tissue.",
+        "Musculoskeletal Rehab treats problems in muscles, joints and soft tissue — the structures that move you every day. Whether it's a strain, tendon issue or chronic tightness, we build a targeted plan to resolve it.",
+        "Our approach combines hands-on therapy with corrective exercise, so you not only feel better but move better long term.",
+        "What's Included Muscle & Joint Rehab Soft Tissue Therapy Posture Correction Pain Management Who It's For Anyone with muscle, joint or soft tissue pain Athletes with recurrent tightness or niggles People with posture-related discomfort Returning athletes needing to rebuild tissue resilience What To Expect A thorough assessment of the affected area Hands-on therapy and corrective exercise A plan to prevent the problem returning Benefits Reduced pain and improved function Better posture and movement quality Fewer recurring injuries Frequently Asked Questions How is this different from physiotherapy?",
+        "They overlap, but musculoskeletal rehab focuses on restoring the specific tissues involved through a structured, often longer-term corrective programme.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nMusculoskeletal Rehab\nTargeted rehab for muscles, joints, and soft tissue.\nMusculoskeletal Rehab treats problems in muscles, joints and soft tissue — the structures that move you every day. Whether it's a strain, tendon issue or chronic tightness, we build a targeted plan to resolve it.\nOur approach combines hands-on therapy with corrective exercise, so you not only feel better but move better long term.\nWhat's Included\nMuscle & Joint Rehab\nSoft Tissue Therapy\nPosture Correction\nPain Management\nWho It's For\nAnyone with muscle, joint or soft tissue pain\nAthletes with recurrent tightness or niggles\nPeople with posture-related discomfort\nReturning athletes needing to rebuild tissue resilience\nWhat To Expect\nA thorough assessment of the affected area\nHands-on therapy and corrective exercise\nA plan to prevent the problem returning\nBenefits\nReduced pain and improved function\nBetter posture and movement quality\nFewer recurring injuries\nFrequently Asked Questions\nHow is this different from physiotherapy?\nThey overlap, but musculoskeletal rehab focuses on restoring the specific tissues involved through a structured, often longer-term corrective programme.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/neck-care",
+      "name": "service-neck-care",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Neck & Cervical Care"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Postural Health",
+        "Cervical spine assessment and neck strengthening to reduce strain and improve posture.",
+        "Your neck supports your head and connects your spine to your nervous system. In sport, a weak or tight neck can limit vision, slow reaction times and increase the risk of concussion and strain injuries.",
+        "Our Neck & Cervical Care programme assesses your cervical spine and builds strength, mobility and posture so your neck works for you instead of against you.",
+        "What's Included Posture Assessment Neck Strength Mobility Injury Prevention Who It's For Desk-based athletes and professionals with poor posture Contact sport players at risk of neck strain or concussion Anyone with chronic neck tightness, headaches or stiffness Athletes wanting better head control and reaction speed What To Expect A detailed posture and cervical spine assessment Guided neck strengthening and mobility exercises Ergonomic and daily-habit recommendations Benefits Reduced neck pain, strain and injury risk Better posture and long-term spinal health Improved head movement and reaction speed Frequently Asked Questions Is neck strengthening safe?",
+        "Yes. All exercises are progressions built from your individual assessment and are supervised to ensure safety at every stage.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nPostural Health\nNeck & Cervical Care\nCervical spine assessment and neck strengthening to reduce strain and improve posture.\nYour neck supports your head and connects your spine to your nervous system. In sport, a weak or tight neck can limit vision, slow reaction times and increase the risk of concussion and strain injuries.\nOur Neck & Cervical Care programme assesses your cervical spine and builds strength, mobility and posture so your neck works for you instead of against you.\nWhat's Included\nPosture Assessment\nNeck Strength\nMobility\nInjury Prevention\nWho It's For\nDesk-based athletes and professionals with poor posture\nContact sport players at risk of neck strain or concussion\nAnyone with chronic neck tightness, headaches or stiffness\nAthletes wanting better head control and reaction speed\nWhat To Expect\nA detailed posture and cervical spine assessment\nGuided neck strengthening and mobility exercises\nErgonomic and daily-habit recommendations\nBenefits\nReduced neck pain, strain and injury risk\nBetter posture and long-term spinal health\nImproved head movement and reaction speed\nFrequently Asked Questions\nIs neck strengthening safe?\nYes. All exercises are progressions built from your individual assessment and are supervised to ensure safety at every stage.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/obstetrics-gynaecology-consultation",
+      "name": "service-obstetrics-gynaecology-consultation",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Obstetrics & Gynaecology Consultation"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Specialist consultation with Dr. Nisha Kaushik Patnaik.",
+        "This consultation brings specialist obstetric and gynaecological care to women who are active, including sportswomen, expectant mothers and those returning to exercise after childbirth.",
+        "Dr. Nisha Kaushik Patnaik provides expert guidance on pregnancy, women's health and returning to training safely.",
+        "What's Included Gynaecology Care Pregnancy Consultation Women's Health Expert Guidance Who It's For Women with pregnancy or gynaecological concerns Sportswomen wanting expert women's health guidance Expectant mothers planning safe activity New mothers returning to sport What To Expect A specialist consultation with Dr. Nisha Kaushik Patnaik Expert guidance on your specific concern A clear, personal health plan Benefits Specialist women's health expertise Safe, personalised pregnancy and activity advice Confidence in your health and training choices Frequently Asked Questions Is this consultation covered by the same booking system?",
+        "Yes — select Obstetrics & Gynaecology Consultation when booking; it is available only with Dr. Nisha Kaushik Patnaik.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nObstetrics & Gynaecology Consultation\nSpecialist consultation with Dr. Nisha Kaushik Patnaik.\nThis consultation brings specialist obstetric and gynaecological care to women who are active, including sportswomen, expectant mothers and those returning to exercise after childbirth.\nDr. Nisha Kaushik Patnaik provides expert guidance on pregnancy, women's health and returning to training safely.\nWhat's Included\nGynaecology Care\nPregnancy Consultation\nWomen's Health\nExpert Guidance\nWho It's For\nWomen with pregnancy or gynaecological concerns\nSportswomen wanting expert women's health guidance\nExpectant mothers planning safe activity\nNew mothers returning to sport\nWhat To Expect\nA specialist consultation with Dr. Nisha Kaushik Patnaik\nExpert guidance on your specific concern\nA clear, personal health plan\nBenefits\nSpecialist women's health expertise\nSafe, personalised pregnancy and activity advice\nConfidence in your health and training choices\nFrequently Asked Questions\nIs this consultation covered by the same booking system?\nYes — select Obstetrics & Gynaecology Consultation when booking; it is available only with Dr. Nisha Kaushik Patnaik.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/physiotherapy",
+      "name": "service-physiotherapy",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Physiotherapy"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Manual therapy and exercise-based recovery.",
+        "Physiotherapy treats pain and movement problems using manual therapy, exercise and education. It's often the first step when pain or injury affects how you move.",
+        "We assess the cause of your symptoms, relieve them with hands-on treatment, and give you exercises to restore strength and mobility.",
+        "What's Included Manual Therapy Exercise Therapy Pain Relief Mobility Restore Who It's For Anyone with pain, stiffness or limited movement Athletes with acute injuries or flare-ups People recovering from surgery Those who want to understand why they hurt What To Expect A focused physical assessment Hands-on manual therapy as needed Exercises to restore pain-free movement Benefits Fast pain relief and restored mobility A clear understanding of your injury Exercises to keep you pain-free Frequently Asked Questions How many physiotherapy sessions will I need?",
+        "It varies, but many people feel significant relief within a few sessions and are given a home exercise plan to continue progress.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nPhysiotherapy\nManual therapy and exercise-based recovery.\nPhysiotherapy treats pain and movement problems using manual therapy, exercise and education. It's often the first step when pain or injury affects how you move.\nWe assess the cause of your symptoms, relieve them with hands-on treatment, and give you exercises to restore strength and mobility.\nWhat's Included\nManual Therapy\nExercise Therapy\nPain Relief\nMobility Restore\nWho It's For\nAnyone with pain, stiffness or limited movement\nAthletes with acute injuries or flare-ups\nPeople recovering from surgery\nThose who want to understand why they hurt\nWhat To Expect\nA focused physical assessment\nHands-on manual therapy as needed\nExercises to restore pain-free movement\nBenefits\nFast pain relief and restored mobility\nA clear understanding of your injury\nExercises to keep you pain-free\nFrequently Asked Questions\nHow many physiotherapy sessions will I need?\nIt varies, but many people feel significant relief within a few sessions and are given a home exercise plan to continue progress.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/pre-post-natal-rehab",
+      "name": "service-pre-post-natal-rehab",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Pre & Post Natal Rehab"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Safe exercise and recovery during and after pregnancy.",
+        "Pre & Post Natal Rehab supports you safely through pregnancy and after birth, protecting your core, pelvic floor and whole body while keeping you active and strong.",
+        "Our programmes are designed for each trimester and the postnatal period, with a focus on safe exercise, recovery and long-term pelvic health.",
+        "What's Included Antenatal Care Postnatal Recovery Core & Pelvic Health Safe Exercise Plans Who It's For Women wanting to stay active during pregnancy New mothers ready to rebuild strength safely Anyone with pelvic floor or core concerns Women planning to return to sport after childbirth What To Expect Antenatal and postnatal health screening Safe, individualised exercise plans Core and pelvic health guidance Benefits Safe exercise through every stage Faster, safer postnatal recovery Better core and pelvic health Frequently Asked Questions When can I start exercising after birth?",
+        "It depends on your delivery and recovery. We assess you individually and build a plan that's safe for your stage of healing.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nPre & Post Natal Rehab\nSafe exercise and recovery during and after pregnancy.\nPre & Post Natal Rehab supports you safely through pregnancy and after birth, protecting your core, pelvic floor and whole body while keeping you active and strong.\nOur programmes are designed for each trimester and the postnatal period, with a focus on safe exercise, recovery and long-term pelvic health.\nWhat's Included\nAntenatal Care\nPostnatal Recovery\nCore & Pelvic Health\nSafe Exercise Plans\nWho It's For\nWomen wanting to stay active during pregnancy\nNew mothers ready to rebuild strength safely\nAnyone with pelvic floor or core concerns\nWomen planning to return to sport after childbirth\nWhat To Expect\nAntenatal and postnatal health screening\nSafe, individualised exercise plans\nCore and pelvic health guidance\nBenefits\nSafe exercise through every stage\nFaster, safer postnatal recovery\nBetter core and pelvic health\nFrequently Asked Questions\nWhen can I start exercising after birth?\nIt depends on your delivery and recovery. We assess you individually and build a plan that's safe for your stage of healing.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/rehabilitation",
+      "name": "service-rehabilitation",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Rehabilitation"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Return To Play",
+        "Evidence-based rehabilitation programs for faster and safer recovery.",
+        "Rehabilitation is the bridge between injury and a confident return to sport. Our evidence-based rehab programmes rebuild strength, movement and confidence in a structured, measurable way.",
+        "We don't just clear you to play — we build you back to your best, with milestone testing and sport-specific preparation.",
+        "What's Included ACL Rehabilitation Return To Play Strength Testing Movement Screening Who It's For Athletes recovering from injury or surgery (including ACL) Anyone returning to training after a long break Athletes who want to come back stronger and avoid re-injury Those unsure if they are ready to return to their sport What To Expect A structured, stage-by-stage rehab plan Strength and movement milestone testing Clear return-to-play criteria and sport-specific training Benefits Safer, faster recovery Confidence that your body is truly ready Lower risk of re-injury through proper loading Frequently Asked Questions How long does rehabilitation take?",
+        "It depends on the injury and your starting point. We set milestones rather than fixed dates, so you progress when your body is genuinely ready.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nReturn To Play\nRehabilitation\nEvidence-based rehabilitation programs for faster and safer recovery.\nRehabilitation is the bridge between injury and a confident return to sport. Our evidence-based rehab programmes rebuild strength, movement and confidence in a structured, measurable way.\nWe don't just clear you to play — we build you back to your best, with milestone testing and sport-specific preparation.\nWhat's Included\nACL Rehabilitation\nReturn To Play\nStrength Testing\nMovement Screening\nWho It's For\nAthletes recovering from injury or surgery (including ACL)\nAnyone returning to training after a long break\nAthletes who want to come back stronger and avoid re-injury\nThose unsure if they are ready to return to their sport\nWhat To Expect\nA structured, stage-by-stage rehab plan\nStrength and movement milestone testing\nClear return-to-play criteria and sport-specific training\nBenefits\nSafer, faster recovery\nConfidence that your body is truly ready\nLower risk of re-injury through proper loading\nFrequently Asked Questions\nHow long does rehabilitation take?\nIt depends on the injury and your starting point. We set milestones rather than fixed dates, so you progress when your body is genuinely ready.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/return-to-sports",
+      "name": "service-return-to-sports",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Return to Sports"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Guided return-to-play planning after injury.",
+        "Return to Sports is the final, crucial phase of recovery — proving your body is ready to compete, not just pain-free.",
+        "We use milestone testing and sport-specific drills to rebuild confidence and ensure you return at full capacity with the lowest possible risk of re-injury.",
+        "What's Included Return-to-play Plan Milestone Testing Injury Recurrence Prevention Confidence Rebuild Who It's For Athletes cleared by rehab but unsure if they're ready Those returning after a long layoff or surgery Athletes who have re-injured and want to break the cycle Anyone wanting an objective return-to-play decision What To Expect Return-to-play milestone testing Sport-specific functional testing A confidence-rebuilding plan Benefits Return only when objectively ready Reduced re-injury risk Confidence in your body again Frequently Asked Questions How do I know I'm truly ready to play?",
+        "We test strength, power, movement and sport-specific function against targets — not just time since injury — before clearing you.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nReturn to Sports\nGuided return-to-play planning after injury.\nReturn to Sports is the final, crucial phase of recovery — proving your body is ready to compete, not just pain-free.\nWe use milestone testing and sport-specific drills to rebuild confidence and ensure you return at full capacity with the lowest possible risk of re-injury.\nWhat's Included\nReturn-to-play Plan\nMilestone Testing\nInjury Recurrence Prevention\nConfidence Rebuild\nWho It's For\nAthletes cleared by rehab but unsure if they're ready\nThose returning after a long layoff or surgery\nAthletes who have re-injured and want to break the cycle\nAnyone wanting an objective return-to-play decision\nWhat To Expect\nReturn-to-play milestone testing\nSport-specific functional testing\nA confidence-rebuilding plan\nBenefits\nReturn only when objectively ready\nReduced re-injury risk\nConfidence in your body again\nFrequently Asked Questions\nHow do I know I'm truly ready to play?\nWe test strength, power, movement and sport-specific function against targets — not just time since injury — before clearing you.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/sports-medicine",
+      "name": "service-sports-medicine",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Sports Medicine"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Performance Health",
+        "Medical screening, recovery, injury prevention and athlete monitoring.",
+        "Sports Medicine is the medical backbone of athletic care — the diagnosis, treatment and prevention of injuries, alongside keeping athletes healthy and performing throughout the season.",
+        "Our doctors combine clinical expertise with an understanding of sport-specific demands, so every consultation is practical, actionable and focused on getting you back to full function safely.",
+        "What's Included Medical Screening Recovery Programs Athlete Monitoring Performance Health Who It's For Athletes of every level wanting expert medical care Anyone with pain or an injury that isn't improving on its own Athletes preparing for competition who need a medical clearance Teams looking for on-field medical support and monitoring What To Expect A detailed medical history and focused examination Clear diagnosis and a practical treatment plan On-field support and injury prevention guidance where relevant Benefits Accurate diagnosis and faster recovery Injury prevention through expert screening Confidence to train and compete safely Frequently Asked Questions When should I see a sports medicine doctor?",
+        "If pain limits your training, an injury isn't settling within a week or two, or you want a professional screening before a season or big event.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nPerformance Health\nSports Medicine\nMedical screening, recovery, injury prevention and athlete monitoring.\nSports Medicine is the medical backbone of athletic care — the diagnosis, treatment and prevention of injuries, alongside keeping athletes healthy and performing throughout the season.\nOur doctors combine clinical expertise with an understanding of sport-specific demands, so every consultation is practical, actionable and focused on getting you back to full function safely.\nWhat's Included\nMedical Screening\nRecovery Programs\nAthlete Monitoring\nPerformance Health\nWho It's For\nAthletes of every level wanting expert medical care\nAnyone with pain or an injury that isn't improving on its own\nAthletes preparing for competition who need a medical clearance\nTeams looking for on-field medical support and monitoring\nWhat To Expect\nA detailed medical history and focused examination\nClear diagnosis and a practical treatment plan\nOn-field support and injury prevention guidance where relevant\nBenefits\nAccurate diagnosis and faster recovery\nInjury prevention through expert screening\nConfidence to train and compete safely\nFrequently Asked Questions\nWhen should I see a sports medicine doctor?\nIf pain limits your training, an injury isn't settling within a week or two, or you want a professional screening before a season or big event.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/sports-psychology",
+      "name": "service-sports-psychology",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Sports Psychology"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Peak Mental Performance",
+        "Improve focus, confidence, reaction time and decision making under pressure.",
+        "Sports psychology is the science of how the mind influences athletic performance. Our specialists help you build the mental skills that separate good athletes from great ones — improving focus, confidence, emotional control and the ability to perform under pressure.",
+        "Through structured assessments and personalised mental-training plans, we train your brain the same way we train your body, so you can stay calm, decisive and sharp in the moments that matter most.",
+        "What's Included Reaction Time Decision Making Mental Toughness Focus Training Who It's For Athletes struggling with pre-competition nerves or performance anxiety Competitors who lose focus or make poor decisions under pressure Athletes returning from injury who have lost confidence in their body Coaches and teams wanting to build mental toughness and resilience What To Expect A confidential one-on-one mental skills assessment Personalised focus, confidence and stress-management strategies Regular progress reviews with measurable improvements Benefits Sharper concentration and faster decision making Greater confidence before and during competition Reduced performance anxiety and better emotional control Frequently Asked Questions How many sessions will I need?",
+        "Most athletes see meaningful change within 4–6 sessions, though this depends on your goals and the challenges you are working on.",
+        "Is sports psychology only for professionals?",
+        "No. Any athlete — from school level to elite — can benefit from mental skills training.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nPeak Mental Performance\nSports Psychology\nImprove focus, confidence, reaction time and decision making under pressure.\nSports psychology is the science of how the mind influences athletic performance. Our specialists help you build the mental skills that separate good athletes from great ones — improving focus, confidence, emotional control and the ability to perform under pressure.\nThrough structured assessments and personalised mental-training plans, we train your brain the same way we train your body, so you can stay calm, decisive and sharp in the moments that matter most.\nWhat's Included\nReaction Time\nDecision Making\nMental Toughness\nFocus Training\nWho It's For\nAthletes struggling with pre-competition nerves or performance anxiety\nCompetitors who lose focus or make poor decisions under pressure\nAthletes returning from injury who have lost confidence in their body\nCoaches and teams wanting to build mental toughness and resilience\nWhat To Expect\nA confidential one-on-one mental skills assessment\nPersonalised focus, confidence and stress-management strategies\nRegular progress reviews with measurable improvements\nBenefits\nSharper concentration and faster decision making\nGreater confidence before and during competition\nReduced performance anxiety and better emotional control\nFrequently Asked Questions\nHow many sessions will I need?\nMost athletes see meaningful change within 4–6 sessions, though this depends on your goals and the challenges you are working on.\nIs sports psychology only for professionals?\nNo. Any athlete — from school level to elite — can benefit from mental skills training.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/sports-rehabilitation",
+      "name": "service-sports-rehabilitation",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Sports Rehabilitation"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Structured rehab programs for a safe return to sport.",
+        "Sports Rehabilitation is the structured process of returning to sport after injury — safely, progressively and without shortcuts.",
+        "We rebuild strength, confidence and sport-specific fitness in stages, with clear criteria that must be met before you progress to the next phase.",
+        "What's Included Structured Rehab Progressive Loading Pain-free Recovery Sport-specific Rehab Who It's For Athletes recovering from injury or surgery Anyone who wants to avoid re-injury when returning Athletes who have 'cleared' medically but don't feel ready Coaches wanting a clear rehab plan for a player What To Expect A stage-by-stage rehab programme Progressive loading and strength testing Sport-specific drills before full return Benefits Safer, more confident return to sport Lower risk of re-injury Rebuilt strength and fitness, not just pain relief Frequently Asked Questions What if I feel fine but haven't finished rehab?",
+        "Feeling pain-free isn't the same as being strong enough to play. Rehab milestones exist to protect you from re-injury.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nSports Rehabilitation\nStructured rehab programs for a safe return to sport.\nSports Rehabilitation is the structured process of returning to sport after injury — safely, progressively and without shortcuts.\nWe rebuild strength, confidence and sport-specific fitness in stages, with clear criteria that must be met before you progress to the next phase.\nWhat's Included\nStructured Rehab\nProgressive Loading\nPain-free Recovery\nSport-specific Rehab\nWho It's For\nAthletes recovering from injury or surgery\nAnyone who wants to avoid re-injury when returning\nAthletes who have 'cleared' medically but don't feel ready\nCoaches wanting a clear rehab plan for a player\nWhat To Expect\nA stage-by-stage rehab programme\nProgressive loading and strength testing\nSport-specific drills before full return\nBenefits\nSafer, more confident return to sport\nLower risk of re-injury\nRebuilt strength and fitness, not just pain relief\nFrequently Asked Questions\nWhat if I feel fine but haven't finished rehab?\nFeeling pain-free isn't the same as being strong enough to play. Rehab milestones exist to protect you from re-injury.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/sports-science",
+      "name": "service-sports-science",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Sports Science"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Data-driven performance analysis and athletic profiling.",
+        "Sports Science uses data to understand exactly how an athlete performs — turning measurements into decisions that improve training, reduce injury risk and accelerate development.",
+        "From performance testing to athlete profiling and load monitoring, we give coaches and athletes objective numbers instead of guesswork.",
+        "What's Included Performance Testing Athlete Profiling Data Analytics Load Monitoring Who It's For Athletes who want to train smarter with data Coaches building objective athlete profiles Teams wanting load monitoring and analytics Anyone curious about their true athletic baseline What To Expect Structured performance testing across relevant qualities A clear athlete profile and data-driven recommendations Ongoing monitoring to track improvement Benefits Training based on your actual data, not guesswork Early warning of injury risk through load monitoring Measurable, trackable progress Frequently Asked Questions What can performance testing measure?",
+        "Strength, power, speed, agility, endurance and movement quality — the key qualities behind most sports.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nSports Science\nData-driven performance analysis and athletic profiling.\nSports Science uses data to understand exactly how an athlete performs — turning measurements into decisions that improve training, reduce injury risk and accelerate development.\nFrom performance testing to athlete profiling and load monitoring, we give coaches and athletes objective numbers instead of guesswork.\nWhat's Included\nPerformance Testing\nAthlete Profiling\nData Analytics\nLoad Monitoring\nWho It's For\nAthletes who want to train smarter with data\nCoaches building objective athlete profiles\nTeams wanting load monitoring and analytics\nAnyone curious about their true athletic baseline\nWhat To Expect\nStructured performance testing across relevant qualities\nA clear athlete profile and data-driven recommendations\nOngoing monitoring to track improvement\nBenefits\nTraining based on your actual data, not guesswork\nEarly warning of injury risk through load monitoring\nMeasurable, trackable progress\nFrequently Asked Questions\nWhat can performance testing measure?\nStrength, power, speed, agility, endurance and movement quality — the key qualities behind most sports.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/sports-surgery",
+      "name": "service-sports-surgery",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Sports Surgery"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Elite Performance Service",
+        "Minimally invasive surgery for sports injuries and rapid recovery.",
+        "When injuries need surgical correction, Sports Surgery uses minimally invasive techniques to repair damaged tissue and restore function with the shortest possible downtime.",
+        "Our focus is arthroscopic and minimally invasive procedures, performed with precision and followed by a structured rehab pathway so you return stronger.",
+        "What's Included Arthroscopy Minimally Invasive Rapid Recovery Surgical Expertise Who It's For Athletes with structural injuries that require surgery Those with persistent joint pain or instability not improving with treatment Athletes who want minimal scarring and faster recovery Anyone seeking a clear surgical plan and rehab roadmap What To Expect A thorough evaluation to decide if surgery is truly needed A minimally invasive procedure when appropriate A structured post-surgery rehab and recovery plan Benefits Minimally invasive, faster recovery Precise, joint-sparing surgical techniques A complete care pathway from operation to return to sport Frequently Asked Questions Is surgery always the answer?",
+        "No. We exhaust conservative options first and only recommend surgery when it genuinely offers the best outcome for your goals.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nElite Performance Service\nSports Surgery\nMinimally invasive surgery for sports injuries and rapid recovery.\nWhen injuries need surgical correction, Sports Surgery uses minimally invasive techniques to repair damaged tissue and restore function with the shortest possible downtime.\nOur focus is arthroscopic and minimally invasive procedures, performed with precision and followed by a structured rehab pathway so you return stronger.\nWhat's Included\nArthroscopy\nMinimally Invasive\nRapid Recovery\nSurgical Expertise\nWho It's For\nAthletes with structural injuries that require surgery\nThose with persistent joint pain or instability not improving with treatment\nAthletes who want minimal scarring and faster recovery\nAnyone seeking a clear surgical plan and rehab roadmap\nWhat To Expect\nA thorough evaluation to decide if surgery is truly needed\nA minimally invasive procedure when appropriate\nA structured post-surgery rehab and recovery plan\nBenefits\nMinimally invasive, faster recovery\nPrecise, joint-sparing surgical techniques\nA complete care pathway from operation to return to sport\nFrequently Asked Questions\nIs surgery always the answer?\nNo. We exhaust conservative options first and only recommend surgery when it genuinely offers the best outcome for your goals.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/strength-conditioning",
+      "name": "service-strength-conditioning",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Strength & Conditioning"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Power Development",
+        "Develop explosive strength, mobility and athletic performance.",
+        "Strength & Conditioning develops the physical qualities behind performance — strength, power, speed, agility and endurance — in a structured, periodised way.",
+        "Rather than generic gym work, we design programmes around your sport and goals, test your progress and progress you safely.",
+        "What's Included Strength Testing Mobility Screening Power Development Shoulder Stability Who It's For Athletes wanting to get stronger, faster or more powerful Sportspeople returning from injury who need to rebuild strength Anyone wanting a structured, evidence-based training plan Teams needing a periodised S&C block What To Expect A baseline strength and movement assessment A personalised, periodised programme Regular re-testing to track progress Benefits Greater strength, power and speed Lower injury risk through balanced development Training that transfers to your sport Frequently Asked Questions I'm not an athlete — can I still do S&C?",
+        "Yes. Programmes are scaled to your level and goals, and supervised to keep every session safe.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nPower Development\nStrength & Conditioning\nDevelop explosive strength, mobility and athletic performance.\nStrength & Conditioning develops the physical qualities behind performance — strength, power, speed, agility and endurance — in a structured, periodised way.\nRather than generic gym work, we design programmes around your sport and goals, test your progress and progress you safely.\nWhat's Included\nStrength Testing\nMobility Screening\nPower Development\nShoulder Stability\nWho It's For\nAthletes wanting to get stronger, faster or more powerful\nSportspeople returning from injury who need to rebuild strength\nAnyone wanting a structured, evidence-based training plan\nTeams needing a periodised S&C block\nWhat To Expect\nA baseline strength and movement assessment\nA personalised, periodised programme\nRegular re-testing to track progress\nBenefits\nGreater strength, power and speed\nLower injury risk through balanced development\nTraining that transfers to your sport\nFrequently Asked Questions\nI'm not an athlete — can I still do S&C?\nYes. Programmes are scaled to your level and goals, and supervised to keep every session safe.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    },
+    {
+      "route": "services/wrist-function",
+      "name": "service-wrist-function",
+      "status": 200,
+      "title": "Sports Science India | Perform Better, Recover Smarter",
+      "metaDescription": "Sports science assessments, performance analysis, rehabilitation and athlete development in Bhubaneswar.",
+      "ogTitle": "",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Grip & Wrist Function"
+        },
+        {
+          "level": 2,
+          "text": "What's Included"
+        },
+        {
+          "level": 2,
+          "text": "Who It's For"
+        },
+        {
+          "level": 2,
+          "text": "What To Expect"
+        },
+        {
+          "level": 2,
+          "text": "Benefits"
+        },
+        {
+          "level": 2,
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": 2,
+          "text": "Sports Science India"
+        },
+        {
+          "level": 3,
+          "text": "Explore"
+        },
+        {
+          "level": 3,
+          "text": "Contact"
+        }
+      ],
+      "paragraphs": [
+        "Science • Performance • Excellence",
+        "Preparing Your Performance...",
+        "Login Home Ecosystem Services Technology Experts Contact Book Assessment Login Back to Services Fine Motor Control",
+        "Wrist mobility, grip strength and hand function training for sport-specific demands.",
+        "The wrist and hand are your connection to the ball, bat, racquet and bar. Grip strength and wrist mobility influence everything from racket sports to gymnastics and lifting.",
+        "Our Grip & Wrist Function programme assesses hand strength, mobility and fine motor control, and builds sport-specific capacity in these small but crucial joints.",
+        "What's Included Grip Strength Hand Mobility Fine Motor Skills Sport Specific Training Who It's For Racquet and stick-sport athletes (tennis, badminton, hockey) Gymnasts, climbers and lifters who load the wrist heavily Athletes with wrist pain or reduced grip strength Anyone wanting better hand function for their sport What To Expect A grip strength and wrist mobility assessment Targeted mobility, stability and strength exercises Sport-specific hand and wrist training Benefits Stronger grip and better racket/ball control Reduced wrist pain and injury risk Improved fine motor control and hand function Frequently Asked Questions Can wrist injuries be prevented?",
+        "Yes. Most wrist problems come from weakness or poor mobility. Strengthening and mobility work dramatically reduces risk.",
+        "Book an Assessment Explore Other Services Sports Science India India's integrated sports science platform for performance assessment, rehabilitation and athlete development.",
+        "sportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003"
+      ],
+      "links": [
+        {
+          "text": "Login",
+          "href": "/admin",
+          "internal": true
+        },
+        {
+          "text": "Book an Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Home",
+          "href": "/#home",
+          "internal": true
+        },
+        {
+          "text": "Services",
+          "href": "/#services",
+          "internal": true
+        },
+        {
+          "text": "About",
+          "href": "/#about",
+          "internal": true
+        },
+        {
+          "text": "Assessment",
+          "href": "/booking",
+          "internal": true
+        },
+        {
+          "text": "Contact",
+          "href": "/contact",
+          "internal": true
+        },
+        {
+          "text": "sportscienceindia@gmail.com",
+          "href": "mailto:sportscienceindia@gmail.com",
+          "internal": false
+        },
+        {
+          "text": "+91 73813 80010",
+          "href": "tel:+917381380010",
+          "internal": false
+        },
+        {
+          "text": "+91 82803 81010",
+          "href": "tel:+918280381010",
+          "internal": false
+        }
+      ],
+      "images": [
+        "Sports Science India",
+        "Sports Science India",
+        "Sports Science India"
+      ],
+      "bodyText": "Sports Science India | Perform Better, Recover Smarter\nScience • Performance • Excellence\nPreparing Your Performance...\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nHome Ecosystem Services Technology Experts Contact Book Assessment\nLogin\nBack to Services\nFine Motor Control\nGrip & Wrist Function\nWrist mobility, grip strength and hand function training for sport-specific demands.\nThe wrist and hand are your connection to the ball, bat, racquet and bar. Grip strength and wrist mobility influence everything from racket sports to gymnastics and lifting.\nOur Grip & Wrist Function programme assesses hand strength, mobility and fine motor control, and builds sport-specific capacity in these small but crucial joints.\nWhat's Included\nGrip Strength\nHand Mobility\nFine Motor Skills\nSport Specific Training\nWho It's For\nRacquet and stick-sport athletes (tennis, badminton, hockey)\nGymnasts, climbers and lifters who load the wrist heavily\nAthletes with wrist pain or reduced grip strength\nAnyone wanting better hand function for their sport\nWhat To Expect\nA grip strength and wrist mobility assessment\nTargeted mobility, stability and strength exercises\nSport-specific hand and wrist training\nBenefits\nStronger grip and better racket/ball control\nReduced wrist pain and injury risk\nImproved fine motor control and hand function\nFrequently Asked Questions\nCan wrist injuries be prevented?\nYes. Most wrist problems come from weakness or poor mobility. Strengthening and mobility work dramatically reduces risk.\nBook an Assessment Explore Other Services\nSports Science India\nIndia's integrated sports science platform for performance assessment, rehabilitation and athlete development.\nExplore\nHome\nServices\nAbout\nAssessment\nContact\nsportscienceindia@gmail.com +91 73813 80010 +91 82803 81010 A17/1A, Surya Nagar, Bhubaneswar 751003\n© 2026 Sports Science India. All rights reserved."
+    }
+  ]
+}
