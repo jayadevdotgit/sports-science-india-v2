@@ -453,7 +453,7 @@ export default function About() {
                     <PawPrint size={22} />
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[3px] text-orange-400/80">
+                    <p className="text-[10px] font-semibold uppercase tracking-[3px] text-orange-400/80 sm:text-xs">
                       Brand Story
                     </p>
                     <h3 className="text-2xl font-black tracking-tight text-white sm:text-3xl">
@@ -476,10 +476,10 @@ export default function About() {
                     >
                       <div className="pointer-events-none absolute -right-10 -top-10 h-20 w-20 rounded-full bg-orange-500/0 blur-[40px] transition-all duration-500 group-hover/point:bg-orange-500/25" />
                       <div className="relative flex items-center justify-between">
-                        <h4 className="text-sm font-bold text-white">{point.title}</h4>
+                        <h4 className="text-base font-bold text-white sm:text-lg">{point.title}</h4>
                         <ArrowUpRight size={14} className="text-orange-400 opacity-0 transition-opacity group-hover/point:opacity-100" />
                       </div>
-                      <p className="relative mt-2 text-xs leading-6 text-gray-400 sm:text-sm">{point.text}</p>
+                      <p className="relative mt-2 text-sm leading-6 text-gray-400 sm:text-base">{point.text}</p>
                     </div>
                   ))}
                 </div>
