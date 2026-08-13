@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
@@ -155,6 +155,10 @@ export default function PrePostNatalPage() {
   const pathname = usePathname();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const goToServices = () => {
     if (pathname !== "/") {
       router.push("/");
@@ -229,10 +233,6 @@ export default function PrePostNatalPage() {
 
             <Reveal delay={0.15}>
               <div className="relative mx-auto flex max-w-sm items-center justify-center">
-                <div className="absolute h-48 w-48 sm:h-64 sm:w-64 rounded-full bg-rose-500/20 blur-[120px] animate-pulse" />
-                <div className="absolute h-[300px] w-[300px] sm:h-[360px] sm:w-[360px] rounded-full border border-rose-500/15" />
-                <div className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full border border-dashed border-rose-500/20 animate-[spin_40s_linear_infinite]" />
-
                 <div className="relative group overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 shadow-2xl shadow-rose-500/20">
                   <Image
                     src="/images/service_cards/pre-post-natal-rehab.png"

@@ -31,23 +31,23 @@ export default function HumanBody({
   return (
     <div className="relative mx-auto flex w-full max-w-[320px] flex-col items-center justify-center sm:max-w-[520px] lg:max-w-[620px] xl:max-w-[680px]">
 
-      {/* Glow */}
-      <div className="absolute h-[80%] w-[82%] rounded-full bg-orange-500/20 blur-[120px] pointer-events-none" />
-
-      <div className="absolute h-[60%] w-[53%] rounded-full bg-orange-400/20 blur-[80px] pointer-events-none" />
-
-      {/* Rings */}
-      <div className="absolute h-[84%] w-[84%] rounded-full border border-orange-500/20 pointer-events-none" />
-
-      <div className="absolute h-[63%] w-[63%] rounded-full border border-orange-500/10 pointer-events-none" />
-
-      {/* Rotating Cyber Ring */}
-      <div className="absolute h-[98%] w-[98%] rounded-full border border-dashed border-orange-500/25 animate-[spin_40s_linear_infinite] pointer-events-none" />
-
       {/* BODY CONTAINER */}
       {/* The SVG viewBox is square. This matching wrapper keeps percentage-based
           hotspot coordinates locked to the artwork at every viewport width. */}
       <div className="relative aspect-square w-full">
+
+        {/* Glow */}
+        <div className="absolute left-1/2 top-1/2 h-[80%] w-[82%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/20 blur-[120px] pointer-events-none" />
+
+        <div className="absolute left-1/2 top-1/2 h-[60%] w-[53%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-400/20 blur-[80px] pointer-events-none" />
+
+        {/* Rings */}
+        <div className="absolute left-1/2 top-1/2 h-[84%] w-[84%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-500/20 pointer-events-none" />
+
+        <div className="absolute left-1/2 top-1/2 h-[63%] w-[63%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-orange-500/10 pointer-events-none" />
+
+        {/* Rotating Cyber Ring */}
+        <div className="absolute left-1/2 top-1/2 h-[98%] w-[98%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-orange-500/25 animate-[spin_40s_linear_infinite] pointer-events-none" />
 
         <Image
           src="/images/ecosystem/human-body.svg"

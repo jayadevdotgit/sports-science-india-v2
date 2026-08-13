@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
@@ -140,6 +140,10 @@ export default function SportsPsychologyPage() {
   const pathname = usePathname();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const goToServices = () => {
     if (pathname !== "/") {
       router.push("/");
@@ -212,10 +216,6 @@ export default function SportsPsychologyPage() {
 
             <Reveal delay={0.15}>
               <div className="relative mx-auto flex max-w-sm items-center justify-center">
-                <div className="absolute h-48 w-48 sm:h-64 sm:w-64 rounded-full bg-indigo-500/20 blur-[120px] animate-pulse" />
-                <div className="absolute h-[300px] w-[300px] sm:h-[360px] sm:w-[360px] rounded-full border border-indigo-500/15" />
-                <div className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full border border-dashed border-indigo-500/20 animate-[spin_40s_linear_infinite]" />
-
                 <div className="relative flex h-[300px] w-full sm:h-[360px] items-center justify-center rounded-3xl sm:rounded-[32px] border border-indigo-500/20 bg-gradient-to-br from-[#0d0d0d] to-black">
                   <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-br from-indigo-500/10 via-transparent to-violet-500/10" />
                   <div className="relative flex h-28 w-28 sm:h-36 sm:w-36 items-center justify-center rounded-3xl border border-indigo-500/25 bg-gradient-to-br from-indigo-500/15 to-violet-500/10 shadow-[0_0_60px_rgba(99,102,241,0.25)]">

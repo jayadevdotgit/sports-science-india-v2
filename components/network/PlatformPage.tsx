@@ -92,42 +92,6 @@ const heroGlowSecondaryMap: Record<string, string> = {
   rose: "bg-rose-600/5",
 };
 
-const heroPulseMap: Record<string, string> = {
-  orange: "bg-orange-500/20",
-  blue: "bg-blue-500/20",
-  gold: "bg-amber-500/20",
-  purple: "bg-purple-500/20",
-  cyan: "bg-cyan-500/20",
-  green: "bg-emerald-500/20",
-  emerald: "bg-emerald-500/20",
-  amber: "bg-amber-500/20",
-  rose: "bg-rose-500/20",
-};
-
-const heroRingMap: Record<string, string> = {
-  orange: "border-orange-500/15",
-  blue: "border-blue-500/15",
-  gold: "border-amber-500/15",
-  purple: "border-purple-500/15",
-  cyan: "border-cyan-500/15",
-  green: "border-emerald-500/15",
-  emerald: "border-emerald-500/15",
-  amber: "border-amber-500/15",
-  rose: "border-rose-500/15",
-};
-
-const heroRingDashedMap: Record<string, string> = {
-  orange: "border-orange-500/20",
-  blue: "border-blue-500/20",
-  gold: "border-amber-500/20",
-  purple: "border-purple-500/20",
-  cyan: "border-cyan-500/20",
-  green: "border-emerald-500/20",
-  emerald: "border-emerald-500/20",
-  amber: "border-amber-500/20",
-  rose: "border-rose-500/20",
-};
-
 const heroShadowMap: Record<string, string> = {
   orange: "shadow-[0_20px_60px_rgba(249,115,22,0.35)]",
   blue: "shadow-[0_20px_60px_rgba(59,130,246,0.35)]",
@@ -138,18 +102,6 @@ const heroShadowMap: Record<string, string> = {
   emerald: "shadow-[0_20px_60px_rgba(16,185,129,0.35)]",
   amber: "shadow-[0_20px_60px_rgba(245,158,11,0.35)]",
   rose: "shadow-[0_20px_60px_rgba(244,63,94,0.35)]",
-};
-
-const heroBlobMap: Record<string, string> = {
-  orange: "shadow-[0_0_80px_rgba(249,115,22,0.4)]",
-  blue: "shadow-[0_0_80px_rgba(59,130,246,0.4)]",
-  gold: "shadow-[0_0_80px_rgba(245,158,11,0.4)]",
-  purple: "shadow-[0_0_80px_rgba(168,85,247,0.4)]",
-  cyan: "shadow-[0_0_80px_rgba(34,211,238,0.4)]",
-  green: "shadow-[0_0_80px_rgba(16,185,129,0.4)]",
-  emerald: "shadow-[0_0_80px_rgba(16,185,129,0.4)]",
-  amber: "shadow-[0_0_80px_rgba(245,158,11,0.4)]",
-  rose: "shadow-[0_0_80px_rgba(244,63,94,0.4)]",
 };
 
 const dividerGradientMap: Record<string, string> = {
@@ -381,11 +333,7 @@ export default function PlatformPage({ id, btnClassName = "" }: { id: string; bt
   const statHover = statHoverMap[key] ?? statHoverMap.orange;
   const heroGlow = heroGlowMap[key] ?? heroGlowMap.orange;
   const heroGlowSecondary = heroGlowSecondaryMap[key] ?? heroGlowSecondaryMap.orange;
-  const heroGlowPulse = heroPulseMap[key] ?? heroPulseMap.orange;
-  const heroRing = heroRingMap[key] ?? heroRingMap.orange;
-  const heroRingDashed = heroRingDashedMap[key] ?? heroRingDashedMap.orange;
   const heroShadow = heroShadowMap[key] ?? heroShadowMap.orange;
-  const heroBlob = heroBlobMap[key] ?? heroBlobMap.orange;
   const dividerGradient = dividerGradientMap[key] ?? dividerGradientMap.orange;
   const dividerGlow = dividerGlowMap[key] ?? dividerGlowMap.orange;
   const headingGradient = headingGradientMap[key] ?? headingGradientMap.orange;
@@ -454,10 +402,6 @@ export default function PlatformPage({ id, btnClassName = "" }: { id: string; bt
             <Reveal delay={0.15} className="order-2 lg:order-none">
               <div className="relative mx-auto max-w-xs">
                 <div className="flex items-center justify-center">
-                  <div className={`absolute h-40 w-40 sm:h-52 sm:w-52 rounded-full ${heroGlowPulse} blur-[120px] animate-pulse ${heroBlob}`} />
-                  <div className={`absolute h-[260px] w-[260px] sm:h-[300px] sm:w-[300px] rounded-full border ${heroRing}`} />
-                  <div className={`absolute h-[225px] w-[225px] sm:h-[265px] sm:w-[265px] rounded-full border border-dashed ${heroRingDashed} animate-[spin_40s_linear_infinite]`} />
-
                   <div className={`relative group h-[260px] w-full sm:h-[300px] overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 shadow-2xl ${heroShadow}`}>
                     <Image
                       src={platform.pageImage ?? platform.image}
