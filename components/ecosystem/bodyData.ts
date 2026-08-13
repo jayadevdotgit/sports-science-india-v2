@@ -56,7 +56,7 @@ export const bodyData = [
       "Shoulder Stability",
     ],
     button: "Learn More",
-    link: "/services/strength-conditioning",
+    link: "/services/human-performance/strength-conditioning",
     popup: {
     top: "27%",
     left: "68%",
@@ -99,7 +99,7 @@ export const bodyData = [
       "Performance Health",
     ],
     button: "Learn More",
-    link: "/services/sports-medicine",
+    link: "/services/human-performance/sports-medicine",
     popup: {
     top: "34%",
     left: "68%",
