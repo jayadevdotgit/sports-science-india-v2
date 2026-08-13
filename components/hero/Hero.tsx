@@ -11,19 +11,15 @@ export default function Hero() {
       id="home"
       className="
         relative
-        min-h-[100svh]
+        min-h-[calc(100svh/0.9)]
         overflow-hidden
         bg-black
         text-white
         flex
-        items-start
-        pt-28
-        pb-8
-        sm:min-h-screen
-        sm:h-auto
-        sm:items-center
-        sm:pt-24
-        sm:pb-12
+        items-center
+        pt-24
+        pb-10
+        lg:pt-28
       "
     >
       {/* Orange Glow */}

@@ -11,6 +11,7 @@ import Link from "next/link";
 
 const navLinks = [
   { name: "Home", href: "#", target: "home" },
+  { name: "About", href: "/about", target: "about" },
   { name: "Ecosystem", href: "#ecosystem", target: "ecosystem" },
   { name: "Services", href: "#services", target: "services" },
   { name: "Technology", href: "/technology", target: "technology" },
@@ -40,7 +41,8 @@ export default function Navbar() {
       target === "experts" ||
       target === "contact" ||
       target === "technology" ||
-      target === "booking"
+      target === "booking" ||
+      target === "about"
     ) {
       const route = `/${target}`;
       if (pathname !== route) router.push(route);
@@ -116,7 +118,9 @@ const routeActive =
         ? "contact"
         : pathname === "/technology"
           ? "technology"
-          : null;
+          : pathname === "/about"
+            ? "about"
+            : null;
 
   // Keep active section in sync when navigating between pages.
   const currentActive = routeActive ?? activeSection;
@@ -160,7 +164,7 @@ const routeActive =
                 width={380}
                 height={120}
                 priority
-                className="h-24 w-auto object-contain lg:h-28"
+                className="h-20 w-auto object-contain lg:h-24"
               />
             </button>
 

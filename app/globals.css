@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  zoom: 90%;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

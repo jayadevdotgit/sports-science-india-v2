@@ -29,6 +29,7 @@ export const platforms = [
     description:
       "Athlete development, performance enhancement and elite sports training.",
     image: "/network/sports.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-sports.jpeg",
     link: "/ssi-sports",
     button: "Explore Platform",
     stats1: "25+",
