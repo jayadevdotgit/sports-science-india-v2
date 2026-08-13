@@ -9,6 +9,7 @@ import {
   Dumbbell,
   HeartPulse,
   Trophy,
+  ArrowRight,
 } from "lucide-react";
 
 const journey = [
@@ -159,8 +160,12 @@ export default function JourneyTimeline() {
         </p>
 
         <Link href="/booking">
-          <Button variant="primary" size="lg">
-          Begin Your Assessment →
+          <Button size="md" className="group/btn relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60">
+            <span className="absolute inset-0 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 opacity-0 transition-opacity duration-500 group-hover/btn:opacity-100" />
+            <span className="relative flex items-center gap-2">
+              Begin Your Assessment
+              <ArrowRight size={16} className="transition-transform duration-500 group-hover/btn:translate-x-1" />
+            </span>
           </Button>
         </Link>
 

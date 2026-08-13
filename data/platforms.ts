@@ -6,6 +6,7 @@ export const platforms = [
     description:
       "Advanced diagnosis, physiotherapy, rehabilitation and return-to-play programs for athletes.",
     image: "/network/clinic.jpg",
+    pageImage: "/images/ssi_ecosystem/sports-injury-medicene-centre.jpeg",
     link: "/clinic",
     button: "Explore Platform",
     stats1: "15+",
@@ -72,6 +73,7 @@ export const platforms = [
     description:
       "India's sports science publication featuring research and athlete stories.",
     image: "/network/fanzine.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-fanzine.jpeg",
     link: "/fanzine",
     button: "Read Articles",
     stats1: "100+",
@@ -138,6 +140,7 @@ export const platforms = [
     description:
       "Promoting sports education, youth development and community wellness.",
     image: "/network/foundation.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-foundation.jpeg",
     link: "/foundation",
     button: "Discover More",
     stats1: "Community",
