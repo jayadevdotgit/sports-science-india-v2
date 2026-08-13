@@ -235,7 +235,7 @@ export default function PrePostNatalPage() {
 
                 <div className="relative group overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 shadow-2xl shadow-rose-500/20">
                   <Image
-                    src="/images/services/pre-post-natal-rehab.png"
+                    src="/images/service_cards/pre-post-natal-rehab.png"
                     alt="Pre & Post Natal Rehab"
                     width={1024}
                     height={1024}

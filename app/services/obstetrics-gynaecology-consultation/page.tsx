@@ -235,7 +235,7 @@ export default function ObGynPage() {
 
                 <div className="relative group overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 shadow-2xl shadow-rose-500/20">
                   <Image
-                    src="/images/services/obstetrics-gynaecology-consultation.png"
+                    src="/images/service_cards/obstetrics-gynaecolog-consultation.png"
                     alt="Obstetrics & Gynaecology Consultation"
                     width={1024}
                     height={1024}

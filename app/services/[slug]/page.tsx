@@ -8,6 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowLeft,
   CalendarClock,
+  Calendar,
   ShieldCheck,
   Activity,
   Users,
@@ -31,6 +32,8 @@ import {
   Heart,
   Baby,
   Check,
+  Award,
+  CheckCircle2,
   type LucideIcon,
 } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
@@ -42,6 +45,8 @@ import { bodyData } from "@/components/ecosystem/bodyData";
 import { serviceDetails } from "@/components/ecosystem/serviceDetails";
 import { serviceSectionDetails } from "@/components/services/servicePages";
 import { servicesList } from "@/components/services/services";
+import { physiotherapists, physioServiceSlugs } from "@/components/experts/physioData";
+import { surgeon, surgeonServiceSlugs } from "@/components/experts/surgeonData";
 
 function slugFrom(link: string): string {
   return link.split("/").filter(Boolean).pop() || "";
@@ -71,6 +76,23 @@ const serviceIcons: Record<string, LucideIcon> = {
   "return-to-sports": Trophy,
   "pre-post-natal-rehab": Baby,
   "obstetrics-gynaecology-consultation": Heart,
+};
+
+// Detail-page-only hero images (keeps the home "Elite Performance Solutions" grid unchanged)
+const detailImages: Record<string, string> = {
+  "sports-medicine": "/images/service_cards/sports-medicine.png",
+  "sports-surgery": "/images/service_cards/sports-surgery.png",
+  "ligament-surgery": "/images/service_cards/ligament-surgery.png",
+  "joint-preservation": "/images/service_cards/joint-preservation.png",
+  "sports-science": "/images/service_cards/sports-science.png",
+  "musculoskeletal-rehab": "/images/service_cards/musculoskeletal-rehab.png",
+  "sports-rehabilitation": "/images/service_cards/sports-rehabilitation.png",
+  physiotherapy: "/images/service_cards/physiotherapy.png",
+  assessments: "/images/service_cards/assessments.png",
+  "strength-conditioning": "/images/service_cards/strength-conditioning.png",
+  "return-to-sports": "/images/service_cards/Return-to-sports.png",
+  "pre-post-natal-rehab": "/images/service_cards/pre-post-natal-rehab.png",
+  "obstetrics-gynaecology-consultation": "/images/service_cards/obstetrics-gynaecolog-consultation.png",
 };
 
 type ServiceInfo = {
@@ -155,7 +177,7 @@ export default function ServicePage() {
         description: body.description,
         icon: body.icon,
         features: body.features,
-        image: body.image,
+        image: detailImages[slug] ?? body.image,
       };
     }
     const section = servicesList.find((item) => slugFrom(item.link) === slug);
@@ -166,7 +188,7 @@ export default function ServicePage() {
         description: section.description,
         icon: "⚡",
         features: section.features,
-        image: section.image,
+        image: detailImages[slug] ?? section.image,
       };
     }
     return null;
@@ -465,6 +487,160 @@ export default function ServicePage() {
               </div>
             </Container>
           </section>
+
+          {/* ============ MEET YOUR SPECIALIST - DR. SARTHAK ============ */}
+          {surgeonServiceSlugs.includes(slug) && (
+            <section className="relative overflow-hidden bg-[#050505] py-10 sm:py-12 text-white">
+              <div className="absolute left-0 top-1/3 h-[400px] w-[400px] rounded-full bg-orange-500/10 blur-[140px]" />
+              <Container className="relative z-10">
+                <Reveal>
+                  <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+                    <p className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm shadow-lg shadow-orange-500/10">
+                      <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
+                      Meet Your Specialist
+                    </p>
+                    <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
+                      Care by <span className="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">Internationally Trained Experts</span>
+                    </h2>
+                    <div className="mx-auto mt-5 sm:mt-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.5)]" />
+                  </div>
+                </Reveal>
+
+                <Reveal delay={0.1}>
+                  <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl shadow-2xl shadow-orange-500/10">
+                    <div className="grid md:grid-cols-[260px_1fr]">
+                      <div className="relative min-h-[300px]">
+                        <Image
+                          src={surgeon.image}
+                          alt={surgeon.name}
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-black/30" />
+                        <div className="absolute bottom-3 left-3 md:hidden rounded-xl border border-white/15 bg-black/70 px-3 py-2 backdrop-blur-xl">
+                          <p className="text-xs font-bold text-white">{surgeon.name}</p>
+                          <p className="text-[10px] text-orange-300">Sports Surgeon</p>
+                        </div>
+                      </div>
+                      <div className="p-6 sm:p-8 md:p-10">
+                        <div className="flex items-center gap-2 text-orange-300">
+                          <Sparkles size={16} />
+                          <span className="text-xs font-semibold uppercase tracking-[0.2em]">{surgeon.role}</span>
+                        </div>
+                        <h3 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight">{surgeon.name}</h3>
+                        <p className="mt-2 text-sm text-gray-400">{surgeon.experience}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {surgeon.credentials.map((c) => (
+                            <span key={c} className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 px-3 py-1.5 text-xs font-semibold text-orange-300">
+                              <Award size={12} /> {c}
+                            </span>
+                          ))}
+                        </div>
+                        <p className="mt-6 text-sm leading-7 text-gray-400">
+                          {surgeon.description}
+                        </p>
+                        <div className="mt-6 flex flex-wrap items-center gap-4">
+                          <span className="inline-flex items-center gap-2 text-sm text-gray-300">
+                            <Calendar size={15} className="text-orange-400" /> {surgeon.available}
+                          </span>
+                          <Link href="/booking">
+                            <Button>
+                              <Calendar size={14} /> Book a Consultation
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Reveal>
+              </Container>
+            </section>
+          )}
+
+          {/* ============ MEET YOUR PHYSIOTHERAPISTS ============ */}
+          {physioServiceSlugs.includes(slug) && (
+            <section className="relative overflow-hidden bg-[#050505] py-10 sm:py-12 text-white">
+              <div className="absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-orange-500/5 blur-[140px]" />
+              <Container className="relative z-10">
+                <Reveal>
+                  <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+                    <p className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-5 py-2 text-[10px] sm:text-xs font-bold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm shadow-lg shadow-orange-500/10">
+                      <span className="h-1.5 w-1.5 rounded-full bg-orange-400 animate-pulse" />
+                      Meet Your Physiotherapists
+                    </p>
+                    <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
+                      Treated By <span className="bg-gradient-to-r from-orange-400 to-orange-300 bg-clip-text text-transparent">Experts</span>
+                    </h2>
+                    <div className="mx-auto mt-5 sm:mt-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 shadow-[0_0_20px_rgba(249,115,22,0.5)]" />
+                  </div>
+                </Reveal>
+
+                <div className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  {physiotherapists.map((pt, i) => (
+                    <Reveal key={pt.slug} delay={i * 0.08}>
+                      <div className="group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-orange-500/20 bg-gradient-to-b from-[#121014] via-[#0d0d0d] to-[#0a0a0c] p-5 sm:p-6 transition-all duration-500 hover:-translate-y-2 hover:border-orange-500/50 hover:shadow-[0_25px_70px_rgba(249,115,22,0.18)]">
+                        {/* Top accent glow */}
+                        <div className="pointer-events-none absolute -top-20 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/15 blur-3xl transition-all duration-500 group-hover:bg-orange-500/25" />
+                        {/* Shine sweep on hover */}
+                        <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.04] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
+                        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
+
+                        <div className="relative">
+                          {/* Circular photo with glow */}
+                          <div className="relative mx-auto mt-1">
+                            <div className="absolute inset-0 rounded-full bg-orange-500/30 blur-2xl opacity-60 transition-all duration-500 group-hover:opacity-100" />
+                            <div className="relative mx-auto flex h-24 w-24 sm:h-28 sm:w-28 items-center justify-center overflow-hidden rounded-full border-2 border-orange-500/40 bg-[#1a1410] transition-all duration-500 group-hover:scale-105 group-hover:border-orange-400 group-hover:shadow-[0_0_40px_rgba(249,115,22,0.4)]">
+                              <Image
+                                src={pt.image}
+                                alt={pt.name}
+                                fill
+                                sizes="(max-width: 640px) 96px, 112px"
+                                className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                              />
+                            </div>
+                          </div>
+
+                          {/* Name */}
+                          <h3 className="mt-4 flex min-h-12 items-center justify-center text-center text-base font-bold text-white leading-snug sm:text-lg">
+                            {pt.name}
+                          </h3>
+
+                          {/* Role */}
+                          <p className="mt-1 text-center text-xs sm:text-sm font-medium leading-5 text-orange-400">
+                            {pt.role}
+                          </p>
+
+                          {/* Experience pill */}
+                          <div className="mt-3 flex justify-center">
+                            <span className="inline-flex items-center gap-1.5 rounded-full border border-orange-500/25 bg-orange-500/10 px-3 py-1 text-xs font-semibold text-orange-300 transition-all duration-300 group-hover:border-orange-500/40 group-hover:bg-orange-500/15">
+                              <Award size={14} className="text-orange-500" /> {pt.experience}
+                            </span>
+                          </div>
+
+                          {/* Specialties */}
+                          <div className="mt-4 flex-1 space-y-2">
+                            {pt.specialties.map((s) => (
+                              <div
+                                key={s}
+                                className="flex items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.03] px-3 py-1.5 transition-all duration-300 group-hover:border-orange-500/20 group-hover:bg-orange-500/[0.05]"
+                              >
+                                <CheckCircle2 size={15} className="shrink-0 text-orange-500" />
+                                <span className="text-[13px] text-gray-300">{s}</span>
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="mt-4 rounded-2xl border border-orange-500/20 bg-orange-500/5 py-2 text-center text-xs font-medium text-orange-400">
+                            Available for Consultation
+                          </div>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </Container>
+            </section>
+          )}
 
           {/* ============ FAQ ============ */}
           {detail.faq.length > 0 && (
