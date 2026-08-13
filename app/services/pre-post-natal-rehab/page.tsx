@@ -27,86 +27,87 @@ import {
   Clock3,
   Award,
   Check,
+  Activity,
 } from "lucide-react";
 
 const highlights = [
-  { label: "Specialist-Led", sub: "Consultations with Dr. Nisha Kaushik Patnaik" },
-  { label: "Personal Care", sub: "Clear, individual health plans for every woman" },
-  { label: "Return to Sport", sub: "Pregnancy & activity guidance for athletes" },
+  { label: "Every Stage", sub: "Safe programmes for each trimester and after birth" },
+  { label: "Specialist-Led", sub: "Guided with Dr. Nisha Kaushik Patnaik" },
+  { label: "Return to Sport", sub: "Rebuild strength and confidence after childbirth" },
 ];
 
 const whoFor = [
   {
     icon: Heart,
-    title: "Women with Concerns",
-    text: "Pregnancy or gynaecological concerns handled with expert, judgment-free care.",
-  },
-  {
-    icon: Users,
-    title: "Sportswomen",
-    text: "Elite and active women wanting specialist women's health guidance.",
+    title: "Expectant Mothers",
+    text: "Stay active and strong through every trimester, safely.",
   },
   {
     icon: Baby,
-    title: "Expectant Mothers",
-    text: "Planning safe activity and training throughout every stage.",
+    title: "New Mothers",
+    text: "Rebuild core and pelvic health after birth, at your own pace.",
+  },
+  {
+    icon: Users,
+    title: "Active Women",
+    text: "Pregnancy and postnatal guidance for sportswomen and athletes.",
   },
   {
     icon: HeartPulse,
-    title: "New Mothers",
-    text: "Returning to sport after childbirth, safely and confidently.",
+    title: "Returning Mums",
+    text: "A safe, structured path back to sport after childbirth.",
   },
 ];
 
 const steps = [
   {
-    title: "Specialist Consultation",
-    text: "A one-on-one consultation with Dr. Nisha Kaushik Patnaik (MBBS, MS · MRCOG London · FMAS Spain).",
+    title: "Health Screening",
+    text: "Antenatal and postnatal screening with a specialist consultation, guided by Dr. Nisha Kaushik Patnaik.",
   },
   {
-    title: "Expert Guidance",
-    text: "Focused answers on your specific pregnancy, gynaecological or return-to-training concern.",
+    title: "Safe Exercise Plan",
+    text: "Individualised exercise plans designed around your stage of pregnancy or recovery.",
   },
   {
-    title: "Your Personal Plan",
-    text: "A clear, individual health plan you can follow with total confidence.",
+    title: "Core & Pelvic Health",
+    text: "Ongoing guidance to protect your core and pelvic floor and return to sport safely.",
   },
 ];
 
 const benefits = [
   {
     icon: Award,
-    title: "Specialist Expertise",
-    text: "Internationally trained Obstetrics & Gynaecology specialist (MRCOG London, FMAS Spain).",
+    title: "Specialist Guidance",
+    text: "Care informed by Dr. Nisha Kaushik Patnaik, Obstetrics & Gynaecology specialist (MRCOG London, FMAS Spain).",
   },
   {
     icon: ShieldCheck,
-    title: "Safe, Personalised Advice",
-    text: "Pregnancy and activity guidance tailored to your body and goals.",
+    title: "Safe, Personalised Plans",
+    text: "Exercise and recovery tailored to your stage and your body.",
   },
   {
     icon: Sparkles,
-    title: "Confidence in Your Choices",
-    text: "Make informed health and training decisions with expert backing.",
+    title: "Confidence to Return",
+    text: "A clear, progressive plan so you can return to sport with total confidence.",
   },
 ];
 
 const faqs = [
   {
-    q: "Is this consultation covered by the same booking system?",
-    a: "Yes. Select “Obstetrics & Gynaecology Consultation” when booking — it is available only with Dr. Nisha Kaushik Patnaik.",
+    q: "When can I start exercising during pregnancy?",
+    a: "For most women, gentle activity can continue or begin early in pregnancy. We design a plan around your health and stage, always prioritising safety.",
   },
   {
-    q: "When does Dr. Nisha consult?",
-    a: "Dr. Nisha takes evening appointments (4:00 PM onwards), Mondays to Saturdays. Sundays are closed.",
+    q: "When can I start exercising after birth?",
+    a: "It depends on your delivery and recovery. We assess you individually and build a plan that's safe for your stage of healing.",
   },
   {
-    q: "I'm a sportswoman planning for pregnancy — is this right for me?",
-    a: "Absolutely. The consultation covers pregnancy planning, safe training during pregnancy and returning to sport safely after childbirth.",
+    q: "Is this suitable for sportswomen?",
+    a: "Absolutely. We combine obstetric care with sports science so active women can train safely and return to sport with confidence.",
   },
   {
-    q: "What should I prepare for the consultation?",
-    a: "Bring any previous reports, your training history and a list of questions. She'll build a clear, personal plan around your situation.",
+    q: "Who runs this service?",
+    a: "Pre & Post Natal Rehab is guided with Dr. Nisha Kaushik Patnaik, our Obstetrics & Gynaecology specialist (MBBS, MS · MRCOG London · FMAS Spain).",
   },
 ];
 
@@ -149,7 +150,7 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
   );
 }
 
-export default function ObGynPage() {
+export default function PrePostNatalPage() {
   const router = useRouter();
   const pathname = usePathname();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -189,7 +190,7 @@ export default function ObGynPage() {
                 <div className="relative inline-flex">
                   <div className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-rose-500/20 blur-2xl" />
                   <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-2xl sm:rounded-3xl border border-rose-500/30 bg-gradient-to-br from-rose-500/20 to-rose-500/5 shadow-[0_8px_32px_rgba(244,63,94,0.25)]">
-                    <Heart size={24} className="text-rose-400 sm:size-8" />
+                    <Activity size={24} className="text-rose-400 sm:size-8" />
                   </div>
                 </div>
                 <div>
@@ -198,19 +199,18 @@ export default function ObGynPage() {
                     Women&apos;s Health &amp; Performance
                   </p>
                   <h1 className="mt-1.5 text-2xl sm:text-3xl md:text-4xl font-black leading-[1.1] tracking-tight">
-                    Obstetrics &amp; Gynaecology{" "}
+                    Pre &amp; Post Natal{" "}
                     <span className="bg-gradient-to-r from-orange-400 via-rose-400 to-rose-400 bg-clip-text text-transparent">
-                      Consultation
+                      Rehab
                     </span>
                   </h1>
                 </div>
               </div>
               <div className="mt-5 sm:mt-6 h-1.5 w-20 sm:w-24 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.5)]" />
               <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-gray-300/90">
-                Specialist obstetric and gynaecological care for women who are
-                active — including sportswomen, expectant mothers, and those
-                returning to exercise after childbirth. Expert guidance on
-                pregnancy, women&apos;s health and training safely.
+                Safe, specialist-led support through pregnancy and after birth —
+                protecting your core, pelvic floor and whole body while keeping
+                you active and strong at every stage of your journey.
               </p>
 
               <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:flex sm:justify-start sm:gap-4">
@@ -235,8 +235,8 @@ export default function ObGynPage() {
 
                 <div className="relative group overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/10 shadow-2xl shadow-rose-500/20">
                   <Image
-                    src="/images/services/obstetrics-gynaecology-consultation.png"
-                    alt="Obstetrics & Gynaecology Consultation"
+                    src="/images/services/pre-post-natal-rehab.png"
+                    alt="Pre & Post Natal Rehab"
                     width={1024}
                     height={1024}
                     className="h-[300px] sm:h-[360px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -244,11 +244,11 @@ export default function ObGynPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 rounded-xl border border-white/15 bg-black/70 px-3 py-2 sm:px-4 sm:py-3 backdrop-blur-xl shadow-lg">
-                    <p className="text-xs sm:text-sm font-bold text-white">Dr. Nisha Kaushik Patnaik</p>
-                    <p className="text-[10px] sm:text-xs text-rose-300 font-medium">Obstetrics &amp; Gynaecology</p>
+                    <p className="text-xs sm:text-sm font-bold text-white">Pre &amp; Post Natal Rehab</p>
+                    <p className="text-[10px] sm:text-xs text-rose-300 font-medium">Guided by Dr. Nisha Kaushik Patnaik</p>
                   </div>
                   <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border border-white/15 bg-black/60 backdrop-blur-xl">
-                    <Heart size={16} className="text-rose-400 sm:size-[18px]" />
+                    <Baby size={16} className="text-rose-400 sm:size-[18px]" />
                   </div>
                 </div>
               </div>
@@ -294,7 +294,7 @@ export default function ObGynPage() {
                 Who It&apos;s For
               </p>
               <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
-                Designed for Every <span className="bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent">Stage</span> of a Woman&apos;s Journey
+                Designed for Every <span className="bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent">Stage</span> of Motherhood
               </h2>
               <div className="mx-auto mt-5 sm:mt-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.5)]" />
             </div>
@@ -332,7 +332,7 @@ export default function ObGynPage() {
                 What To Expect
               </p>
               <h2 className="mt-4 sm:mt-5 text-2xl sm:text-3xl md:text-4xl font-black tracking-tight">
-                A Calm, Personal <span className="bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent">Care Journey</span>
+                A Safe, Personal <span className="bg-gradient-to-r from-orange-400 to-rose-400 bg-clip-text text-transparent">Recovery Journey</span>
               </h2>
               <div className="mx-auto mt-5 sm:mt-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.5)]" />
             </div>
@@ -406,7 +406,7 @@ export default function ObGynPage() {
 
           <Reveal delay={0.15}>
             <div className="mt-10 grid gap-3 rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl p-5 sm:p-6 sm:grid-cols-2">
-              {["Gynaecology Care", "Pregnancy Consultation", "Women's Health", "Expert Guidance"].map((f) => (
+              {["Antenatal Care", "Postnatal Recovery", "Core & Pelvic Health", "Safe Exercise Plans"].map((f) => (
                 <div key={f} className="flex items-center gap-3 text-sm text-gray-300">
                   <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-rose-500/15 text-rose-400">
                     <Check size={12} />
@@ -530,14 +530,14 @@ export default function ObGynPage() {
                   Start Your Journey
                 </div>
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight">
-                  Your Health, Your Training,
+                  Strong, Safe &amp; Confident,
                   <span className="block mt-2 bg-gradient-to-r from-orange-400 via-rose-400 to-rose-400 bg-clip-text text-transparent">
-                    In Expert Hands.
+                    At Every Stage.
                   </span>
                 </h2>
                 <p className="mx-auto mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-7 text-gray-300/90">
-                  Book your consultation with Dr. Nisha Kaushik Patnaik and get
-                  a clear, personal plan for your women&apos;s health and performance.
+                  Begin your pre &amp; post natal rehab journey with expert,
+                  specialist-led care designed around you.
                 </p>
                 <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:flex sm:gap-4 sm:justify-center">
                   <Link href="/booking">
