@@ -157,7 +157,7 @@ export default function HumanPerformancePage({ slug }: { slug: string }) {
 
               <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:flex sm:justify-start sm:gap-4">
                 <Link href="/booking">
-                  <Button size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
+                  <Button color="cyan" size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
                     <Calendar size={16} /> Book Now
                   </Button>
                 </Link>
@@ -430,7 +430,7 @@ export default function HumanPerformancePage({ slug }: { slug: string }) {
                 </p>
                 <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:flex sm:gap-4 sm:justify-center">
                   <Link href="/booking">
-                    <Button size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
+                    <Button color="cyan" size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
                       <CalendarClock size={14} /> Book Now
                     </Button>
                   </Link>

@@ -13,6 +13,12 @@ export const platforms = [
     stats2: "1000+",
     label2: "Athletes",
     badgeColor: "orange",
+    points: [
+      "Advanced injury diagnosis & imaging",
+      "Physiotherapy & rehabilitation",
+      "Return-to-play programs",
+      "Athlete monitoring & prevention",
+    ],
   },
 
   {
@@ -29,6 +35,12 @@ export const platforms = [
     stats2: "500+",
     label2: "Athletes",
     badgeColor: "blue",
+    points: [
+      "Elite sports training programs",
+      "Performance enhancement",
+      "Athlete development pathways",
+      "Sport-specific coaching",
+    ],
   },
 
   {
@@ -45,6 +57,12 @@ export const platforms = [
     stats2: "50+",
     label2: "Awards",
     badgeColor: "gold",
+    points: [
+      "Prestigious sports awards",
+      "Celebrating athletic excellence",
+      "Annual recognition event",
+      "Honouring coaches & athletes",
+    ],
   },
 
   {
@@ -61,6 +79,12 @@ export const platforms = [
     stats2: "Monthly",
     label2: "Edition",
     badgeColor: "purple",
+    points: [
+      "Sports science research articles",
+      "Athlete stories & interviews",
+      "Monthly digital editions",
+      "Expert insights & analysis",
+    ],
   },
 
   {
@@ -77,6 +101,12 @@ export const platforms = [
     stats2: "Pan India",
     label2: "Network",
     badgeColor: "cyan",
+    points: [
+      "Athlete & coach networking",
+      "Academy connections",
+      "Sports professional community",
+      "Career & opportunity listings",
+    ],
   },
 
   {
@@ -93,6 +123,12 @@ export const platforms = [
     stats2: "Future",
     label2: "Champions",
     badgeColor: "green",
+    points: [
+      "Long-term athlete development",
+      "Age-group training pathways",
+      "Sports science foundation",
+      "Talent identification & nurturing",
+    ],
   },
 
   {
@@ -111,6 +147,12 @@ export const platforms = [
     badgeColor: "emerald",
     status: "Healthcare",
     statusColor: "orange",
+    points: [
+      "Sports education programs",
+      "Youth development initiatives",
+      "Community wellness drives",
+      "Grassroots sport access",
+    ],
   },
 
   {
@@ -127,6 +169,12 @@ export const platforms = [
     stats2: "1000+",
     label2: "Delegates",
     badgeColor: "amber",
+    points: [
+      "Premier sports science conference",
+      "Expert & thought-leader panels",
+      "Athlete & coach sessions",
+      "Networking with 1000+ delegates",
+    ],
   },
 
   {
@@ -143,5 +191,11 @@ export const platforms = [
     stats2: "Expert",
     label2: "Faculty",
     badgeColor: "rose",
+    points: [
+      "International faculty & speakers",
+      "Surgical technique workshops",
+      "Latest arthroscopy advances",
+      "Sports medicine networking",
+    ],
   },
 ];

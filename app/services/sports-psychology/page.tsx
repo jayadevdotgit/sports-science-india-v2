@@ -198,12 +198,12 @@ export default function SportsPsychologyPage() {
 
               <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:flex sm:justify-start sm:gap-4">
                 <Link href="/booking">
-                  <Button size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
+                  <Button color="indigo" size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
                     <Calendar size={16} /> Book Now
                   </Button>
                 </Link>
                 <a href="tel:+917381380010">
-                  <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
+                  <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base border-indigo-500/40 text-indigo-300 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">
                     <PhoneCall size={16} /> +91 73813 80010
                   </Button>
                 </a>
@@ -436,12 +436,12 @@ export default function SportsPsychologyPage() {
                 </p>
                 <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:flex sm:gap-4 sm:justify-center">
                   <Link href="/booking">
-                    <Button size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
+                    <Button color="indigo" size="md" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
                       <CalendarClock size={14} /> Book Now
                     </Button>
                   </Link>
                   <a href="tel:+917381380010">
-                    <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
+                    <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm border-indigo-500/40 text-indigo-300 hover:bg-indigo-500 hover:border-indigo-500 hover:text-white">
                       <PhoneCall size={14} /> +91 73813 80010
                     </Button>
                   </a>

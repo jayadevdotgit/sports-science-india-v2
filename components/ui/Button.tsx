@@ -4,17 +4,24 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "primary" | "outline" | "dark";
   size?: "sm" | "md" | "lg";
+  color?: "orange" | "indigo" | "rose" | "cyan";
 }
 
 export default function Button({
   children,
   variant = "primary",
   size = "md",
+  color = "orange",
   className = "",
   ...props
 }: ButtonProps) {
   const styles = {
-    primary: "bg-orange-500 hover:bg-orange-600 text-white",
+    primary: {
+      orange: "bg-orange-500 hover:bg-orange-600 text-white",
+      indigo: "bg-indigo-500 hover:bg-indigo-600 text-white",
+      rose: "bg-rose-500 hover:bg-rose-600 text-white",
+      cyan: "bg-cyan-500 hover:bg-cyan-600 text-white",
+    },
     outline: "border border-white text-white hover:bg-white hover:text-black",
     dark: "bg-black text-white hover:bg-gray-900",
   };
@@ -29,7 +36,7 @@ export default function Button({
     <button
       {...props}
       className={`
-        ${styles[variant]}
+        ${typeof styles[variant] === "string" ? styles[variant] : styles[variant as "primary"][color]}
         ${sizes[size]}
         inline-flex
         items-center
