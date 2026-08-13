@@ -163,50 +163,50 @@ export default function PlatformPage({ id }: { id: string }) {
 
             {/* Stats */}
             <Reveal delay={0.2}>
-              <div className="mt-8 sm:mt-10 grid gap-2.5 sm:gap-3 grid-cols-2 sm:grid-cols-4">
+              <div className="mt-6 sm:mt-8 grid gap-2 sm:gap-2.5 grid-cols-2 sm:grid-cols-4">
                 {[
                   { stat: platform.stats1, label: platform.label1 },
                   { stat: platform.stats2, label: platform.label2 },
                 ].map((s, i) => (
                   <div
                     key={i}
-                    className={`group relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl p-3.5 sm:p-4 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500 ${statHoverMap[platform.badgeColor] ?? statHoverMap.orange}`}
+                    className={`group relative overflow-hidden rounded-lg sm:rounded-xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl px-2 py-2.5 sm:px-3 sm:py-3 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500 ${statHoverMap[platform.badgeColor] ?? statHoverMap.orange}`}
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                    <p className={`relative text-xl sm:text-3xl font-black tracking-tight bg-gradient-to-r ${statGradientMap[platform.badgeColor] ?? statGradientMap.orange} bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(255,255,255,0.08)]`}>
+                    <p className={`relative text-lg sm:text-2xl font-black tracking-tight bg-gradient-to-r ${statGradientMap[platform.badgeColor] ?? statGradientMap.orange} bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(255,255,255,0.08)]`}>
                       {s.stat}
                     </p>
-                    <p className="relative mt-0.5 text-[10px] sm:text-[11px] uppercase tracking-widest text-gray-400">
+                    <p className="relative mt-0.5 text-[9px] sm:text-[11px] uppercase tracking-widest text-gray-400">
                       {s.label}
                     </p>
-                    <div className="mx-auto mt-1.5 h-0.5 w-6 rounded-full bg-gradient-to-r from-white/30 to-transparent transition-all duration-500 group-hover:w-12" />
+                    <div className="mx-auto mt-1 h-px w-6 rounded-full bg-gradient-to-r from-white/30 to-transparent transition-all duration-500 group-hover:w-12" />
                   </div>
                 ))}
                 <div
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl p-3.5 sm:p-4 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500"
+                  className="group relative overflow-hidden rounded-lg sm:rounded-xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl px-2 py-2.5 sm:px-3 sm:py-3 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="relative mx-auto flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl border bg-white/5 text-white/90 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                    <Sparkles size={15} className="sm:size-4" />
+                  <div className="relative mx-auto flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-md sm:rounded-lg border bg-white/5 text-white/90 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <Sparkles size={12} className="sm:size-4" />
                   </div>
-                  <p className="relative mt-1.5 text-[11px] sm:text-xs font-black uppercase tracking-widest text-white">
+                  <p className="relative mt-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-white">
                     {platform.category}
                   </p>
-                  <p className="relative mt-0.5 text-[10px] sm:text-[11px] uppercase tracking-widest text-gray-500">
+                  <p className="relative mt-0.5 text-[9px] sm:text-[11px] uppercase tracking-widest text-gray-500">
                     Category
                   </p>
                 </div>
                 <div
-                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl p-3.5 sm:p-4 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500"
+                  className="group relative overflow-hidden rounded-lg sm:rounded-xl border-2 border-orange-500/40 bg-gradient-to-br from-white/[0.07] to-white/[0.03] backdrop-blur-xl px-2 py-2.5 sm:px-3 sm:py-3 text-center transition-all duration-500 hover:-translate-y-0.5 hover:border-orange-500"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                  <div className="relative mx-auto flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-lg sm:rounded-xl border bg-white/5 text-white/90 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
-                    <TrendingUp size={15} className="sm:size-4" />
+                  <div className="relative mx-auto flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-md sm:rounded-lg border bg-white/5 text-white/90 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                    <TrendingUp size={12} className="sm:size-4" />
                   </div>
-                  <p className="relative mt-1.5 text-[11px] sm:text-xs font-black uppercase tracking-widest text-white">
+                  <p className="relative mt-1 text-[10px] sm:text-xs font-black uppercase tracking-widest text-white">
                     {platform.label2}
                   </p>
-                  <p className="relative mt-0.5 text-[10px] sm:text-[11px] uppercase tracking-widest text-gray-500">
+                  <p className="relative mt-0.5 text-[9px] sm:text-[11px] uppercase tracking-widest text-gray-500">
                     Focus
                   </p>
                 </div>
