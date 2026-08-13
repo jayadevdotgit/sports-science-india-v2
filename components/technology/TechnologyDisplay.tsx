@@ -51,7 +51,7 @@ export default function TechnologyDisplay({ technology }: Props) {
                 duration: 0.5,
                 ease: "easeInOut",
                 }}
-                className="relative h-[210px] sm:h-[320px] lg:h-full lg:min-h-[500px]"
+                className="relative h-[260px] bg-black/40 sm:h-[320px] lg:h-full lg:min-h-[500px]"
             >
 
             <Image
@@ -59,7 +59,8 @@ export default function TechnologyDisplay({ technology }: Props) {
               alt={technology.title}
               fill
               className="
-                object-cover
+                object-contain
+                lg:object-cover
                 transition-all
                 duration-700
                 hover:scale-105
