@@ -41,6 +41,9 @@ export default function HumanBody({
 
       <div className="absolute h-[63%] w-[63%] rounded-full border border-orange-500/10 pointer-events-none" />
 
+      {/* Rotating Cyber Ring */}
+      <div className="absolute h-[98%] w-[98%] rounded-full border border-dashed border-orange-500/25 animate-[spin_40s_linear_infinite] pointer-events-none" />
+
       {/* BODY CONTAINER */}
       {/* The SVG viewBox is square. This matching wrapper keeps percentage-based
           hotspot coordinates locked to the artwork at every viewport width. */}
