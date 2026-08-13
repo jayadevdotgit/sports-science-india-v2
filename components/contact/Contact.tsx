@@ -79,7 +79,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#050505] py-14 text-white"
+      className="relative overflow-hidden bg-[#050505] py-12 text-white sm:py-14"
     >
       {/* Ambient glows */}
       <div className="absolute left-1/2 top-16 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px]" />
@@ -89,11 +89,11 @@ export default function Contact() {
       <Container className="relative z-10">
         {/* Header */}
         <Reveal>
-          <div className="mx-auto mb-14 max-w-4xl text-center">
+          <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14">
             <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
               Contact Us
             </p>
-            <h2 className="mt-6 text-3xl font-bold leading-tight md:text-4xl">
+            <h2 className="mt-6 text-[1.7rem] font-bold leading-tight sm:text-3xl md:text-4xl">
               Let&apos;s Build Better{" "}
               <span className="text-orange-500">Athletes</span> Together
             </h2>
@@ -106,7 +106,7 @@ export default function Contact() {
           </div>
         </Reveal>
 
-        <div className="grid gap-10 lg:grid-cols-2">
+        <div className="grid gap-8 lg:grid-cols-2">
           {/* Left — info tiles + socials */}
           <Reveal delay={0.05}>
             <div className="space-y-6">
@@ -116,19 +116,23 @@ export default function Contact() {
                   return (
                     <div
                       key={tile.title}
-                      className="group relative overflow-hidden rounded-3xl border border-gray-800 bg-[#0d0d0d] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-[0_20px_60px_rgba(249,115,22,0.15)]"
+                      className="group relative overflow-hidden rounded-3xl border border-gray-800 bg-[#0d0d0d] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/50 hover:shadow-[0_20px_60px_rgba(249,115,22,0.15)] sm:p-6"
                     >
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-orange-500/20 bg-orange-500/10 text-orange-500 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
-                        <Icon size={22} />
+                      <div className="flex items-center gap-4 sm:block">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-orange-500/20 bg-orange-500/10 text-orange-500 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110">
+                          <Icon size={22} />
+                        </div>
+                        <div className="mt-0 sm:mt-4">
+                          <h3 className="text-lg font-bold">{tile.title}</h3>
+                          <p className="mt-2 space-y-0.5 text-sm leading-6 text-gray-400">
+                            {tile.lines.map((line) => (
+                              <span key={line} className="block">
+                                {line}
+                              </span>
+                            ))}
+                          </p>
+                        </div>
                       </div>
-                      <h3 className="mt-4 text-lg font-bold">{tile.title}</h3>
-                      <p className="mt-2 space-y-0.5 text-sm leading-6 text-gray-400">
-                        {tile.lines.map((line) => (
-                          <span key={line} className="block">
-                            {line}
-                          </span>
-                        ))}
-                      </p>
                       {tile.action && (
                         <a
                           href={tile.action.href}
@@ -146,11 +150,11 @@ export default function Contact() {
               </div>
 
               {/* Socials */}
-              <div className="rounded-3xl border border-gray-800 bg-[#0d0d0d] p-6">
+              <div className="rounded-3xl border border-gray-800 bg-[#0d0d0d] p-5 sm:p-6">
                 <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-gray-300">
                   Follow Us
                 </h3>
-                <div className="mt-5 flex flex-wrap gap-4">
+                <div className="mt-5 flex flex-wrap items-center gap-3">
                   {socials.map((social) => {
                     const Icon = social.icon;
                     return (
@@ -160,9 +164,9 @@ export default function Contact() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={social.label}
-                        className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-700 bg-[#1a1a1a] text-gray-300 transition-all duration-300 hover:scale-110 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 bg-[#1a1a1a] text-gray-300 transition-all duration-300 hover:scale-110 hover:border-orange-500 hover:bg-orange-500 hover:text-white sm:h-11 sm:w-11"
                       >
-                        <Icon size={18} />
+                        <Icon size={17} />
                       </a>
                     );
                   })}
@@ -182,7 +186,7 @@ export default function Contact() {
           <Reveal delay={0.1}>
             <form
               onSubmit={handleSubmit}
-              className="relative overflow-hidden rounded-[28px] border border-gray-800 bg-[#0d0d0d]/80 p-8 backdrop-blur-xl"
+              className="relative overflow-hidden rounded-[28px] border border-gray-800 bg-[#0d0d0d]/80 p-5 backdrop-blur-xl sm:p-8"
             >
               <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/15 blur-[80px]" />
 
@@ -276,7 +280,7 @@ export default function Contact() {
                 <iframe
                   title="Sports Science India location"
                   src="https://maps.google.com/maps?q=Sports%20Science%20India%2C%20Surya%20Nagar%2C%20Bhubaneswar&output=embed"
-                  className="h-[360px] w-full grayscale-[0.3]"
+                  className="h-[300px] w-full grayscale-[0.3] sm:h-[360px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
