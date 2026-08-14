@@ -1,0 +1,146 @@
+export const bodyColorMap: Record<
+  string,
+  {
+    text: string;
+    border: string;
+    ring: string;
+    dot: string;
+    pulse: string;
+    line: string;
+    shadow: string;
+    glow: string;
+    active: string;
+    activeShadow: string;
+    hover: string;
+    btn: string;
+  }
+> = {
+  orange: {
+    text: "text-orange-500",
+    border: "border-orange-500/40",
+    ring: "border-orange-400",
+    dot: "bg-orange-500",
+    pulse: "animate-ping bg-orange-500/30",
+    line: "bg-orange-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(249,115,22,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(249,115,22,1)]",
+    active: "bg-orange-500",
+    activeShadow: "shadow-[0_0_20px_rgba(249,115,22,1)]",
+    hover: "hover:bg-orange-500",
+    btn: "border-orange-500 bg-orange-500/10 text-orange-400 hover:bg-orange-500 hover:text-white",
+  },
+  blue: {
+    text: "text-blue-500",
+    border: "border-blue-500/40",
+    ring: "border-blue-400",
+    dot: "bg-blue-500",
+    pulse: "animate-ping bg-blue-500/30",
+    line: "bg-blue-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(59,130,246,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(59,130,246,1)]",
+    active: "bg-blue-500",
+    activeShadow: "shadow-[0_0_20px_rgba(59,130,246,1)]",
+    hover: "hover:bg-blue-500",
+    btn: "border-blue-500 bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white",
+  },
+  gold: {
+    text: "text-amber-500",
+    border: "border-amber-500/40",
+    ring: "border-amber-400",
+    dot: "bg-amber-500",
+    pulse: "animate-ping bg-amber-500/30",
+    line: "bg-amber-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(245,158,11,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(245,158,11,1)]",
+    active: "bg-amber-500",
+    activeShadow: "shadow-[0_0_20px_rgba(245,158,11,1)]",
+    hover: "hover:bg-amber-500",
+    btn: "border-amber-500 bg-amber-500/10 text-amber-400 hover:bg-amber-500 hover:text-white",
+  },
+  purple: {
+    text: "text-purple-500",
+    border: "border-purple-500/40",
+    ring: "border-purple-400",
+    dot: "bg-purple-500",
+    pulse: "animate-ping bg-purple-500/30",
+    line: "bg-purple-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(168,85,247,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(168,85,247,1)]",
+    active: "bg-purple-500",
+    activeShadow: "shadow-[0_0_20px_rgba(168,85,247,1)]",
+    hover: "hover:bg-purple-500",
+    btn: "border-purple-500 bg-purple-500/10 text-purple-400 hover:bg-purple-500 hover:text-white",
+  },
+  cyan: {
+    text: "text-cyan-500",
+    border: "border-cyan-500/40",
+    ring: "border-cyan-400",
+    dot: "bg-cyan-500",
+    pulse: "animate-ping bg-cyan-500/30",
+    line: "bg-cyan-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(6,182,212,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(6,182,212,1)]",
+    active: "bg-cyan-500",
+    activeShadow: "shadow-[0_0_20px_rgba(6,182,212,1)]",
+    hover: "hover:bg-cyan-500",
+    btn: "border-cyan-500 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-white",
+  },
+  green: {
+    text: "text-emerald-500",
+    border: "border-emerald-500/40",
+    ring: "border-emerald-400",
+    dot: "bg-emerald-500",
+    pulse: "animate-ping bg-emerald-500/30",
+    line: "bg-emerald-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(16,185,129,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(16,185,129,1)]",
+    active: "bg-emerald-500",
+    activeShadow: "shadow-[0_0_20px_rgba(16,185,129,1)]",
+    hover: "hover:bg-emerald-500",
+    btn: "border-emerald-500 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white",
+  },
+  emerald: {
+    text: "text-emerald-500",
+    border: "border-emerald-500/40",
+    ring: "border-emerald-400",
+    dot: "bg-emerald-500",
+    pulse: "animate-ping bg-emerald-500/30",
+    line: "bg-emerald-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(16,185,129,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(16,185,129,1)]",
+    active: "bg-emerald-500",
+    activeShadow: "shadow-[0_0_20px_rgba(16,185,129,1)]",
+    hover: "hover:bg-emerald-500",
+    btn: "border-emerald-500 bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white",
+  },
+  amber: {
+    text: "text-amber-500",
+    border: "border-amber-500/40",
+    ring: "border-amber-400",
+    dot: "bg-amber-500",
+    pulse: "animate-ping bg-amber-500/30",
+    line: "bg-amber-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(245,158,11,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(245,158,11,1)]",
+    active: "bg-amber-500",
+    activeShadow: "shadow-[0_0_20px_rgba(245,158,11,1)]",
+    hover: "hover:bg-amber-500",
+    btn: "border-amber-500 bg-amber-500/10 text-amber-400 hover:bg-amber-500 hover:text-white",
+  },
+  rose: {
+    text: "text-rose-500",
+    border: "border-rose-500/40",
+    ring: "border-rose-400",
+    dot: "bg-rose-500",
+    pulse: "animate-ping bg-rose-500/30",
+    line: "bg-rose-500/60",
+    shadow: "shadow-[0_20px_80px_rgba(244,63,94,0.25)]",
+    glow: "shadow-[0_0_20px_rgba(244,63,94,1)]",
+    active: "bg-rose-500",
+    activeShadow: "shadow-[0_0_20px_rgba(244,63,94,1)]",
+    hover: "hover:bg-rose-500",
+    btn: "border-rose-500 bg-rose-500/10 text-rose-400 hover:bg-rose-500 hover:text-white",
+  },
+};
+
+export const defaultBodyColor = bodyColorMap.orange;

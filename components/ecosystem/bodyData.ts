@@ -1,6 +1,7 @@
 export const bodyData = [
   {
     id: "brain",
+    badgeColor: "orange",
     title: "Sports Psychology",
     subtitle: "Peak Mental Performance",
     description:
@@ -22,6 +23,7 @@ export const bodyData = [
 
   {
     id: "neck",
+    badgeColor: "blue",
     title: "Neck & Cervical Care",
     subtitle: "Postural Health",
     description:
@@ -43,6 +45,7 @@ export const bodyData = [
 
   {
     id: "shoulder",
+    badgeColor: "gold",
     title: "Strength & Conditioning",
     subtitle: "Power Development",
     description:
@@ -65,6 +68,7 @@ export const bodyData = [
 
   {
     id: "lungs",
+    badgeColor: "purple",
     title: "Cardiovascular Training",
     subtitle: "Endurance & Recovery",
     description:
@@ -86,6 +90,7 @@ export const bodyData = [
 
   {
     id: "heart",
+    badgeColor: "cyan",
     title: "Sports Medicine",
     subtitle: "Performance Health",
     description:
@@ -108,6 +113,7 @@ export const bodyData = [
 
   {
     id: "elbow",
+    badgeColor: "green",
     title: "Upper Limb Performance",
     subtitle: "Throwing & Racquet Sports",
     description:
@@ -129,6 +135,7 @@ export const bodyData = [
 
   {
     id: "core",
+    badgeColor: "emerald",
     title: "Core Stability",
     subtitle: "Foundation Strength",
     description:
@@ -150,6 +157,7 @@ export const bodyData = [
 
   {
     id: "spine",
+    badgeColor: "amber",
     title: "Biomechanics",
     subtitle: "Movement Analysis",
     description:
@@ -171,6 +179,7 @@ export const bodyData = [
 
   {
     id: "wrist",
+    badgeColor: "rose",
     title: "Grip & Wrist Function",
     subtitle: "Fine Motor Control",
     description:
@@ -192,6 +201,7 @@ export const bodyData = [
 
   {
     id: "hip",
+    badgeColor: "orange",
     title: "Hip & Mobility Training",
     subtitle: "Functional Movement",
     description:
@@ -213,6 +223,7 @@ export const bodyData = [
 
   {
     id: "knee",
+    badgeColor: "blue",
     title: "Rehabilitation",
     subtitle: "Return To Play",
     description:
@@ -234,6 +245,7 @@ export const bodyData = [
 
   {
     id: "ankle",
+    badgeColor: "gold",
     title: "Injury Prevention",
     subtitle: "Stability & Balance",
     description:

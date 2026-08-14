@@ -1,6 +1,7 @@
 "use client";
 
 import { bodyData } from "./bodyData";
+import { bodyColorMap, defaultBodyColor } from "./bodyColors";
 import Link from "next/link";
 
 type Props = {
@@ -19,6 +20,8 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
 
   if (!data) return null;
 
+  const c = bodyColorMap[data.badgeColor] ?? defaultBodyColor;
+
   return (
     <div
       className={`
@@ -28,11 +31,11 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         max-w-[340px]
         rounded-3xl
         border
-        border-orange-500/20
+        ${c.border}
         bg-black/80
         backdrop-blur-2xl
         p-5 sm:p-6
-        shadow-[0_20px_80px_rgba(249,115,22,0.25)]
+        ${c.shadow}
         transition-all
         duration-500
         ease-out
@@ -55,13 +58,13 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
       {/* Connector Line */}
       {!mobile && anchor && (anchor.cardSide === "left" ? (
         <>
-            <div className={`absolute -right-40 h-[2px] w-40 bg-orange-500/60 ${anchor.cardVertical === "above" ? "bottom-10" : "top-10"}`} />
-            <div className={`absolute -right-2 h-4 w-4 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,1)] ${anchor.cardVertical === "above" ? "bottom-8" : "top-8"}`} />
+            <div className={`absolute -right-40 h-[2px] w-40 ${c.line} ${anchor.cardVertical === "above" ? "bottom-10" : "top-10"}`} />
+            <div className={`absolute -right-2 h-4 w-4 rounded-full ${c.dot} ${c.glow} ${anchor.cardVertical === "above" ? "bottom-8" : "top-8"}`} />
         </>
         ) : (
         <>
-            <div className={`absolute -left-40 h-[2px] w-40 bg-orange-500/60 ${anchor.cardVertical === "above" ? "bottom-10" : "top-10"}`} />
-            <div className={`absolute -left-2 h-4 w-4 rounded-full bg-orange-500 shadow-[0_0_15px_rgba(249,115,22,1)] ${anchor.cardVertical === "above" ? "bottom-8" : "top-8"}`} />
+            <div className={`absolute -left-40 h-[2px] w-40 ${c.line} ${anchor.cardVertical === "above" ? "bottom-10" : "top-10"}`} />
+            <div className={`absolute -left-2 h-4 w-4 rounded-full ${c.dot} ${c.glow} ${anchor.cardVertical === "above" ? "bottom-8" : "top-8"}`} />
         </>
         ))}
 
@@ -74,7 +77,7 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
       </h3>
 
       {/* Subtitle */}
-      <p className="mt-1 text-sm uppercase tracking-[0.3em] text-orange-500">
+      <p className={`mt-1 text-sm uppercase tracking-[0.3em] ${c.text}`}>
         {data.subtitle}
       </p>
 
@@ -90,7 +93,7 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
             key={feature}
             className="flex items-center gap-3"
           >
-            <div className="h-2 w-2 rounded-full bg-orange-500" />
+            <div className={`h-2 w-2 rounded-full ${c.dot}`} />
 
             <span className="text-white">
               {feature}
@@ -101,22 +104,18 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
 
       <Link
         href={data.link}
-        className="
+        className={`
           mt-8
           block
           w-full
           rounded-xl
           border
-          border-orange-500
-          bg-orange-500/10
           py-3
           text-center
           font-semibold
-          text-orange-400
           transition-all
-          hover:bg-orange-500
-          hover:text-white
-        "
+          ${c.btn}
+        `}
       >
         Learn More
       </Link>

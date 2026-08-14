@@ -1,3 +1,6 @@
+import { bodyData } from "./bodyData";
+import { bodyColorMap, defaultBodyColor } from "./bodyColors";
+
 type Props = {
   id: string;
   top: string;
@@ -14,6 +17,8 @@ export default function Hotspot({
   onSelect,
 }: Props) {
   const active = selected === id;
+  const entry = bodyData.find((item) => item.id === id);
+  const c = bodyColorMap[entry?.badgeColor ?? ""] ?? defaultBodyColor;
 
   return (
     <button
@@ -45,7 +50,7 @@ export default function Hotspot({
 
           ${
             active
-              ? "animate-ping bg-orange-500/30"
+              ? c.pulse
               : "opacity-0"
           }
         `}
@@ -67,7 +72,7 @@ export default function Hotspot({
 
           ${
             active
-              ? "border-orange-400"
+              ? c.ring
               : "border-transparent"
           }
         `}
@@ -85,8 +90,8 @@ export default function Hotspot({
 
           ${
             active
-              ? "bg-orange-500 scale-125 shadow-[0_0_20px_rgba(249,115,22,1)]"
-              : "bg-white hover:bg-orange-500 hover:scale-110"
+              ? `${c.active} scale-125 ${c.activeShadow}`
+              : `bg-white ${c.hover} hover:scale-110`
           }
         `}
       />
