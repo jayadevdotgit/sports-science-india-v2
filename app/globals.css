@@ -358,3 +358,49 @@ html {
 .animate-float-in {
   animation: floatIn 0.8s ease-out;
 }
+
+/* ==========================================
+   Platform Card Effects
+========================================== */
+
+@keyframes shineSweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+@keyframes cardGlowPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shine-sweep {
+  animation: shineSweep 1.2s ease-in-out infinite;
+}
+
+.animate-card-glow-pulse {
+  animation: cardGlowPulse 3s ease-in-out infinite;
+}
+
+.card-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shine-sweep,
+  .animate-card-glow-pulse,
+  .card-shimmer {
+    animation: none;
+  }
+}

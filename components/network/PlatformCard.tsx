@@ -21,6 +21,93 @@ type Props = {
   badgeColor: string;
 };
 
+const colorMap: Record<
+  string,
+  {
+    text: string;
+    border: string;
+    bg: string;
+    glow: string;
+    ring: string;
+    rgba: string;
+  }
+> = {
+  orange: {
+    text: "text-orange-300",
+    border: "border-orange-500/40",
+    bg: "bg-orange-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(249,115,22,0.35)] group-hover:border-orange-500/70",
+    ring: "from-orange-500/80 via-orange-400/40 to-transparent",
+    rgba: "249,115,22",
+  },
+  blue: {
+    text: "text-blue-300",
+    border: "border-blue-500/40",
+    bg: "bg-blue-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(59,130,246,0.35)] group-hover:border-blue-500/70",
+    ring: "from-blue-500/80 via-blue-400/40 to-transparent",
+    rgba: "59,130,246",
+  },
+  gold: {
+    text: "text-amber-300",
+    border: "border-amber-500/40",
+    bg: "bg-amber-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)] group-hover:border-amber-500/70",
+    ring: "from-amber-400/80 via-amber-300/40 to-transparent",
+    rgba: "245,158,11",
+  },
+  purple: {
+    text: "text-purple-300",
+    border: "border-purple-500/40",
+    bg: "bg-purple-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(168,85,247,0.35)] group-hover:border-purple-500/70",
+    ring: "from-purple-500/80 via-purple-400/40 to-transparent",
+    rgba: "168,85,247",
+  },
+  cyan: {
+    text: "text-cyan-300",
+    border: "border-cyan-500/40",
+    bg: "bg-cyan-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(6,182,212,0.35)] group-hover:border-cyan-500/70",
+    ring: "from-cyan-500/80 via-cyan-400/40 to-transparent",
+    rgba: "6,182,212",
+  },
+  green: {
+    text: "text-emerald-300",
+    border: "border-emerald-500/40",
+    bg: "bg-emerald-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)] group-hover:border-emerald-500/70",
+    ring: "from-emerald-500/80 via-emerald-400/40 to-transparent",
+    rgba: "16,185,129",
+  },
+  emerald: {
+    text: "text-emerald-300",
+    border: "border-emerald-500/40",
+    bg: "bg-emerald-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)] group-hover:border-emerald-500/70",
+    ring: "from-emerald-500/80 via-emerald-400/40 to-transparent",
+    rgba: "16,185,129",
+  },
+  amber: {
+    text: "text-amber-300",
+    border: "border-amber-500/40",
+    bg: "bg-amber-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)] group-hover:border-amber-500/70",
+    ring: "from-amber-400/80 via-amber-300/40 to-transparent",
+    rgba: "245,158,11",
+  },
+  rose: {
+    text: "text-rose-300",
+    border: "border-rose-500/40",
+    bg: "bg-rose-500/20",
+    glow: "group-hover:shadow-[0_0_50px_rgba(244,63,94,0.35)] group-hover:border-rose-500/70",
+    ring: "from-rose-500/80 via-rose-400/40 to-transparent",
+    rgba: "244,63,94",
+  },
+};
+
+const defaultColor = colorMap.orange;
+
 export default function PlatformCard({
   category,
   title,
@@ -35,6 +122,8 @@ export default function PlatformCard({
   badgeColor,
   height = "h-[235px]",
 }: Props) {
+  const c = colorMap[badgeColor] ?? defaultColor;
+
   return (
     <Link href={link} prefetch={false}>
       <div
@@ -49,14 +138,32 @@ export default function PlatformCard({
         border-orange-500/20
         bg-black/60
         backdrop-blur-md
-        hover:border-orange-500/60
         transition-all
-        duration-300
+        duration-500
         hover:-translate-y-2
-        hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]
+        hover:scale-[1.01]
         active:scale-[0.97]
+        ${c.glow}
         `}
       >
+        {/* Gradient Top Accent Line */}
+        <div
+          className={`
+            absolute
+            top-0
+            left-0
+            right-0
+            z-30
+            h-[3px]
+            bg-gradient-to-r
+            ${c.ring}
+            opacity-70
+            transition-opacity
+            duration-500
+            group-hover:opacity-100
+          `}
+        />
+
         {/* Background Image */}
         <Image
           src={image}
@@ -69,9 +176,9 @@ export default function PlatformCard({
             object-cover
             object-center
             transition-transform
-            duration-700
+            duration-[1200ms]
             ease-out
-            group-hover:scale-105
+            group-hover:scale-110
           "
         />
 
@@ -86,26 +193,22 @@ export default function PlatformCard({
             to-black/40
             transition-opacity
             duration-500
-            group-hover:opacity-90
+            group-hover:opacity-80
           "
         />
 
-        {/* Orange Accent Glow on Hover */}
+        {/* Color-matched Radial Glow on Hover */}
         <div
-          className="
-            absolute
-            -inset-1
-            bg-gradient-to-r
-            from-orange-500/0
-            via-orange-500/10
-            to-orange-500/0
-            opacity-0
-            blur-xl
-            transition-opacity
-            duration-500
-            group-hover:opacity-100
-          "
+          className="absolute -inset-1 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+          style={{
+            backgroundImage: `radial-gradient(circle at 50% 20%, rgba(${c.rgba},0.18), transparent 70%)`,
+          }}
         />
+
+        {/* Shine Sweep on Hover */}
+        <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <div className="animate-shine-sweep absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        </div>
 
         {/* Active Badge Tag */}
         <div className="absolute top-5 right-5 z-20">
@@ -131,7 +234,9 @@ export default function PlatformCard({
           <div className="flex-1">
             <span
               className={`
-                inline-block
+                inline-flex
+                items-center
+                gap-1.5
                 rounded-full
                 px-3.5
                 py-1
@@ -142,30 +247,15 @@ export default function PlatformCard({
                 backdrop-blur-md
                 border
                 shadow-sm
-                transition-transform
+                transition-all
                 duration-300
                 group-hover:scale-105
-                ${
-                  badgeColor === "orange"
-                    ? "bg-orange-500/20 border-orange-500/40 text-orange-300"
-                    : badgeColor === "blue"
-                    ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
-                    : badgeColor === "gold"
-                    ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
-                    : badgeColor === "purple"
-                    ? "bg-purple-500/20 border-purple-500/40 text-purple-300"
-                    : badgeColor === "cyan"
-                    ? "bg-cyan-500/20 border-cyan-500/40 text-cyan-300"
-                    : badgeColor === "green"
-                    ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300"
-                    : badgeColor === "amber"
-                    ? "bg-amber-500/20 border-amber-500/40 text-amber-300"
-                    : badgeColor === "rose"
-                    ? "bg-rose-500/20 border-rose-500/40 text-rose-300"
-                    : "bg-orange-500/20 border-orange-500/40 text-orange-300"
-                }
+                ${c.bg}
+                ${c.border}
+                ${c.text}
               `}
             >
+              <span className={`h-1.5 w-1.5 rounded-full bg-current ${c.text}`} />
               {category}
             </span>
 
@@ -225,7 +315,7 @@ export default function PlatformCard({
               </div>
 
               <span
-                className="
+                className={`
                   inline-flex
                   items-center
                   gap-1.5
@@ -250,7 +340,7 @@ export default function PlatformCard({
                   group-hover:text-orange-300
                   group-hover:shadow-orange-500/25
                   group-hover:translate-x-0.5
-                "
+                `}
               >
                 {button}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
