@@ -97,6 +97,7 @@ export const platforms = [
     description:
       "Connecting athletes, coaches, academies and sports professionals.",
     image: "/network/connect.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-sports-connect.jpeg",
     link: "/sports-connect",
     button: "Join Network",
     stats1: "100+",

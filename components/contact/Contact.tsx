@@ -16,6 +16,7 @@ import {
   ArrowRight,
   PhoneCall,
   Navigation,
+  AlertCircle,
 } from "lucide-react";
 
 import {
@@ -69,11 +70,38 @@ const inputClass =
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     setStatus("sending");
-    setTimeout(() => setStatus("sent"), 1200);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const result = await response.json();
+      if (!response.ok) {
+        throw new Error(result.error ?? "Failed to send your message.");
+      }
+
+      setStatus("sent");
+      form.reset();
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Failed to send your message. Please try again.");
+      setStatus("idle");
+    }
   };
 
   return (
@@ -205,7 +233,7 @@ export default function Contact() {
                   <label htmlFor="name" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-400">
                     Full Name
                   </label>
-                  <input id="name" required type="text" placeholder="Your full name" className={inputClass} />
+                  <input id="name" name="name" required type="text" placeholder="Your full name" className={inputClass} />
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-2">
@@ -213,13 +241,13 @@ export default function Contact() {
                     <label htmlFor="email" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-400">
                       Email
                     </label>
-                    <input id="email" required type="email" placeholder="you@example.com" className={inputClass} />
+                    <input id="email" name="email" required type="email" placeholder="you@example.com" className={inputClass} />
                   </div>
                   <div>
                     <label htmlFor="phone" className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-gray-400">
                       Phone
                     </label>
-                    <input id="phone" type="tel" placeholder="+91 ..." className={inputClass} />
+                    <input id="phone" name="phone" type="tel" placeholder="+91 ..." className={inputClass} />
                   </div>
                 </div>
 
@@ -229,6 +257,7 @@ export default function Contact() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={5}
                     placeholder="Tell us how we can help..."
@@ -257,6 +286,13 @@ export default function Contact() {
                   <div className="flex items-center gap-2 rounded-xl border border-green-500/30 bg-green-500/10 px-4 py-3 text-sm text-green-300">
                     <CheckCircle2 size={18} className="shrink-0" />
                     Thank you! Your message has been sent. We&apos;ll be in touch soon.
+                  </div>
+                )}
+
+                {error && (
+                  <div className="flex items-center gap-2 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                    <AlertCircle size={18} className="shrink-0" />
+                    {error}
                   </div>
                 )}
               </div>

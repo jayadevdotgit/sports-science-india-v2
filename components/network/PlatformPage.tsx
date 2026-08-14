@@ -308,7 +308,7 @@ const btnColorMap: Record<string, "orange" | "blue" | "amber" | "purple" | "cyan
   rose: "rose",
 };
 
-export default function PlatformPage({ id, btnClassName = "" }: { id: string; btnClassName?: string }) {
+export default function PlatformPage({ id, btnClassName = "", cta }: { id: string; btnClassName?: string; cta?: { label: string; href: string } }) {
   const router = useRouter();
   const pathname = usePathname();
   const platform = platforms.find((p) => p.id === id);
@@ -385,9 +385,9 @@ export default function PlatformPage({ id, btnClassName = "" }: { id: string; bt
               </p>
 
               <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-3 sm:flex sm:justify-start sm:gap-4">
-                <Link href="/booking">
+                <Link href={cta?.href ?? "/booking"}>
                   <Button color={btnColor} size="md" className={`w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base ${btnClassName}`}>
-                    <Calendar size={16} /> Book Now
+                    <Calendar size={16} /> {cta?.label ?? "Book Now"}
                   </Button>
                 </Link>
                 <a href="tel:+917381380010">
@@ -592,9 +592,9 @@ export default function PlatformPage({ id, btnClassName = "" }: { id: string; bt
                   grow within the Sports Science India ecosystem.
                 </p>
                 <div className="mt-8 sm:mt-10 grid grid-cols-2 gap-3 sm:flex sm:gap-4 sm:justify-center">
-                  <Link href="/booking">
+                  <Link href={cta?.href ?? "/booking"}>
                     <Button color={btnColor} size="md" className={`w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm ${btnClassName}`}>
-                      <CalendarClock size={14} /> Get Started
+                      <CalendarClock size={14} /> {cta?.label ?? "Get Started"}
                     </Button>
                   </Link>
                   <a href="tel:+917381380010">
