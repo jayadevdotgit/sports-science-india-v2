@@ -231,7 +231,7 @@ export default function Services() {
                   flex-col
                   relative
                   rounded-3xl
-                  border
+                  border-2
                 border-orange-500/20
                 bg-black/60
                 backdrop-blur-md
@@ -308,7 +308,7 @@ export default function Services() {
                   </div>
 
                   {/* Learn More */}
-                  <div className="pt-3 border-t border-white/5 mt-6">
+                  <div className="pt-3 border-t border-white/5 mt-auto">
                     <Link
                       href={service.link}
                       className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"
@@ -330,7 +330,7 @@ export default function Services() {
             return (
               <>
                 <div aria-hidden="true" />
-                <div className="group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border border-orange-500/20 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-orange-500/60 hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)] active:scale-[0.97] cursor-pointer">
+                <div className="group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border-2 border-orange-500/20 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-orange-500/60 hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)] active:scale-[0.97] cursor-pointer">
                   <div className="absolute inset-0 pointer-events-none select-none z-0">
                     <Image
                       src={feature.image}
@@ -371,7 +371,7 @@ export default function Services() {
                       ))}
                     </div>
 
-                    <div className="pt-3 border-t border-white/5 mt-6">
+                    <div className="pt-3 border-t border-white/5 mt-auto">
                       <Link
                         href={feature.link}
                         className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"

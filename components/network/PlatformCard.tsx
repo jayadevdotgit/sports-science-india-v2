@@ -45,7 +45,7 @@ export default function PlatformCard({
         rounded-3xl
         ${height}
         cursor-pointer
-        border
+        border-2
         border-orange-500/20
         bg-black/60
         backdrop-blur-md
@@ -123,13 +123,12 @@ export default function PlatformCard({
             flex
             h-full
             flex-col
-            justify-between
             p-5
             sm:p-6
           "
         >
           {/* Top Section: Category & Title */}
-          <div>
+          <div className="flex-1">
             <span
               className={`
                 inline-block
@@ -201,25 +200,25 @@ export default function PlatformCard({
           </div>
 
           {/* Bottom Section: Metrics & Action Link */}
-          <div className="mt-4 pt-3 border-t border-white/10">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-5">
-                <div>
+          <div className="mt-auto pt-3 border-t border-white/10">
+            <div className="flex items-center justify-between gap-2 sm:gap-3">
+              <div className="flex min-w-0 items-center gap-3 sm:gap-5">
+                <div className="min-w-0">
                   <p className="text-lg sm:text-xl font-semibold text-white leading-tight">
                     {stats1}
                   </p>
-                  <p className="text-[11px] uppercase tracking-wider text-gray-400">
+                  <p className="truncate text-[11px] uppercase tracking-wider text-gray-400">
                     {label1}
                   </p>
                 </div>
 
-                <div className="h-8 w-px bg-white/10" />
+                <div className="h-8 w-px bg-white/10 shrink-0" />
 
-                <div>
+                <div className="min-w-0">
                   <p className="text-lg sm:text-xl font-semibold text-white leading-tight">
                     {stats2}
                   </p>
-                  <p className="text-[11px] uppercase tracking-wider text-gray-400">
+                  <p className="truncate text-[11px] uppercase tracking-wider text-gray-400">
                     {label2}
                   </p>
                 </div>
@@ -230,17 +229,31 @@ export default function PlatformCard({
                   inline-flex
                   items-center
                   gap-1.5
-                  text-sm
+                  rounded-full
+                  border-2
+                  border-orange-500/40
+                  bg-orange-500/10
+                  px-3
+                  py-1.5
+                  text-xs
                   font-bold
                   text-orange-400
+                  backdrop-blur-md
+                  whitespace-nowrap
+                  shrink-0
+                  shadow-lg
+                  shadow-orange-500/10
                   transition-all
                   duration-300
+                  group-hover:border-orange-500/70
+                  group-hover:bg-orange-500/20
                   group-hover:text-orange-300
-                  group-hover:translate-x-1
+                  group-hover:shadow-orange-500/25
+                  group-hover:translate-x-0.5
                 "
               >
                 {button}
-                <span className="text-base transition-transform duration-300 group-hover:translate-x-1">
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
               </span>

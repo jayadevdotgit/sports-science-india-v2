@@ -55,34 +55,34 @@ export default function Network() {
 
   {/* Row 1 */}
 
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 animate-[fadeInUp_0.6s_ease-out_0.1s_both]">
                 <PlatformCard {...platforms[0]} />
             </div>
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 animate-[fadeInUp_0.6s_ease-out_0.2s_both]">
                 <PlatformCard {...platforms[2]} />
             </div>
 
             {/* Row 2 */}
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 animate-[fadeInUp_0.6s_ease-out_0.3s_both]">
                 <PlatformCard {...platforms[1]} />
             </div>
 
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 animate-[fadeInUp_0.6s_ease-out_0.4s_both]">
                 <PlatformCard {...platforms[3]} />
             </div>
 
             {/* Row 3 */}
 
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 animate-[fadeInUp_0.6s_ease-out_0.5s_both]">
                 <PlatformCard
                 {...platforms[7]}
                 height="h-[250px]"
                 />
             </div>
 
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 animate-[fadeInUp_0.6s_ease-out_0.6s_both]">
                 <PlatformCard
                 {...platforms[8]}
                 height="h-[250px]"
@@ -91,21 +91,21 @@ export default function Network() {
 
             {/* Row 4 */}
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 animate-[fadeInUp_0.6s_ease-out_0.7s_both]">
                 <PlatformCard
                 {...platforms[4]}
                 height="h-[250px]"
                 />
             </div>
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 animate-[fadeInUp_0.6s_ease-out_0.8s_both]">
                 <PlatformCard
                 {...platforms[5]}
                 height="h-[250px]"
                 />
             </div>
 
-            <div className="lg:col-span-4">
+            <div className="lg:col-span-4 animate-[fadeInUp_0.6s_ease-out_0.9s_both]">
                 <PlatformCard
                 {...platforms[6]}
                 height="h-[250px]"
