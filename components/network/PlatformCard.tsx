@@ -122,6 +122,7 @@ export default function PlatformCard({
         relative
         ${height}
         cursor-pointer
+        p-[2.5px]
         transition-all
         duration-500
         hover:-translate-y-2
@@ -132,14 +133,14 @@ export default function PlatformCard({
       >
         {/* Gradient Frame - follows rounded corners exactly */}
         <div
-          className="absolute inset-0 rounded-3xl p-[2px] transition-opacity duration-500 opacity-80 group-hover:opacity-100"
+          className="absolute inset-0 rounded-3xl transition-opacity duration-500 opacity-90 group-hover:opacity-100"
           style={{
             background: `linear-gradient(
               to bottom,
-              rgba(${c.rgba},0.9),
-              rgba(${c.rgba},0.55) 40%,
-              rgba(${c.rgba},0.15) 75%,
-              rgba(${c.rgba},0.04) 100%
+              rgba(${c.rgba},0.95),
+              rgba(${c.rgba},0.6) 40%,
+              rgba(${c.rgba},0.25) 75%,
+              rgba(${c.rgba},0.08) 100%
             )`,
           }}
         />
