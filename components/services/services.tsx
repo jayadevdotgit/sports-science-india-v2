@@ -17,9 +17,127 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 
+const colorMap: Record<
+  string,
+  {
+    text: string;
+    border: string;
+    hoverBorder: string;
+    glow: string;
+    iconBg: string;
+    divider: string;
+    check: string;
+    learn: string;
+    arrow: string;
+  }
+> = {
+  orange: {
+    text: "text-orange-500",
+    border: "border-orange-500/20",
+    hoverBorder: "hover:border-orange-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]",
+    iconBg: "border-orange-500/20 bg-orange-500/10",
+    divider: "bg-orange-500/80",
+    check: "text-orange-500",
+    learn: "hover:text-orange-300",
+    arrow: "text-orange-500",
+  },
+  blue: {
+    text: "text-blue-500",
+    border: "border-blue-500/20",
+    hoverBorder: "hover:border-blue-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(59,130,246,0.25)]",
+    iconBg: "border-blue-500/20 bg-blue-500/10",
+    divider: "bg-blue-500/80",
+    check: "text-blue-500",
+    learn: "hover:text-blue-300",
+    arrow: "text-blue-500",
+  },
+  gold: {
+    text: "text-amber-500",
+    border: "border-amber-500/20",
+    hoverBorder: "hover:border-amber-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(245,158,11,0.25)]",
+    iconBg: "border-amber-500/20 bg-amber-500/10",
+    divider: "bg-amber-500/80",
+    check: "text-amber-500",
+    learn: "hover:text-amber-300",
+    arrow: "text-amber-500",
+  },
+  purple: {
+    text: "text-purple-500",
+    border: "border-purple-500/20",
+    hoverBorder: "hover:border-purple-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(168,85,247,0.25)]",
+    iconBg: "border-purple-500/20 bg-purple-500/10",
+    divider: "bg-purple-500/80",
+    check: "text-purple-500",
+    learn: "hover:text-purple-300",
+    arrow: "text-purple-500",
+  },
+  cyan: {
+    text: "text-cyan-500",
+    border: "border-cyan-500/20",
+    hoverBorder: "hover:border-cyan-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(6,182,212,0.25)]",
+    iconBg: "border-cyan-500/20 bg-cyan-500/10",
+    divider: "bg-cyan-500/80",
+    check: "text-cyan-500",
+    learn: "hover:text-cyan-300",
+    arrow: "text-cyan-500",
+  },
+  green: {
+    text: "text-emerald-500",
+    border: "border-emerald-500/20",
+    hoverBorder: "hover:border-emerald-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)]",
+    iconBg: "border-emerald-500/20 bg-emerald-500/10",
+    divider: "bg-emerald-500/80",
+    check: "text-emerald-500",
+    learn: "hover:text-emerald-300",
+    arrow: "text-emerald-500",
+  },
+  emerald: {
+    text: "text-emerald-500",
+    border: "border-emerald-500/20",
+    hoverBorder: "hover:border-emerald-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(16,185,129,0.25)]",
+    iconBg: "border-emerald-500/20 bg-emerald-500/10",
+    divider: "bg-emerald-500/80",
+    check: "text-emerald-500",
+    learn: "hover:text-emerald-300",
+    arrow: "text-emerald-500",
+  },
+  amber: {
+    text: "text-amber-500",
+    border: "border-amber-500/20",
+    hoverBorder: "hover:border-amber-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(245,158,11,0.25)]",
+    iconBg: "border-amber-500/20 bg-amber-500/10",
+    divider: "bg-amber-500/80",
+    check: "text-amber-500",
+    learn: "hover:text-amber-300",
+    arrow: "text-amber-500",
+  },
+  rose: {
+    text: "text-rose-500",
+    border: "border-rose-500/20",
+    hoverBorder: "hover:border-rose-500/60",
+    glow: "hover:shadow-[0_20px_60px_rgba(244,63,94,0.25)]",
+    iconBg: "border-rose-500/20 bg-rose-500/10",
+    divider: "bg-rose-500/80",
+    check: "text-rose-500",
+    learn: "hover:text-rose-300",
+    arrow: "text-rose-500",
+  },
+};
+
+const defaultColor = colorMap.orange;
+
 const services = [
   {
     icon: Stethoscope,
+    badgeColor: "orange",
     title: "Sports Medicine",
     link: "/services/sports-medicine",
     description: "Expert medical care for injury prevention, diagnosis and treatment.",
@@ -33,6 +151,7 @@ const services = [
   },
   {
     icon: Syringe,
+    badgeColor: "blue",
     title: "Sports Surgery",
     link: "/services/sports-surgery",
     description: "Minimally invasive surgery for sports injuries and rapid recovery.",
@@ -46,6 +165,7 @@ const services = [
   },
   {
     icon: Bone,
+    badgeColor: "gold",
     title: "Ligament Surgery",
     link: "/services/ligament-surgery",
     description: "ACL and ligament reconstruction to restore joint stability.",
@@ -59,6 +179,7 @@ const services = [
   },
   {
     icon: ShieldPlus,
+    badgeColor: "purple",
     title: "Joint Preservation",
     link: "/services/joint-preservation",
     description: "Treatments to delay or avoid joint replacement.",
@@ -72,6 +193,7 @@ const services = [
   },
   {
     icon: Microscope,
+    badgeColor: "cyan",
     title: "Sports Science",
     link: "/services/sports-science",
     description: "Data-driven performance analysis and athletic profiling.",
@@ -85,6 +207,7 @@ const services = [
   },
   {
     icon: Activity,
+    badgeColor: "green",
     title: "Musculoskeletal Rehab",
     link: "/services/musculoskeletal-rehab",
     description: "Targeted rehab for muscles, joints, and soft tissue.",
@@ -98,6 +221,7 @@ const services = [
   },
   {
     icon: HeartPulse,
+    badgeColor: "emerald",
     title: "Sports Rehabilitation",
     link: "/services/sports-rehabilitation",
     description: "Structured rehab programs for a safe return to sport.",
@@ -111,6 +235,7 @@ const services = [
   },
   {
     icon: Activity,
+    badgeColor: "amber",
     title: "Physiotherapy",
     link: "/services/physiotherapy",
     description: "Manual therapy and exercise-based recovery.",
@@ -124,6 +249,7 @@ const services = [
   },
   {
     icon: ClipboardCheck,
+    badgeColor: "rose",
     title: "Assessments",
     link: "/services/assessments",
     description: "Comprehensive physical and performance assessments.",
@@ -137,6 +263,7 @@ const services = [
   },
   {
     icon: Dumbbell,
+    badgeColor: "orange",
     title: "Strength & Conditioning",
     link: "/services/strength-conditioning",
     description: "Science-based training programs to build strength, power, speed and endurance.",
@@ -150,6 +277,7 @@ const services = [
   },
   {
     icon: Trophy,
+    badgeColor: "blue",
     title: "Return to Sports",
     link: "/services/return-to-sports",
     description: "Guided return-to-play planning after injury.",
@@ -163,6 +291,7 @@ const services = [
   },
   {
     icon: HeartPulse,
+    badgeColor: "gold",
     title: "Pre & Post Natal Rehab",
     link: "/services/pre-post-natal-rehab",
     description: "Safe exercise and recovery during and after pregnancy.",
@@ -176,6 +305,7 @@ const services = [
   },
   {
     icon: Stethoscope,
+    badgeColor: "purple",
     title: "Obstetrics & Gynaecology Consultation",
     link: "/services/obstetrics-gynaecology-consultation",
     description: "Specialist consultation with Dr. Nisha Kaushik Patnaik.",
@@ -211,30 +341,12 @@ export default function Services() {
             .filter((s) => s.title !== "Obstetrics & Gynaecology Consultation")
             .map((service, index) => {
             const Icon = service.icon;
+            const c = colorMap[service.badgeColor] ?? defaultColor;
             return (
               <div
                 key={index}
-                className="
-                  group
-                  flex
-                  min-h-[220px] lg:min-h-[270px]
-                  flex-col
-                  relative
-                  rounded-3xl
-                  border-2
-                border-orange-500/20
-                bg-black/60
-                backdrop-blur-md
-                p-5
-                overflow-hidden
-                transition-all
-                duration-300
-                hover:-translate-y-2
-                hover:border-orange-500/60
-                  hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)]
-                  active:scale-[0.97]
-                  cursor-pointer
-                "
+                className={`group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border-2 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 active:scale-[0.97] cursor-pointer ${c.border} ${c.hoverBorder} ${c.glow}`}
+                style={{ opacity: 0, animation: `fadeInUp 0.6s ease-out ${index * 0.08}s forwards` }}
               >
                 {/* Full-bleed background image - solves the middle crack by taking full width/height */}
                 <div className="absolute inset-0 pointer-events-none select-none z-0">
@@ -269,14 +381,14 @@ export default function Services() {
                   {/* Icon + Title Row */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-orange-500/20 bg-orange-500/10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                        <Icon size={22} className="text-orange-500" />
+                      <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${c.iconBg}`}>
+                        <Icon size={22} className={c.text} />
                       </div>
                       <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
                         {service.title}
                       </h3>
                     </div>
-                    <ArrowUpRight size={16} className="text-orange-500/40 shrink-0 ml-2" />
+                    <ArrowUpRight size={16} className={`${c.arrow}/40 shrink-0 ml-2`} />
                   </div>
 
                   {/* Divider */}
@@ -301,10 +413,10 @@ export default function Services() {
                   <div className="pt-3 border-t border-white/5 mt-auto">
                     <Link
                       href={service.link}
-                      className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"
+                      className={`inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer transition-colors duration-300 ${c.learn}`}
                     >
-                      <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className="text-orange-500">More</span>
-                      <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className={c.arrow}>More</span>
+                      <span className={`ml-1 transition-transform duration-300 group-hover:translate-x-1 ${c.arrow}`}>→</span>
                     </Link>
                   </div>
                 </div>
@@ -317,10 +429,11 @@ export default function Services() {
             const feature = services.find((s) => s.title === "Obstetrics & Gynaecology Consultation");
             if (!feature) return null;
             const Icon = feature.icon;
+            const c = colorMap[feature.badgeColor] ?? defaultColor;
             return (
               <>
                 <div aria-hidden="true" />
-                <div className="group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border-2 border-orange-500/20 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-orange-500/60 hover:shadow-[0_20px_60px_rgba(249,115,22,0.25)] active:scale-[0.97] cursor-pointer">
+                <div className={`group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border-2 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 active:scale-[0.97] cursor-pointer ${c.border} ${c.hoverBorder} ${c.glow}`}>
                   <div className="absolute inset-0 pointer-events-none select-none z-0">
                     <Image
                       src={feature.image}
@@ -336,17 +449,17 @@ export default function Services() {
                   <div className="relative z-10 flex flex-col flex-1">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-orange-500/20 bg-orange-500/10 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
-                          <Icon size={22} className="text-orange-500" />
+                        <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${c.iconBg}`}>
+                          <Icon size={22} className={c.text} />
                         </div>
                         <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
                           {feature.title}
                         </h3>
                       </div>
-                      <ArrowUpRight size={16} className="text-orange-500/40 shrink-0 ml-2" />
+                      <ArrowUpRight size={16} className={`${c.arrow}/40 shrink-0 ml-2`} />
                     </div>
 
-                    <div className="mt-3 mb-3 h-[1.5px] w-8 rounded-full bg-orange-500/80 transition-all duration-500 group-hover:w-14" />
+<div className={`mt-3 mb-3 h-[1.5px] w-8 rounded-full transition-all duration-500 group-hover:w-14 ${c.divider}`} />
 
                     <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
                       {feature.description}
@@ -355,7 +468,7 @@ export default function Services() {
                     <div className="grid grid-cols-2 gap-x-2 gap-y-1 mt-3">
                       {feature.features.map((item, idx) => (
                         <div key={idx} className="flex items-center text-[11px] sm:text-xs text-gray-400">
-                          <span className="mr-1 text-orange-500 select-none">✓</span>
+<span className={`mr-1 select-none ${c.check}`}>✓</span>
                           <span>{item}</span>
                         </div>
                       ))}
@@ -364,10 +477,10 @@ export default function Services() {
                     <div className="pt-3 border-t border-white/5 mt-auto">
                       <Link
                         href={feature.link}
-                        className="inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer"
+                        className={`inline-flex items-center text-xs sm:text-sm font-semibold text-white cursor-pointer transition-colors duration-300 ${c.learn}`}
                       >
-                        <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className="text-orange-500">More</span>
-                        <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">→</span>
+                        <span className="text-white">Learn</span><span className="text-white">&nbsp;</span><span className={c.arrow}>More</span>
+                        <span className={`ml-1 transition-transform duration-300 group-hover:translate-x-1 ${c.arrow}`}>→</span>
                       </Link>
                     </div>
                   </div>
