@@ -151,10 +151,10 @@ export default function PlatformCard({
           className={`
             absolute
             top-0
-            left-0
-            right-0
+            inset-x-3
             z-30
             h-[3px]
+            rounded-full
             bg-gradient-to-r
             ${c.ring}
             opacity-70
@@ -168,11 +168,11 @@ export default function PlatformCard({
         <div
           className={`
             absolute
-            top-0
             left-0
-            bottom-0
+            inset-y-3
             z-30
             w-[3px]
+            rounded-full
             bg-gradient-to-b
             ${c.ring}
             opacity-70
