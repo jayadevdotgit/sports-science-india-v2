@@ -509,12 +509,12 @@ export default function ServicePage() {
                 <Reveal delay={0.1}>
                   <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl shadow-2xl shadow-orange-500/10">
                     <div className="grid md:grid-cols-[260px_1fr]">
-                      <div className="relative min-h-[300px]">
+                      <div className="relative h-[320px] bg-black/40 md:aspect-auto md:h-full md:min-h-0">
                         <Image
                           src={surgeon.image}
                           alt={surgeon.name}
                           fill
-                          className="object-cover"
+                          className="object-contain object-center md:object-cover md:object-center"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-black/30" />
                         <div className="absolute bottom-3 left-3 md:hidden rounded-xl border border-white/15 bg-black/70 px-3 py-2 backdrop-blur-xl">

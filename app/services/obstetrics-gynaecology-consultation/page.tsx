@@ -439,12 +439,12 @@ export default function ObGynPage() {
           <Reveal delay={0.1}>
             <div className="mx-auto max-w-4xl overflow-hidden rounded-3xl sm:rounded-[32px] border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl">
               <div className="grid md:grid-cols-[260px_1fr]">
-                <div className="relative min-h-[260px]">
+                <div className="relative h-[320px] bg-black/40 md:aspect-auto md:h-full md:min-h-0">
                   <Image
                     src="/images/experts/Dr.Nisha Kaushik Patnaik.jpeg"
                     alt="Dr. Nisha Kaushik Patnaik"
                     fill
-                    className="object-cover"
+                    className="object-contain object-center md:object-cover md:object-center"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-black/30" />
                 </div>
