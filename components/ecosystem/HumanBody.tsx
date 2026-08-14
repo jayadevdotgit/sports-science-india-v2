@@ -16,8 +16,8 @@ const hotspots = [
   { id: "elbow", top: "35%", left: "38%", cardSide: "right" as const },
   { id: "core", top: "35%", left: "50%", cardSide: "right" as const },
   { id: "spine", top: "42%", left: "50%", cardSide: "left" as const },
-  { id: "wrist", top: "47%", left: "35%", cardSide: "right" as const },
-  { id: "hip", top: "47%", left: "42%", cardSide: "left" as const },
+  { id: "wrist", top: "47%", left: "35%", cardSide: "right" as const, cardUp: "15%" as const },
+  { id: "hip", top: "47%", left: "42%", cardSide: "left" as const, cardUp: "15%" as const },
   { id: "knee", top: "76%", left: "55%", cardSide: "right" as const, cardVertical: "above" as const },
   { id: "ankle", top: "92%", left: "54%", cardSide: "left" as const, cardVertical: "above" as const },
 ];

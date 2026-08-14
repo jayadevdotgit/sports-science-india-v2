@@ -12,6 +12,7 @@ type Props = {
     left: string;
     cardSide: "left" | "right";
     cardVertical?: "above";
+    cardUp?: string;
   };
 };
 
@@ -47,7 +48,7 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
           ? "translateX(calc(-100% - 10rem))"
           : "translateX(10rem)",
       } : {
-        top: `calc(${anchor.top} - 2.5rem)`,
+        top: `calc(${anchor.top} - 2.5rem${anchor.cardUp ? ` - ${anchor.cardUp}` : ""})`,
         left: anchor.left,
         transform: anchor.cardSide === "left"
           ? "translateX(calc(-100% - 10rem))"
