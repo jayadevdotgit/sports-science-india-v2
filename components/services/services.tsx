@@ -2,6 +2,7 @@ import Container from "@/components/ui/Container";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/animations/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import {
   Stethoscope,
   Syringe,
@@ -199,22 +200,11 @@ export default function Services() {
 
       <Reveal>
       <Container>
-        <div className="text-center max-w-4xl mx-auto mb-14">
-          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            SERVICES
-          </p>
-
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            Elite <span className="text-orange-500">Performance</span> Solutions
-          </h2>
-
-          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-400">
-            Integrated sports science services designed to enhance performance,
-            prevent injuries and extend athletic careers.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Services"
+          title={<>Elite <span className="text-gradient">Performance</span> Solutions</>}
+          description="Integrated sports science services designed to enhance performance, prevent injuries and extend athletic careers."
+        />
 
         <div className="mt-6 sm:mt-10 lg:mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {services

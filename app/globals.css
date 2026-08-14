@@ -28,6 +28,20 @@ html {
   }
 }
 
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fdba74, #f97316, #fdba74);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-x 3s ease infinite;
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.6s ease;
 }

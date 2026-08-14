@@ -6,6 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 
 import Container from "@/components/ui/Container";
 import Counter from "@/components/ui/Counter";
+import SectionHeading from "@/components/ui/SectionHeading";
 import TestimonialCard from "./TestimonialCard";
 import GoogleIcon from "@/components/ui/GoogleIcon";
 import Reveal from "@/components/animations/Reveal";
@@ -146,22 +147,17 @@ export default function Testimonials() {
       <Container className="relative z-10">
 
         {/* Header */}
-        <div className="mx-auto max-w-4xl text-center">
-
-          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            Reviews & Testimonials
-          </p>
-
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            Trusted by <span className="text-orange-500">Athletes.</span>
-            <br />
-            Driven by Results.
-          </h2>
-
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
-            Hear from athletes, coaches, and professionals who have elevated their performance through evidence-based sports science, personalized assessments, and expert guidance.
-          </p>
-
+        <SectionHeading
+          eyebrow="Reviews & Testimonials"
+          title={
+            <>
+              Trusted by <span className="text-gradient">Athletes.</span>
+              <br />
+              Driven by Results.
+            </>
+          }
+          description="Hear from athletes, coaches, and professionals who have elevated their performance through evidence-based sports science, personalized assessments, and expert guidance."
+        >
           {/* Big rating row */}
           <div className="mt-8 flex items-center justify-center gap-6">
             <p className="text-5xl sm:text-6xl font-extrabold text-orange-500">4.8</p>
@@ -213,7 +209,7 @@ export default function Testimonials() {
             View All Reviews on Google
             <ArrowRight size={16} />
           </a>
-        </div>
+        </SectionHeading>
 
         {/* Carousel */}
         <div className="relative mt-6">

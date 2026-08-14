@@ -17,7 +17,6 @@ import {
   Eye,
   Rocket,
   PawPrint,
-  Sparkles,
   ArrowUpRight,
 } from "lucide-react";
 
@@ -130,13 +129,17 @@ export default function About() {
 
             <div className="relative grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <p className="inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-md shadow-[0_0_20px_rgba(249,115,22,0.2)]">
-                  <Sparkles size={12} /> About Sports Science India
+                <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-md shadow-[0_0_20px_rgba(249,115,22,0.2)]">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
+                  </span>
+                  About Sports Science India
                 </p>
                 <h1 className="mt-5 text-2xl font-black leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
                   One Organization.
                   <br />
-                  <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-300 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                  <span className="text-gradient drop-shadow-[0_0_30px_rgba(249,115,22,0.4)]">
                     Endless Possibilities.
                   </span>
                 </h1>
@@ -492,14 +495,16 @@ export default function About() {
         <div className="mt-12">
           <Reveal>
             <div className="mx-auto mb-8 max-w-3xl text-center">
-              <p className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-                <Sparkles size={12} /> What We Stand For
+              <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-md shadow-[0_0_20px_rgba(249,115,22,0.2)]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
+                </span>
+                What We Stand For
               </p>
               <h3 className="mt-5 text-2xl font-black tracking-tight text-white sm:text-3xl">
                 Four Pillars.{" "}
-                <span className="bg-gradient-to-r from-orange-400 via-orange-500 to-orange-300 bg-clip-text text-transparent">
-                  One Mission.
-                </span>
+                <span className="text-gradient">One Mission.</span>
               </h3>
             </div>
           </Reveal>

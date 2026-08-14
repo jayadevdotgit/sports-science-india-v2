@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import SimulationMap from "./SimulationMap";
 
 import {
@@ -117,21 +118,11 @@ export default function Contact() {
       <Container className="relative z-10">
         {/* Header */}
         <Reveal>
-          <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14">
-            <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-              Contact Us
-            </p>
-            <h2 className="mt-6 text-[1.7rem] font-bold leading-tight sm:text-3xl md:text-4xl">
-              Let&apos;s Build Better{" "}
-              <span className="text-orange-500">Athletes</span> Together
-            </h2>
-            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-            <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
-              Whether you&apos;re an athlete, coach, or organization, we&apos;d
-              love to hear from you. Reach out through any of the channels below
-              or send us a message — our team replies promptly.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Contact Us"
+            title={<>Let&apos;s Build Better <span className="text-gradient">Athletes</span> Together</>}
+            description="Whether you're an athlete, coach, or organization, we'd love to hear from you. Reach out through any of the channels below or send us a message — our team replies promptly."
+          />
         </Reveal>
 
         <div className="grid gap-8 lg:grid-cols-2">
@@ -218,11 +209,15 @@ export default function Contact() {
             >
               <div className="absolute left-1/2 top-0 h-40 w-40 -translate-x-1/2 rounded-full bg-orange-500/15 blur-[80px]" />
 
-              <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400">
+              <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
+                </span>
                 Send a Message
               </p>
               <h3 className="mt-4 text-2xl font-bold">
-                We&apos;d love to <span className="text-orange-500">help.</span>
+                We&apos;d love to <span className="text-gradient">help.</span>
               </h3>
               <p className="mt-2 text-sm leading-6 text-gray-400">
                 Share a few details and we&apos;ll get back to you shortly.

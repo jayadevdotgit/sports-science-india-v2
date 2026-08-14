@@ -54,9 +54,12 @@ export default function CTASection() {
   {/* Left Side */}
   <div className="min-w-0">
 
-    {/* Badge */}
-    <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-      <Target size={14} />
+{/* Badge */}
+    <div className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
+      </span>
       Get Started
     </div>
 
@@ -64,14 +67,17 @@ export default function CTASection() {
     <h2 className="mt-6 break-words text-[clamp(1.35rem,6vw,1.5rem)] font-bold leading-tight text-white sm:text-3xl md:text-4xl">
 
       Ready to Unlock Your{" "}
-      <span className="text-orange-500">
+      <span className="text-gradient">
         Peak Performance?
       </span>
 
     </h2>
 
     {/* Divider */}
-    <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500 lg:mx-0" />
+    <div className="relative mx-auto mt-6 w-24 lg:mx-0">
+      <div className="absolute inset-0 h-1 w-24 rounded-full bg-orange-500/40 blur-md animate-pulse" />
+      <div className="relative h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-orange-500 to-transparent" />
+    </div>
 
     {/* Description */}
     <p className="mt-4 max-w-xl break-words text-sm leading-6 text-gray-400 sm:text-base sm:leading-7">

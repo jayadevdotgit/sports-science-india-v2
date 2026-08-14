@@ -8,6 +8,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import ExpertCard from "./ExpertCard";
 import { experts } from "./expertsData";
 import Reveal from "@/components/animations/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 export default function Experts() {
   const autoplay = Autoplay({
@@ -62,28 +63,11 @@ export default function Experts() {
 
         <Reveal>
 
-          <div className="text-center max-w-4xl mx-auto mb-14">
-
-            <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-              Meet Our Experts
-            </p>
-
-            <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-              The Minds Behind{" "}
-              <span className="text-orange-500">
-                Athletic Excellence
-              </span>
-            </h2>
-
-            <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-7 text-gray-400">
-              Our multidisciplinary team combines sports science,
-              physiotherapy, biomechanics and performance coaching
-              to help athletes unlock their highest potential.
-            </p>
-
-          </div>
+          <SectionHeading
+            eyebrow="Meet Our Experts"
+            title={<>The Minds Behind <span className="text-gradient">Athletic Excellence</span></>}
+            description="Our multidisciplinary team combines sports science, physiotherapy, biomechanics and performance coaching to help athletes unlock their highest potential."
+          />
 
         </Reveal>
 

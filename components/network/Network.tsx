@@ -1,4 +1,5 @@
 import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 import { platforms } from "@/data/platforms";
 import PlatformCard from "./PlatformCard";
@@ -33,23 +34,11 @@ export default function Network() {
       <Container>
         <Reveal>
 
-        <div className="text-center max-w-4xl mx-auto mb-14">
-
-          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            THE SPORTS SCIENCE INDIA ECOSYSTEM
-          </p>
-
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            One Organization. <span className="text-orange-500">Endless</span> Possibilities.
-          </h2>
-
-          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-
-          <p className="mt-4 text-base text-gray-400 leading-7 max-w-3xl mx-auto">
-            A unified ecosystem connecting healthcare, performance, education, research, media, recognition and community to advance Indian sport.
-          </p>
-
-        </div>
+        <SectionHeading
+          eyebrow="The Sports Science India Ecosystem"
+          title={<>One Organization. <span className="text-gradient">Endless</span> Possibilities.</>}
+          description="A data-driven ecosystem uniting sports medicine, biomechanics, rehabilitation, research and education to advance Indian sport through evidence-based performance science."
+        />
 
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-3">
 

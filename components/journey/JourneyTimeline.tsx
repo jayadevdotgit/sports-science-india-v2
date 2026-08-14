@@ -1,6 +1,7 @@
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import Link from "next/link";
 import {
   ClipboardCheck,
@@ -52,27 +53,11 @@ export default function JourneyTimeline() {
       <Reveal>
       <Container>
 
-        <div className="mx-auto max-w-4xl text-center mb-14">
-
-          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            Athlete Journey
-          </p>
-
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            Your Path to{" "}
-            <span className="text-orange-500">
-              Peak Performance
-            </span>
-          </h2>
-
-          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
-            Every athlete follows a structured science-driven process from
-            assessment to elite performance.
-          </p>
-
-        </div>
+        <SectionHeading
+          eyebrow="Athlete Journey"
+          title={<>Your Path to <span className="text-gradient">Peak Performance</span></>}
+          description="Every athlete follows a structured science-driven process from assessment to elite performance."
+        />
 
         <div className="relative mt-6 sm:mt-10 lg:mt-12">
 

@@ -40,7 +40,11 @@ export default function Hero() {
 
           <div>
 
-            <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm mt-6 sm:mt-8">
+            <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm mt-6 sm:mt-8">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
+              </span>
               SPORTS SCIENCE INDIA
             </p>
 
@@ -50,7 +54,7 @@ export default function Hero() {
                 Maximize
               </span>
 
-              <span className="block text-4xl text-orange-500 sm:text-6xl xl:text-7xl">
+              <span className="block text-4xl text-gradient sm:text-6xl xl:text-7xl">
                 Performance.
               </span>
 

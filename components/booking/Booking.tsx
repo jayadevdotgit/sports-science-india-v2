@@ -3,6 +3,7 @@
 import { FormEvent, useCallback, useEffect, useMemo, useState } from "react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
 import {
   Stethoscope,
   Syringe,
@@ -445,21 +446,11 @@ export default function Booking() {
 
       <Container>
         {/* Section Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="inline-block rounded-full border border-orange-500/30 bg-orange-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm">
-            BOOK ASSESSMENT
-          </p>
-
-          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
-            Schedule Your <span className="text-orange-500">Performance</span> Evaluation
-          </h2>
-
-          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
-
-          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
-            Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Book Assessment"
+          title={<>Schedule Your <span className="text-gradient">Performance</span> Evaluation</>}
+          description="Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email."
+        />
 
         {/* Booking Card Container */}
         <div className="mx-auto max-w-4xl rounded-3xl border border-orange-500/20 bg-black/70 backdrop-blur-xl p-6 sm:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.8)]">
