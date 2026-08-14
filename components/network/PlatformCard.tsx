@@ -28,6 +28,7 @@ const colorMap: Record<
     border: string;
     bg: string;
     glow: string;
+    btn: string;
     rgba: string;
   }
 > = {
@@ -36,6 +37,7 @@ const colorMap: Record<
     border: "border-orange-500/40",
     bg: "bg-orange-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(249,115,22,0.35)]",
+    btn: "border-orange-500/40 bg-orange-500/10 text-orange-400 group-hover:border-orange-500/70 group-hover:bg-orange-500/20 group-hover:text-orange-300 group-hover:shadow-orange-500/25",
     rgba: "249,115,22",
   },
   blue: {
@@ -43,6 +45,7 @@ const colorMap: Record<
     border: "border-blue-500/40",
     bg: "bg-blue-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(59,130,246,0.35)]",
+    btn: "border-blue-500/40 bg-blue-500/10 text-blue-400 group-hover:border-blue-500/70 group-hover:bg-blue-500/20 group-hover:text-blue-300 group-hover:shadow-blue-500/25",
     rgba: "59,130,246",
   },
   gold: {
@@ -50,6 +53,7 @@ const colorMap: Record<
     border: "border-amber-500/40",
     bg: "bg-amber-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)]",
+    btn: "border-amber-400/40 bg-amber-400/10 text-amber-400 group-hover:border-amber-400/70 group-hover:bg-amber-400/20 group-hover:text-amber-300 group-hover:shadow-amber-500/25",
     rgba: "245,158,11",
   },
   purple: {
@@ -57,6 +61,7 @@ const colorMap: Record<
     border: "border-purple-500/40",
     bg: "bg-purple-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(168,85,247,0.35)]",
+    btn: "border-purple-500/40 bg-purple-500/10 text-purple-400 group-hover:border-purple-500/70 group-hover:bg-purple-500/20 group-hover:text-purple-300 group-hover:shadow-purple-500/25",
     rgba: "168,85,247",
   },
   cyan: {
@@ -64,6 +69,7 @@ const colorMap: Record<
     border: "border-cyan-500/40",
     bg: "bg-cyan-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(6,182,212,0.35)]",
+    btn: "border-cyan-500/40 bg-cyan-500/10 text-cyan-400 group-hover:border-cyan-500/70 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 group-hover:shadow-cyan-500/25",
     rgba: "6,182,212",
   },
   green: {
@@ -71,6 +77,7 @@ const colorMap: Record<
     border: "border-emerald-500/40",
     bg: "bg-emerald-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)]",
+    btn: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400 group-hover:border-emerald-500/70 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 group-hover:shadow-emerald-500/25",
     rgba: "16,185,129",
   },
   emerald: {
@@ -78,6 +85,7 @@ const colorMap: Record<
     border: "border-emerald-500/40",
     bg: "bg-emerald-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)]",
+    btn: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400 group-hover:border-emerald-500/70 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 group-hover:shadow-emerald-500/25",
     rgba: "16,185,129",
   },
   amber: {
@@ -85,6 +93,7 @@ const colorMap: Record<
     border: "border-amber-500/40",
     bg: "bg-amber-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)]",
+    btn: "border-amber-400/40 bg-amber-400/10 text-amber-400 group-hover:border-amber-400/70 group-hover:bg-amber-400/20 group-hover:text-amber-300 group-hover:shadow-amber-500/25",
     rgba: "245,158,11",
   },
   rose: {
@@ -92,6 +101,7 @@ const colorMap: Record<
     border: "border-rose-500/40",
     bg: "bg-rose-500/20",
     glow: "group-hover:shadow-[0_0_50px_rgba(244,63,94,0.35)]",
+    btn: "border-rose-500/40 bg-rose-500/10 text-rose-400 group-hover:border-rose-500/70 group-hover:bg-rose-500/20 group-hover:text-rose-300 group-hover:shadow-rose-500/25",
     rgba: "244,63,94",
   },
 };
@@ -304,25 +314,18 @@ export default function PlatformCard({
                     gap-1.5
                     rounded-full
                     border-2
-                    border-orange-500/40
-                    bg-orange-500/10
                     px-3
                     py-1.5
                     text-xs
                     font-bold
-                    text-orange-400
                     backdrop-blur-md
                     whitespace-nowrap
                     shrink-0
                     shadow-lg
-                    shadow-orange-500/10
                     transition-all
                     duration-300
-                    group-hover:border-orange-500/70
-                    group-hover:bg-orange-500/20
-                    group-hover:text-orange-300
-                    group-hover:shadow-orange-500/25
                     group-hover:translate-x-0.5
+                    ${c.btn}
                   `}
                 >
                   {button}
