@@ -164,6 +164,24 @@ export default function PlatformCard({
           `}
         />
 
+        {/* Gradient Left Accent Line (top to bottom) */}
+        <div
+          className={`
+            absolute
+            top-0
+            left-0
+            bottom-0
+            z-30
+            w-[3px]
+            bg-gradient-to-b
+            ${c.ring}
+            opacity-70
+            transition-opacity
+            duration-500
+            group-hover:opacity-100
+          `}
+        />
+
         {/* Background Image */}
         <Image
           src={image}
