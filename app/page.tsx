@@ -7,8 +7,22 @@ import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
 import CTASection from "@/components/cta/CTASection";
 import Footer from "@/components/footer/Footer";
+import { buildMetadata } from "@/lib/seo";
 
-
+export const metadata = buildMetadata({
+  title: "Sports Science India | Sports Medicine in Bhubaneswar",
+  description:
+    "Sports injury treatment, rehabilitation, performance analysis and athlete development in Bhubaneswar, Odisha. Book a sports science assessment today.",
+  path: "/",
+  keywords: [
+    "sports medicine Bhubaneswar",
+    "sports science India",
+    "physiotherapy Bhubaneswar",
+    "sports injury treatment",
+    "athlete development Odisha",
+    "rehabilitation",
+  ],
+});
 
 export default function Home() {
   return (

@@ -34,6 +34,25 @@ export default function Navbar() {
     }
   };
 
+  const scrollToSectionWithRetry = (id: string) => {
+    const scroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        return true;
+      }
+      return false;
+    };
+
+    if (!scroll()) {
+      let attempts = 0;
+      const interval = setInterval(() => {
+        attempts += 1;
+        if (scroll() || attempts > 20) clearInterval(interval);
+      }, 150);
+    }
+  };
+
   const handleNavigation = (target: string) => {
     setMenuOpen(false);
 
@@ -52,7 +71,7 @@ export default function Navbar() {
     if (pathname !== "/") {
       // Navigate home first, then scroll to the section.
       router.push("/");
-      setTimeout(() => scrollToSection(target), 450);
+      scrollToSectionWithRetry(target);
       return;
     }
 

@@ -17,8 +17,7 @@ import {
   Sparkles,
   TrendingUp,
   Users,
-  Check,
-} from "lucide-react";
+  Check,} from "lucide-react";
 
 const badgeStyles: Record<string, string> = {
   orange: "bg-orange-500/20 border-orange-500/40 text-orange-300",
@@ -31,6 +30,25 @@ const badgeStyles: Record<string, string> = {
   amber: "bg-amber-500/20 border-amber-500/40 text-amber-300",
   rose: "bg-rose-500/20 border-rose-500/40 text-rose-300",
 };
+
+function scrollToSection(id: string) {
+  const scroll = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+    return false;
+  };
+
+  if (!scroll()) {
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (scroll() || attempts > 20) clearInterval(interval);
+    }, 150);
+  }
+}
 
 const textMap: Record<string, string> = {
   orange: "text-orange-400",
@@ -316,12 +334,8 @@ export default function PlatformPage({ id, btnClassName = "", cta }: { id: strin
   const goBack = () => {
     if (pathname !== "/") {
       router.push("/");
-      setTimeout(() => {
-        document.getElementById("network")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 450);
-    } else {
-      document.getElementById("network")?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
+    scrollToSection("network");
   };
 
   if (!platform) return null;
@@ -408,6 +422,7 @@ export default function PlatformPage({ id, btnClassName = "", cta }: { id: strin
                       alt={platform.title}
                       fill
                       unoptimized
+                      loading="eager"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>

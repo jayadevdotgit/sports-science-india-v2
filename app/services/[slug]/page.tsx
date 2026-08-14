@@ -52,6 +52,25 @@ function slugFrom(link: string): string {
   return link.split("/").filter(Boolean).pop() || "";
 }
 
+function scrollToSection(id: string) {
+  const scroll = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+    return false;
+  };
+
+  if (!scroll()) {
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (scroll() || attempts > 20) clearInterval(interval);
+    }, 150);
+  }
+}
+
 const serviceIcons: Record<string, LucideIcon> = {
   "sports-psychology": Brain,
   "neck-care": PersonStanding,
@@ -162,14 +181,8 @@ export default function ServicePage() {
   }, [slug]);
 
   const goToServices = () => {
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 450);
-    } else {
-      document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (pathname !== "/") router.push("/");
+    scrollToSection("services");
   };
 
   const service = useMemo<ServiceInfo | null>(() => {

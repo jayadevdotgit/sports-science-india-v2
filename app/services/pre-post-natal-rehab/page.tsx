@@ -150,24 +150,36 @@ function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean
   );
 }
 
+function scrollToSection(id: string) {
+  const scroll = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+    return false;
+  };
+
+  if (!scroll()) {
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (scroll() || attempts > 20) clearInterval(interval);
+    }, 150);
+  }
+}
+
 export default function PrePostNatalPage() {
   const router = useRouter();
-  const pathname = usePathname();
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const pathname = usePathname();  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const goToServices = () => {
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 450);
-    } else {
-      document.getElementById("services")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (pathname !== "/") router.push("/");
+    scrollToSection("services");
   };
 
   return (

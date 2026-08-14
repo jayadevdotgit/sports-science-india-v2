@@ -52,6 +52,7 @@ export const platforms = [
     description:
       "Recognising excellence in sports through prestigious awards and celebrations.",
     image: "/network/awards.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-sports-awards.jpeg",
     link: "/awards",
     button: "Explore Platform",
     stats1: "Annual",
@@ -120,6 +121,7 @@ export const platforms = [
     description:
       "Developing tomorrow's champions using sports science and long-term athlete development.",
     image: "/network/yap.jpg",
+    pageImage: "/images/ssi_ecosystem/young-athlete-program.jpeg",
     link: "/young-athlete-program",
     button: "Explore Program",
     stats1: "U10-U18",
@@ -167,6 +169,7 @@ export const platforms = [
     description:
       "India's premier sports science conference bringing together experts, athletes and thought leaders.",
     image: "/network/conclave.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-sports-conclave.jpeg",
     link: "/sports-conclave",
     button: "Learn More",
     stats1: "Annual",
@@ -189,6 +192,7 @@ export const platforms = [
     description:
       "Global platform for arthroscopy surgeons and sports medicine professionals to share advances.",
     image: "/network/arthroscopy.jpg",
+    pageImage: "/images/ssi_ecosystem/ssi-international-arthroscopy-conference.jpeg",
     link: "/arthroscopy-conference",
     button: "Learn More",
     stats1: "International",

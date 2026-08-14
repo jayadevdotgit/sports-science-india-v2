@@ -114,9 +114,21 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
     // Home-page sections (services, ecosystem, etc.)
     if (window.location.pathname !== "/") {
       router.push("/");
-      setTimeout(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 450);
+      const scroll = () => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          return true;
+        }
+        return false;
+      };
+      if (!scroll()) {
+        let attempts = 0;
+        const interval = setInterval(() => {
+          attempts += 1;
+          if (scroll() || attempts > 20) clearInterval(interval);
+        }, 150);
+      }
       return;
     }
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });

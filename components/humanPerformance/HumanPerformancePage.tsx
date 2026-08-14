@@ -45,6 +45,25 @@ function slugFrom(link: string): string {
   return link.split("/").filter(Boolean).pop() || "";
 }
 
+function scrollToSection(id: string) {
+  const scroll = () => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      return true;
+    }
+    return false;
+  };
+
+  if (!scroll()) {
+    let attempts = 0;
+    const interval = setInterval(() => {
+      attempts += 1;
+      if (scroll() || attempts > 20) clearInterval(interval);
+    }, 150);
+  }
+}
+
 function FaqItem({ q, a, open, onToggle }: { q: string; a: string; open: boolean; onToggle: () => void }) {
   return (
     <div className="group overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.05] to-white/[0.02] backdrop-blur-xl transition-all duration-500 hover:border-cyan-500/40 hover:shadow-[0_8px_32px_rgba(34,211,238,0.15)]">
@@ -92,14 +111,8 @@ export default function HumanPerformancePage({ slug }: { slug: string }) {
   }, [slug]);
 
   const goToServices = () => {
-    if (pathname !== "/") {
-      router.push("/");
-      setTimeout(() => {
-        document.getElementById("ecosystem")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 450);
-    } else {
-      document.getElementById("ecosystem")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (pathname !== "/") router.push("/");
+    scrollToSection("ecosystem");
   };
 
   const body = useMemo(() => bodyData.find((item) => slugFrom(item.link) === slug), [slug]);
