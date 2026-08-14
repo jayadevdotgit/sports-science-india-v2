@@ -24,8 +24,36 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
   const c = bodyColorMap[data.badgeColor] ?? defaultBodyColor;
 
   return (
-    <div
-      className={`
+    <>
+      {/* Connector Line (container-coordinate sibling so it stays pinned to the
+          hotspot regardless of cardUp vertical shifts) */}
+      {!mobile && anchor && anchor.cardUp && (
+        <>
+          <div
+            className="absolute z-30 h-[2px] w-40"
+            style={{
+              top: `calc(${anchor.top} - 1px)`,
+              left: anchor.cardSide === "left"
+                ? `calc(${anchor.left} - 10rem)`
+                : anchor.left,
+            }}
+          >
+            <div className={`h-full w-full ${c.line}`} />
+          </div>
+          <div
+            className={`absolute z-50 h-4 w-4 rounded-full ${c.dot} ${c.glow}`}
+            style={{
+              top: `calc(${anchor.top} - 0.5rem)`,
+              left: anchor.cardSide === "left"
+                ? `calc(${anchor.left} - 10rem - 0.5rem)`
+                : `calc(${anchor.left} + 10rem - 0.5rem)`,
+            }}
+          />
+        </>
+      )}
+
+      <div
+        className={`
         ${mobile ? "relative" : "absolute"}
         z-40
         w-full
@@ -41,23 +69,23 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         duration-500
         ease-out
       `}
-      style={mobile || !anchor ? undefined : anchor.cardVertical === "above" ? {
-        bottom: `calc(100% - ${anchor.top} - 2.5rem)`,
-        left: anchor.left,
-        transform: anchor.cardSide === "left"
-          ? "translateX(calc(-100% - 10rem))"
-          : "translateX(10rem)",
-      } : {
-        top: `calc(${anchor.top} - 2.5rem${anchor.cardUp ? ` - ${anchor.cardUp}` : ""})`,
-        left: anchor.left,
-        transform: anchor.cardSide === "left"
-          ? "translateX(calc(-100% - 10rem))"
-          : "translateX(10rem)",
-      }}
-    >
+        style={mobile || !anchor ? undefined : anchor.cardVertical === "above" ? {
+          bottom: `calc(100% - ${anchor.top} - 2.5rem)`,
+          left: anchor.left,
+          transform: anchor.cardSide === "left"
+            ? "translateX(calc(-100% - 10rem))"
+            : "translateX(10rem)",
+        } : {
+          top: `calc(${anchor.top} - 2.5rem${anchor.cardUp ? ` - ${anchor.cardUp}` : ""})`,
+          left: anchor.left,
+          transform: anchor.cardSide === "left"
+            ? "translateX(calc(-100% - 10rem))"
+            : "translateX(10rem)",
+        }}
+      >
 
       {/* Connector Line */}
-      {!mobile && anchor && (anchor.cardSide === "left" ? (
+      {!mobile && anchor && !anchor.cardUp && (anchor.cardSide === "left" ? (
         <>
             <div className={`absolute -right-40 h-[2px] w-40 ${c.line} ${anchor.cardVertical === "above" ? "bottom-10" : "top-10"}`} />
             <div className={`absolute -right-2 h-4 w-4 rounded-full ${c.dot} ${c.glow} ${anchor.cardVertical === "above" ? "bottom-8" : "top-8"}`} />
@@ -121,5 +149,6 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         Learn More
       </Link>
     </div>
+    </>
   );
 }

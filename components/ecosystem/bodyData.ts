@@ -195,7 +195,7 @@ export const bodyData = [
     link: "/services/wrist-function",
     popup: {
     top: "47%",
-    left: "70%",
+    left: "8%",
   },
   },
 
@@ -217,7 +217,7 @@ export const bodyData = [
     link: "/services/hip-mobility",
     popup: {
     top: "48%",
-    left: "8%",
+    left: "70%",
   },
   },
 
