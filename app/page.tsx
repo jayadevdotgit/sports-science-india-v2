@@ -10,7 +10,7 @@ import Footer from "@/components/footer/Footer";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Sports Science India | Sports Medicine in Bhubaneswar",
+  title: "Sports Science India | Prevent Injury, Prolong Career",
   description:
     "Sports injury treatment, rehabilitation, performance analysis and athlete development in Bhubaneswar, Odisha. Book a sports science assessment today.",
   path: "/",
