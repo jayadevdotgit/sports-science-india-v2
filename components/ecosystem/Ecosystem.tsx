@@ -43,19 +43,16 @@ export default function Ecosystem() {
             HUMAN PERFORMANCE
           </p>
 
-          <h2 className="mt-6 text-4xl md:text-6xl font-black leading-tight text-white tracking-tight">
-            THE SPORTS SCIENCE <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 animate-gradient-x bg-[length:200%_100%]">
-              BIO-ECOSYSTEM
-            </span>
+          <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white">
+            Every Athlete.{" "}
+            <span className="text-orange-500">Every Body Part.</span>
           </h2>
 
-          <div className="relative mx-auto mt-6 w-24 h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent">
-             <div className="absolute inset-0 bg-orange-500 blur-sm animate-pulse" />
-          </div>
+          <div className="mx-auto mt-6 h-1 w-20 rounded-full bg-orange-500" />
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-gray-300 font-light leading-relaxed">
-            Integrating advanced physiological data, precision biomechanics, and neurological optimization to <span className="text-orange-400 font-medium">redefine human potential</span>.
+          <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-gray-400">
+            Explore how every part of the human body contributes to athletic
+            performance, injury prevention and long-term development.
           </p>
 
           <div className="mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-500/40 bg-black/80 px-3 py-2 text-xs font-semibold text-white shadow-[0_0_24px_rgba(249,115,22,0.12)] hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] transition-all duration-300 sm:mt-7 sm:gap-3 sm:px-4 sm:text-sm">
