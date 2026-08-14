@@ -283,3 +283,64 @@ html {
 .animate-vivi-shadow-walk {
   animation: vivi-shadow-walk 0.5s ease-in-out infinite;
 }
+
+/* ==========================================
+   Ecosystem Futuristic Animations
+========================================== */
+
+@keyframes scanlineFlow {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes holoPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+}
+
+@keyframes corePulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4), inset 0 0 20px rgba(249, 115, 22, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.8), inset 0 0 40px rgba(249, 115, 22, 0.2);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scanline-flow {
+  animation: scanlineFlow 4s ease-in-out infinite;
+}
+
+.animate-holo-pulse {
+  animation: holoPulse 2.5s ease-in-out infinite;
+}
+
+.animate-particle-float {
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.animate-core-pulse-glow {
+  animation: corePulseGlow 3s ease-in-out infinite;
+}
+
+.animate-float-in {
+  animation: floatIn 0.8s ease-out;
+}
