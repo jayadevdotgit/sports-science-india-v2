@@ -120,7 +120,7 @@ export default function Contact() {
         <Reveal>
           <SectionHeading
             eyebrow="Contact Us"
-            title={<>Let&apos;s Build Better <span className="text-gradient">Athletes</span> Together</>}
+            title={<>Let&apos;s Build Better <span className="text-orange-500">Athletes</span> Together</>}
             description="Whether you're an athlete, coach, or organization, we'd love to hear from you. Reach out through any of the channels below or send us a message — our team replies promptly."
           />
         </Reveal>
@@ -217,7 +217,7 @@ export default function Contact() {
                 Send a Message
               </p>
               <h3 className="mt-4 text-2xl font-bold">
-                We&apos;d love to <span className="text-gradient">help.</span>
+                We&apos;d love to <span className="text-orange-500">help.</span>
               </h3>
               <p className="mt-2 text-sm leading-6 text-gray-400">
                 Share a few details and we&apos;ll get back to you shortly.

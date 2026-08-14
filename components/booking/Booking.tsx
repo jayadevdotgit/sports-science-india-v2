@@ -448,7 +448,7 @@ export default function Booking() {
         {/* Section Header */}
         <SectionHeading
           eyebrow="Book Assessment"
-          title={<>Schedule Your <span className="text-gradient">Performance</span> Evaluation</>}
+          title={<>Schedule Your <span className="text-orange-500">Performance</span> Evaluation</>}
           description="Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email."
         />
 

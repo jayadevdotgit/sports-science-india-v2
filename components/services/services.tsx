@@ -202,7 +202,7 @@ export default function Services() {
       <Container>
         <SectionHeading
           eyebrow="Services"
-          title={<>Elite <span className="text-gradient">Performance</span> Solutions</>}
+          title={<>Elite <span className="text-orange-500">Performance</span> Solutions</>}
           description="Integrated sports science services designed to enhance performance, prevent injuries and extend athletic careers."
         />
 

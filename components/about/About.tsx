@@ -139,7 +139,7 @@ export default function About() {
                 <h1 className="mt-5 text-2xl font-black leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
                   One Organization.
                   <br />
-                  <span className="text-gradient drop-shadow-[0_0_30px_rgba(249,115,22,0.4)]">
+                  <span className="text-orange-500 drop-shadow-[0_0_30px_rgba(249,115,22,0.4)]">
                     Endless Possibilities.
                   </span>
                 </h1>
@@ -504,7 +504,7 @@ export default function About() {
               </p>
               <h3 className="mt-5 text-2xl font-black tracking-tight text-white sm:text-3xl">
                 Four Pillars.{" "}
-                <span className="text-gradient">One Mission.</span>
+                <span className="text-orange-500">One Mission.</span>
               </h3>
             </div>
           </Reveal>

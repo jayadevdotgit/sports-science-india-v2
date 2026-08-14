@@ -67,7 +67,7 @@ export default function CTASection() {
     <h2 className="mt-6 break-words text-[clamp(1.35rem,6vw,1.5rem)] font-bold leading-tight text-white sm:text-3xl md:text-4xl">
 
       Ready to Unlock Your{" "}
-      <span className="text-gradient">
+      <span className="text-orange-500">
         Peak Performance?
       </span>
 

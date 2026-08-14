@@ -151,7 +151,7 @@ export default function Testimonials() {
           eyebrow="Reviews & Testimonials"
           title={
             <>
-              Trusted by <span className="text-gradient">Athletes.</span>
+              Trusted by <span className="text-orange-500">Athletes.</span>
               <br />
               Driven by Results.
             </>

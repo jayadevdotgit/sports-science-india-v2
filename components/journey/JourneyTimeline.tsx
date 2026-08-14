@@ -55,7 +55,7 @@ export default function JourneyTimeline() {
 
         <SectionHeading
           eyebrow="Athlete Journey"
-          title={<>Your Path to <span className="text-gradient">Peak Performance</span></>}
+          title={<>Your Path to <span className="text-orange-500">Peak Performance</span></>}
           description="Every athlete follows a structured science-driven process from assessment to elite performance."
         />
 

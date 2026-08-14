@@ -36,7 +36,7 @@ export default function Network() {
 
         <SectionHeading
           eyebrow="The Sports Science India Ecosystem"
-          title={<>One Organization. <span className="text-gradient">Endless</span> Possibilities.</>}
+          title={<>One Organization. <span className="text-orange-500">Endless</span> Possibilities.</>}
           description="A data-driven ecosystem uniting sports medicine, biomechanics, rehabilitation, research and education to advance Indian sport through evidence-based performance science."
         />
 

@@ -54,7 +54,7 @@ export default function Hero() {
                 Maximize
               </span>
 
-              <span className="block text-4xl text-gradient sm:text-6xl xl:text-7xl">
+              <span className="block text-4xl text-orange-500 sm:text-6xl xl:text-7xl">
                 Performance.
               </span>
 

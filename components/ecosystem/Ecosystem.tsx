@@ -40,7 +40,7 @@ export default function Ecosystem() {
 
         <SectionHeading
           eyebrow="Human Performance"
-          title={<>Every Athlete. <span className="text-gradient">Every Body Part.</span></>}
+          title={<>Every Athlete. <span className="text-orange-500">Every Body Part.</span></>}
           description="Explore how every part of the human body contributes to athletic performance, injury prevention and long-term development."
         >
           <div className="mt-6 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-500/40 bg-black/80 px-3 py-2 text-xs font-semibold text-white shadow-[0_0_24px_rgba(249,115,22,0.12)] hover:shadow-[0_0_40px_rgba(249,115,22,0.25)] transition-all duration-300 sm:mt-7 sm:gap-3 sm:px-4 sm:text-sm">

@@ -25,7 +25,7 @@ export default function Technology() {
 
         <SectionHeading
           eyebrow="Technology & Equipment"
-          title={<>Powered by Science. <span className="text-gradient">Driven by Precision.</span></>}
+          title={<>Powered by Science. <span className="text-orange-500">Driven by Precision.</span></>}
           description="Discover the advanced sports science technology used to assess, optimize and elevate athletic performance."
         />
 

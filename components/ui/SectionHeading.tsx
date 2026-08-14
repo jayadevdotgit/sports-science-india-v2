@@ -42,7 +42,7 @@ export default function SectionHeading({
 
       {description && (
         <p
-          className={`mt-6 max-w-3xl text-base leading-7 text-gray-300 animate-[fadeIn_1s_ease-out_0.3s_both] ${
+          className={`mt-6 max-w-3xl text-base leading-7 text-gray-400 animate-[fadeIn_1s_ease-out_0.3s_both] ${
             center ? "mx-auto" : ""
           }`}
         >
