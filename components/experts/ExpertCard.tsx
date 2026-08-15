@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { Award, CheckCircle2 } from "lucide-react";
 import Reveal from "@/components/animations/Reveal";
@@ -114,9 +115,12 @@ export default function ExpertCard({
           ))}
         </div>
 
-        <div className="mt-5 rounded-2xl border border-orange-500/20 bg-orange-500/5 py-2 text-center text-xs font-medium text-orange-400 sm:mt-6 sm:text-sm">
-        Available for Consultation
-        </div>
+        <Link
+          href="/booking"
+          className="mt-5 block rounded-2xl border border-orange-500/20 bg-orange-500/5 py-2 text-center text-xs font-medium text-orange-400 transition-all duration-300 group-hover:border-orange-500/40 group-hover:bg-orange-500/15 group-hover:text-orange-300 sm:mt-6 sm:text-sm"
+        >
+          Available for Consultation
+        </Link>
       </div>
     </Reveal>
   );
