@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Loader from "@/components/loader/Loader";
 import MouseGlow from "@/components/effects/MouseGlow";
-import IndependenceDayBanner from "@/components/effects/IndependenceDayBanner";
 import Kibo from "@/components/panda/Kibo";
 import { site } from "@/lib/seo";
 
@@ -90,8 +89,6 @@ export default function RootLayout({
         <div className="relative">
 
           <MouseGlow />
-
-          <IndependenceDayBanner />
 
           {children}
 
