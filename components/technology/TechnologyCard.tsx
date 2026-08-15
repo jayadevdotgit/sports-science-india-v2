@@ -88,11 +88,7 @@ export default function TechnologyCard({
         {/* Content */}
         <div className="p-5 sm:p-6">
           <div className="flex items-center justify-between gap-3">
-            <h3
-              className={`text-lg font-bold transition-colors duration-300 ${
-                active ? "text-orange-400" : "text-white group-hover:text-orange-300"
-              }`}
-            >
+            <h3 className="text-lg font-bold transition-colors duration-300 text-white group-hover:text-white">
               {technology.title}
             </h3>
             <span className="shrink-0 text-[11px] font-bold uppercase tracking-[0.15em] text-gray-500">
