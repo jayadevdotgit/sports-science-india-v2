@@ -41,9 +41,8 @@ export default function TechnologyDisplay({ technology }: Props) {
                 priority={isDynamo}
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className={`
-                  object-contain
+                  object-cover
                   object-center
-                  lg:object-cover
                   transition-all
                   duration-700
                   hover:scale-105
