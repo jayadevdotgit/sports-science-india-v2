@@ -20,6 +20,14 @@ export default function TechnologyCard({
 }: TechnologyCardProps) {
   return (
     <Reveal className={className}>
+      <div className="relative">
+        {/* Animated traveling border glow for the active card */}
+        {active && (
+          <div className="pointer-events-none absolute -inset-px overflow-hidden rounded-3xl opacity-70">
+            <div className="absolute -inset-[50%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_0deg,transparent_0deg,rgba(249,115,22,0.35)_80deg,rgba(251,146,60,0.2)_140deg,transparent_200deg)]" />
+          </div>
+        )}
+
       <button
         type="button"
         onClick={onSelect}
@@ -27,6 +35,7 @@ export default function TechnologyCard({
         className={`
           group
           relative
+          z-10
           w-full
           overflow-hidden
           rounded-3xl
@@ -106,6 +115,7 @@ export default function TechnologyCard({
           </div>
         </div>
       </button>
+      </div>
     </Reveal>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/animations/Reveal";
@@ -12,6 +12,13 @@ import { technology } from "./technologyData";
 export default function Technology() {
   const [activeTechnology, setActiveTechnology] = useState(0);
   const selected = technology[activeTechnology];
+  const spotlightRef = useRef<HTMLDivElement>(null);
+
+  const handleSelect = (index: number) => {
+    setActiveTechnology(index);
+    // Smooth-scroll the spotlight into view so the user sees the update.
+    spotlightRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
   return (
     <>
@@ -34,7 +41,9 @@ export default function Technology() {
           </Reveal>
 
           {/* Spotlight */}
-          <TechnologyDisplay technology={selected} />
+          <div ref={spotlightRef} className="scroll-mt-28">
+            <TechnologyDisplay technology={selected} />
+          </div>
 
           {/* Grid selector */}
           <Reveal delay={0.1}>
@@ -44,7 +53,7 @@ export default function Technology() {
                   key={item.id}
                   technology={item}
                   active={index === activeTechnology}
-                  onSelect={() => setActiveTechnology(index)}
+                  onSelect={() => handleSelect(index)}
                   className={
                     index === technology.length - 1 ? "lg:col-start-2" : ""
                   }
