@@ -447,6 +447,7 @@ export default function Booking() {
       <Container>
         {/* Section Header */}
         <SectionHeading
+          as="h1"
           eyebrow="Book Assessment"
           title={<>Schedule Your <span className="text-orange-500">Performance</span> Evaluation</>}
           description="Choose your desired sports science services, pick your preferred appointment time, and receive an instant confirmation email."

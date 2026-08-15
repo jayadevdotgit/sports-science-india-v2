@@ -64,6 +64,7 @@ export default function Experts() {
         <Reveal>
 
           <SectionHeading
+            as="h1"
             eyebrow="Meet Our Experts"
             title={<>The Minds Behind <span className="text-orange-500">Athletic Excellence</span></>}
             description="Our multidisciplinary team combines sports science, physiotherapy, biomechanics and performance coaching to help athletes unlock their highest potential."

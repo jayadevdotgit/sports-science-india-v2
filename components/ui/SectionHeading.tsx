@@ -1,10 +1,11 @@
-import { ReactNode } from "react";
+import { createElement, ReactNode } from "react";
 
 interface SectionHeadingProps {
   eyebrow: string;
   title: ReactNode;
   description?: string;
   align?: "center" | "left";
+  as?: "h1" | "h2";
   children?: ReactNode;
 }
 
@@ -13,6 +14,7 @@ export default function SectionHeading({
   title,
   description,
   align = "center",
+  as = "h2",
   children,
 }: SectionHeadingProps) {
   const center = align === "center";
@@ -31,9 +33,11 @@ export default function SectionHeading({
         </p>
       </div>
 
-      <h2 className="mt-6 text-3xl md:text-4xl font-bold leading-tight text-white animate-[fadeIn_0.8s_ease-out_0.15s_both]">
-        {title}
-      </h2>
+      {createElement(
+        as,
+        { className: "mt-6 text-3xl md:text-4xl font-bold leading-tight text-white animate-[fadeIn_0.8s_ease-out_0.15s_both]" },
+        title
+      )}
 
       <div className={`relative mt-6 w-24 ${center ? "mx-auto" : ""}`}>
         <div className="absolute inset-0 h-1 w-24 rounded-full bg-orange-500/40 blur-md animate-pulse" />
