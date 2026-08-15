@@ -92,7 +92,7 @@ export default function Ecosystem() {
 
                   <MuscleScene selected={selected} onSelect={setSelected} />
 
-                  <div className="pointer-events-none absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-gray-400 backdrop-blur">
+                  <div className="pointer-events-none absolute bottom-3 left-1/2 hidden -translate-x-1/2 rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-[10px] uppercase tracking-[0.25em] text-gray-400 backdrop-blur lg:block">
                     Auto-rotating
                   </div>
                 </div>
