@@ -26,7 +26,7 @@ export default function Technology() {
 
       <section
         id="technology"
-        className="relative overflow-hidden bg-[#050505] pb-20 pt-4 text-white"
+        className="relative overflow-hidden bg-[#050505] pb-20 pt-4 text-white scroll-mt-32"
       >
         {/* Background Glow */}
         <div className="pointer-events-none absolute left-1/2 top-20 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px]" />
