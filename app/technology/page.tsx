@@ -14,9 +14,7 @@ export default function TechnologyPage() {
   return (
     <>
       <Navbar />
-      <div className="pt-32">
-        <Technology />
-      </div>
+      <Technology />
       <Footer />
     </>
   );
