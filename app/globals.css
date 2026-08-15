@@ -4,6 +4,14 @@ html {
   zoom: 90%;
 }
 
+/* R3F mis-measures its canvas when html uses `zoom`, leaving it top-left at
+   ~90% size. Force the canvas to fill the viewport container so the model
+   stays centered. */
+#ecosystem canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

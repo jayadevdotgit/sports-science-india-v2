@@ -12,7 +12,8 @@ import Link from "next/link";
 const navLinks = [
   { name: "Home", href: "#", target: "home" },
   { name: "About", href: "/about", target: "about" },
-  { name: "Ecosystem", href: "#ecosystem", target: "ecosystem" },
+  { name: "Ecosystem", href: "#network", target: "network" },
+  { name: "Performance", href: "#ecosystem", target: "ecosystem" },
   { name: "Services", href: "#services", target: "services" },
   { name: "Technology", href: "/technology", target: "technology" },
   { name: "Experts", href: "/experts", target: "experts" },
@@ -29,8 +30,17 @@ export default function Navbar() {
 
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!section) return;
+    // The navbar collapses from h-32 (128px) to h-28 (112px) once scrolled.
+    // Use the collapsed height so the section divider lands exactly at the
+    // navbar bottom. All values are viewport-relative (zoom-consistent).
+    const navbar = document.querySelector("nav");
+    if (navbar) {
+      const zoom = navbar.getBoundingClientRect().height / navbar.offsetHeight;
+      const scrolledNavHeight = 112 * zoom;
+      const target =
+        window.scrollY + section.getBoundingClientRect().top - scrolledNavHeight;
+      window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
     }
   };
 
@@ -38,7 +48,7 @@ export default function Navbar() {
     const scroll = () => {
       const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        scrollToSection(id);
         return true;
       }
       return false;
@@ -95,25 +105,32 @@ useEffect(() => {
 
   const sections = [
     "home",
+    "network",
     "ecosystem",
     "services",
     "contact",
   ];
 
   const handleActiveSection = () => {
-    const scrollPosition = window.scrollY + 200;
+    const navbar = document.querySelector("nav");
+    const navBottom = navbar ? navbar.getBoundingClientRect().bottom : 0;
+
+    let current = sections[0];
 
     for (const section of sections) {
       const element = document.getElementById(section);
+      if (!element) continue;
 
-      if (
-        element &&
-        scrollPosition >= element.offsetTop &&
-        scrollPosition < element.offsetTop + element.offsetHeight
-      ) {
-        setActiveSection(section);
+      const rect = element.getBoundingClientRect();
+
+      // The section is "active" when its divider top has reached the bottom
+      // of the navbar but its bottom is still below it.
+      if (rect.top <= navBottom + 1 && rect.bottom > navBottom) {
+        current = section;
       }
     }
+
+    setActiveSection(current);
   };
 
   // Run once on page load
