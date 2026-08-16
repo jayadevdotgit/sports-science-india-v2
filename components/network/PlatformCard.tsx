@@ -37,7 +37,7 @@ const colorMap: Record<
     text: "text-orange-300",
     border: "border-orange-500/40",
     bg: "bg-orange-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(249,115,22,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(249,115,22,0.22)]",
     btn: "border-orange-500/40 bg-orange-500/10 text-orange-400 group-hover:border-orange-500/70 group-hover:bg-orange-500/20 group-hover:text-orange-300 group-hover:shadow-orange-500/25",
     rgba: "249,115,22",
   },
@@ -45,7 +45,7 @@ const colorMap: Record<
     text: "text-blue-300",
     border: "border-blue-500/40",
     bg: "bg-blue-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(59,130,246,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(59,130,246,0.22)]",
     btn: "border-blue-500/40 bg-blue-500/10 text-blue-400 group-hover:border-blue-500/70 group-hover:bg-blue-500/20 group-hover:text-blue-300 group-hover:shadow-blue-500/25",
     rgba: "59,130,246",
   },
@@ -53,7 +53,7 @@ const colorMap: Record<
     text: "text-amber-300",
     border: "border-amber-500/40",
     bg: "bg-amber-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(245,158,11,0.22)]",
     btn: "border-amber-400/40 bg-amber-400/10 text-amber-400 group-hover:border-amber-400/70 group-hover:bg-amber-400/20 group-hover:text-amber-300 group-hover:shadow-amber-500/25",
     rgba: "245,158,11",
   },
@@ -61,7 +61,7 @@ const colorMap: Record<
     text: "text-purple-300",
     border: "border-purple-500/40",
     bg: "bg-purple-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(168,85,247,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(168,85,247,0.22)]",
     btn: "border-purple-500/40 bg-purple-500/10 text-purple-400 group-hover:border-purple-500/70 group-hover:bg-purple-500/20 group-hover:text-purple-300 group-hover:shadow-purple-500/25",
     rgba: "168,85,247",
   },
@@ -69,7 +69,7 @@ const colorMap: Record<
     text: "text-cyan-300",
     border: "border-cyan-500/40",
     bg: "bg-cyan-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(6,182,212,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(6,182,212,0.22)]",
     btn: "border-cyan-500/40 bg-cyan-500/10 text-cyan-400 group-hover:border-cyan-500/70 group-hover:bg-cyan-500/20 group-hover:text-cyan-300 group-hover:shadow-cyan-500/25",
     rgba: "6,182,212",
   },
@@ -77,7 +77,7 @@ const colorMap: Record<
     text: "text-emerald-300",
     border: "border-emerald-500/40",
     bg: "bg-emerald-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(16,185,129,0.22)]",
     btn: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400 group-hover:border-emerald-500/70 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 group-hover:shadow-emerald-500/25",
     rgba: "16,185,129",
   },
@@ -85,7 +85,7 @@ const colorMap: Record<
     text: "text-emerald-300",
     border: "border-emerald-500/40",
     bg: "bg-emerald-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(16,185,129,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(16,185,129,0.22)]",
     btn: "border-emerald-500/40 bg-emerald-500/10 text-emerald-400 group-hover:border-emerald-500/70 group-hover:bg-emerald-500/20 group-hover:text-emerald-300 group-hover:shadow-emerald-500/25",
     rgba: "16,185,129",
   },
@@ -93,7 +93,7 @@ const colorMap: Record<
     text: "text-amber-300",
     border: "border-amber-500/40",
     bg: "bg-amber-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(245,158,11,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(245,158,11,0.22)]",
     btn: "border-amber-400/40 bg-amber-400/10 text-amber-400 group-hover:border-amber-400/70 group-hover:bg-amber-400/20 group-hover:text-amber-300 group-hover:shadow-amber-500/25",
     rgba: "245,158,11",
   },
@@ -101,7 +101,7 @@ const colorMap: Record<
     text: "text-rose-300",
     border: "border-rose-500/40",
     bg: "bg-rose-500/20",
-    glow: "group-hover:shadow-[0_0_50px_rgba(244,63,94,0.35)]",
+    glow: "group-hover:shadow-[0_12px_32px_rgba(244,63,94,0.22)]",
     btn: "border-rose-500/40 bg-rose-500/10 text-rose-400 group-hover:border-rose-500/70 group-hover:bg-rose-500/20 group-hover:text-rose-300 group-hover:shadow-rose-500/25",
     rgba: "244,63,94",
   },
@@ -135,11 +135,11 @@ export default function PlatformCard({
         ${height}
         cursor-pointer
         p-[2.5px]
-        transition-all
-        duration-500
+        transition-transform
+        duration-300
         hover:-translate-y-2
-        hover:scale-[1.01]
         active:scale-[0.97]
+        [contain:layout_paint]
         ${c.glow}
         `}
       >
@@ -158,7 +158,7 @@ export default function PlatformCard({
         />
 
         {/* Card Body */}
-        <div className="relative h-full overflow-hidden rounded-[22px] bg-black/60 backdrop-blur-md">
+        <div className="relative h-full overflow-hidden rounded-[22px] bg-black/70">
           {/* Background Image */}
           <Image
             src={image}
@@ -194,7 +194,7 @@ export default function PlatformCard({
 
           {/* Color-matched Radial Glow on Hover */}
           <div
-            className="absolute -inset-1 opacity-0 blur-2xl transition-opacity duration-700 group-hover:opacity-100"
+            className="absolute -inset-1 opacity-0 blur-lg transition-opacity duration-500 group-hover:opacity-100"
             style={{
               backgroundImage: `radial-gradient(circle at 50% 20%, rgba(${c.rgba},0.18), transparent 70%)`,
             }}
@@ -202,13 +202,13 @@ export default function PlatformCard({
 
           {/* Shine Sweep on Hover */}
           <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            <div className="animate-shine-sweep absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <div className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-white/10 to-transparent group-hover:animate-shine-sweep" />
           </div>
 
           {/* Active Badge Tag */}
           <div className="absolute top-5 right-5 z-20">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/60 border border-emerald-500/40 px-3 py-1 text-xs font-semibold text-emerald-400 backdrop-blur-md shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-black/70 border border-emerald-500/40 px-3 py-1 text-xs font-semibold text-emerald-400 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
               ACTIVE
             </span>
           </div>
@@ -232,12 +232,12 @@ export default function PlatformCard({
                 <div
                   className="relative h-14 w-14 shrink-0 rounded-full sm:h-16 sm:w-16"
                   style={{
-                    boxShadow: `0 0 24px rgba(${c.rgba},0.55), 0 0 60px rgba(${c.rgba},0.3), inset 0 0 18px rgba(${c.rgba},0.25)`,
+                    boxShadow: `0 0 18px rgba(${c.rgba},0.42), inset 0 0 14px rgba(${c.rgba},0.2)`,
                   }}
                 >
                   {/* Soft halo behind the logo */}
                   <div
-                    className="absolute -inset-2 -z-10 rounded-full blur-xl transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute -inset-2 -z-10 rounded-full opacity-60 blur-md transition-opacity duration-500 group-hover:opacity-100"
                     style={{
                       background: `radial-gradient(circle, rgba(${c.rgba},0.45), transparent 70%)`,
                     }}
@@ -245,12 +245,12 @@ export default function PlatformCard({
 
                   {/* Pulsing ring */}
                   <span
-                    className="absolute -inset-1 animate-ping rounded-full opacity-40"
+                    className="absolute -inset-1 animate-ping rounded-full opacity-35"
                     style={{ border: `1px solid rgba(${c.rgba},0.8)` }}
                   />
 
                   <div
-                    className="relative h-full w-full overflow-hidden rounded-full bg-black/50 backdrop-blur-md"
+                    className="relative h-full w-full overflow-hidden rounded-full bg-black/60"
                     style={{ border: `1px solid rgba(${c.rgba},0.6)` }}
                   >
                     <Image
@@ -276,7 +276,6 @@ export default function PlatformCard({
                       font-bold
                       tracking-widest
                       uppercase
-                      backdrop-blur-md
                       border
                       shadow-sm
                       transition-all
@@ -359,7 +358,6 @@ export default function PlatformCard({
                     py-1.5
                     text-xs
                     font-bold
-                    backdrop-blur-md
                     whitespace-nowrap
                     shrink-0
                     shadow-lg

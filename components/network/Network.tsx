@@ -12,6 +12,8 @@ export default function Network() {
       className="
         relative
         overflow-hidden
+        [content-visibility:auto]
+        [contain-intrinsic-size:1200px]
         py-14
         bg-gradient-to-b
         from-black
@@ -19,15 +21,15 @@ export default function Network() {
         to-black
         "
     >
-      <div className="absolute left-1/2 top-20 h-96 w-96 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[150px]" />
+      <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-orange-500/10 blur-[90px]" />
 
       <div className="absolute inset-0 overflow-hidden">
 
-      <div className="absolute bottom-20 left-20 h-72 w-72 rounded-full bg-orange-500/10 blur-[150px]" />
+      <div className="absolute bottom-20 left-20 h-56 w-56 rounded-full bg-orange-500/10 blur-[90px]" />
 
-      <div className="absolute top-10 right-20 h-60 w-60 rounded-full bg-orange-500/10 blur-[120px]" />
+      <div className="absolute top-10 right-20 h-48 w-48 rounded-full bg-orange-500/10 blur-[80px]" />
 
-      <div className="absolute bottom-20 right-20 h-72 w-72 rounded-full bg-orange-500/10 blur-[140px]" />
+      <div className="absolute bottom-20 right-20 h-56 w-56 rounded-full bg-orange-500/10 blur-[90px]" />
 
       </div>
 
