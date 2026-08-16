@@ -7,6 +7,7 @@ import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Gallery from "@/components/gallery/Gallery";
 import CTASection from "@/components/cta/CTASection";
+import YouTubeSection from "@/components/youtube/YouTubeSection";
 import Footer from "@/components/footer/Footer";
 import { buildMetadata } from "@/lib/seo";
 
@@ -37,6 +38,7 @@ export default function Home() {
       <CTASection />
       <Testimonials />
       <Gallery />
+      <YouTubeSection />
 
       <Footer />
     </>

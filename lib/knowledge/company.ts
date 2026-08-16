@@ -44,7 +44,7 @@ SOCIAL MEDIA:
 • Facebook: https://www.facebook.com/sportscienceindia
 • Instagram: https://www.instagram.com/sports_science_india/
 • LinkedIn: https://www.linkedin.com/company/sports-science-india/
-• YouTube: https://www.youtube.com/channel/UCtOvDuCReussgDKGEo9REAQ
+• YouTube: https://www.youtube.com/@sportsscienceindia
 
 FOUNDERS:
 • Dr. Sarthak Patnaik — Founder, Arthroscopy & Sports Surgeon, Joint Preservation Surgeon.

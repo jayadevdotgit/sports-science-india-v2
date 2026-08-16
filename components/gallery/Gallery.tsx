@@ -88,7 +88,7 @@ export default function Gallery() {
   }, [lightbox]);
 
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[#050505] py-16 text-white sm:py-20">
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#050505] py-14 text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.16),transparent_42%),linear-gradient(180deg,#050505_0%,#0b0b0b_48%,#050505_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:48px_48px] opacity-25 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_78%,transparent)]" />
 
@@ -99,12 +99,12 @@ export default function Gallery() {
               eyebrow="Life at SSI"
               title={
                 <>
-                  Behind the <span className="text-orange-500">Scenes.</span>
+                  Real Work. <span className="text-orange-500">Real Athletes.</span>
                   <br />
-                  On the Field.
+                  Real Recovery.
                 </>
               }
-              description="A glimpse into our team of sports science professionals at work — assessments, training, rehabilitation and everything in between."
+              description="Step inside Sports Science India — where precise assessments meet hands-on rehab, and every session is engineered to get athletes back to the game stronger than before."
             />
           </div>
 
@@ -119,7 +119,7 @@ export default function Gallery() {
                   className={`group relative block h-full w-full overflow-hidden rounded-[18px] outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-orange-400/80 ${
                     item.featured
                       ? "col-span-2 row-span-2 border border-orange-400/50 bg-black shadow-[0_24px_70px_rgba(249,115,22,0.24)] sm:col-span-2 sm:row-span-2 lg:col-start-2"
-                      : "border border-white/10 bg-white/5 shadow-[0_12px_35px_rgba(0,0,0,0.28)] hover:border-orange-300/45 hover:shadow-[0_18px_45px_rgba(249,115,22,0.16)]"
+                      : "border border-orange-500/25 bg-white/5 shadow-[0_12px_35px_rgba(0,0,0,0.28)] hover:border-orange-400/60 hover:shadow-[0_18px_45px_rgba(249,115,22,0.16)]"
                   }`}
                 >
                   <Image

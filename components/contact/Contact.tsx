@@ -63,7 +63,7 @@ const socials = [
   { icon: FaFacebookF, href: "https://www.facebook.com/sportscienceindia", label: "Facebook" },
   { icon: FaInstagram, href: "https://www.instagram.com/sports_science_india/", label: "Instagram" },
   { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/sports-science-india/", label: "LinkedIn" },
-  { icon: FaYoutube, href: "https://www.youtube.com/channel/UCtOvDuCReussgDKGEo9REAQ", label: "YouTube" },
+  { icon: FaYoutube, href: "https://www.youtube.com/@sportsscienceindia", label: "YouTube" },
 ];
 
 const inputClass =
