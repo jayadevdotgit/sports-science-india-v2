@@ -1,9 +1,8 @@
 "use client";
 
-import { Suspense, useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import * as THREE from "three";
 import MuscleModel from "./MuscleModel";
 
 type Props = {
@@ -12,25 +11,17 @@ type Props = {
 };
 
 function FaintGrid() {
-  const ref = useRef<THREE.GridHelper>(null);
-
-  useFrame(() => {
-    if (ref.current) {
-      const mat = ref.current.material as THREE.LineBasicMaterial;
-      mat.transparent = true;
-      mat.opacity = 0.16;
-    }
-  });
-
-  return <gridHelper ref={ref} args={[4, 16, "#f97316", "#f97316"]} position={[0, -1, 0]} />;
+  return (
+    <gridHelper args={[4, 16, "#f97316", "#f97316"]} position={[0, -1, 0]}>
+      <lineBasicMaterial transparent opacity={0.16} />
+    </gridHelper>
+  );
 }
 
 function SceneContent({
   selected,
-  onSelect,
 }: {
   selected: string;
-  onSelect: (id: string) => void;
 }) {
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -69,14 +60,34 @@ function SceneContent({
   );
 }
 
-export default function MuscleScene({ selected, onSelect }: Props) {
+export default function MuscleScene({ selected }: Props) {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const node = wrapperRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { rootMargin: "160px 0px" }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <Canvas
-      camera={{ position: [0, 0.15, 3.1], fov: 42 }}
-      dpr={[1, 2]}
-      gl={{ antialias: true, alpha: true }}
-    >
-      <SceneContent selected={selected} onSelect={onSelect} />
-    </Canvas>
+    <div ref={wrapperRef} className="h-full w-full">
+      <Canvas
+        camera={{ position: [0, 0.15, 3.1], fov: 42 }}
+        dpr={[1, 1.25]}
+        frameloop={isVisible ? "always" : "demand"}
+        performance={{ min: 0.5 }}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
+      >
+        {isVisible && <SceneContent selected={selected} />}
+      </Canvas>
+    </div>
   );
 }

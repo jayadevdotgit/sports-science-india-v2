@@ -15,6 +15,14 @@ export default function SmoothScroll() {
       return;
     }
 
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const compactViewport = window.matchMedia("(max-width: 1024px)").matches;
+
+    if (coarsePointer || compactViewport) {
+      setLenis(null);
+      return;
+    }
+
     let lenis: Lenis | null = null;
 
     try {

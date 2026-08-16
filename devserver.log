@@ -1,0 +1,18 @@
+
+> sports-science-india-temp@0.1.0 dev
+> next dev -p 3199
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3199
+- Network:       http://192.168.1.5:3199
+- Environments: .env.local
+✓ Ready in 717ms
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          17956
+- Dir:          C:\Projects\sports-science-india-v2
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 17956 /F to stop it.
+[?25h

@@ -9,6 +9,13 @@ export default function MouseGlow() {
   const current = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+
+    if (reducedMotion || coarsePointer) return;
+
     mouse.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
     current.current = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
@@ -78,6 +85,8 @@ export default function MouseGlow() {
       className="
         pointer-events-none
         fixed
+        hidden
+        lg:block
         left-0
         top-0
         z-10

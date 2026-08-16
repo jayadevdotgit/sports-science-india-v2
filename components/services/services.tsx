@@ -432,8 +432,8 @@ export default function Services() {
             const c = colorMap[feature.badgeColor] ?? defaultColor;
             return (
               <>
-                <div aria-hidden="true" />
-                <div className={`group flex min-h-[220px] lg:min-h-[270px] flex-col relative rounded-3xl border-2 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 active:scale-[0.97] cursor-pointer ${c.border} ${c.hoverBorder} ${c.glow}`}>
+                <div aria-hidden="true" className="hidden xl:block" />
+                <div className={`group flex min-h-[220px] lg:min-h-[270px] md:col-span-2 md:mx-auto md:w-[calc((100%_-_2rem)/2)] xl:col-span-1 xl:mx-0 xl:w-auto flex-col relative rounded-3xl border-2 bg-black/60 backdrop-blur-md p-5 overflow-hidden transition-all duration-300 hover:-translate-y-2 active:scale-[0.97] cursor-pointer ${c.border} ${c.hoverBorder} ${c.glow}`}>
                   <div className="absolute inset-0 pointer-events-none select-none z-0">
                     <Image
                       src={feature.image}
@@ -485,7 +485,7 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <div aria-hidden="true" />
+                <div aria-hidden="true" className="hidden xl:block" />
               </>
             );
           })()}

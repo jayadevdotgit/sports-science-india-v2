@@ -58,6 +58,7 @@ export default function PopupCard({ selected, mobile = false, anchor }: Props) {
         z-40
         w-full
         max-w-[340px]
+        ${mobile ? "mx-auto" : ""}
         rounded-3xl
         border
         ${c.border}
