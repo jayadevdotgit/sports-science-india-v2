@@ -29,10 +29,10 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <JourneyTimeline />
       <Network />
       <Ecosystem />
       <Services />
-      <JourneyTimeline />
       <CTASection />
       <Testimonials />
 

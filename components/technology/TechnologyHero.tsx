@@ -5,9 +5,9 @@ import Reveal from "@/components/animations/Reveal";
 import { CalendarClock, Microscope, Gauge, LineChart, Sparkles } from "lucide-react";
 
 const heroStats = [
-  { icon: Gauge, value: "7", label: "Core Systems" },
-  { icon: LineChart, value: "±0.5%", label: "Lab-Grade Accuracy" },
-  { icon: Microscope, value: "1,000 Hz", label: "Sample Rate" },
+  { icon: Gauge, value: "3", label: "Core Systems" },
+  { icon: LineChart, value: "600N", label: "Max Force Range" },
+  { icon: Microscope, value: "45 sec", label: "Body Scan Time" },
 ];
 
 export default function TechnologyHero() {
@@ -46,8 +46,8 @@ export default function TechnologyHero() {
             </h1>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-400 sm:text-lg sm:leading-8">
-              Seven integrated assessment systems — from 1,000 Hz force
-              analysis to 3D biomechanics — give every athlete measurable,
+              Three integrated assessment systems — from handheld strength
+              testing to body composition analysis — give every athlete measurable,
               repeatable data. No guesswork. Only evidence.
             </p>
 

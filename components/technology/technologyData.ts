@@ -37,66 +37,6 @@ export const technology: Technology[] = [
 
   {
     id: 2,
-    title: "Force Plate",
-    image: "/images/technology/force-plate.png",
-    short: "Elite force and jump analysis.",
-    description:
-      "Measure explosive strength, landing mechanics and force production with laboratory-grade precision.",
-    tag: "Force Analysis",
-    stats: [
-      { label: "Sample Rate", value: "1,000 Hz" },
-      { label: "Accuracy", value: "±0.5%" },
-      { label: "Protocols", value: "15+" },
-    ],
-    features: [
-      "Jump Performance",
-      "Landing Analysis",
-      "Force Production",
-    ],
-  },
-
-  {
-    id: 3,
-    title: "3D Motion Capture",
-    image: "/images/technology/motion-capture.png",
-    short: "Advanced movement analysis.",
-    description:
-      "Capture every movement in real time to optimize technique and reduce injury risk.",
-    tag: "Biomechanics",
-    stats: [
-      { label: "Capture Rate", value: "240 fps" },
-      { label: "Markers", value: "41-point" },
-      { label: "Precision", value: "±0.1 mm" },
-    ],
-    features: [
-      "Running Mechanics",
-      "Movement Analysis",
-      "Biomechanics",
-    ],
-  },
-
-  {
-    id: 4,
-    title: "VO₂ Max Testing",
-    image: "/images/technology/vo2max.png",
-    short: "Measure endurance scientifically.",
-    description:
-      "Understand aerobic capacity and endurance using gold-standard metabolic testing.",
-    tag: "Metabolic Testing",
-    stats: [
-      { label: "Protocol", value: "Ramp · Bruce" },
-      { label: "Metrics", value: "25+" },
-      { label: "Accuracy", value: "±1%" },
-    ],
-    features: [
-      "Aerobic Capacity",
-      "Performance Zones",
-      "Endurance",
-    ],
-  },
-
-  {
-    id: 5,
     title: "Recovery Systems",
     image: "/images/technology/recovery.png",
     short: "Accelerate athlete recovery.",
@@ -116,7 +56,7 @@ export const technology: Technology[] = [
   },
 
   {
-    id: 6,
+    id: 3,
     title: "Body Composition",
     image: "/images/technology/body-composition.png",
     short: "Know your body better.",
@@ -132,26 +72,6 @@ export const technology: Technology[] = [
       "Muscle Mass",
       "Fat %",
       "Body Balance",
-    ],
-  },
-
-  {
-    id: 7,
-    title: "Speed Gates",
-    image: "/images/technology/speed-gates.png",
-    short: "Elite sprint timing.",
-    description:
-      "Accurately measure sprint speed, acceleration and reaction time.",
-    tag: "Speed Testing",
-    stats: [
-      { label: "Timing", value: "0.001 s" },
-      { label: "Gates", value: "8-lane" },
-      { label: "Splits", value: "10m · 20m · 40m" },
-    ],
-    features: [
-      "Sprint Timing",
-      "Acceleration",
-      "Agility",
     ],
   },
 ];

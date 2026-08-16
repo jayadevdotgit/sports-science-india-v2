@@ -35,8 +35,8 @@ export default function Technology() {
           <Reveal>
             <SectionHeading
               eyebrow="The Technology Lab"
-              title={<>Seven Systems. <span className="text-orange-500">One Complete Picture.</span></>}
-              description="Every technology is integrated into a single athlete profile — so data from force, movement, metabolic and recovery testing paints one complete, actionable picture."
+              title={<>Three Systems. <span className="text-orange-500">One Complete Picture.</span></>}
+              description="Every technology is integrated into a single athlete profile — so data from assessment, recovery and body composition testing paints one complete, actionable picture."
             />
           </Reveal>
 
@@ -54,9 +54,6 @@ export default function Technology() {
                   technology={item}
                   active={index === activeTechnology}
                   onSelect={() => handleSelect(index)}
-                  className={
-                    index === technology.length - 1 ? "lg:col-start-2" : ""
-                  }
                 />
               ))}
             </div>

@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Sports Science Technology",
   description:
-    "VO2 Max testing, 3D motion capture, force plates, speed gates and body composition analysis at Sports Science India, Bhubaneswar.",
+    "Handheld strength testing, recovery systems and body composition analysis at Sports Science India, Bhubaneswar.",
   path: "/technology",
 });
 

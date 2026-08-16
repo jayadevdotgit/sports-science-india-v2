@@ -137,6 +137,13 @@ useEffect(() => {
   handleScroll();
   handleActiveSection();
 
+  // Close the mobile menu when the viewport enters the desktop (xl) breakpoint,
+  // e.g. rotating a tablet to landscape.
+  const handleResize = () => {
+    if (window.innerWidth >= 1280) setMenuOpen(false);
+  };
+  window.addEventListener("resize", handleResize);
+
   // Listen while scrolling
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("scroll", handleActiveSection);
@@ -144,6 +151,7 @@ useEffect(() => {
   return () => {
     window.removeEventListener("scroll", handleScroll);
     window.removeEventListener("scroll", handleActiveSection);
+    window.removeEventListener("resize", handleResize);
   };
 }, []);
 
@@ -207,7 +215,7 @@ const routeActive =
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden xl:flex items-center gap-12">
 
         {navLinks.map((item) => (
   <button
@@ -268,7 +276,7 @@ const routeActive =
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="md:hidden text-white"
+            className="xl:hidden text-white"
           >
            {menuOpen ? (
               <X size={30} />
