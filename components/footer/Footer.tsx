@@ -3,7 +3,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 
 const links = [
-  ["Home", "/#home"], ["Services", "/#services"], ["About", "/#about"],
+  ["Home", "/"], ["Services", "/#services"], ["About", "/about"],
+  ["Technology", "/technology"], ["Experts", "/experts"],
   ["Assessment", "/booking"], ["Contact", "/contact"],
 ];
 
@@ -34,7 +35,15 @@ export default function Footer() {
               <a className="flex items-center gap-3 hover:text-orange-500" href="mailto:sportscienceindia@gmail.com"><Mail size={18} className="text-orange-500" />sportscienceindia@gmail.com</a>
               <a className="flex items-center gap-3 hover:text-orange-500" href="tel:+917381380010"><Phone size={18} className="text-orange-500" />+91 73813 80010</a>
               <a className="flex items-center gap-3 hover:text-orange-500" href="tel:+918280381010"><Phone size={18} className="text-orange-500" />+91 82803 81010</a>
-              <p className="flex items-start gap-3"><MapPin size={18} className="mt-1 shrink-0 text-orange-500" />A17/1A, Surya Nagar, Bhubaneswar 751003</p>
+              <a
+                className="flex items-start gap-3 hover:text-orange-500"
+                href="https://maps.app.goo.gl/zjXDBnquKEW9H7Uh9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MapPin size={18} className="mt-1 shrink-0 text-orange-500" />
+                A17/1A, Surya Nagar, Bhubaneswar 751003
+              </a>
             </div>
           </div>
         </div>

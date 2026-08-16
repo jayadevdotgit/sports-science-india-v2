@@ -230,19 +230,37 @@ export default function PlatformCard({
               <div className="flex items-start gap-3 sm:gap-4">
                 {/* Platform Logo */}
                 <div
-                  className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black/50 backdrop-blur-md sm:h-14 sm:w-14"
+                  className="relative h-14 w-14 shrink-0 rounded-full sm:h-16 sm:w-16"
                   style={{
-                    borderColor: `rgba(${c.rgba},0.45)`,
-                    boxShadow: `0 0 20px rgba(${c.rgba},0.25), inset 0 0 20px rgba(${c.rgba},0.15)`,
+                    boxShadow: `0 0 24px rgba(${c.rgba},0.55), 0 0 60px rgba(${c.rgba},0.3), inset 0 0 18px rgba(${c.rgba},0.25)`,
                   }}
                 >
-                  <Image
-                    src={pageImage}
-                    alt={`${title} logo`}
-                    fill
-                    unoptimized
-                    className="rounded-full object-cover"
+                  {/* Soft halo behind the logo */}
+                  <div
+                    className="absolute -inset-2 -z-10 rounded-full blur-xl transition-opacity duration-500 group-hover:opacity-100"
+                    style={{
+                      background: `radial-gradient(circle, rgba(${c.rgba},0.45), transparent 70%)`,
+                    }}
                   />
+
+                  {/* Pulsing ring */}
+                  <span
+                    className="absolute -inset-1 animate-ping rounded-full opacity-40"
+                    style={{ border: `1px solid rgba(${c.rgba},0.8)` }}
+                  />
+
+                  <div
+                    className="relative h-full w-full overflow-hidden rounded-full bg-black/50 backdrop-blur-md"
+                    style={{ border: `1px solid rgba(${c.rgba},0.6)` }}
+                  >
+                    <Image
+                      src={pageImage}
+                      alt={`${title} logo`}
+                      fill
+                      unoptimized
+                      className="rounded-full object-cover"
+                    />
+                  </div>
                 </div>
 
                 <div className="min-w-0">

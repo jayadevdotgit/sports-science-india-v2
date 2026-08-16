@@ -37,7 +37,7 @@ const infoTiles = [
       "In front of S.P Vigilance Office",
       "Bhubaneswar – 751003",
     ],
-    action: { label: "Get Directions", href: "https://maps.google.com/?q=Sports+Science+India,+Surya+Nagar,+Bhubaneswar" },
+    action: { label: "Get Directions", href: "https://maps.app.goo.gl/zjXDBnquKEW9H7Uh9" },
   },
   {
     icon: Phone,
@@ -320,7 +320,7 @@ export default function Contact() {
             </div>
             <div className="mt-5 text-center">
               <a
-                href="https://maps.google.com/?q=Sports+Science+India,+Surya+Nagar,+Bhubaneswar"
+                href="https://maps.app.goo.gl/zjXDBnquKEW9H7Uh9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-orange-500/30 bg-orange-500/10 px-6 py-3 text-sm font-semibold text-orange-300 transition-all duration-300 hover:bg-orange-500 hover:text-white"

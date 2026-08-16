@@ -17,9 +17,9 @@ import {
   Star,
   ArrowRight,
   Activity,
-  ShieldCheck,
   HeartPulse,
-  Target,
+  Stethoscope,
+  Dumbbell,
 } from "lucide-react";
 
 const testimonials = [
@@ -89,10 +89,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { icon: Activity, end: 500, suffix: "+", label: "Athletes Assessed" },
-  { icon: ShieldCheck, end: 25, suffix: "+", label: "Sports Supported" },
-  { icon: HeartPulse, end: 98, suffix: "%", label: "Client Satisfaction" },
-  { icon: Target, end: 15, suffix: "+", label: "Years of Experience" },
+  { icon: HeartPulse, end: 45000, suffix: "+", label: "Patients Attended" },
+  { icon: Activity, end: 10000, suffix: "+", label: "Sports Player Treated" },
+  { icon: Stethoscope, end: 7500, suffix: "+", label: "Surgeries Conducted" },
+  { icon: Dumbbell, end: 42000, suffix: "+", label: "Rehab Physio Clients" },
 ];
 
 export default function Testimonials() {

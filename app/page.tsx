@@ -5,6 +5,7 @@ import Ecosystem from "@/components/ecosystem/Ecosystem";
 import Services from "@/components/services/services";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Testimonials from "@/components/testimonials/Testimonials";
+import Gallery from "@/components/gallery/Gallery";
 import CTASection from "@/components/cta/CTASection";
 import Footer from "@/components/footer/Footer";
 import { buildMetadata } from "@/lib/seo";
@@ -35,6 +36,7 @@ export default function Home() {
       <Services />
       <CTASection />
       <Testimonials />
+      <Gallery />
 
       <Footer />
     </>
