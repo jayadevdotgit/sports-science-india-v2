@@ -232,14 +232,14 @@ export default function PlatformCard({
                 <div
                   className="relative h-14 w-14 shrink-0 rounded-full sm:h-16 sm:w-16"
                   style={{
-                    boxShadow: `0 0 18px rgba(${c.rgba},0.42), inset 0 0 14px rgba(${c.rgba},0.2)`,
+                    boxShadow: `0 0 24px rgba(${c.rgba},0.55), 0 0 46px rgba(${c.rgba},0.24), inset 0 0 16px rgba(${c.rgba},0.25)`,
                   }}
                 >
                   {/* Soft halo behind the logo */}
                   <div
-                    className="absolute -inset-2 -z-10 rounded-full opacity-60 blur-md transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute -inset-2 -z-10 animate-card-glow-pulse rounded-full opacity-75 blur-lg transition-opacity duration-500 group-hover:opacity-100"
                     style={{
-                      background: `radial-gradient(circle, rgba(${c.rgba},0.45), transparent 70%)`,
+                      background: `radial-gradient(circle, rgba(${c.rgba},0.58), transparent 72%)`,
                     }}
                   />
 
