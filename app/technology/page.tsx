@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Technology from "@/components/technology/Technology";
 import Footer from "@/components/footer/Footer";
+import BackButton from "@/components/ui/BackButton";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -14,7 +15,16 @@ export default function TechnologyPage() {
   return (
     <>
       <Navbar />
-      <Technology />
+      <div className="relative">
+        <div className="absolute inset-x-0 top-[136px] z-20 px-8">
+          <div className="relative mx-auto max-w-7xl">
+            <div className="absolute left-8">
+              <BackButton />
+            </div>
+          </div>
+        </div>
+        <Technology />
+      </div>
       <Footer />
     </>
   );
