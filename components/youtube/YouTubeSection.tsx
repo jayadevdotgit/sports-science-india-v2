@@ -388,17 +388,17 @@ export default function YouTubeSection() {
         <Reveal delay={0.1}>
           <div className="relative mt-10 overflow-hidden rounded-[28px] border border-red-500/25 bg-[#0d0d0d] px-6 py-9 sm:px-10">
             <div className="pointer-events-none absolute right-0 top-1/2 h-72 w-72 -translate-y-1/2 translate-x-1/3 rounded-full bg-red-500/15 blur-[100px]" />
-            <div className="relative z-10 flex flex-col items-center gap-7 md:flex-row md:text-left">
-              <div className="flex flex-col items-center gap-4 sm:flex-row">
+            <div className="relative z-10 flex flex-col items-center gap-7 text-center">
+              <div className="flex flex-col items-center gap-4">
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-red-500/30 bg-red-500/10">
                   <FaYoutube size={32} className="text-red-500" />
                 </div>
-                <div className="text-center sm:text-left">
+                <div className="text-center">
                   <p className="text-xl font-bold md:text-2xl">
                     Never miss a video —{" "}
                     <span className="text-red-500">Subscribe now</span>
                   </p>
-                  <p className="mt-1.5 flex items-center justify-center gap-2 text-sm text-gray-400 sm:justify-start">
+                  <p className="mt-1.5 flex items-center justify-center gap-2 text-sm text-gray-400">
                     <FaBell size={13} className="text-red-400" />
                     @sportsscienceindia — {SUBSCRIBERS} subscribers · {TOTAL_VIDEOS} videos
                   </p>
