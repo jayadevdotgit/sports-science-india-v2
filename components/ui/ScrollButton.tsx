@@ -3,6 +3,7 @@
 import Button from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 
 type Props = {
   target: string;
@@ -27,7 +28,7 @@ export default function ScrollButton({
     }
     const el = document.getElementById(target);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToEl(el, 88);
       window.history.replaceState(null, "", `#${target}`);
     }
   }

@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X, Send, Trash2, Calendar, Sparkles, Users, Phone } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import KiboTyping from "./KiboTyping";
 
 type Props = {
@@ -117,7 +118,7 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
       const scroll = () => {
         const el = document.getElementById(sectionId);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
+          smoothScrollToEl(el, 96);
           return true;
         }
         return false;
@@ -131,7 +132,8 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
       }
       return;
     }
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const sec = document.getElementById(sectionId);
+    if (sec) smoothScrollToEl(sec, 96);
   }, [router]);
 
   const sendMessage = useCallback(async (text?: string) => {
@@ -240,7 +242,7 @@ export default function KiboChat({ open, onClose, onThinkingChange, onHelpComple
             </div>
 
             {/* Messages */}
-            <div className="h-[60vh] sm:h-[420px] overflow-y-auto p-4 sm:p-5 space-y-3 sm:space-y-4">
+            <div data-lenis-prevent className="h-[60vh] sm:h-[420px] overflow-y-auto p-4 sm:p-5 space-y-3 sm:space-y-4">
               {messages.map((message, index) => (
                 <div key={index} className="group relative">
                   <div

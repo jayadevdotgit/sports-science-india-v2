@@ -8,6 +8,7 @@ import Footer from "@/components/footer/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import { platforms } from "@/data/platforms";
 import {
   ArrowLeft,
@@ -35,7 +36,7 @@ function scrollToSection(id: string) {
   const scroll = () => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToEl(el, 96);
       return true;
     }
     return false;

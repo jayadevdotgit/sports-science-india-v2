@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -10,6 +10,7 @@ import Footer from "@/components/footer/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import {
   Heart,
   Baby,
@@ -107,7 +108,7 @@ const faqs = [
   },
   {
     q: "Who runs this service?",
-    a: "Pre & Post Natal Rehab is guided with Dr. Nisha Kaushik Patnaik, our Obstetrics & Gynaecology specialist (MBBS, MS · MRCOG London · FMAS Spain).",
+    a: "Pre & Post Natal Rehab is guided with Dr. Nisha Kaushik Patnaik, our Obstetrics & Gynaecology specialist (MBBS, MS Â· MRCOG London Â· FMAS Spain).",
   },
 ];
 
@@ -154,7 +155,7 @@ function scrollToSection(id: string) {
   const scroll = () => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToEl(el, 96);
       return true;
     }
     return false;
@@ -224,7 +225,7 @@ export default function PrePostNatalPage() {
               </div>
               <div className="mt-5 sm:mt-6 h-1.5 w-20 sm:w-24 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.5)]" />
               <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-gray-300/90">
-                Safe, specialist-led support through pregnancy and after birth —
+                Safe, specialist-led support through pregnancy and after birth â€”
                 protecting your core, pelvic floor and whole body while keeping
                 you active and strong at every stage of your journey.
               </p>
@@ -463,11 +464,11 @@ export default function PrePostNatalPage() {
                 <div className="p-6 sm:p-8 md:p-10">
                   <div className="flex items-center gap-2 text-rose-300">
                     <Heart size={16} />
-                    <span className="text-xs font-semibold uppercase tracking-[0.2em]">Co-Founder · Obstetrics &amp; Gynaecology</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em]">Co-Founder Â· Obstetrics &amp; Gynaecology</span>
                   </div>
                   <h3 className="mt-2 text-2xl sm:text-3xl font-black tracking-tight">Dr. Nisha Kaushik Patnaik</h3>
                   <p className="mt-2 text-sm text-gray-400">
-                    MBBS, MS · MRCOG (London, UK) · FRM · FMAS (Spain)
+                    MBBS, MS Â· MRCOG (London, UK) Â· FRM Â· FMAS (Spain)
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {credentials.map((c) => (
@@ -484,7 +485,7 @@ export default function PrePostNatalPage() {
                   </p>
                   <div className="mt-6 flex flex-wrap items-center gap-4">
                     <span className="inline-flex items-center gap-2 text-sm text-gray-300">
-                      <Clock3 size={15} className="text-rose-400" /> Evening appointments (4 PM – 8 PM), Mon–Sat
+                      <Clock3 size={15} className="text-rose-400" /> Evening appointments (4 PM â€“ 8 PM), Monâ€“Sat
                     </span>
                     <Link href="/booking">
                       <Button>

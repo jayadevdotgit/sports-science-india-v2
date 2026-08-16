@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button";
 import { Menu, X, Lock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { getLenis, smoothScrollToEl } from "@/lib/scrollEngine";
 
 
 
@@ -38,9 +39,7 @@ export default function Navbar() {
     if (navbar) {
       const zoom = navbar.getBoundingClientRect().height / navbar.offsetHeight;
       const scrolledNavHeight = 112 * zoom;
-      const target =
-        window.scrollY + section.getBoundingClientRect().top - scrolledNavHeight;
-      window.scrollTo({ top: Math.max(0, target), behavior: "smooth" });
+      smoothScrollToEl(section, scrolledNavHeight);
     }
   };
 
@@ -92,17 +91,6 @@ export default function Navbar() {
     item.target;
 
 useEffect(() => {
-  const handleScroll = () => {
-  setScrolled(window.scrollY > 10);
-
-  const windowHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-
-  const progress = (window.scrollY / windowHeight) * 100;
-
-  setScrollProgress(progress);
-};
-
   const sections = [
     "home",
     "network",
@@ -111,7 +99,20 @@ useEffect(() => {
     "contact",
   ];
 
-  const handleActiveSection = () => {
+  let rafPending = false;
+
+  const updateNav = () => {
+    rafPending = false;
+
+    setScrolled(window.scrollY > 10);
+
+    const windowHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress = (windowHeight > 0 ? (window.scrollY / windowHeight) * 100 : 0);
+
+    setScrollProgress(progress);
+
     const navbar = document.querySelector("nav");
     const navBottom = navbar ? navbar.getBoundingClientRect().bottom : 0;
 
@@ -133,9 +134,14 @@ useEffect(() => {
     setActiveSection(current);
   };
 
+  const handleScroll = () => {
+    if (rafPending) return;
+    rafPending = true;
+    requestAnimationFrame(updateNav);
+  };
+
   // Run once on page load
   handleScroll();
-  handleActiveSection();
 
   // Close the mobile menu when the viewport enters the desktop (xl) breakpoint,
   // e.g. rotating a tablet to landscape.
@@ -144,14 +150,25 @@ useEffect(() => {
   };
   window.addEventListener("resize", handleResize);
 
-  // Listen while scrolling
+  // Also run after Lenis finishes a smooth scroll so the active section can
+  // settle on the final position.
+  const lenis = getLenis();
+
+  let lenisCleanup: (() => void) | null = null;
+  if (lenis) {
+    const onLenisScroll = () => {
+      handleScroll();
+    };
+    lenis.on("scroll", onLenisScroll);
+    lenisCleanup = () => lenis.off("scroll", onLenisScroll);
+  }
+
   window.addEventListener("scroll", handleScroll);
-  window.addEventListener("scroll", handleActiveSection);
 
   return () => {
     window.removeEventListener("scroll", handleScroll);
-    window.removeEventListener("scroll", handleActiveSection);
     window.removeEventListener("resize", handleResize);
+    lenisCleanup?.();
   };
 }, []);
 
@@ -173,9 +190,9 @@ const routeActive =
     <>
 
     <div
-      className="fixed top-0 left-0 z-[60] h-[2px] bg-orange-500 transition-all duration-150"
+      className="fixed top-0 left-0 z-[60] h-[2px] origin-left bg-orange-500 will-change-transform"
       style={{
-        width: `${scrollProgress}%`,
+        transform: `scaleX(${scrollProgress / 100})`,
         boxShadow: "0 0 10px rgba(249,115,22,0.8)",
       }}
     />
@@ -184,7 +201,7 @@ const routeActive =
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300
         ${
           scrolled
-            ? "bg-[#050505]/60 bg-black/70 backdrop-blur-2xl border-b border-orange-500/20 shadow-lg shadow-black/30"
+            ? "bg-[#050505]/60 bg-black/70 backdrop-blur-xl border-b border-orange-500/20 shadow-lg shadow-black/30 will-change-transform"
             : "bg-transparent"
         }`}
       >

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState, useEffect } from "react";
 import { useParams, notFound, useRouter, usePathname } from "next/navigation";
@@ -41,6 +41,7 @@ import Footer from "@/components/footer/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import { bodyData } from "@/components/ecosystem/bodyData";
 import { serviceDetails } from "@/components/ecosystem/serviceDetails";
 import { serviceSectionDetails } from "@/components/services/servicePages";
@@ -56,7 +57,7 @@ function scrollToSection(id: string) {
   const scroll = () => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToEl(el, 96);
       return true;
     }
     return false;
@@ -203,7 +204,7 @@ export default function ServicePage() {
         title: section.title,
         subtitle: "Elite Performance Service",
         description: section.description,
-        icon: "⚡",
+        icon: "âš¡",
         features: section.features,
         image: detailImages[slug] ?? section.image,
       };
@@ -369,7 +370,7 @@ export default function ServicePage() {
                 <div className="mx-auto max-w-3xl space-y-5 sm:space-y-6">
                   {detail.overview.map((p, idx) => (
                     <p key={p.slice(0, 40)} className="text-base sm:text-lg leading-8 text-gray-300/90 [text-wrap:pretty]">
-                      {idx === 0 && <span className="text-orange-400 font-semibold mr-2">—</span>}
+                      {idx === 0 && <span className="text-orange-400 font-semibold mr-2">â€”</span>}
                       {p}
                     </p>
                   ))}

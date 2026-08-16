@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -9,6 +9,7 @@ import Footer from "@/components/footer/Footer";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import {
   ArrowLeft,
   CalendarClock,
@@ -63,7 +64,7 @@ const stages = [
   {
     step: "02",
     title: "Train",
-    text: "Personalised focus, confidence and stress-management strategies — trained like physical skill.",
+    text: "Personalised focus, confidence and stress-management strategies â€” trained like physical skill.",
   },
   {
     step: "03",
@@ -86,11 +87,11 @@ const testimonials = [
 const faqs = [
   {
     q: "How many sessions will I need?",
-    a: "Most athletes see meaningful change within 4–6 sessions, though this depends on your goals and the challenges you are working on.",
+    a: "Most athletes see meaningful change within 4â€“6 sessions, though this depends on your goals and the challenges you are working on.",
   },
   {
     q: "Is sports psychology only for professionals?",
-    a: "No. Any athlete — from school level to elite — can benefit from mental skills training.",
+    a: "No. Any athlete â€” from school level to elite â€” can benefit from mental skills training.",
   },
   {
     q: "Is everything confidential?",
@@ -139,7 +140,7 @@ function scrollToSection(id: string) {
   const scroll = () => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      smoothScrollToEl(el, 96);
       return true;
     }
     return false;
@@ -209,7 +210,7 @@ export default function SportsPsychologyPage() {
               <p className="mt-5 sm:mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-gray-300/90">
                 The science of how the mind influences athletic performance.
                 Train focus, confidence and emotional control the same way you
-                train your body — so you stay calm, decisive and sharp when it
+                train your body â€” so you stay calm, decisive and sharp when it
                 matters most.
               </p>
 
@@ -236,7 +237,7 @@ export default function SportsPsychologyPage() {
                   </div>
                   <div className="absolute inset-x-0 bottom-4 flex justify-center">
                     <span className="rounded-full border border-indigo-500/30 bg-black/60 px-4 py-2 text-xs sm:text-sm font-semibold text-indigo-300 backdrop-blur">
-                      Mind · Body · Performance
+                      Mind Â· Body Â· Performance
                     </span>
                   </div>
                 </div>

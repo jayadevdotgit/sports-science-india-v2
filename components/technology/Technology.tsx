@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/animations/Reveal";
+import { smoothScrollToEl } from "@/lib/scrollEngine";
 import TechnologyHero from "./TechnologyHero";
 import TechnologyDisplay from "./TechnologyDisplay";
 import TechnologyCard from "./TechnologyCard";
@@ -17,7 +18,7 @@ export default function Technology() {
   const handleSelect = (index: number) => {
     setActiveTechnology(index);
     // Smooth-scroll the spotlight into view so the user sees the update.
-    spotlightRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    smoothScrollToEl(spotlightRef.current, 96);
   };
 
   return (
