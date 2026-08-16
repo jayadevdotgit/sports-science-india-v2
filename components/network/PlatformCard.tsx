@@ -9,6 +9,7 @@ type Props = {
   title: string;
   description: string;
   image: string;
+  pageImage: string;
   link: string;
   button: string;
 
@@ -113,6 +114,7 @@ export default function PlatformCard({
   title,
   description,
   image,
+  pageImage,
   link,
   button,
   stats1,
@@ -225,48 +227,69 @@ export default function PlatformCard({
           >
             {/* Top Section: Category & Title */}
             <div className="flex-1">
-              <span
-                className={`
-                  inline-flex
-                  items-center
-                  gap-1.5
-                  rounded-full
-                  px-3.5
-                  py-1
-                  text-xs
-                  font-bold
-                  tracking-widest
-                  uppercase
-                  backdrop-blur-md
-                  border
-                  shadow-sm
-                  transition-all
-                  duration-300
-                  group-hover:scale-105
-                  ${c.bg}
-                  ${c.border}
-                  ${c.text}
-                `}
-              >
-                <span className={`h-1.5 w-1.5 rounded-full bg-current ${c.text}`} />
-                {category}
-              </span>
+              <div className="flex items-start gap-3 sm:gap-4">
+                {/* Platform Logo */}
+                <div
+                  className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-black/50 backdrop-blur-md sm:h-14 sm:w-14"
+                  style={{
+                    borderColor: `rgba(${c.rgba},0.45)`,
+                    boxShadow: `0 0 20px rgba(${c.rgba},0.25), inset 0 0 20px rgba(${c.rgba},0.15)`,
+                  }}
+                >
+                  <Image
+                    src={pageImage}
+                    alt={`${title} logo`}
+                    fill
+                    unoptimized
+                    className="rounded-full object-cover"
+                  />
+                </div>
 
-              <h3
-                className="
-                  mt-3
-                  text-xl
-                  sm:text-2xl
-                  font-bold
-                  text-white
-                  tracking-tight
-                  transition-colors
-                  duration-300
-                  group-hover:text-orange-400
-                "
-              >
-                {title}
-              </h3>
+                <div className="min-w-0">
+                  <span
+                    className={`
+                      inline-flex
+                      items-center
+                      gap-1.5
+                      rounded-full
+                      px-3.5
+                      py-1
+                      text-xs
+                      font-bold
+                      tracking-widest
+                      uppercase
+                      backdrop-blur-md
+                      border
+                      shadow-sm
+                      transition-all
+                      duration-300
+                      group-hover:scale-105
+                      ${c.bg}
+                      ${c.border}
+                      ${c.text}
+                    `}
+                  >
+                    <span className={`h-1.5 w-1.5 rounded-full bg-current ${c.text}`} />
+                    {category}
+                  </span>
+
+                  <h3
+                    className="
+                      mt-2
+                      text-xl
+                      sm:text-2xl
+                      font-bold
+                      text-white
+                      tracking-tight
+                      transition-colors
+                      duration-300
+                      group-hover:text-orange-400
+                    "
+                  >
+                    {title}
+                  </h3>
+                </div>
+              </div>
 
               <p
                 className="
