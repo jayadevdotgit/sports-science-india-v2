@@ -5,7 +5,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 import Container from "@/components/ui/Container";
-import Counter from "@/components/ui/Counter";
 import SectionHeading from "@/components/ui/SectionHeading";
 import TestimonialCard from "./TestimonialCard";
 import GoogleIcon from "@/components/ui/GoogleIcon";
@@ -16,10 +15,6 @@ import {
   ChevronRight,
   Star,
   ArrowRight,
-  Activity,
-  HeartPulse,
-  Stethoscope,
-  Dumbbell,
 } from "lucide-react";
 
 const testimonials = [
@@ -86,13 +81,6 @@ const testimonials = [
       "I refer my patients here with complete confidence. The integration of sports science and clinical care is outstanding.",
     rating: 5,
   },
-];
-
-const stats = [
-  { icon: HeartPulse, end: 45000, suffix: "+", label: "Patients Attended" },
-  { icon: Activity, end: 10000, suffix: "+", label: "Sports Player Treated" },
-  { icon: Stethoscope, end: 7500, suffix: "+", label: "Surgeries Conducted" },
-  { icon: Dumbbell, end: 42000, suffix: "+", label: "Rehab Physio Clients" },
 ];
 
 export default function Testimonials() {
@@ -272,25 +260,6 @@ export default function Testimonials() {
               />
             ))}
           </div>
-        </div>
-
-        {/* Stats bar */}
-        <div className="mt-4 grid grid-cols-2 gap-3 rounded-2xl border border-white/10 bg-[#0d0d0d] p-4 sm:p-5 sm:grid-cols-4 transition-all duration-500 hover:-translate-y-1 hover:border-orange-500/30 hover:shadow-[0_10px_40px_rgba(249,115,22,0.12)]">
-          {stats.map((stat) => {
-            const Icon = stat.icon;
-            return (
-              <div key={stat.label} className="text-center">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/10">
-                  <Icon size={22} className="text-orange-500" />
-                </div>
-                <div className="mt-1.5 text-lg sm:text-xl font-bold text-white">
-                  <Counter end={stat.end} suffix={stat.suffix} />
-                </div>
-                <p className="text-[11px] sm:text-sm text-gray-400">{stat.label}</p>
-                <div className="mx-auto mt-1 h-0.5 w-5 bg-orange-500/60" />
-              </div>
-            );
-          })}
         </div>
 
       </Container>
