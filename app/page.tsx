@@ -7,6 +7,7 @@ import JourneyTimeline from "@/components/journey/JourneyTimeline";
 import Stats from "@/components/stats/Stats";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Gallery from "@/components/gallery/Gallery";
+import Partners from "@/components/partners/Partners";
 import CTASection from "@/components/cta/CTASection";
 import YouTubeSection from "@/components/youtube/YouTubeSection";
 import Footer from "@/components/footer/Footer";
@@ -39,6 +40,7 @@ export default function Home() {
       <Services />
       <CTASection />
       <Testimonials />
+      <Partners />
       <YouTubeSection />
       <Gallery />
 
