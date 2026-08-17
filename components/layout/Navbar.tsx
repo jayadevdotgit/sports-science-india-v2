@@ -18,6 +18,7 @@ const navLinks = [
   { name: "Services", href: "#services", target: "services" },
   { name: "Technology", href: "/technology", target: "technology" },
   { name: "Experts", href: "/experts", target: "experts" },
+  { name: "Gallery", href: "#gallery", target: "gallery" },
   { name: "Contact", href: "/contact", target: "contact" },
 ];
 
@@ -96,6 +97,7 @@ useEffect(() => {
     "network",
     "ecosystem",
     "services",
+    "gallery",
     "contact",
   ];
 

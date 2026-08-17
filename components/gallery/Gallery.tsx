@@ -104,7 +104,10 @@ export default function Gallery() {
   }, [lightbox]);
 
   return (
-    <section className="relative overflow-hidden border-y border-white/10 bg-[#050505] py-14 text-white">
+    <section
+      id="gallery"
+      className="relative overflow-hidden border-y border-white/10 bg-[#050505] py-14 text-white"
+    >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(249,115,22,0.16),transparent_42%),linear-gradient(180deg,#050505_0%,#0b0b0b_48%,#050505_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:48px_48px] opacity-25 [mask-image:linear-gradient(to_bottom,transparent,black_18%,black_78%,transparent)]" />
 
