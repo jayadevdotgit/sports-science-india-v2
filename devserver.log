@@ -1,18 +1,97 @@
-
-> sports-science-india-temp@0.1.0 dev
-> next dev -p 3199
-
 ▲ Next.js 16.2.10 (Turbopack)
-- Local:         http://localhost:3199
-- Network:       http://192.168.1.5:3199
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.5:3000
 - Environments: .env.local
-✓ Ready in 717ms
-⨯ Another next dev server is already running.
+✓ Ready in 1510ms
 
-- Local:        http://localhost:3000
-- PID:          17956
-- Dir:          C:\Projects\sports-science-india-v2
-- Log:          .next\dev\logs\next-development.log
-
-Run taskkill /PID 17956 /F to stop it.
-[?25h
+ GET / 200 in 1814ms (next.js: 512ms, application-code: 1302ms)
+ GET /about 200 in 222ms (next.js: 82ms, application-code: 140ms)
+[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /technology 200 in 226ms (next.js: 51ms, application-code: 174ms)
+ GET /experts 200 in 179ms (next.js: 54ms, application-code: 125ms)
+ GET /about 200 in 526ms (next.js: 193ms, application-code: 333ms)
+ GET /technology 200 in 331ms (next.js: 98ms, application-code: 233ms)
+ GET /experts 200 in 257ms (next.js: 79ms, application-code: 178ms)
+ GET /about 200 in 107ms (next.js: 11ms, application-code: 97ms)
+ GET /technology 200 in 73ms (next.js: 6ms, application-code: 67ms)
+ GET /experts 200 in 96ms (next.js: 7ms, application-code: 89ms)
+ GET /about 200 in 99ms (next.js: 7ms, application-code: 92ms)
+ GET /technology 200 in 76ms (next.js: 6ms, application-code: 70ms)
+ GET /experts 200 in 108ms (next.js: 8ms, application-code: 101ms)
+ GET /foundation 200 in 444ms (next.js: 181ms, application-code: 263ms)
+ GET /technology 200 in 61ms (next.js: 12ms, application-code: 49ms)
+ GET /experts 200 in 49ms (next.js: 12ms, application-code: 37ms)
+ GET /contact 200 in 160ms (next.js: 113ms, application-code: 47ms)
+ GET /about 200 in 47ms (next.js: 8ms, application-code: 39ms)
+ GET /contact 200 in 43ms (next.js: 7ms, application-code: 36ms)
+✓ Compiled in 747ms
+ GET /contact 200 in 337ms (next.js: 267ms, application-code: 70ms)
+ GET /contact 200 in 472ms (next.js: 7ms, application-code: 466ms)
+ GET / 200 in 212ms (next.js: 41ms, application-code: 171ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /services/sports-medicine 200 in 1451ms (next.js: 1401ms, application-code: 50ms)
+ GET /contact 200 in 44ms (next.js: 9ms, application-code: 35ms)
+ GET /contact 200 in 126ms (next.js: 14ms, application-code: 113ms)
+✓ Compiled in 863ms
+ GET /contact 200 in 989ms (next.js: 326ms, application-code: 664ms)
+ GET /contact 200 in 452ms (next.js: 35ms, application-code: 417ms)
+✓ Compiled in 304ms
+ GET /contact 200 in 327ms (next.js: 166ms, application-code: 161ms)
+ GET /contact 200 in 54ms (next.js: 8ms, application-code: 46ms)
+ GET / 200 in 208ms (next.js: 48ms, application-code: 160ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /services/sports-medicine 200 in 101ms (next.js: 54ms, application-code: 47ms)
+✓ Compiled in 243ms
+ GET /services/sports-medicine 200 in 278ms (next.js: 134ms, application-code: 144ms)
+ GET /services/sports-medicine 200 in 64ms (next.js: 11ms, application-code: 52ms)
+ GET /contact 200 in 141ms (next.js: 74ms, application-code: 67ms)
+✓ Compiled in 199ms
+ GET /contact 200 in 447ms (next.js: 207ms, application-code: 240ms)
+ GET /contact 200 in 137ms (next.js: 13ms, application-code: 123ms)
+✓ Compiled in 258ms
+ GET /contact 200 in 330ms (next.js: 181ms, application-code: 149ms)
+ GET /contact 200 in 66ms (next.js: 7ms, application-code: 59ms)
+✓ Compiled in 191ms
+ GET /contact 200 in 305ms (next.js: 169ms, application-code: 137ms)
+ GET /contact 200 in 57ms (next.js: 7ms, application-code: 50ms)
+ GET /about 200 in 950ms (next.js: 403ms, application-code: 547ms)
+ GET /technology 200 in 509ms (next.js: 193ms, application-code: 315ms)
+ GET /experts 200 in 558ms (next.js: 241ms, application-code: 316ms)
+ GET /contact 200 in 217ms (next.js: 10ms, application-code: 207ms)
+ GET /about 200 in 364ms (next.js: 10ms, application-code: 354ms)
+[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /technology 200 in 141ms (next.js: 10ms, application-code: 131ms)
+ GET / 200 in 208ms (next.js: 59ms, application-code: 149ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+ GET /experts 200 in 156ms (next.js: 13ms, application-code: 143ms)
+ GET /services/sports-medicine 200 in 189ms (next.js: 74ms, application-code: 114ms)
+ GET /contact 200 in 175ms (next.js: 17ms, application-code: 158ms)
+ GET /contact 200 in 53ms (next.js: 7ms, application-code: 45ms)
+ GET /about 200 in 43ms (next.js: 6ms, application-code: 37ms)
+ GET /about 200 in 149ms (next.js: 9ms, application-code: 140ms)
+[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /experts 200 in 40ms (next.js: 7ms, application-code: 34ms)
+ GET /technology 200 in 94ms (next.js: 7ms, application-code: 87ms)
+ GET /experts 200 in 111ms (next.js: 8ms, application-code: 104ms)
+ GET /contact 200 in 110ms (next.js: 9ms, application-code: 102ms)
+ GET /about 200 in 401ms (next.js: 17ms, application-code: 383ms)
+[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+ GET /technology 200 in 113ms (next.js: 9ms, application-code: 104ms)
+ GET /experts 200 in 117ms (next.js: 8ms, application-code: 110ms)
+ GET /contact 200 in 107ms (next.js: 8ms, application-code: 99ms)
+ GET /about 200 in 224ms (next.js: 14ms, application-code: 210ms)
+[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+○ Compiling /services/biomechanics ...
+ GET /services/biomechanics 200 in 4.9s (next.js: 4.6s, application-code: 274ms)
+ GET /services/sports-psychology 200 in 3.0s (next.js: 2.8s, application-code: 189ms)
+ GET /services/biomechanics 200 in 151ms (next.js: 10ms, application-code: 141ms)
+ GET /services/sports-psychology 200 in 134ms (next.js: 8ms, application-code: 126ms)
+ GET /services/biomechanics 200 in 241ms (next.js: 31ms, application-code: 209ms)
+ GET /services/sports-psychology 200 in 125ms (next.js: 9ms, application-code: 116ms)
+ GET /services/biomechanics 200 in 201ms (next.js: 13ms, application-code: 188ms)
+ GET /services/sports-psychology 200 in 142ms (next.js: 8ms, application-code: 135ms)
