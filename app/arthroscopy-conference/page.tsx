@@ -9,5 +9,16 @@ export const metadata = buildMetadata({
 });
 
 export default function ArthroscopyConferencePage() {
-  return <PlatformPage id="arthroscopy" cta={{ label: "Contact Us", href: "/contact" }} />;
+  return (
+    <PlatformPage
+      id="arthroscopy"
+      cta={{ label: "Contact Us", href: "/contact" }}
+      specialCta={{
+        label: "Visit Conference Website",
+        href: "https://www.ssiarthroscopyconference.in/",
+        color: "rose",
+        textClass: "text-white [text-shadow:none]",
+      }}
+    />
+  );
 }

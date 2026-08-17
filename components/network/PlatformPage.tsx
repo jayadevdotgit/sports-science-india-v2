@@ -327,7 +327,7 @@ const btnColorMap: Record<string, "orange" | "blue" | "amber" | "purple" | "cyan
   rose: "rose",
 };
 
-export default function PlatformPage({ id, btnClassName = "", cta }: { id: string; btnClassName?: string; cta?: { label: string; href: string } }) {
+export default function PlatformPage({ id, btnClassName = "", cta, specialCta }: { id: string; btnClassName?: string; cta?: { label: string; href: string }; specialCta?: { label: string; href: string; color?: "amber" | "rose" | "orange" | "blue" | "emerald" | "purple" | "cyan" | "indigo"; textClass?: string } }) {
   const router = useRouter();
   const pathname = usePathname();
   const platform = platforms.find((p) => p.id === id);
@@ -405,6 +405,13 @@ export default function PlatformPage({ id, btnClassName = "", cta }: { id: strin
                     <Calendar size={16} /> {cta?.label ?? "Book Now"}
                   </Button>
                 </Link>
+                {specialCta && (
+                  <a href={specialCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <Button color={specialCta.color ?? "amber"} size="md" className={`w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base ${specialCta.textClass ?? "!text-black [text-shadow:none]"} shadow-lg`}>
+                      <Sparkles size={16} /> {specialCta.label}
+                    </Button>
+                  </a>
+                )}
                 <a href="tel:+917381380010">
                   <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-base sm:text-base">
                     <PhoneCall size={16} /> +91 73813 80010
@@ -613,6 +620,13 @@ export default function PlatformPage({ id, btnClassName = "", cta }: { id: strin
                       <CalendarClock size={14} /> {cta?.label ?? "Get Started"}
                     </Button>
                   </Link>
+                  {specialCta && (
+                    <a href={specialCta.href} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                      <Button color={specialCta.color ?? "amber"} size="md" className={`w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm ${specialCta.textClass ?? "!text-black [text-shadow:none]"} shadow-lg`}>
+                        <Sparkles size={14} /> {specialCta.label}
+                      </Button>
+                    </a>
+                  )}
                   <a href="tel:+917381380010">
                     <Button variant="outline" size="md" type="button" className="w-full sm:w-auto sm:min-w-[200px] whitespace-nowrap text-sm">
                       <PhoneCall size={14} /> +91 73813 80010

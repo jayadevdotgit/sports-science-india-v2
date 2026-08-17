@@ -9,5 +9,12 @@ export const metadata = buildMetadata({
 });
 
 export default function SportsConclavePage() {
-  return <PlatformPage id="conclave" btnClassName="border-2 border-black !text-black [text-shadow:none]" cta={{ label: "Contact Us", href: "/contact" }} />;
+  return (
+    <PlatformPage
+      id="conclave"
+      btnClassName="border-2 border-black !text-black [text-shadow:none]"
+      cta={{ label: "Contact Us", href: "/contact" }}
+      specialCta={{ label: "Visit Conclave Website", href: "https://www.ssisportsscienceconclave.com/" }}
+    />
+  );
 }
