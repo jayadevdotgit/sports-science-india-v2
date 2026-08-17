@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -67,6 +67,22 @@ export default function Gallery() {
   const next = useCallback(
     () => setLightbox((i) => (i === null ? null : (i + 1) % galleryItems.length)),
     []
+  );
+
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+  const onTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartX.current === null) return;
+      const delta = e.changedTouches[0].clientX - touchStartX.current;
+      touchStartX.current = null;
+      if (Math.abs(delta) < 50) return;
+      if (delta < 0) next();
+      else prev();
+    },
+    [next, prev]
   );
 
   useEffect(() => {
@@ -195,7 +211,12 @@ export default function Gallery() {
             <ChevronRight size={22} />
           </button>
 
-          <div className="max-h-[90vh] w-full max-w-5xl px-4" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="max-h-[90vh] w-full max-w-5xl px-4"
+            onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             <div className="relative overflow-hidden rounded-3xl border border-white/15">
               <Image
                 src={galleryItems[lightbox].src}
