@@ -4,6 +4,7 @@ import Network from "@/components/network/Network";
 import Ecosystem from "@/components/ecosystem/Ecosystem";
 import Services from "@/components/services/services";
 import JourneyTimeline from "@/components/journey/JourneyTimeline";
+import Stats from "@/components/stats/Stats";
 import Testimonials from "@/components/testimonials/Testimonials";
 import Gallery from "@/components/gallery/Gallery";
 import CTASection from "@/components/cta/CTASection";
@@ -32,6 +33,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <JourneyTimeline />
+      <Stats />
       <Network />
       <Ecosystem />
       <Services />
