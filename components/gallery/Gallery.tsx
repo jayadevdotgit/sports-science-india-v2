@@ -236,7 +236,7 @@ export default function Gallery() {
               <p className="mt-1 text-xs text-gray-500">
                 {lightbox + 1} / {galleryItems.length}
               </p>
-              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-gray-400 sm:hidden">
+              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-gray-400 pointer-coarse:inline-flex hidden">
                 <ChevronLeft size={12} className="text-orange-400" />
                 Swipe to browse
                 <ChevronRight size={12} className="text-orange-400" />
