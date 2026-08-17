@@ -6,7 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import ExpertCard from "./ExpertCard";
-import { experts } from "./expertsData";
+import { founders, physios } from "./expertsData";
 import Reveal from "@/components/animations/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -72,30 +72,58 @@ export default function Experts() {
 
         </Reveal>
 
-        {/* Carousel */}
+        {/* Founders */}
+        <div className="mt-10 grid gap-6 sm:mt-12 md:grid-cols-2 lg:gap-8 mx-auto max-w-[42.75rem]">
+          {founders.map((founder) => (
+            <ExpertCard key={founder.id} {...founder} featured />
+          ))}
+        </div>
 
-        <div className="relative mt-8 sm:mt-10">
+        {/* Physio carousel */}
+        <div className="relative mt-12 sm:mt-16">
+
+          <div className="mb-6 flex items-center justify-between">
+            <h3 className="text-lg font-bold sm:text-xl text-white">
+              Our <span className="text-orange-500">Team</span>
+            </h3>
+            <div className="flex items-center gap-2.5">
+              <button
+                onClick={scrollPrev}
+                aria-label="Previous physiotherapist"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-500/30 bg-[#111111] text-white transition-all duration-300 hover:border-orange-500 hover:bg-orange-600"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                onClick={scrollNext}
+                aria-label="Next physiotherapist"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-orange-500/30 bg-[#111111] text-white transition-all duration-300 hover:border-orange-500 hover:bg-orange-600"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          </div>
 
           <div className="overflow-hidden" ref={emblaRef}>
 
             <div className="flex items-stretch">
 
-              {experts.map((expert) => (
+              {physios.map((physio) => (
 
                 <div
-                  key={expert.id}
+                  key={physio.id}
                   className="
                     min-w-0
                     flex-[0_0_100%]
                     px-3
                     sm:flex-[0_0_50%] sm:px-3
                     md:flex-[0_0_33.333%]
-                    lg:flex-[0_0_20%]
+                    lg:flex-[0_0_25%]
                     flex
                     py-2
                   "
                 >
-                  <ExpertCard {...expert} />
+                  <ExpertCard {...physio} />
                 </div>
 
               ))}
@@ -104,42 +132,24 @@ export default function Experts() {
 
           </div>
 
-          <div className="absolute inset-x-0 top-[45%] flex -translate-y-1/2 justify-between pointer-events-none">
-            <button
-              onClick={scrollPrev}
-              aria-label="Previous expert"
-              className="pointer-events-auto -ml-6 rounded-full border border-orange-500/30 bg-[#111111] p-3 text-white transition hover:border-orange-500 hover:bg-orange-500 md:-ml-16"
-            >
-              <ChevronLeft />
-            </button>
-            <button
-              onClick={scrollNext}
-              aria-label="Next expert"
-              className="pointer-events-auto -mr-6 rounded-full border border-orange-500/30 bg-[#111111] p-3 text-white transition hover:border-orange-500 hover:bg-orange-500 md:-mr-16"
-            >
-              <ChevronRight />
-            </button>
+          {/* Dots */}
+          <div className="mt-8 flex justify-center gap-2">
+
+            {physios.map((_, index) => (
+
+              <button
+                key={index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  selectedIndex === index
+                    ? "w-6 bg-orange-500"
+                    : "w-2 bg-white/20 hover:bg-white/40"
+                }`}
+              />
+
+            ))}
+
           </div>
-
-        </div>
-
-        {/* Dots */}
-
-        <div className="mt-8 flex justify-center gap-2">
-
-          {experts.map((_, index) => (
-
-            <button
-              key={index}
-              onClick={() => emblaApi?.scrollTo(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                selectedIndex === index
-                  ? "w-6 bg-orange-500"
-                  : "w-2 bg-white/20 hover:bg-white/40"
-              }`}
-            />
-
-          ))}
 
         </div>
 

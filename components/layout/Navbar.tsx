@@ -12,14 +12,13 @@ import { getLenis, smoothScrollToEl } from "@/lib/scrollEngine";
 
 const navLinks = [
   { name: "Home", href: "#", target: "home" },
-  { name: "About", href: "/about", target: "about" },
-  { name: "Ecosystem", href: "#network", target: "network" },
+  { name: "Service", href: "#services", target: "services" },
   { name: "Performance", href: "#ecosystem", target: "ecosystem" },
-  { name: "Services", href: "#services", target: "services" },
   { name: "Technology", href: "/technology", target: "technology" },
-  { name: "Experts", href: "/experts", target: "experts" },
+  { name: "Expert", href: "/experts", target: "experts" },
+  { name: "About us", href: "/about", target: "about" },
   { name: "Gallery", href: "#gallery", target: "gallery" },
-  { name: "Contact", href: "/contact", target: "contact" },
+  { name: "Contact us", href: "/contact", target: "contact" },
 ];
 
 export default function Navbar() {

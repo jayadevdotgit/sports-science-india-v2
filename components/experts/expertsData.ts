@@ -1,4 +1,4 @@
-export const experts = [
+export const founders = [
   {
     id: 1,
     image: "/images/experts/Dr.Sarthak Patnaik.jpeg",
@@ -25,6 +25,9 @@ export const experts = [
     ],
     linkedin: "#",
   },
+];
+
+export const physios = [
   {
     id: 3,
     image: "/images/experts/Dr. Dibyaprakash Kar.jpeg",
@@ -53,19 +56,6 @@ export const experts = [
   },
   {
     id: 5,
-    image: "/images/experts/Dr. Pooja Mehta.jpeg",
-    name: "Dr. Pooja Mehta",
-    role: "Physiotherapist",
-    experience: "BPT",
-    specialties: [
-      "Physiotherapy",
-      "Injury Prevention",
-      "Rehabilitation",
-    ],
-    linkedin: "#",
-  },
-  {
-    id: 6,
     image: "/images/experts/Dr.Dawa Sherpa.jpeg",
     name: "Dr. Dawa Sherpa",
     role: "Physiotherapist",
@@ -74,6 +64,19 @@ export const experts = [
       "Sports Physiotherapy",
       "Rehabilitation",
       "Performance",
+    ],
+    linkedin: "#",
+  },
+  {
+    id: 6,
+    image: "/images/experts/Dr. Pooja Mehta.jpeg",
+    name: "Dr. Pooja Mehta",
+    role: "Physiotherapist",
+    experience: "BPT",
+    specialties: [
+      "Physiotherapy",
+      "Injury Prevention",
+      "Rehabilitation",
     ],
     linkedin: "#",
   },
