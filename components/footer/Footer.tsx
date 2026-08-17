@@ -1,11 +1,24 @@
 import Container from "@/components/ui/Container";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+} from "react-icons/fa6";
 
 const links = [
   ["Home", "/"], ["Services", "/#services"], ["About", "/about"],
   ["Technology", "/technology"], ["Experts", "/experts"],
   ["Assessment", "/booking"], ["Contact", "/contact"],
+];
+
+const socials = [
+  { icon: FaFacebookF, href: "https://www.facebook.com/sportscienceindia", label: "Facebook" },
+  { icon: FaInstagram, href: "https://www.instagram.com/sports_science_india/", label: "Instagram" },
+  { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/sports-science-india/", label: "LinkedIn" },
+  { icon: FaYoutube, href: "https://www.youtube.com/@sportsscienceindia", label: "YouTube" },
 ];
 
 export default function Footer() {
@@ -44,6 +57,24 @@ export default function Footer() {
                 <MapPin size={18} className="mt-1 shrink-0 text-orange-500" />
                 A17/1A, Surya Nagar, Bhubaneswar 751003
               </a>
+            </div>
+            <h3 className="mt-8 mb-4 text-xl font-semibold">Follow Us</h3>
+            <div className="flex flex-wrap items-center gap-3">
+              {socials.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 bg-[#1a1a1a] text-gray-300 transition-all duration-300 hover:scale-110 hover:border-orange-500 hover:bg-orange-500 hover:text-white"
+                  >
+                    <Icon size={17} />
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
