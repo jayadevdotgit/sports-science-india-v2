@@ -14,7 +14,7 @@ export default function TechnologyHero() {
   return (
     <section
       id="technology-hero"
-      className="relative overflow-hidden bg-[#050505] pb-14 pt-32 text-white sm:pb-20 sm:pt-36"
+      className="relative overflow-hidden bg-[#050505] pb-14 pt-48 text-white sm:pb-20 sm:pt-36"
     >
       {/* Background Glows */}
       <div className="absolute -top-24 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px]" />

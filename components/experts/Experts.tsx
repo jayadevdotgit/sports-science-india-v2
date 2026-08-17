@@ -53,7 +53,7 @@ export default function Experts() {
   return (
     <section
       id="experts"
-      className="relative overflow-hidden bg-[#050505] pt-32 pb-14 sm:pt-36"
+      className="relative overflow-hidden bg-[#050505] pt-48 pb-14 sm:pt-36"
     >
       {/* Background Glow */}
       <div className="absolute left-1/2 top-1/3 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/10 blur-[180px] pointer-events-none" />

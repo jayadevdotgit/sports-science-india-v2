@@ -108,7 +108,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#050505] pt-32 pb-12 text-white sm:pt-36 sm:pb-14"
+      className="relative overflow-hidden bg-[#050505] pt-48 pb-12 text-white sm:pt-36 sm:pb-14"
     >
       {/* Ambient glows */}
       <div className="absolute left-1/2 top-16 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px]" />

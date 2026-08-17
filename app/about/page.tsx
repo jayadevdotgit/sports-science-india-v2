@@ -18,7 +18,7 @@ export default function AboutPage() {
       <div className="relative">
         <div className="absolute inset-x-0 top-[136px] z-20 px-8">
           <div className="relative mx-auto max-w-7xl">
-            <div className="absolute left-8">
+            <div className="absolute left-0">
               <BackButton />
             </div>
           </div>

@@ -101,7 +101,7 @@ const redPandaPoints = [
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-[#050505] pt-40 pb-14 text-white sm:pt-44">
+    <section id="about" className="relative overflow-hidden bg-[#050505] pt-48 pb-14 text-white sm:pt-44">
       {/* Ambient lighting */}
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[200px]" />
       <div className="pointer-events-none absolute top-1/3 -left-32 h-[400px] w-[400px] rounded-full bg-orange-600/5 blur-[140px]" />
