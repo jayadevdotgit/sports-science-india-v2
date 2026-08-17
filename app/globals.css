@@ -403,7 +403,7 @@ body {
 }
 
 @keyframes cardGlowPulse {
-  0%, 100% { opacity: 0.55; }
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
 

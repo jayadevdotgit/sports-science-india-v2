@@ -237,9 +237,9 @@ export default function PlatformCard({
                 >
                   {/* Soft halo behind the logo */}
                   <div
-                    className="absolute -inset-2 -z-10 animate-card-glow-pulse rounded-full opacity-75 blur-lg transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute -inset-2 -z-10 animate-card-glow-pulse rounded-full opacity-80 blur-lg transition-opacity duration-500 group-hover:opacity-100"
                     style={{
-                      background: `radial-gradient(circle, rgba(${c.rgba},0.58), transparent 72%)`,
+                      background: `radial-gradient(circle, rgba(${c.rgba},0.75), transparent 72%)`,
                     }}
                   />
 

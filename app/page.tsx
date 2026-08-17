@@ -37,8 +37,8 @@ export default function Home() {
       <Services />
       <CTASection />
       <Testimonials />
-      <Gallery />
       <YouTubeSection />
+      <Gallery />
 
       <Footer />
     </>
