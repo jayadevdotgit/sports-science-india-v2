@@ -4,8 +4,8 @@ import { KIBO_SYSTEM_PROMPT } from "@/lib/kiboPrompt";
 import { retrieveSiteContent } from "@/lib/knowledge/siteContent";
 
 const groq = new OpenAI({
-  apiKey: process.env.GROQ_API_KEY!,
-  baseURL: "https://api.groq.com/openai/v1",
+  apiKey: process.env.OPENCODE_API_KEY!,
+  baseURL: "https://opencode.ai/zen/v1",
 });
 
 export async function GET() {
@@ -25,12 +25,19 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const relevantContent = retrieveSiteContent(message, 9000);
+    const relevantContent = retrieveSiteContent(message, 3200);
+
+    const trimmedHistory = history
+      .slice(-4)
+      .map((m: { role: string; content: string }) => ({
+        role: m.role,
+        content: (m.content ?? "").slice(0, 400),
+      }));
 
     const completion = await groq.chat.completions.create({
-      model: "openai/gpt-oss-120b",
+      model: "nemotron-3-ultra-free",
       temperature: 0.6,
-      max_tokens: 700,
+      max_tokens: 500,
 
       messages: [
       {
@@ -47,7 +54,7 @@ export async function POST(req: NextRequest) {
           ]
         : []),
 
-      ...history,
+      ...trimmedHistory,
 
       {
         role: "user",
