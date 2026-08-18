@@ -1,14 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/animations/Reveal";
 import { GraduationCap, Building2, Dumbbell } from "lucide-react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = [
   {
@@ -72,127 +68,46 @@ function PartnerRow({
   category: (typeof categories)[number];
 }) {
   const Icon = category.icon;
-
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-      align: "start",
-      skipSnaps: false,
-      containScroll: "keepSnaps",
-      slidesToScroll: 1,
-      breakpoints: {
-        "(min-width: 640px)": { slidesToScroll: 2 },
-        "(min-width: 1024px)": { slidesToScroll: 4 },
-      },
-    },
-    [
-      Autoplay({
-        delay: 2500,
-        stopOnInteraction: true,
-        stopOnMouseEnter: true,
-      }),
-    ]
-  );
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    emblaApi?.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    emblaApi?.scrollNext();
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (index: number) => emblaApi?.scrollTo(index),
-    [emblaApi]
-  );
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  const snapCount = emblaApi?.scrollSnapList().length ?? 0;
+  const track = [...category.partners, ...category.partners];
 
   return (
     <div>
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${category.border} bg-white/[0.04]`}>
-            <Icon size={20} className={category.accent} />
-          </div>
-          <h3 className="text-lg font-bold sm:text-xl">
-            <span className="text-white">{category.title.replace(" Partners", "")}</span>{" "}
-            <span className={category.accent}>Partners</span>
-          </h3>
+      <div className="mb-5 flex items-center gap-3">
+        <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border ${category.border} bg-white/[0.04]`}>
+          <Icon size={20} className={category.accent} />
         </div>
-        <div className="flex items-center gap-2.5">
-          <button
-            onClick={scrollPrev}
-            aria-label={`Previous ${category.title}`}
-            className={`flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#111111] text-white transition-all duration-300 ${category.arrow}`}
-          >
-            <ChevronLeft size={16} />
-          </button>
-          <button
-            onClick={scrollNext}
-            aria-label={`Next ${category.title}`}
-            className={`flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#111111] text-white transition-all duration-300 ${category.arrow}`}
-          >
-            <ChevronRight size={16} />
-          </button>
-        </div>
+        <h3 className="text-lg font-bold sm:text-xl">
+          <span className="text-white">{category.title.replace(" Partners", "")}</span>{" "}
+          <span className={category.accent}>Partners</span>
+        </h3>
       </div>
 
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          {category.partners.map((p) => (
+      <div className="overflow-hidden">
+        <div className="marquee marquee-slow flex items-center gap-4 py-1">
+          {track.map((p, i) => (
             <div
-              key={p.src}
-              className="min-w-0 flex-[0_0_33.333%] px-1.5 py-1 sm:flex-[0_0_33.333%] lg:flex-[0_0_25%]"
+              key={`${p.src}-${i}`}
+              className="relative h-28 w-64 shrink-0 sm:h-32 sm:w-72 flex-[0_0_auto]"
+              aria-hidden={i >= category.partners.length}
             >
               <div
-                className={`group relative flex h-28 items-center justify-center overflow-hidden rounded-2xl bg-white p-2 shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(0,0,0,0.5)] sm:h-32 border-2 ${category.border}`}
+                className={`group relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 transition-transform duration-500 hover:-translate-y-1 border-2 ${category.border}`}
               >
                 <div className="relative h-full w-full">
                   <Image
                     src={p.src}
                     alt={p.name}
                     fill
-                    sizes="(max-width: 640px) 50vw, 25vw"
+                    sizes="256px"
                     unoptimized
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
               </div>
-              </div>
-            ))}
-        </div>
-      </div>
-
-      {snapCount > 1 && (
-        <div className="mt-5 flex justify-center gap-2">
-          {Array.from({ length: snapCount }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => scrollTo(index)}
-              aria-label={`Go to slide ${index + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                index === selectedIndex
-                  ? `w-6 ${category.dot}`
-                  : "w-2 bg-white/20 hover:bg-white/40"
-              }`}
-            />
+            </div>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 }

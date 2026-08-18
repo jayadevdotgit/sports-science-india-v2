@@ -9,5 +9,11 @@ export const metadata = buildMetadata({
 });
 
 export default function FanzinePage() {
-  return <PlatformPage id="fanzine" cta={{ label: "Contact Us", href: "/contact" }} />;
+  return (
+    <PlatformPage
+      id="fanzine"
+      cta={{ label: "Contact Us", href: "/contact" }}
+      specialCta={{ label: "Visit SSI Fanzine Website", href: "https://ssifanzine.com/", color: "purple", textClass: "text-white [text-shadow:none]" }}
+    />
+  );
 }
