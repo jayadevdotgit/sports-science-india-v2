@@ -51,10 +51,11 @@ FOUNDERS:
 • Dr. Nisha Kaushik Patnaik — Co-Founder, Obstetrics & Gynaecology specialist.
 
 SITE SNAPSHOT STATS (as displayed on the website):
+• 45,000+ Patients Attended
+• 10,000+ Sports Players Treated
+• 7,500+ Surgeries Conducted
+• 42,000+ Rehab Physio Clients
 • 15+ years of experience
-• 50+ sports supported
-• 500+ athletes assessed
-• 98% client satisfaction
 • 4.8/5 rating based on Google Reviews
 
 PROVEN RESULTS (as highlighted on the homepage):

@@ -25,7 +25,24 @@ const OUTPUT = join(ROOT, "data", "site-content.json");
 // Routes to collect
 // ---------------------------------------------------------------------------
 
-const STATIC_ROUTES = ["", "technology", "experts", "booking", "contact", "admin"];
+const STATIC_ROUTES = [
+  "",
+  "technology",
+  "experts",
+  "booking",
+  "contact",
+  "admin",
+  "about",
+  "awards",
+  "arthroscopy-conference",
+  "clinic",
+  "fanzine",
+  "foundation",
+  "sports-conclave",
+  "sports-connect",
+  "ssi-sports",
+  "young-athlete-program",
+];
 
 // Derive every live service page slug from the source files that define them.
 const SERVICE_SOURCE_FILES = [

@@ -78,7 +78,19 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 border-t border-gray-800 pt-8 text-center text-gray-500">© 2026 Sports Science India. All rights reserved.</div>
+        <div className="mt-16 flex flex-col items-center gap-2.5 border-t border-gray-800 pt-8 text-center text-gray-500">
+          <span>© 2026 Sports Science India. All rights reserved.</span>
+          <span className="flex items-center gap-3 text-sm">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-gray-700" />
+            <a
+              href="mailto:jayadevpradhan9@gmail.com"
+              className="font-cursive text-xl leading-none text-orange-400/80 transition-colors duration-300 hover:text-orange-400"
+            >
+              Designed by Jayadev
+            </a>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-gray-700" />
+          </span>
+        </div>
       </Container>
     </footer>
   );
