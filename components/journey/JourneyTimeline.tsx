@@ -1,8 +1,6 @@
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import Reveal from "@/components/animations/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Link from "next/link";
 import {
   ClipboardCheck,
   Activity,
@@ -10,7 +8,6 @@ import {
   Dumbbell,
   HeartPulse,
   Trophy,
-  ArrowRight,
 } from "lucide-react";
 
 const journey = [
@@ -133,26 +130,6 @@ export default function JourneyTimeline() {
 
            );
            })}
-
-        </div>
-
-        <div className="mt-12 text-center">
-
-        <p className="text-gray-400 mb-6">
-
-        Your performance journey starts with a comprehensive sports science assessment.
-
-        </p>
-
-        <Link href="/booking">
-          <Button size="md" className="group/btn relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60">
-            <span className="absolute inset-0 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 opacity-0 transition-opacity duration-500 group-hover/btn:opacity-100" />
-            <span className="relative flex items-center gap-2">
-              Begin Your Assessment
-              <ArrowRight size={16} className="transition-transform duration-500 group-hover/btn:translate-x-1" />
-            </span>
-          </Button>
-        </Link>
 
         </div>
 

@@ -1,7 +1,9 @@
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/animations/Reveal";
 import Counter from "@/components/ui/Counter";
-import { Activity, HeartPulse, Stethoscope, Dumbbell } from "lucide-react";
+import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { Activity, HeartPulse, Stethoscope, Dumbbell, ArrowRight } from "lucide-react";
 
 const stats = [
   {
@@ -114,6 +116,22 @@ export default function Stats() {
                 </div>
               );
             })}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="mb-6 text-gray-400">
+              Your performance journey starts with a comprehensive sports science assessment.
+            </p>
+
+            <Link href="/booking">
+              <Button size="md" className="group/btn relative overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg shadow-orange-500/40 hover:shadow-orange-500/60">
+                <span className="absolute inset-0 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 opacity-0 transition-opacity duration-500 group-hover/btn:opacity-100" />
+                <span className="relative flex items-center gap-2">
+                  Begin Your Assessment
+                  <ArrowRight size={16} className="transition-transform duration-500 group-hover/btn:translate-x-1" />
+                </span>
+              </Button>
+            </Link>
           </div>
         </Reveal>
       </Container>
