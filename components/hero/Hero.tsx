@@ -201,7 +201,7 @@ export default function Hero() {
   return (
     <header
       id="home"
-      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-center overflow-hidden bg-black text-white pb-2 md:pb-16 lg:pb-24"
+      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-between overflow-hidden bg-black text-white pb-2 md:pb-16 lg:pb-24"
     >
       {/* Floating Particles */}
       <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
@@ -235,7 +235,7 @@ export default function Hero() {
       />
 
       {/* ── Top: headline + slider ── */}
-      <div className="relative z-10 flex flex-col items-center pt-24 pb-1 lg:pt-36 lg:pb-4 [@media(max-height:900px)]:lg:pt-32 [@media(max-height:780px)]:lg:pt-32">
+      <div className="relative z-10 flex flex-col items-center pt-32 pb-1 lg:pt-36 lg:pb-4 [@media(max-height:900px)]:lg:pt-32 [@media(max-height:780px)]:lg:pt-32">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1fr_1.45fr] lg:gap-10 lg:items-center">
 
