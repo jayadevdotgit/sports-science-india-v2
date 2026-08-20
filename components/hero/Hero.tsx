@@ -201,7 +201,7 @@ export default function Hero() {
   return (
     <header
       id="home"
-      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-between overflow-hidden bg-black text-white pb-2 md:pb-16 lg:pb-24"
+      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-start overflow-hidden bg-black text-white pb-2 md:pb-16 lg:pb-24"
     >
       {/* Floating Particles */}
       <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
