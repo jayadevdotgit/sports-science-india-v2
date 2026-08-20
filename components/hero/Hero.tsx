@@ -263,10 +263,10 @@ export default function Hero() {
                 education and community development.
               </p>
 
-              <div className="mt-5 flex gap-2.5 flex-wrap">
+              <div className="mt-5 flex gap-2.5 flex-nowrap sm:flex-wrap">
                 <ScrollButton
                   target="booking"
-                  className="inline-flex items-center gap-2 whitespace-nowrap"
+                  className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm sm:px-6 sm:py-3"
                 >
                   <Calendar className="h-4 w-4 shrink-0" />
                   Book Assessment
@@ -274,7 +274,7 @@ export default function Hero() {
                 <ScrollButton
                   target="ecosystem"
                   variant="outline"
-                  className="inline-flex items-center gap-2 whitespace-nowrap"
+                  className="inline-flex items-center gap-2 whitespace-nowrap px-4 py-2 text-sm sm:px-6 sm:py-3"
                 >
                   <Search className="h-4 w-4 shrink-0" />
                   Explore Ecosystem
