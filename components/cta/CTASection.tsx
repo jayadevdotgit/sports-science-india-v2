@@ -125,17 +125,17 @@ export default function CTASection() {
 
   <div className="relative flex min-w-0 justify-center">
 
-    <div className="group relative flex items-center justify-center">
+    <div className="group relative flex h-[320px] w-[320px] items-center justify-center sm:h-[520px] sm:w-[520px]">
     <div className="absolute h-[320px] w-[320px] rounded-full bg-orange-500/20 blur-[100px] transition-all duration-700 group-hover:scale-110 group-hover:bg-orange-500/30 sm:h-[520px] sm:w-[520px] sm:blur-[120px]" />
     <div className="absolute h-[260px] w-[260px] rounded-full border border-orange-500/20 sm:h-[400px] sm:w-[400px]" />
 
-    <Image
+<Image
       src="/images/cta/athlete-runner.png"
       alt="Elite Athlete"
-      width={620}
-      height={620}
+      fill
+      sizes="(max-width: 640px) 320px, 620px"
       priority
-      className="relative z-10 w-full max-w-[320px] object-contain transition-all duration-700 group-hover:scale-105 sm:max-w-[620px]"
+      className="relative z-10 object-contain transition-all duration-700 group-hover:scale-105"
     />
     </div>
 

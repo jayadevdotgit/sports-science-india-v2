@@ -283,6 +283,7 @@ const routeActive =
 
             <Link
               href="/admin"
+              prefetch={false}
               className="flex items-center gap-1.5 font-medium text-gray-300 transition-all duration-300 hover:text-orange-300"
             >
               <Lock size={14} />
@@ -389,6 +390,7 @@ const routeActive =
 
           <Link
             href="/admin"
+            prefetch={false}
             onClick={() => setMenuOpen(false)}
             className="flex items-center gap-2 text-xl text-white transition-all duration-300 hover:text-orange-500"
           >

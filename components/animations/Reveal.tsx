@@ -15,8 +15,9 @@ export default function Reveal({
   className,
 }: RevealProps) {
   return (
-    <motion.div
+<motion.div
       className={className}
+      suppressHydrationWarning
       initial={{
         opacity: 0,
         y: 50,
