@@ -100,18 +100,18 @@ function MiniCard({
           sizes="20vw"
         />
       </div>
-      <div className="border-t border-white/10 px-2.5 py-1.5 text-left sm:px-3 sm:py-2.5">
+      <div className="border-t border-white/10 px-3 py-2.5 text-left">
         <p
-          className={`text-[9px] font-bold uppercase tracking-wider transition-colors duration-300 sm:text-[10px] ${
+          className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${
             isActive ? "text-orange-400" : "text-white"
           }`}
         >
           {card.number}. {card.label}
         </p>
-        <p className="mt-0.5 text-[9px] text-gray-300 leading-tight line-clamp-1 sm:text-[10px]">
+        <p className="mt-0.5 text-[10px] text-gray-300 leading-tight line-clamp-1">
           {card.caption}
         </p>
-        <div className="mt-1 sm:mt-2">
+        <div className="mt-2">
           <Dots total={5} active={card.number - 1} onSelect={onDotSelect} />
         </div>
       </div>
@@ -199,9 +199,9 @@ export default function Hero() {
   }, [current]);
 
   return (
-    <header
+    <section
       id="home"
-      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-start overflow-hidden bg-black text-white pb-2 md:pb-16 lg:pb-24"
+      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-center overflow-hidden bg-black text-white pb-8 md:pb-16 lg:pb-24"
     >
       {/* Floating Particles */}
       <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
@@ -235,7 +235,7 @@ export default function Hero() {
       />
 
       {/* ── Top: headline + slider ── */}
-      <div className="relative z-10 flex flex-col items-center pt-32 pb-1 lg:pt-36 lg:pb-4 [@media(max-height:900px)]:lg:pt-32 [@media(max-height:780px)]:lg:pt-32">
+      <div className="relative z-10 flex flex-col items-center pt-32 pb-2 lg:flex-row lg:items-start lg:gap-10 lg:pt-36 lg:pb-4 [@media(max-height:900px)]:lg:pt-32 [@media(max-height:780px)]:lg:pt-32">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1fr_1.45fr] lg:gap-10 lg:items-center">
 
@@ -250,33 +250,33 @@ export default function Hero() {
                 Sports Science India
               </p>
 
-              <h1 className="mt-2 font-black leading-[0.95]">
-                <span className="block text-2xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Maximize</span>
-                <span className="block text-2xl text-orange-500 drop-shadow-[0_0_30px_rgba(249,115,22,0.4)] sm:text-5xl xl:text-[62px]">Performance.</span>
-                <span className="block text-2xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Prevent Injury.</span>
-                <span className="block text-lg text-gray-400 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] sm:text-3xl xl:text-[38px] mt-1">Extend Careers.</span>
+              <h1 className="mt-3 font-black leading-[0.9]">
+                <span className="block text-3xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Maximize</span>
+                <span className="block text-3xl text-orange-500 drop-shadow-[0_0_30px_rgba(249,115,22,0.4)] sm:text-5xl xl:text-[62px]">Performance.</span>
+                <span className="block text-3xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Prevent Injury.</span>
+                <span className="block text-xl text-gray-400 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] sm:text-3xl xl:text-[38px] mt-1">Extend Careers.</span>
               </h1>
 
-              <p className="mt-2 max-w-md text-[12px] leading-5 text-gray-400 line-clamp-2 sm:text-base sm:leading-7 sm:line-clamp-none">
+              <p className="mt-3 max-w-md text-[13px] leading-6 text-gray-400 sm:text-base sm:leading-7">
                 India&apos;s first integrated sports science ecosystem combining
                 elite athlete performance, sports medicine, rehabilitation,
                 education and community development.
               </p>
 
-              <div className="mt-3 flex gap-2 flex-nowrap sm:flex-wrap">
+              <div className="mt-5 flex gap-2.5 flex-wrap">
                 <ScrollButton
                   target="booking"
-                  className="inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-xs sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex items-center gap-2 whitespace-nowrap"
                 >
-                  <Calendar className="h-4 w-4 shrink-0 sm:h-4 sm:w-4" />
+                  <Calendar className="h-4 w-4 shrink-0" />
                   Book Assessment
                 </ScrollButton>
                 <ScrollButton
                   target="ecosystem"
                   variant="outline"
-                  className="inline-flex items-center gap-2 whitespace-nowrap px-3 py-1.5 text-xs sm:px-6 sm:py-3 sm:text-sm"
+                  className="inline-flex items-center gap-2 whitespace-nowrap"
                 >
-                  <Search className="h-4 w-4 shrink-0 sm:h-4 sm:w-4" />
+                  <Search className="h-4 w-4 shrink-0" />
                   Explore Ecosystem
                 </ScrollButton>
               </div>
@@ -286,7 +286,7 @@ export default function Hero() {
             <div className="relative">
               <div className="pointer-events-none absolute -inset-4 rounded-[30px] bg-orange-500/20 blur-3xl" />
               <div
-                className="relative h-[170px] w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_30px_100px_rgba(0,0,0,0.8),0_0_60px_rgba(249,115,22,0.25),0_10px_40px_rgba(0,0,0,0.5)] sm:h-auto sm:aspect-[16/9] lg:aspect-[3/2] lg:max-h-[64vh]"
+                className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_30px_100px_rgba(0,0,0,0.8),0_0_60px_rgba(249,115,22,0.25),0_10px_40px_rgba(0,0,0,0.5)] lg:aspect-[3/2] lg:max-h-[64vh]"
               >
                 {/* Slides */}
                 {mainSlides.map((slide, i) => (
@@ -344,7 +344,7 @@ export default function Hero() {
       </div>
 
       {/* ── Bottom: 5 mini cards ── */}
-      <div className="relative z-10 pb-2 pt-2 md:-mt-4 md:pb-6 lg:pb-10 [@media(max-height:900px)]:lg:pb-4">
+      <div className="relative z-10 pb-2 pt-4 md:-mt-4 md:pb-6 lg:pb-10 [@media(max-height:900px)]:lg:pb-4">
         <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={scrollRef}
@@ -357,7 +357,7 @@ export default function Hero() {
                 ref={(el) => {
                   cardRefs.current[i] = el;
                 }}
-                className={`flex-shrink-0 w-[calc(50%-4px)] min-h-[130px] md:min-h-[220px] [@media(max-height:900px)]:lg:min-h-[170px] ${
+                className={`flex-shrink-0 w-[calc(50%-4px)] min-h-[200px] md:min-h-[220px] [@media(max-height:900px)]:lg:min-h-[170px] ${
                   i < 5 ? "md:flex md:flex-1 md:w-auto" : "md:hidden"
                 }`}
                 style={{ scrollSnapAlign: "start" }}
@@ -374,7 +374,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
 
