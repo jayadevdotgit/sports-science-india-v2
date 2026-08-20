@@ -1,266 +1,381 @@
-import Container from "@/components/ui/Container";
+"use client";
+
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Image from "next/image";
-import { Calendar, Search } from "lucide-react";
-import HeroInfo from "./HeroInfo";
-import Reveal from "@/components/animations/Reveal";
+import { Calendar, Search, ChevronLeft, ChevronRight, TrendingUp, Activity } from "lucide-react";
 import ScrollButton from "@/components/ui/ScrollButton";
 
+/* ─── Main slider slides ─────────────────────────────────────────── */
+const mainSlides = [
+  {
+    src: "/images/hero/our-facility.png",
+    label: "Our Facility",
+    caption: "World-class sports science center",
+  },
+  {
+    src: "/images/hero/performance-testing.png",
+    label: "Performance Testing",
+    caption: "Data-driven athlete assessments",
+  },
+  {
+    src: "/images/hero/advanced-technology.png",
+    label: "Advanced Technology",
+    caption: "Precision. Insights. Results.",
+  },
+  {
+    src: "/images/hero/injury-preventation-rehab.png",
+    label: "Injury Prevention & Rehab",
+    caption: "Recover stronger. Perform longer.",
+  },
+  {
+    src: "/images/hero/expert-led-team.png",
+    label: "Expert-led Team",
+    caption: "Experts who care. Results that matter.",
+  },
+];
+
+/* ─── Dots ──────────────────────────────────────────────────────── */
+function Dots({
+  total,
+  active,
+  onSelect,
+}: {
+  total: number;
+  active: number;
+  onSelect: (i: number) => void;
+}) {
+  return (
+    <div className="flex items-center gap-1.5">
+      {Array.from({ length: total }).map((_, i) => (
+        <button
+          key={i}
+          onClick={() => onSelect(i)}
+          className={`rounded-full transition-all duration-300 ${
+            i === active
+              ? "bg-orange-500 w-5 h-2"
+              : "bg-white/30 hover:bg-white/50 w-2 h-2"
+          }`}
+          aria-label={`Slide ${i + 1}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ─── Mini card ─────────────────────────────────────────────────── */
+function MiniCard({
+  card,
+  isActive,
+  onClick,
+  onDotSelect,
+}: {
+  card: { number: number; label: string; caption: string; slides: string[] };
+  isActive: boolean;
+  onClick: () => void;
+  onDotSelect: (i: number) => void;
+}) {
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+      }}
+      className={`relative flex h-full w-full flex-col rounded-2xl overflow-hidden border bg-[#0a0a0a] transition-all duration-300 cursor-pointer ${
+        isActive
+          ? "border-orange-500/70 ring-1 ring-orange-500/40"
+          : "border-white/10 hover:border-white/30"
+      }`}
+    >
+      <div className="relative w-full flex-1 min-h-0">
+        <Image
+          src={card.slides[0]}
+          alt={card.label}
+          fill
+          className="object-cover object-center"
+          sizes="20vw"
+        />
+      </div>
+      <div className="border-t border-white/10 px-3 py-2.5 text-left">
+        <p
+          className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${
+            isActive ? "text-orange-400" : "text-white"
+          }`}
+        >
+          {card.number}. {card.label}
+        </p>
+        <p className="mt-0.5 text-[10px] text-gray-300 leading-tight line-clamp-1">
+          {card.caption}
+        </p>
+        <div className="mt-2">
+          <Dots total={5} active={card.number - 1} onSelect={onDotSelect} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── Hero ──────────────────────────────────────────────────────── */
 export default function Hero() {
+  const [current, setCurrent] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const prevCurrentRef = useRef(0);
+  const lapRef = useRef(0);
+
+  const bottomCards = useMemo(
+    () =>
+      mainSlides.map((s, i) => ({
+        number: i + 1,
+        label: s.label,
+        caption: s.caption,
+        slides: [s.src],
+      })),
+    []
+  );
+  const loopedCards = useMemo(
+    () => Array.from({ length: 6 }, () => bottomCards).flat(),
+    [bottomCards]
+  );
+
+  const next = useCallback(
+    () => setCurrent((p) => (p + 1) % mainSlides.length),
+    []
+  );
+  const prev = useCallback(
+    () => setCurrent((p) => (p - 1 + mainSlides.length) % mainSlides.length),
+    []
+  );
+
+  useEffect(() => {
+    const t = setInterval(next, 5000);
+    return () => clearInterval(t);
+  }, [next]);
+
+  useEffect(() => {
+    const prevCurrent = prevCurrentRef.current;
+    if (current === 0 && prevCurrent === mainSlides.length - 1) {
+      // Wrapped from the last card back to the first — keep moving forward.
+      lapRef.current += 1;
+    }
+    prevCurrentRef.current = current;
+
+    const container = scrollRef.current;
+    const total = loopedCards.length;
+    // Keep the target inside the repeated track; snap back to the start (no
+    // user-visible jump) if we've advanced far enough.
+    if (lapRef.current >= total / mainSlides.length - 2) {
+      lapRef.current = 0;
+      container?.scrollTo({ left: 0, behavior: "auto" });
+    }
+    const targetIndex = current + mainSlides.length + lapRef.current * mainSlides.length;
+    const card = cardRefs.current[targetIndex];
+    if (!container || !card) return;
+    const target =
+      container.scrollLeft +
+      card.getBoundingClientRect().left -
+      container.getBoundingClientRect().left;
+    container.scrollTo({ left: target, behavior: "smooth" });
+  }, [current]);
+
+  // Reset the lap offset once the scroll approaches the end of the looped
+  // copies so auto-advance never runs out of track.
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const onScrollEnd = () => {
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+        lapRef.current = 0;
+        prevCurrentRef.current = current;
+        container.scrollTo({ left: 0, behavior: "auto" });
+      }
+    };
+    container.addEventListener("scroll", onScrollEnd);
+    return () => container.removeEventListener("scroll", onScrollEnd);
+  }, [current]);
+
   return (
     <section
       id="home"
-      className="
-        relative
-        min-h-[calc(100svh/0.9)]
-        overflow-hidden
-        bg-black
-        text-white
-        flex
-        items-center
-        pt-24
-        pb-10
-        lg:pt-28
-      "
+      className="relative flex min-h-[calc(100svh/0.9)] flex-col justify-center overflow-hidden bg-black text-white pb-8 md:pb-16 lg:pb-24"
     >
-      {/* Orange Glow */}
-
-      <div className="absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[180px]" />
-
-      {/* Orange Gradient */}
-
-      <div className="absolute inset-0 bg-gradient-to-r from-black via-[#120700] to-black" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_35%,black_95%)]" />
-
-      <Container>
-        <Reveal>
-
-        <div className="relative z-10 grid items-center gap-4 sm:gap-8 lg:grid-cols-2 lg:gap-12">
-
-          {/* LEFT */}
-
-          <div>
-
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm mt-6 sm:mt-8">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-discover-ping rounded-full bg-orange-400/70" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)]" />
-              </span>
-              SPORTS SCIENCE INDIA
-            </p>
-
-            <h1 className="mt-4 font-black leading-[0.86] sm:mt-6">
-
-              <span className="block text-4xl sm:text-6xl xl:text-7xl">
-                Maximize
-              </span>
-
-              <span className="block text-4xl text-orange-500 sm:text-6xl xl:text-7xl">
-                Performance.
-              </span>
-
-              <span className="block text-4xl sm:text-6xl xl:text-7xl">
-                Prevent Injury.
-              </span>
-
-              <span className="block text-2xl text-gray-400 sm:text-4xl xl:text-5xl">
-                Extend Careers.
-              </span>
-
-            </h1>
-
-            <p className="mt-5 max-w-md text-base leading-7 text-gray-400 sm:mt-8 sm:text-xl sm:leading-8">
-
-              India&apos;s first integrated sports science ecosystem combining
-              elite athlete performance, sports medicine, rehabilitation,
-              education and community development.
-
-            </p>
-
-            <div className="mt-7 flex flex-nowrap gap-2 sm:mt-12 sm:gap-4">
-              <ScrollButton
-                target="booking"
-                className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
-              >
-                <Calendar className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
-                Book Assessment
-              </ScrollButton>
-
-              <ScrollButton
-                target="ecosystem"
-                variant="outline"
-                className="inline-flex w-full items-center justify-center !gap-1 whitespace-nowrap !px-1 !text-[10px] min-[380px]:!gap-1.5 min-[380px]:!px-2 min-[380px]:!text-xs sm:!gap-2 sm:!px-6 sm:!text-base"
-              >
-                <Search className="h-4 w-4 shrink-0 sm:h-[18px] sm:w-[18px]" />
-                Explore Ecosystem
-              </ScrollButton>
-            </div>
-
-          </div>
-
-          <div
-            className="
-              absolute
-              inset-0
-              opacity-5
-              [mask-image:radial-gradient(circle,white_30%,transparent_100%)]
-              bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)]
-              bg-[size:60px_60px]
-              pointer-events-none
-            "
-          />
-
-
-          {/* RIGHT */}
-
-          <div className="relative flex h-[320px] items-center justify-center sm:h-[560px] lg:h-[600px]">
-
-            {/* BIG GLOW */}
-            <div className="absolute h-[320px] w-[320px] rounded-full bg-orange-500/15 blur-[100px] sm:h-[680px] sm:w-[680px] sm:blur-[180px]" />
-
-            {/* INNER GLOW */}
-            <div className="absolute h-[220px] w-[220px] rounded-full bg-orange-400/25 blur-[80px] sm:h-[480px] sm:w-[480px] sm:blur-[120px]" />
-
-            {/* Decorative Static Ring */}
-            <div className="absolute h-[260px] w-[260px] rounded-full border border-orange-500/15 sm:h-[540px] sm:w-[540px]" />
-
-            {/* Rotating Cyber Tech Ring */}
-            <div className="absolute h-[280px] w-[280px] rounded-full border border-dashed border-orange-500/25 animate-[spin_30s_linear_infinite] sm:h-[580px] sm:w-[580px] pointer-events-none" />
-
-            {/* Concentric Precision Radar Circles */}
-            <div className="absolute h-[180px] w-[180px] rounded-full border border-white/5 sm:h-[380px] sm:w-[380px] pointer-events-none" />
-
-            {/* Athlete cutout PNG with glow */}
-            <Image
-              src="/images/hero/athlete.png"
-              alt="Elite Athlete"
-              width={1536}
-              height={1024}
-              priority
-              className="
-                relative
-                z-20
-                w-[310px]
-                sm:w-[620px]
-                max-w-full
-                object-contain
-                filter
-                drop-shadow-[0_20px_60px_rgba(249,115,22,0.55)]
-                drop-shadow-[0_0_90px_rgba(249,115,22,0.35)]
-                transition-all
-                duration-700
-                hover:scale-[1.03]
-              "
-            />
-
-            {/* Floating Cards */}
-
-            <div className="absolute left-0 top-16 z-30 hidden lg:block">
-              <HeroInfo />
-            </div>
-
-            <div
-              className="
-                absolute
-                right-0
-                top-4
-                rounded-2xl
-                border
-                border-white/10
-                bg-black/50
-                backdrop-blur-xl
-                px-4
-                py-3
-                sm:right-0
-                sm:top-12
-                sm:px-6
-                sm:py-4
-                z-30
-              "
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-orange-500">
-                VO₂ MAX
-              </p>
-
-              <p className="mt-1 text-2xl font-bold text-white sm:mt-2 sm:text-3xl">
-                +18%
-              </p>
-            </div>
-
-            <div
-              className="
-                absolute
-                bottom-4
-                left-0
-                rounded-2xl
-                border
-                border-white/10
-                bg-black/50
-                backdrop-blur-xl
-                px-4
-                py-3
-                z-30
-                sm:bottom-10
-                sm:left-auto
-                sm:right-0
-                sm:px-6
-                sm:py-4
-              "
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-orange-500">
-                RECOVERY
-              </p>
-
-              <p className="mt-1 text-2xl font-bold text-white sm:mt-2 sm:text-3xl">
-                96%
-              </p>
-            </div>
-
-          </div>
-        </div>
-        </Reveal>
-      </Container>
-
-      <div className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 sm:block">
-
-        <div
-          className="
-            h-12
-            w-7
-            rounded-full
-            border
-            border-white/30
-            flex
-            justify-center
-            pt-2
-          "
-        >
-          <div
-            className="
-              h-2
-              w-2
-              rounded-full
-              bg-orange-500
-              animate-bounce
-            "
-          />
-        </div>
-
-      </div>
-
       {/* Floating Particles */}
-
-      <div className="absolute inset-0 pointer-events-none">
-
-        <div className="absolute top-32 right-56 w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-
-        <div className="absolute top-60 right-80 w-1 h-1 bg-orange-500 rounded-full animate-ping" />
-
-        <div className="absolute bottom-44 right-64 w-2 h-2 bg-orange-300 rounded-full animate-pulse" />
-
-        <div className="absolute top-1/2 right-36 w-1 h-1 bg-orange-400 rounded-full animate-ping" />
-
+      <div className="absolute inset-0 z-[5] pointer-events-none" aria-hidden="true">
+        <div className="absolute top-32 left-[12%] h-2 w-2 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(249,115,22,0.8)] animate-pulse" />
+        <div className="absolute top-44 left-[22%] h-1 w-1 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.9)] animate-ping" />
+        <div className="absolute top-64 right-[10%] h-1.5 w-1.5 rounded-full bg-orange-300 shadow-[0_0_12px_rgba(251,146,60,0.8)] animate-pulse" />
+        <div className="absolute bottom-[18%] right-[28%] h-1 w-1 rounded-full bg-orange-400 shadow-[0_0_10px_rgba(249,115,22,0.8)] animate-ping" />
+        <div className="absolute top-1/3 right-[35%] h-2 w-2 rounded-full bg-orange-500/90 shadow-[0_0_14px_rgba(249,115,22,0.9)] animate-pulse" />
+        <div className="absolute top-[14%] right-[45%] h-1 w-1 rounded-full bg-orange-300 shadow-[0_0_10px_rgba(251,146,60,0.8)] animate-ping" />
+        <div className="absolute bottom-[30%] right-[8%] h-1.5 w-1.5 rounded-full bg-orange-400 shadow-[0_0_12px_rgba(249,115,22,0.8)] animate-pulse" />
       </div>
 
+      {/* Scroll-down indicator */}
+      <div className="absolute bottom-2 left-1/2 z-20 -translate-x-1/2 pointer-events-none sm:bottom-4 md:bottom-6 lg:bottom-10">
+        <div className="flex h-12 w-7 flex-col items-center rounded-full border border-white/40 bg-white/5 pt-2 shadow-[0_0_25px_rgba(249,115,22,0.35)]">
+          <div className="h-2 w-2 animate-bounce rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)]" />
+        </div>
+      </div>
+
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black via-[#0d0400] to-black pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,transparent_40%,black_95%)] pointer-events-none" />
+      <div className="absolute left-1/2 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-orange-500/8 blur-[160px] pointer-events-none" />
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.07) 1px,transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      {/* ── Top: headline + slider ── */}
+      <div className="relative z-10 flex flex-col items-center pt-32 pb-2 lg:flex-row lg:items-start lg:gap-10 lg:pt-36 lg:pb-4 [@media(max-height:900px)]:lg:pt-32 [@media(max-height:780px)]:lg:pt-32">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-3 lg:grid lg:grid-cols-[1fr_1.45fr] lg:gap-10 lg:items-center">
+
+            {/* Left */}
+            <div className="flex flex-col md:pl-[18%] lg:pl-0">
+              {/* Badge */}
+              <p className="inline-flex items-center gap-2.5 rounded-full border border-orange-500/40 bg-orange-500/10 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-orange-400 backdrop-blur-sm shadow-[0_0_20px_rgba(249,115,22,0.3),inset_0_0_15px_rgba(249,115,22,0.12)] w-fit">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400/70 opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-500 shadow-[0_0_8px_rgba(249,115,22,0.9)]" />
+                </span>
+                Sports Science India
+              </p>
+
+              <h1 className="mt-3 font-black leading-[0.9]">
+                <span className="block text-3xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Maximize</span>
+                <span className="block text-3xl text-orange-500 drop-shadow-[0_0_30px_rgba(249,115,22,0.4)] sm:text-5xl xl:text-[62px]">Performance.</span>
+                <span className="block text-3xl text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.15)] sm:text-5xl xl:text-[62px]">Prevent Injury.</span>
+                <span className="block text-xl text-gray-400 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)] sm:text-3xl xl:text-[38px] mt-1">Extend Careers.</span>
+              </h1>
+
+              <p className="mt-3 max-w-md text-[13px] leading-6 text-gray-400 sm:text-base sm:leading-7">
+                India&apos;s first integrated sports science ecosystem combining
+                elite athlete performance, sports medicine, rehabilitation,
+                education and community development.
+              </p>
+
+              <div className="mt-5 flex gap-2.5 flex-wrap">
+                <ScrollButton
+                  target="booking"
+                  className="inline-flex items-center gap-2 whitespace-nowrap"
+                >
+                  <Calendar className="h-4 w-4 shrink-0" />
+                  Book Assessment
+                </ScrollButton>
+                <ScrollButton
+                  target="ecosystem"
+                  variant="outline"
+                  className="inline-flex items-center gap-2 whitespace-nowrap"
+                >
+                  <Search className="h-4 w-4 shrink-0" />
+                  Explore Ecosystem
+                </ScrollButton>
+              </div>
+            </div>
+
+{/* Right — main slider */}
+            <div className="relative">
+              <div className="pointer-events-none absolute -inset-4 rounded-[30px] bg-orange-500/20 blur-3xl" />
+              <div
+                className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_30px_100px_rgba(0,0,0,0.8),0_0_60px_rgba(249,115,22,0.25),0_10px_40px_rgba(0,0,0,0.5)] lg:aspect-[3/2] lg:max-h-[52vh]"
+              >
+                {/* Slides */}
+                {mainSlides.map((slide, i) => (
+                  <div
+                    key={i}
+                    className="absolute inset-0 transition-opacity duration-700"
+                    style={{ opacity: i === current ? 1 : 0 }}
+                  >
+                    <Image
+                      src={slide.src}
+                      alt={slide.label}
+                      fill
+                      priority={i === 0}
+                      className="object-cover object-center"
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
+                    <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)] [background:radial-gradient(ellipse_at_center,transparent_55%,rgba(5,5,5,0.9)_100%)]" />
+                  </div>
+                ))}
+
+                {/* Arrows */}
+                <button
+                  onClick={prev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 hover:border-orange-500 transition-all"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={next}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/50 backdrop-blur-sm text-white hover:bg-orange-500/80 hover:border-orange-500 transition-all"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+
+                {/* Dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+                  <Dots total={mainSlides.length} active={current} onSelect={setCurrent} />
+                </div>
+
+                <div className="absolute top-4 left-4 z-20 hidden md:block">
+                  <div className="rounded-xl border border-orange-400/50 bg-[#0a0a0a] px-4 py-3 min-w-[150px] shadow-[0_0_25px_rgba(249,115,22,0.25),0_10px_30px_rgba(0,0,0,0.5)]">
+                    <div className="flex items-center gap-1.5">
+                      <TrendingUp className="h-3 w-3 text-orange-400 drop-shadow-[0_0_6px_rgba(249,115,22,0.9)]" />
+                      <p className="text-xs font-bold uppercase tracking-widest text-white">{current + 1}. {mainSlides[current].label}</p>
+                    </div>
+                    <p className="text-[10px] text-gray-400 mt-1">{mainSlides[current].caption}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Bottom: 5 mini cards ── */}
+      <div className="relative z-10 pb-2 pt-4 md:-mt-4 md:pb-6 lg:pb-10 [@media(max-height:900px)]:lg:pb-4">
+        <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            ref={scrollRef}
+            className="flex gap-2 md:gap-3 overflow-x-auto pb-1"
+            style={{ scrollSnapType: "x mandatory", scrollbarWidth: "none" }}
+          >
+            {loopedCards.map((card, i) => (
+              <div
+                key={i}
+                ref={(el) => {
+                  cardRefs.current[i] = el;
+                }}
+                className={`flex-shrink-0 w-[calc(50%-4px)] min-h-[200px] md:min-h-[220px] [@media(max-height:900px)]:lg:min-h-[170px] ${
+                  i < 5 ? "md:flex md:flex-1 md:w-auto" : "md:hidden"
+                }`}
+                style={{ scrollSnapAlign: "start" }}
+              >
+                <MiniCard
+                  card={card}
+                  key={i}
+                  isActive={i % bottomCards.length === current}
+                  onClick={() => setCurrent(i % bottomCards.length)}
+                  onDotSelect={(n) => setCurrent(n)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
+
+
