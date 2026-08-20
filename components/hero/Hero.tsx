@@ -215,9 +215,9 @@ export default function Hero() {
       </div>
 
       {/* Scroll-down indicator */}
-      <div className="absolute bottom-2 left-1/2 z-20 -translate-x-1/2 pointer-events-none sm:bottom-4 md:bottom-6 lg:bottom-10">
-        <div className="flex h-12 w-7 flex-col items-center rounded-full border border-white/40 bg-white/5 pt-2 shadow-[0_0_25px_rgba(249,115,22,0.35)]">
-          <div className="h-2 w-2 animate-bounce rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)]" />
+      <div className="absolute bottom-2 left-1/2 z-30 -translate-x-1/2 pointer-events-none sm:bottom-7 md:bottom-8 lg:bottom-12">
+        <div className="flex h-8 w-5 flex-col items-center rounded-full border border-white/40 bg-black/40 backdrop-blur-md pt-1.5 shadow-[0_0_25px_rgba(249,115,22,0.4)] sm:h-12 sm:w-7 sm:pt-2">
+          <div className="h-1.5 w-1.5 animate-bounce rounded-full bg-orange-500 shadow-[0_0_12px_rgba(249,115,22,1)] sm:h-2 sm:w-2" />
         </div>
       </div>
 
@@ -286,7 +286,7 @@ export default function Hero() {
             <div className="relative">
               <div className="pointer-events-none absolute -inset-4 rounded-[30px] bg-orange-500/20 blur-3xl" />
               <div
-                className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_30px_100px_rgba(0,0,0,0.8),0_0_60px_rgba(249,115,22,0.25),0_10px_40px_rgba(0,0,0,0.5)] lg:aspect-[3/2] lg:max-h-[52vh]"
+                className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-transparent shadow-[0_30px_100px_rgba(0,0,0,0.8),0_0_60px_rgba(249,115,22,0.25),0_10px_40px_rgba(0,0,0,0.5)] lg:aspect-[3/2] lg:max-h-[64vh]"
               >
                 {/* Slides */}
                 {mainSlides.map((slide, i) => (
