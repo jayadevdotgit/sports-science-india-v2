@@ -40,6 +40,9 @@ function muscleGroupsFor(id: string): string[] | null {
   return marker?.nodes ?? null;
 }
 
+// Preload the 3D model immediately when module loads so it is cached before scroll
+useGLTF.preload("/models/bodyMuscles.glb");
+
 export default function MuscleModel({
   selected,
   onPositions,

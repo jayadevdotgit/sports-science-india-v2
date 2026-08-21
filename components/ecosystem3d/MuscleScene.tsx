@@ -18,6 +18,15 @@ function FaintGrid() {
   );
 }
 
+function LoadingHologram() {
+  return (
+    <mesh position={[0, 0, 0]}>
+      <sphereGeometry args={[0.08, 16, 16]} />
+      <meshBasicMaterial color="#f97316" wireframe transparent opacity={0.6} />
+    </mesh>
+  );
+}
+
 function SceneContent({
   selected,
 }: {
@@ -27,7 +36,7 @@ function SceneContent({
 
   return (
     <>
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoadingHologram />}>
         <MuscleModel selected={selected} onPositions={() => {}} />
       </Suspense>
 
@@ -70,7 +79,7 @@ export default function MuscleScene({ selected }: Props) {
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { rootMargin: "160px 0px" }
+      { rootMargin: "300px 0px" }
     );
 
     observer.observe(node);
@@ -78,7 +87,7 @@ export default function MuscleScene({ selected }: Props) {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="h-full w-full">
+    <div ref={wrapperRef} className="relative h-full w-full">
       <Canvas
         camera={{ position: [0, 0.15, 3.1], fov: 42 }}
         dpr={[1, 1.25]}
@@ -86,7 +95,7 @@ export default function MuscleScene({ selected }: Props) {
         performance={{ min: 0.5 }}
         gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
-        {isVisible && <SceneContent selected={selected} />}
+        <SceneContent selected={selected} />
       </Canvas>
     </div>
   );

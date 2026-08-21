@@ -77,6 +77,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased" data-scroll-behavior="smooth">
       <head>
+        <link
+          rel="preload"
+          href="/models/bodyMuscles.glb"
+          as="fetch"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
