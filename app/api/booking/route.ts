@@ -1,6 +1,12 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { appendBooking, getAllBookings } from "@/lib/bookings";
+import {
+  appendBooking,
+  getAllBookings,
+  normalizeDateStr,
+  normalizeDoctorName,
+  normalizeTimeSlot,
+} from "@/lib/bookings";
 import { appendBookingToSheet } from "@/lib/sheets";
 
 // Convert a "HH:MM AM/PM" slot into minutes since midnight.
@@ -56,14 +62,30 @@ export async function POST(req: Request) {
       }
     }
 
-    // Prevent double-booking the same date + time slot
+    // Prevent double-booking the same doctor on the same date + time slot
     const existing = await getAllBookings();
-    const alreadyBooked = existing.some(
-      (b) => b.date === date && b.timeSlot === timeSlot
-    );
+    const targetDoctor = normalizeDoctorName(doctor);
+    const targetDate = normalizeDateStr(date);
+    const targetSlot = normalizeTimeSlot(timeSlot);
+
+    const alreadyBooked = existing.some((b) => {
+      const bDate = normalizeDateStr(b.date);
+      const bSlot = normalizeTimeSlot(b.timeSlot);
+      const bDoc = normalizeDoctorName(b.doctor);
+
+      // Match date and time slot
+      if (bDate !== targetDate || bSlot !== targetSlot) return false;
+
+      // If doctor is specified for both or one is general, block double booking
+      if (!targetDoctor || !bDoc) return true;
+      return bDoc === targetDoctor;
+    });
+
     if (alreadyBooked) {
       return NextResponse.json(
-        { error: "Sorry, that time slot has already been booked. Please choose another." },
+        {
+          error: `Sorry, ${doctor || "this doctor"} is already booked for ${timeSlot} on this date. Please choose another time slot or doctor.`,
+        },
         { status: 409 }
       );
     }

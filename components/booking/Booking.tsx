@@ -279,8 +279,8 @@ export default function Booking() {
     [nextDates]
   );
 
-  // Already-booked slots: { date, timeSlot } pairs
-  const [bookedSlots, setBookedSlots] = useState<{ date: string; timeSlot: string }[]>([]);
+  // Already-booked slots: { date, timeSlot, doctor }
+  const [bookedSlots, setBookedSlots] = useState<{ date: string; timeSlot: string; doctor?: string }[]>([]);
 
   const refreshBookedSlots = useCallback(() => {
     let active = true;
@@ -297,8 +297,18 @@ export default function Booking() {
 
   useEffect(refreshBookedSlots, [refreshBookedSlots]);
 
-  const isSlotBooked = (slot: string) =>
-    bookedSlots.some((b) => b.date === selectedDate && b.timeSlot === slot);
+  const normalizeDoc = (doc?: string) =>
+    (doc || "").trim().toLowerCase().replace(/^dr\.?\s*/i, "").replace(/\s+/g, " ");
+
+  const isSlotBooked = (slot: string, docName: string = selectedDoctor) => {
+    const targetDoc = normalizeDoc(docName);
+    return bookedSlots.some(
+      (b) =>
+        b.date === selectedDate &&
+        b.timeSlot === slot &&
+        (!b.doctor || !targetDoc || normalizeDoc(b.doctor) === targetDoc)
+    );
+  };
 
   // Slots that have already passed on today's date
   const isSlotInPast = (slot: string) => {
@@ -313,6 +323,18 @@ export default function Booking() {
     if (selectedDate !== toLocalISO(now)) return false;
     return slotToMinutes(slot) <= now.getHours() * 60 + now.getMinutes();
   };
+
+  // Auto-switch to first available slot if currently selected is booked or past
+  useEffect(() => {
+    if (!selectedDate || !selectedTimeSlot) return;
+    if (isSlotBooked(selectedTimeSlot) || isSlotInPast(selectedTimeSlot)) {
+      const allSlots = availableTimeSlots.flatMap((g) => g.slots);
+      const firstFree = allSlots.find((s) => !isSlotBooked(s) && !isSlotInPast(s));
+      if (firstFree && firstFree !== selectedTimeSlot) {
+        setSelectedTimeSlot(firstFree);
+      }
+    }
+  }, [selectedDoctor, selectedDate, bookedSlots, availableTimeSlots]);
 
   // O&G and Pre/Post Natal services require Dr. Nisha
   const nishaOnlySelected =
@@ -369,8 +391,8 @@ export default function Booking() {
       return;
     }
 
-    if (isSlotBooked(selectedTimeSlot)) {
-      setErrorMessage("Sorry, that time slot has already been booked. Please choose another.");
+    if (isSlotBooked(selectedTimeSlot, selectedDoctor)) {
+      setErrorMessage(`Sorry, ${selectedTimeSlot} has already been booked for ${selectedDoctor}. Please choose another time slot or doctor.`);
       return;
     }
 
@@ -631,12 +653,22 @@ export default function Booking() {
                 </div>
                 <button
                   type="button"
-                  onClick={() => setCurrentStep(1)}
+                  onClick={() => {
+                    setErrorMessage("");
+                    setCurrentStep(1);
+                  }}
                   className="flex items-center gap-1 text-xs text-gray-400 hover:text-orange-400 transition"
                 >
                   <ArrowLeft size={14} /> Back to Services
                 </button>
               </div>
+
+              {errorMessage && (
+                <div className="mb-6 flex items-center gap-3 rounded-xl border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-400">
+                  <AlertCircle size={18} className="shrink-0" />
+                  <span>{errorMessage}</span>
+                </div>
+              )}
 
               {/* Select Doctor */}
               <div className="mb-8">
@@ -792,7 +824,28 @@ export default function Booking() {
                   ← Back
                 </button>
                 <Button
-                  onClick={() => setCurrentStep(3)}
+                  onClick={() => {
+                    if (isSlotBooked(selectedTimeSlot, selectedDoctor)) {
+                      setErrorMessage(
+                        `Sorry, ${selectedTimeSlot} is already booked for ${selectedDoctor}. Please choose another time slot or doctor.`
+                      );
+                      return;
+                    }
+                    if (isSlotInPast(selectedTimeSlot)) {
+                      setErrorMessage(
+                        "Sorry, that time slot has already passed for today. Please choose a later time."
+                      );
+                      return;
+                    }
+                    if (ogDoctorMismatch) {
+                      setErrorMessage(
+                        "Pre & Post Natal Rehab and Obstetrics & Gynaecology Consultation are only available with Dr. Nisha Kaushik Patnaik."
+                      );
+                      return;
+                    }
+                    setErrorMessage("");
+                    setCurrentStep(3);
+                  }}
                   className="flex items-center gap-2 group"
                 >
                   <span>Continue to Your Details</span>
