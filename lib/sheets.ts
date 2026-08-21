@@ -46,7 +46,8 @@ export async function fetchDoctorConfigFromSheet(): Promise<DoctorConfig[]> {
 // "Sat Dec 30 1899 16:00:00 GMT+0521 (India Standard Time)". Convert to "HH:MM AM/PM".
 function normalizeTime(value: string | undefined): string {
   if (!value) return "";
-  const m = value.match(/\b(\d{1,2}):(\d{2}):(\d{2})\b/);
+  // Match time pattern HH:MM:SS anywhere in the string (handles Excel epoch dates)
+  const m = value.match(/(\d{1,2}):(\d{2}):(\d{2})/);
   if (!m) return value;
   let h = Number(m[1]);
   const min = m[2];
