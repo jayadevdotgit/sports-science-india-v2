@@ -26,7 +26,6 @@ const mainSlides = [
   },
   {
     src: "/images/hero/ssi-rehab-assessment.jpg",
-    poster: "/images/hero/ssi-rehab-exercise.jpg",
     label: "Rehab & Recovery",
     caption: "Foam rolling and targeted rehabilitation",
   },
