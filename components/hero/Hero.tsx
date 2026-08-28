@@ -118,6 +118,15 @@ function MiniCard({
   onDotSelect,
 }: {
   card: { number: number; label: string; caption: string; src: string; poster?: string; type?: string };
+  isActive: boolean;
+  onClick: () => void;
+  onDotSelect: (i: number) => void;
+}) {
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
