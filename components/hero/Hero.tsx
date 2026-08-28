@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Image from "next/image";
-import { Calendar, Search, ChevronLeft, ChevronRight, TrendingUp, Activity } from "lucide-react";
+import { Calendar, Search, ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
 import ScrollButton from "@/components/ui/ScrollButton";
 
 /* ─── Main slider slides ─────────────────────────────────────────── */
@@ -196,6 +196,7 @@ export default function Hero() {
       })),
     []
   );
+
   const loopedCards = useMemo(
     () => Array.from({ length: 6 }, () => bottomCards).flat(),
     [bottomCards]
@@ -218,31 +219,35 @@ export default function Hero() {
   useEffect(() => {
     const prevCurrent = prevCurrentRef.current;
     if (current === 0 && prevCurrent === mainSlides.length - 1) {
-      // Wrapped from the last card back to the first — keep moving forward.
       lapRef.current += 1;
     }
     prevCurrentRef.current = current;
 
     const container = scrollRef.current;
+    if (!container) return;
+
     const total = loopedCards.length;
-    // Keep the target inside the repeated track; snap back to the start (no
-    // user-visible jump) if we've advanced far enough.
     if (lapRef.current >= total / mainSlides.length - 2) {
       lapRef.current = 0;
-      container?.scrollTo({ left: 0, behavior: "auto" });
+      container.scrollTo({ left: 0, behavior: "auto" });
     }
-    const targetIndex = current + mainSlides.length + lapRef.current * mainSlides.length;
+
+    const targetIndex = current + lapRef.current * mainSlides.length;
     const card = cardRefs.current[targetIndex];
-    if (!container || !card) return;
+    if (!card) return;
+
+    if (current === 0 && lapRef.current === 0) {
+      container.scrollTo({ left: 0, behavior: "auto" });
+      return;
+    }
+
     const target =
       container.scrollLeft +
       card.getBoundingClientRect().left -
       container.getBoundingClientRect().left;
     container.scrollTo({ left: target, behavior: "smooth" });
-  }, [current]);
+  }, [current, loopedCards.length]);
 
-  // Reset the lap offset once the scroll approaches the end of the looped
-  // copies so auto-advance never runs out of track.
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
@@ -341,7 +346,7 @@ export default function Hero() {
               </div>
             </div>
 
-{/* Right — main slider */}
+            {/* Right — main slider */}
             <div className="relative">
               <div className="pointer-events-none absolute -inset-4 rounded-[30px] bg-orange-500/20 blur-3xl" />
               <div
@@ -444,5 +449,3 @@ export default function Hero() {
     </section>
   );
 }
-
-
