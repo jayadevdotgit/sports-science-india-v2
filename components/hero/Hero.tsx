@@ -96,22 +96,28 @@ function MiniCard({
     >
       <div className="relative w-full flex-1 min-h-0">
         {card.type === "video" ? (
-            <Image
-              src={card.poster || card.src}
-              alt={card.label}
-              fill
-              className="object-cover object-center"
-              sizes="20vw"
-            />
-          ) : (
-            <Image
-              src={card.poster || card.src}
-              alt={card.label}
-              fill
-              className="object-cover object-center"
-              sizes="20vw"
-            />
-          )}
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-[#1a0800] to-black gap-2">
+            {/* Orange glow pulse ring */}
+            <div className="relative flex items-center justify-center">
+              <div className="absolute h-14 w-14 rounded-full bg-orange-500/20 animate-ping" />
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-full border-2 border-orange-500 bg-orange-500/20 backdrop-blur-sm shadow-[0_0_20px_rgba(249,115,22,0.6)]">
+                {/* Play triangle */}
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-orange-400 ml-0.5">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <span className="text-[9px] font-bold uppercase tracking-[2px] text-orange-400/80">Live Action</span>
+          </div>
+        ) : (
+          <Image
+            src={card.poster || card.src}
+            alt={card.label}
+            fill
+            className="object-cover object-center"
+            sizes="20vw"
+          />
+        )}
       </div>
       <div className="border-t border-white/10 px-3 py-2.5 text-left">
         <p
