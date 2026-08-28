@@ -8,29 +8,32 @@ import ScrollButton from "@/components/ui/ScrollButton";
 /* ─── Main slider slides ─────────────────────────────────────────── */
 const mainSlides = [
   {
-    src: "/images/hero/our-facility.png",
+    src: "/videos/hero/ssi-hero-video.mp4",
+    poster: "/images/hero/ssi-inside-video-poster.webp",
+    type: "video",
+    label: "Inside SSI",
+    caption: "Real athlete care in motion",
+  },
+  {
+    src: "/images/hero/ssi-performance-training.jpg",
+    label: "Performance Training",
+    caption: "Strength, control and movement quality",
+  },
+  {
+    src: "/images/hero/ssi-therapy-session.jpg",
+    label: "Sports Therapy",
+    caption: "Hands-on recovery and treatment",
+  },
+  {
+    src: "/images/hero/ssi-rehab-assessment.jpg",
+    poster: "/images/hero/ssi-rehab-exercise.jpg",
+    label: "Rehab & Recovery",
+    caption: "Foam rolling and targeted rehabilitation",
+  },
+  {
+    src: "/images/hero/ssi-facility-track.jpg",
     label: "Our Facility",
-    caption: "World-class sports science center",
-  },
-  {
-    src: "/images/hero/performance-testing.png",
-    label: "Performance Testing",
-    caption: "Data-driven athlete assessments",
-  },
-  {
-    src: "/images/hero/advanced-technology.png",
-    label: "Advanced Technology",
-    caption: "Precision. Insights. Results.",
-  },
-  {
-    src: "/images/hero/injury-preventation-rehab.png",
-    label: "Injury Prevention & Rehab",
-    caption: "Recover stronger. Perform longer.",
-  },
-  {
-    src: "/images/hero/expert-led-team.png",
-    label: "Expert-led Team",
-    caption: "Experts who care. Results that matter.",
+    caption: "A dedicated performance environment",
   },
 ];
 
@@ -69,7 +72,7 @@ function MiniCard({
   onClick,
   onDotSelect,
 }: {
-  card: { number: number; label: string; caption: string; slides: string[] };
+  card: { number: number; label: string; caption: string; src: string; poster?: string; type?: string };
   isActive: boolean;
   onClick: () => void;
   onDotSelect: (i: number) => void;
@@ -92,13 +95,23 @@ function MiniCard({
       }`}
     >
       <div className="relative w-full flex-1 min-h-0">
-        <Image
-          src={card.slides[0]}
-          alt={card.label}
-          fill
-          className="object-cover object-center"
-          sizes="20vw"
-        />
+        {card.type === "video" ? (
+            <Image
+              src={card.poster || card.src}
+              alt={card.label}
+              fill
+              className="object-cover object-center"
+              sizes="20vw"
+            />
+          ) : (
+            <Image
+              src={card.poster || card.src}
+              alt={card.label}
+              fill
+              className="object-cover object-center"
+              sizes="20vw"
+            />
+          )}
       </div>
       <div className="border-t border-white/10 px-3 py-2.5 text-left">
         <p
@@ -133,7 +146,9 @@ export default function Hero() {
         number: i + 1,
         label: s.label,
         caption: s.caption,
-        slides: [s.src],
+        src: s.src,
+        poster: s.poster,
+        type: s.type,
       })),
     []
   );
@@ -295,14 +310,27 @@ export default function Hero() {
                     className="absolute inset-0 transition-opacity duration-700"
                     style={{ opacity: i === current ? 1 : 0 }}
                   >
-                    <Image
-                      src={slide.src}
-                      alt={slide.label}
-                      fill
-                      priority={i === 0}
-                      className="object-cover object-center"
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                    />
+                    {slide.type === "video" ? (
+                      <video
+                        src={slide.src}
+                        poster={slide.poster}
+                        autoPlay={i === current}
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className="h-full w-full object-cover object-center"
+                      />
+                    ) : (
+                      <Image
+                        src={slide.src}
+                        alt={slide.label}
+                        fill
+                        priority={i === 1}
+                        className="object-cover object-center"
+                        sizes="(max-width: 1024px) 100vw, 55vw"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/20" />
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
                     <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_50%,transparent_100%)] [background:radial-gradient(ellipse_at_center,transparent_55%,rgba(5,5,5,0.9)_100%)]" />
