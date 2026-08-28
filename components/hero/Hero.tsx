@@ -8,7 +8,7 @@ import ScrollButton from "@/components/ui/ScrollButton";
 /* ─── Main slider slides ─────────────────────────────────────────── */
 const mainSlides = [
   {
-    src: "/videos/hero/ssi-hero-video.mp4",
+    src: "/images/hero/ssi-inside-video.mp4",
     poster: "/images/hero/ssi-inside-video-poster.jpg",
     type: "video",
     label: "Inside SSI",
@@ -64,6 +64,52 @@ function Dots({
   );
 }
 
+/* ─── Video Slide with reliable autoplay ─────────────────────────── */
+function VideoSlide({
+  src,
+  poster,
+  isActive,
+}: {
+  src: string;
+  poster?: string;
+  isActive: boolean;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    if (isActive) {
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.warn("Autoplay was prevented:", err);
+        });
+      }
+    } else {
+      video.pause();
+    }
+  }, [isActive]);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      muted
+      playsInline
+      loop
+      autoPlay
+      preload="auto"
+      className="h-full w-full object-cover object-center"
+    />
+  );
+}
+
 /* ─── Mini card ─────────────────────────────────────────────────── */
 function MiniCard({
   card,
@@ -72,15 +118,6 @@ function MiniCard({
   onDotSelect,
 }: {
   card: { number: number; label: string; caption: string; src: string; poster?: string; type?: string };
-  isActive: boolean;
-  onClick: () => void;
-  onDotSelect: (i: number) => void;
-}) {
-  return (
-    <div
-      role="button"
-      tabIndex={0}
-      onClick={onClick}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
@@ -309,15 +346,10 @@ export default function Hero() {
                     style={{ opacity: i === current ? 1 : 0 }}
                   >
                     {slide.type === "video" ? (
-                      <video
+                      <VideoSlide
                         src={slide.src}
                         poster={slide.poster}
-                        autoPlay={i === current}
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        className="h-full w-full object-cover object-center"
+                        isActive={i === current}
                       />
                     ) : (
                       <Image
