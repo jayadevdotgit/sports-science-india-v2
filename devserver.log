@@ -2,96 +2,186 @@
 - Local:         http://localhost:3000
 - Network:       http://192.168.1.5:3000
 - Environments: .env.local
-✓ Ready in 1510ms
+✓ Ready in 3.8s
 
- GET / 200 in 1814ms (next.js: 512ms, application-code: 1302ms)
- GET /about 200 in 222ms (next.js: 82ms, application-code: 140ms)
-[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /technology 200 in 226ms (next.js: 51ms, application-code: 174ms)
- GET /experts 200 in 179ms (next.js: 54ms, application-code: 125ms)
- GET /about 200 in 526ms (next.js: 193ms, application-code: 333ms)
- GET /technology 200 in 331ms (next.js: 98ms, application-code: 233ms)
- GET /experts 200 in 257ms (next.js: 79ms, application-code: 178ms)
- GET /about 200 in 107ms (next.js: 11ms, application-code: 97ms)
- GET /technology 200 in 73ms (next.js: 6ms, application-code: 67ms)
- GET /experts 200 in 96ms (next.js: 7ms, application-code: 89ms)
- GET /about 200 in 99ms (next.js: 7ms, application-code: 92ms)
- GET /technology 200 in 76ms (next.js: 6ms, application-code: 70ms)
- GET /experts 200 in 108ms (next.js: 8ms, application-code: 101ms)
- GET /foundation 200 in 444ms (next.js: 181ms, application-code: 263ms)
- GET /technology 200 in 61ms (next.js: 12ms, application-code: 49ms)
- GET /experts 200 in 49ms (next.js: 12ms, application-code: 37ms)
- GET /contact 200 in 160ms (next.js: 113ms, application-code: 47ms)
- GET /about 200 in 47ms (next.js: 8ms, application-code: 39ms)
- GET /contact 200 in 43ms (next.js: 7ms, application-code: 36ms)
-✓ Compiled in 747ms
- GET /contact 200 in 337ms (next.js: 267ms, application-code: 70ms)
- GET /contact 200 in 472ms (next.js: 7ms, application-code: 466ms)
- GET / 200 in 212ms (next.js: 41ms, application-code: 171ms)
+ GET / 200 in 5.2s (next.js: 2.9s, application-code: 2.2s)
 [browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET /services/sports-medicine 200 in 1451ms (next.js: 1401ms, application-code: 50ms)
- GET /contact 200 in 44ms (next.js: 9ms, application-code: 35ms)
- GET /contact 200 in 126ms (next.js: 14ms, application-code: 113ms)
+Kibo API Error: Error: 401 Authentication Fails, Your api key: ****TrFA is invalid
+    at async POST (app\api\chat\route.ts:37:24)
+  35 |       }));
+  36 |
+> 37 |     const completion = await groq.chat.completions.create({
+     |                        ^
+  38 |       model: "deepseek-chat",
+  39 |       temperature: 0.6,
+  40 |       max_tokens: 500, {
+  status: 401,
+  headers: Headers {
+    'content-type': 'application/json',
+    'content-length': '153',
+    connection: 'keep-alive',
+    date: 'Tue, 18 Aug 2026 02:06:24 GMT',
+    server: 'elb',
+    vary: 'origin, access-control-request-method, access-control-request-headers',
+    'access-control-allow-credentials': 'true',
+    'x-ds-trace-id': 'a422f09421d92aeae2ff71adc3c194bc',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'x-cache': 'Error from cloudfront',
+    via: '1.1 25738fa57a90cf7f193adbe4dd7bc6e8.cloudfront.net (CloudFront)',
+    'x-amz-cf-pop': 'MAA51-P2',
+    'x-amz-cf-id': 'HoqsaNvF9KAvRhYXV4y3DfeoKmDngmCWViM9RlAAkqIiN2QweP4gOA=='
+  },
+  requestID: null,
+  error: {
+    message: 'Authentication Fails, Your api key: ****TrFA is invalid',
+    type: 'authentication_error',
+    param: null,
+    code: 'invalid_request_error'
+  },
+  code: 'invalid_request_error',
+  param: null,
+  type: 'authentication_error'
+}
+ POST /api/chat 500 in 950ms (next.js: 136ms, application-code: 813ms)
+Kibo API Error: Error: 401 Authentication Fails, Your api key: ****TrFA is invalid
+    at async POST (app\api\chat\route.ts:37:24)
+  35 |       }));
+  36 |
+> 37 |     const completion = await groq.chat.completions.create({
+     |                        ^
+  38 |       model: "deepseek-chat",
+  39 |       temperature: 0.6,
+  40 |       max_tokens: 500, {
+  status: 401,
+  headers: Headers {
+    'content-type': 'application/json',
+    'content-length': '153',
+    connection: 'keep-alive',
+    date: 'Tue, 18 Aug 2026 02:06:46 GMT',
+    server: 'elb',
+    vary: 'origin, access-control-request-method, access-control-request-headers',
+    'access-control-allow-credentials': 'true',
+    'x-ds-trace-id': 'e42ec47d91b79b3c076b32f5ff15ac5d',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'x-content-type-options': 'nosniff',
+    'x-cache': 'Error from cloudfront',
+    via: '1.1 5658c4f258eecb6844e61ba6f802b9ce.cloudfront.net (CloudFront)',
+    'x-amz-cf-pop': 'MAA51-P1',
+    'x-amz-cf-id': 'eRLf-t1W95pQAB-ZPnXK0JdB1B47U5GlTqlIMUi7g_RPWHh43X-aPg=='
+  },
+  requestID: null,
+  error: {
+    message: 'Authentication Fails, Your api key: ****TrFA is invalid',
+    type: 'authentication_error',
+    param: null,
+    code: 'invalid_request_error'
+  },
+  code: 'invalid_request_error',
+  param: null,
+  type: 'authentication_error'
+}
+ POST /api/chat 500 in 620ms (next.js: 6ms, application-code: 614ms)
+ GET / 200 in 249ms (next.js: 113ms, application-code: 136ms)
+ GET / 200 in 368ms (next.js: 188ms, application-code: 181ms)
+  Reload env: .env.local
+✓ Compiled in 309ms
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 1181ms (next.js: 207ms, application-code: 974ms)
+ GET / 200 in 2.0s (next.js: 481ms, application-code: 1564ms)
+ GET / 200 in 1379ms (next.js: 84ms, application-code: 1295ms)
+ GET / 200 in 1190ms (next.js: 120ms, application-code: 1070ms)
+ GET / 200 in 1189ms (next.js: 1011ms, application-code: 178ms)
+ GET / 200 in 1260ms (next.js: 8ms, application-code: 1251ms)
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+Kibo API Error: Error: 429 Error from provider (Console): Rate limit exceeded. Please try again later.
+    at async POST (app\api\chat\route.ts:37:24)
+  35 |       }));
+  36 |
+> 37 |     const completion = await groq.chat.completions.create({
+     |                        ^
+  38 |       model: "deepseek-v4-flash-free",
+  39 |       temperature: 0.6,
+  40 |       max_tokens: 500, {
+  status: 429,
+  headers: Headers {
+    date: 'Tue, 18 Aug 2026 02:10:16 GMT',
+    'content-type': 'application/json',
+    'content-length': '143',
+    connection: 'keep-alive',
+    'cf-placement': 'remote-ORD',
+    server: 'cloudflare',
+    'cf-ray': 'a2cd619569ad21f7-DEN'
+  },
+  requestID: null,
+  error: {
+    type: 'FreeUsageLimitError',
+    message: 'Error from provider (Console): Rate limit exceeded. Please try again later.'
+  },
+  code: undefined,
+  param: undefined,
+  type: 'FreeUsageLimitError'
+}
+ POST /api/chat 500 in 4.2s (next.js: 125ms, application-code: 4.0s)
+ GET / 200 in 412ms (next.js: 203ms, application-code: 209ms)
+ POST /api/chat 200 in 4.1s (next.js: 76ms, application-code: 4.0s)
+ GET / 200 in 404ms (next.js: 199ms, application-code: 205ms)
+ POST /api/chat 200 in 59s (next.js: 71ms, application-code: 59s)
+ POST /api/chat 200 in 4.7s (next.js: 5ms, application-code: 4.7s)
+ POST /api/chat 200 in 7.1s (next.js: 6ms, application-code: 7.1s)
+ GET /contact 200 in 2.0s (next.js: 1386ms, application-code: 640ms)
+ GET /technology 200 in 2.0s (next.js: 1629ms, application-code: 411ms)
+ GET /experts 200 in 2.0s (next.js: 1500ms, application-code: 534ms)
+ GET / 200 in 2.1s (next.js: 30ms, application-code: 2.0s)
+○ Compiling /technology ...
+ GET /admin 200 in 6.5s (next.js: 6.4s, application-code: 89ms)
+ GET /booking 200 in 6.5s (next.js: 6.1s, application-code: 338ms)
+ GET /arthroscopy-conference 200 in 871ms (next.js: 51ms, application-code: 820ms)
+ GET /foundation 200 in 876ms (next.js: 381ms, application-code: 495ms)
+ GET /awards 200 in 874ms (next.js: 209ms, application-code: 665ms)
+ GET /fanzine 200 in 876ms (next.js: 453ms, application-code: 423ms)
+ GET /clinic 200 in 880ms (next.js: 524ms, application-code: 356ms)
+ GET /about 200 in 877ms (next.js: 298ms, application-code: 579ms)
+ GET /ssi-sports 200 in 783ms (next.js: 60ms, application-code: 723ms)
+ GET /sports-conclave 200 in 786ms (next.js: 227ms, application-code: 559ms)
+ GET /services/biomechanics 200 in 779ms (next.js: 321ms, application-code: 457ms)
+ GET /sports-connect 200 in 2.3s (next.js: 1857ms, application-code: 414ms)
+ GET /young-athlete-program 200 in 2.3s (next.js: 1996ms, application-code: 274ms)
+ GET /services/assessments 200 in 1695ms (next.js: 1521ms, application-code: 174ms)
+○ Compiling /services/cardiovascular-training ...
+ GET /services/human-performance/strength-conditioning 200 in 4.1s (next.js: 2.1s, application-code: 1974ms)
+ GET /services/human-performance/sports-medicine 200 in 4.1s (next.js: 2.4s, application-code: 1675ms)
+ GET /services/hip-mobility 200 in 4.1s (next.js: 2.7s, application-code: 1455ms)
+ GET /services/core-stability 200 in 4.1s (next.js: 2.9s, application-code: 1196ms)
+ GET /services/cardiovascular-training 200 in 4.1s (next.js: 3.8s, application-code: 358ms)
+ GET /services/elbow-performance 200 in 4.1s (next.js: 3.9s, application-code: 270ms)
+ GET /services/ligament-surgery 200 in 706ms (next.js: 25ms, application-code: 681ms)
+ GET /services/joint-preservation 200 in 713ms (next.js: 77ms, application-code: 636ms)
+ GET /services/musculoskeletal-rehab 200 in 713ms (next.js: 262ms, application-code: 451ms)
+ GET /services/obstetrics-gynaecology-consultation 200 in 728ms (next.js: 358ms, application-code: 370ms)
+ GET /services/neck-care 200 in 1866ms (next.js: 1544ms, application-code: 322ms)
+ GET /services/injury-prevention 200 in 1877ms (next.js: 1719ms, application-code: 158ms)
+ GET /services/physiotherapy 200 in 1071ms (next.js: 20ms, application-code: 1051ms)
+ GET /services/sports-psychology 200 in 1073ms (next.js: 407ms, application-code: 666ms)
+ GET /services/return-to-sports 200 in 1072ms (next.js: 268ms, application-code: 804ms)
+ GET /services/sports-medicine 200 in 251ms (next.js: 14ms, application-code: 237ms)
+ GET /services/rehabilitation 200 in 1364ms (next.js: 1162ms, application-code: 201ms)
+ GET /services/pre-post-natal-rehab 200 in 1912ms (next.js: 1788ms, application-code: 125ms)
+ GET /services/sports-rehabilitation 200 in 597ms (next.js: 17ms, application-code: 580ms)
+ GET /services/sports-science 200 in 599ms (next.js: 124ms, application-code: 475ms)
+ GET /services/sports-surgery 200 in 326ms (next.js: 7ms, application-code: 319ms)
+ GET /services/strength-conditioning 200 in 327ms (next.js: 142ms, application-code: 185ms)
+ GET /services/wrist-function 200 in 973ms (next.js: 872ms, application-code: 101ms)
+ GET / 200 in 485ms (next.js: 224ms, application-code: 261ms)
+ GET / 200 in 464ms (next.js: 262ms, application-code: 202ms)
+  Reload env: .env.local
+✓ Compiled in 2.5s
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 1509ms (next.js: 1248ms, application-code: 262ms)
+ GET / 200 in 1523ms (next.js: 1365ms, application-code: 158ms)
+ GET / 200 in 1525ms (next.js: 135ms, application-code: 1390ms)
+ GET / 200 in 3.6s (next.js: 1172ms, application-code: 2.4s)
+ GET / 200 in 1940ms (next.js: 248ms, application-code: 1692ms)
+ GET / 200 in 1563ms (next.js: 9ms, application-code: 1553ms)
+  Reload env: .env.local
 ✓ Compiled in 863ms
- GET /contact 200 in 989ms (next.js: 326ms, application-code: 664ms)
- GET /contact 200 in 452ms (next.js: 35ms, application-code: 417ms)
-✓ Compiled in 304ms
- GET /contact 200 in 327ms (next.js: 166ms, application-code: 161ms)
- GET /contact 200 in 54ms (next.js: 8ms, application-code: 46ms)
- GET / 200 in 208ms (next.js: 48ms, application-code: 160ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET /services/sports-medicine 200 in 101ms (next.js: 54ms, application-code: 47ms)
-✓ Compiled in 243ms
- GET /services/sports-medicine 200 in 278ms (next.js: 134ms, application-code: 144ms)
- GET /services/sports-medicine 200 in 64ms (next.js: 11ms, application-code: 52ms)
- GET /contact 200 in 141ms (next.js: 74ms, application-code: 67ms)
-✓ Compiled in 199ms
- GET /contact 200 in 447ms (next.js: 207ms, application-code: 240ms)
- GET /contact 200 in 137ms (next.js: 13ms, application-code: 123ms)
-✓ Compiled in 258ms
- GET /contact 200 in 330ms (next.js: 181ms, application-code: 149ms)
- GET /contact 200 in 66ms (next.js: 7ms, application-code: 59ms)
-✓ Compiled in 191ms
- GET /contact 200 in 305ms (next.js: 169ms, application-code: 137ms)
- GET /contact 200 in 57ms (next.js: 7ms, application-code: 50ms)
- GET /about 200 in 950ms (next.js: 403ms, application-code: 547ms)
- GET /technology 200 in 509ms (next.js: 193ms, application-code: 315ms)
- GET /experts 200 in 558ms (next.js: 241ms, application-code: 316ms)
- GET /contact 200 in 217ms (next.js: 10ms, application-code: 207ms)
- GET /about 200 in 364ms (next.js: 10ms, application-code: 354ms)
-[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /technology 200 in 141ms (next.js: 10ms, application-code: 131ms)
- GET / 200 in 208ms (next.js: 59ms, application-code: 149ms)
-[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
- GET /experts 200 in 156ms (next.js: 13ms, application-code: 143ms)
- GET /services/sports-medicine 200 in 189ms (next.js: 74ms, application-code: 114ms)
- GET /contact 200 in 175ms (next.js: 17ms, application-code: 158ms)
- GET /contact 200 in 53ms (next.js: 7ms, application-code: 45ms)
- GET /about 200 in 43ms (next.js: 6ms, application-code: 37ms)
- GET /about 200 in 149ms (next.js: 9ms, application-code: 140ms)
-[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /experts 200 in 40ms (next.js: 7ms, application-code: 34ms)
- GET /technology 200 in 94ms (next.js: 7ms, application-code: 87ms)
- GET /experts 200 in 111ms (next.js: 8ms, application-code: 104ms)
- GET /contact 200 in 110ms (next.js: 9ms, application-code: 102ms)
- GET /about 200 in 401ms (next.js: 17ms, application-code: 383ms)
-[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
- GET /technology 200 in 113ms (next.js: 9ms, application-code: 104ms)
- GET /experts 200 in 117ms (next.js: 8ms, application-code: 110ms)
- GET /contact 200 in 107ms (next.js: 8ms, application-code: 99ms)
- GET /about 200 in 224ms (next.js: 14ms, application-code: 210ms)
-[browser] Image with src "/images/logo/ssi-red-panda.png" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-○ Compiling /services/biomechanics ...
- GET /services/biomechanics 200 in 4.9s (next.js: 4.6s, application-code: 274ms)
- GET /services/sports-psychology 200 in 3.0s (next.js: 2.8s, application-code: 189ms)
- GET /services/biomechanics 200 in 151ms (next.js: 10ms, application-code: 141ms)
- GET /services/sports-psychology 200 in 134ms (next.js: 8ms, application-code: 126ms)
- GET /services/biomechanics 200 in 241ms (next.js: 31ms, application-code: 209ms)
- GET /services/sports-psychology 200 in 125ms (next.js: 9ms, application-code: 116ms)
- GET /services/biomechanics 200 in 201ms (next.js: 13ms, application-code: 188ms)
- GET /services/sports-psychology 200 in 142ms (next.js: 8ms, application-code: 135ms)

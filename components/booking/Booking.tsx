@@ -374,7 +374,16 @@ export default function Booking() {
   function handleInputChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    let validatedValue = value;
+
+    if (name === "name") {
+      validatedValue = value.replace(/[^a-zA-Z\s]/g, "");
+    } else if (name === "phone") {
+      validatedValue = value.replace(/[^0-9+\-\s()]/g, "");
+    }
+
+    setFormData((prev) => ({ ...prev, [name]: validatedValue }));
   }
 
   async function handleSubmit(e: FormEvent) {
@@ -383,6 +392,24 @@ export default function Booking() {
 
     if (!formData.name || !formData.email || !formData.phone) {
       setErrorMessage("Please complete all contact details (Name, Email, Phone).");
+      return;
+    }
+
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    if (!nameRegex.test(formData.name.trim())) {
+      setErrorMessage("Full Name can only contain letters and spaces.");
+      return;
+    }
+
+    const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i;
+    if (!emailRegex.test(formData.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?[-\s\.]?[0-9]{4,6}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s/g, ""))) {
+      setErrorMessage("Please enter a valid phone number.");
       return;
     }
 
@@ -767,7 +794,7 @@ export default function Booking() {
 
                 {/* Custom Date Input Fallback */}
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="text-xs text-gray-500">Or choose specific date:</span>
+                  <span className="text-xs text-gray-500">or choose specific date:</span>
                   <input
                     type="date"
                     min={availableDates[0]?.iso}
@@ -892,6 +919,9 @@ export default function Booking() {
                     value={formData.name}
                     onChange={handleInputChange}
                     placeholder="e.g. Rahul Sharma"
+                    pattern="[A-Za-z\s]+"
+                    title="Only letters and spaces allowed"
+                    inputMode="text"
                     className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
                   />
                 </div>
@@ -908,6 +938,9 @@ export default function Booking() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="rahul@example.com"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    title="Please enter a valid email address"
+                    inputMode="email"
                     className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
                   />
                 </div>
@@ -924,6 +957,9 @@ export default function Booking() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="+91 98765 43210"
+                    pattern="[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?[-\s\.]?[0-9]{4,6}"
+                    title="Please enter a valid phone number"
+                    inputMode="tel"
                     className="w-full rounded-xl border border-gray-800 bg-[#0e0e12] p-3.5 text-sm text-white outline-none transition focus:border-orange-500"
                   />
                 </div>
