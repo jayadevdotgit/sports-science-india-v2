@@ -15,8 +15,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   alternates: { canonical: site.url },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/images/logo/ssi-logo.-favicon.png",
+    icon: "/images/logo/favicon.png",
+    apple: "/images/logo/favicon.png",
   },
   openGraph: {
     type: "website",
