@@ -5,12 +5,24 @@ import { servicesList } from "@/components/services/services";
 export const site = {
   name: "Sports Science India",
   url: "https://www.sportsscienceindia.org",
+
   description:
     "India's leading sports medicine and sports science centre in Bhubaneswar — sports injury treatment, rehabilitation, performance analysis and athlete development.",
+
+  // Social sharing image
   image: "/images/logo/ssi-logo.png",
+
+  // Main SSI logo
+  logo: "/images/logo/ssi-logo.png",
+
+  // Original SSI fox favicon
+  favicon: "/images/logo/favicon.png",
+
   phone: "+91 73813 80010",
   phoneAlt: "+91 82803 81010",
+
   email: "sportsscienceindia.office@gmail.com",
+
   address: {
     street: "A17/1A, Surya Nagar",
     city: "Bhubaneswar",
@@ -22,7 +34,10 @@ export const site = {
 
 export function absoluteUrl(path: string): string {
   if (!path) return site.url;
-  return path.startsWith("http") ? path : `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
+
+  return path.startsWith("http")
+    ? path
+    : `${site.url}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
 type SeoOptions = {
@@ -38,31 +53,59 @@ function slugOf(link: string): string {
   return link.split("/").filter(Boolean).pop() || "";
 }
 
-export function serviceSeo(slug: string): { title: string; description: string } {
-  const body = bodyData.find((item) => slugOf(item.link) === slug);
+export function serviceSeo(
+  slug: string
+): { title: string; description: string } {
+  const body = bodyData.find(
+    (item) => slugOf(item.link) === slug
+  );
+
   if (body) {
     return {
       title: body.title,
       description: body.description,
     };
   }
-  const service = servicesList.find((item) => slugOf(item.link) === slug);
+
+  const service = servicesList.find(
+    (item) => slugOf(item.link) === slug
+  );
+
   if (service) {
     return {
       title: service.title,
       description: service.description,
     };
   }
-  return { title: slug.replace(/-/g, " "), description: "Sports science service at Sports Science India, Bhubaneswar." };
+
+  return {
+    title: slug.replace(/-/g, " "),
+    description:
+      "Sports science service at Sports Science India, Bhubaneswar.",
+  };
 }
 
-export function serviceMetadata(slug: string, path: string): Metadata {
+export function serviceMetadata(
+  slug: string,
+  path: string
+): Metadata {
   const { title, description } = serviceSeo(slug);
+
   return buildMetadata({
     title,
     description: `${description} ${site.name}, Bhubaneswar.`,
     path,
-    keywords: [title, "sports science", "sports medicine", "Bhubaneswar", "physiotherapy"],
+    keywords: [
+      title,
+      "sports science",
+      "sports medicine",
+      "sports injury",
+      "sports rehabilitation",
+      "performance testing",
+      "Bhubaneswar",
+      "Odisha",
+      "physiotherapy",
+    ],
   });
 }
 
@@ -81,19 +124,42 @@ export function buildMetadata({
     title,
     description,
     keywords,
+
     metadataBase: new URL(site.url),
-    alternates: { canonical },
+
+    alternates: {
+      canonical,
+    },
+
     robots: noindex
-      ? { index: false, follow: false, nocache: true }
-      : { index: true, follow: true },
+      ? {
+          index: false,
+          follow: false,
+          nocache: true,
+        }
+      : {
+          index: true,
+          follow: true,
+        },
+
     openGraph: {
       type: "website",
       siteName: site.name,
       title,
       description,
       url: canonical,
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: title }],
+      locale: "en_IN",
+
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
     },
+
     twitter: {
       card: "summary_large_image",
       title,
