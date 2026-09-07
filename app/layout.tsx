@@ -42,10 +42,15 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
+
     siteName: site.name,
+
     title: "Sports Science India | Prevent Injury, Prolong Career",
+
     description: site.description,
+
     url: site.url,
+
     locale: "en_IN",
 
     images: [
@@ -60,20 +65,28 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
+
     title: "Sports Science India | Prevent Injury, Prolong Career",
+
     description: site.description,
+
     images: [`${site.url}${site.image}`],
   },
 
   robots: {
     index: true,
+
     follow: true,
 
     googleBot: {
       index: true,
+
       follow: true,
+
       "max-image-preview": "large",
+
       "max-snippet": -1,
+
       "max-video-preview": -1,
     },
   },
@@ -86,11 +99,13 @@ export default function RootLayout({
 }>) {
   const schema = {
     "@context": "https://schema.org",
+
     "@type": "MedicalBusiness",
 
     "@id": `${site.url}/#organization`,
 
     name: site.name,
+
     url: site.url,
 
     description: site.description,
@@ -100,34 +115,47 @@ export default function RootLayout({
     image: `${site.url}${site.image}`,
 
     telephone: site.phone,
+
     email: site.email,
 
     address: {
       "@type": "PostalAddress",
+
       streetAddress: site.address.street,
+
       addressLocality: site.address.city,
+
       addressRegion: site.address.state,
+
       postalCode: site.address.postalCode,
+
       addressCountry: site.address.country,
     },
 
     geo: {
       "@type": "GeoCoordinates",
+
       latitude: 20.2961,
+
       longitude: 85.8245,
     },
 
     areaServed: [
       {
         "@type": "Country",
+
         name: "India",
       },
+
       {
         "@type": "State",
+
         name: "Odisha",
       },
+
       {
         "@type": "City",
+
         name: "Bhubaneswar",
       },
     ],
@@ -149,6 +177,7 @@ export default function RootLayout({
         ],
 
         opens: "10:00",
+
         closes: "20:00",
       },
     ],
@@ -181,6 +210,7 @@ export default function RootLayout({
 
         <div className="relative">
           <MouseGlow />
+
           <SmoothScroll />
 
           {children}
