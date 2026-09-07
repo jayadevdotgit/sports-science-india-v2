@@ -4,6 +4,7 @@ import { servicesList } from "@/components/services/services";
 
 export const site = {
   name: "Sports Science India",
+
   url: "https://www.sportsscienceindia.org",
 
   description:
@@ -15,10 +16,11 @@ export const site = {
   // Main SSI logo
   logo: "/images/logo/ssi-logo.png",
 
-  // Original SSI fox favicon
+  // Browser favicon
   favicon: "/images/logo/favicon.png",
 
   phone: "+91 73813 80010",
+
   phoneAlt: "+91 82803 81010",
 
   email: "sportsscienceindia.office@gmail.com",
@@ -55,7 +57,10 @@ function slugOf(link: string): string {
 
 export function serviceSeo(
   slug: string
-): { title: string; description: string } {
+): {
+  title: string;
+  description: string;
+} {
   const body = bodyData.find(
     (item) => slugOf(item.link) === slug
   );
@@ -122,7 +127,9 @@ export function buildMetadata({
 
   return {
     title,
+
     description,
+
     keywords,
 
     metadataBase: new URL(site.url),
@@ -144,10 +151,15 @@ export function buildMetadata({
 
     openGraph: {
       type: "website",
+
       siteName: site.name,
+
       title,
+
       description,
+
       url: canonical,
+
       locale: "en_IN",
 
       images: [
@@ -162,8 +174,11 @@ export function buildMetadata({
 
     twitter: {
       card: "summary_large_image",
+
       title,
+
       description,
+
       images: [imageUrl],
     },
   };
