@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -68,7 +69,85 @@ function PartnerRow({
   category: (typeof categories)[number];
 }) {
   const Icon = category.icon;
-  const track = [...category.partners, ...category.partners];
+  const base = category.partners;
+  const [copies, setCopies] = useState(2);
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const drag = useRef({ active: false, startX: 0, startLeft: 0 });
+
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
+
+  const oneCopyWidth = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return 0;
+    const items = el.querySelectorAll<HTMLElement>("[data-partner-item]");
+    if (items.length <= base.length) return 0;
+    return items[base.length].offsetLeft - items[0].offsetLeft;
+  }, [base.length]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const measure = () => {
+      const oneCopy = oneCopyWidth();
+      if (!oneCopy) return;
+      const needed = Math.max(2, Math.ceil(el.clientWidth / oneCopy) + 2);
+      setCopies((c) => (c === needed ? c : needed));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [oneCopyWidth]);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let raf = 0;
+    let last = performance.now();
+    const speed = 45;
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05);
+      last = now;
+      if (!pausedRef.current && !drag.current.active) {
+        const oneCopy = oneCopyWidth();
+        if (oneCopy > 0) {
+          let next = el.scrollLeft + speed * dt;
+          if (next >= oneCopy) next -= oneCopy;
+          el.scrollLeft = next;
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [oneCopyWidth]);
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const el = scrollRef.current;
+    if (!el) return;
+    drag.current = { active: true, startX: e.clientX, startLeft: el.scrollLeft };
+    el.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el || !drag.current.active) return;
+    el.scrollLeft = drag.current.startLeft - (e.clientX - drag.current.startX);
+  };
+
+  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollRef.current;
+    if (!el || !drag.current.active) return;
+    drag.current.active = false;
+    if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId);
+  };
+
+  const items = Array.from({ length: copies }).flatMap(() => base);
 
   return (
     <div>
@@ -82,13 +161,27 @@ function PartnerRow({
         </h3>
       </div>
 
-      <div className="overflow-hidden">
-        <div className="marquee marquee-slow flex items-center gap-4 py-1">
-          {track.map((p, i) => (
+      <div
+        ref={scrollRef}
+        className="scrollbar-hide cursor-grab select-none overflow-x-auto active:cursor-grabbing"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={() => setPaused(true)}
+        onTouchEnd={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={() => setPaused(false)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={endDrag}
+        onPointerCancel={endDrag}
+      >
+        <div className="flex w-max items-center gap-4 py-1">
+          {items.map((p, i) => (
             <div
               key={`${p.src}-${i}`}
+              data-partner-item
               className="relative h-28 w-64 shrink-0 sm:h-32 sm:w-72 flex-[0_0_auto]"
-              aria-hidden={i >= category.partners.length}
+              aria-hidden={i >= base.length}
             >
               <div
                 className={`group relative flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 transition-transform duration-500 hover:-translate-y-1 border-2 ${category.border}`}
@@ -100,6 +193,7 @@ function PartnerRow({
                     fill
                     sizes="256px"
                     unoptimized
+                    draggable={false}
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
