@@ -125,3 +125,21 @@ test('email corrections preserve records and invalidate old login',()=>{
  assert.equal(state.me.joiningDate,'2026-01-01');
  assert.equal(call({operation:'staff',actor:admin,originalEmail:email,email:admin,name:'Bad'}).status,403);
 });
+
+test('request-local sheet reuse avoids repeat reads and preserves physical rows',()=>{
+ let opens=0,reads=0;
+ const rows=[['Email','Hash','Expires (ms)','Attempts','Sent At (ms)','Sent At (IST)','Window Start (ms)','Window Start (IST)','Sent'],['','','','','','','','',''],['a@test.com','old','123','0','1','','1','','1']];
+ const sheet={getLastRow:()=>rows.length,getLastColumn:()=>9,getRange:(r,c,h=1,w=1)=>{
+  const range={getDisplayValues:()=>{reads++;return Array.from({length:h},(_,i)=>Array.from({length:w},(_,j)=>String(rows[r-1+i]?.[c-1+j]??'')))},setNumberFormat:()=>range,setValues:values=>{values.forEach((row,i)=>{rows[r-1+i]??=[];row.forEach((v,j)=>rows[r-1+i][c-1+j]=v)});return range}};return range;
+ }};
+ const context=vm.createContext({SHEET_ID:'test',SpreadsheetApp:{openById:()=>{opens++;return {getSheetByName:()=>sheet}}},Utilities:{formatDate:()=> 'time'}});
+ vm.runInContext(source,context);
+ assert.equal(context.staffRows_('Auth')[0].hash,'old');
+ context.staffPut_('Auth','a@test.com',{email:'a@test.com',hash:'new',expires:123,attempts:1,sentAt:1,windowStart:1,sent:1});
+ assert.equal(opens,1);assert.equal(reads,1,'write reuses the existing read');
+ assert.equal(rows[1][0],'');assert.equal(rows[2][1],'new');
+ assert.equal(context.staffRows_('Auth')[0].hash,'new','write invalidates cached rows');
+ // A new request must re-read account/OTP state, never reuse an old authorization snapshot.
+ vm.runInContext('staffRequest_ = null',context);
+ rows[2][1]='external-update';assert.equal(context.staffRows_('Auth')[0].hash,'external-update');assert.equal(opens,2);
+});

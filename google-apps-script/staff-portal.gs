@@ -9,12 +9,21 @@ const STAFF_HEADERS = {
   Attendance: ['ID', 'Email', 'Day', 'Check In', 'Check Out'],
   Leave: ['ID', 'Email', 'Type', 'Start', 'End', 'Days', 'Reason', 'Status', 'Created', 'Reviewed By', 'Reviewed At']
 };
+// Request-local reuse only: never cache permissions or OTP state across requests.
+let staffRequest_ = null;
+function staffBook_() {
+  if (!staffRequest_) staffRequest_ = {book: null, tables: {}, rows: {}, keys: {}};
+  if (!staffRequest_.book) staffRequest_.book = SpreadsheetApp.openById(SHEET_ID);
+  return staffRequest_.book;
+}
 function staffTable_(name) {
-  const book = SpreadsheetApp.openById(SHEET_ID);
+  const book = staffBook_();
+  if (staffRequest_.tables[name]) return staffRequest_.tables[name];
   let sheet = book.getSheetByName('Staff_' + name);
   if (!sheet) sheet = book.insertSheet('Staff_' + name);
   const headers = STAFF_HEADERS[name] || ['ID', 'Record JSON'];
   if (sheet.getLastRow() === 0) sheet.appendRow(headers);
+  staffRequest_.tables[name] = sheet;
   // Migrate the earlier two-column JSON format into readable columns once.
   if (sheet.getLastColumn() === 2 && sheet.getRange(1, 2).getDisplayValue() === 'Record JSON' && STAFF_HEADERS[name]) {
     const old = sheet.getLastRow() > 1 ? sheet.getRange(2, 2, sheet.getLastRow() - 1, 1).getDisplayValues() : [];
@@ -58,9 +67,12 @@ function staffTable_(name) {
 }
 function staffRows_(name) {
   const sheet = staffTable_(name);
+  if (staffRequest_.rows[name]) return staffRequest_.rows[name];
   if (sheet.getLastRow() < 2) return [];
   const headers = STAFF_HEADERS[name] || ['ID', 'Record JSON'];
-  return sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getDisplayValues()
+  const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getDisplayValues();
+  staffRequest_.keys[name] = values.map(function(row) { return row[0]; });
+  return staffRequest_.rows[name] = values
     .filter(function(row) { return row.some(function(value) { return value !== ''; }); })
     .map(function(row) {
       const record = {};
@@ -74,22 +86,24 @@ function staffRows_(name) {
 function staffPut_(name, id, record) {
   const sheet = staffTable_(name);
   const headers = STAFF_HEADERS[name] || ['ID', 'Record JSON'];
-  const rows = sheet.getLastRow() > 1 ? sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getDisplayValues() : [];
-  const idIndex = name === 'Auth' ? 0 : 0;
-  const position = rows.findIndex(function(row) { return row[idIndex] === (name === 'Auth' ? record.email : id); });
+  // Reuse the rows already read by auth/read instead of scanning the sheet again.
+  staffRows_(name);
+  const position = (staffRequest_.keys[name] || []).indexOf(id);
   let values;
   if (name === 'Auth') values = [record.email, record.hash, record.expires, record.attempts, record.sentAt, record.sentAt ? Utilities.formatDate(new Date(record.sentAt), 'Asia/Kolkata', 'yyyy-MM-dd hh:mm a') : '', record.windowStart, record.windowStart ? Utilities.formatDate(new Date(record.windowStart), 'Asia/Kolkata', 'yyyy-MM-dd hh:mm a') : '', record.sent];
   else if (name === 'Attendance') values = [record.id, record.email, record.day, record.check_in, record.check_out || ''];
   else if (name === 'Leave') values = [record.id, record.email, record.type, record.start, record.end, record.days, record.reason, record.status, record.created, record.reviewed_by || '', record.reviewed_at || ''];
   else values = [id, JSON.stringify(record)];
   sheet.getRange(position < 0 ? sheet.getLastRow() + 1 : position + 2, 1, 1, values.length).setNumberFormat('@').setValues([values]);
+  delete staffRequest_.rows[name];
+  delete staffRequest_.keys[name];
 }
 function staffDirectory_() {
-  const book = SpreadsheetApp.openById(SHEET_ID);
+  const book = staffBook_();
   let sheet = book.getSheetByName('Staff');
   if (!sheet) sheet = book.insertSheet('Staff');
   if (sheet.getLastRow() === 0) sheet.appendRow(['Name', 'Email', 'Role', 'Quota (legacy)', 'Active', 'Joining Date']);
-  sheet.getRange(1, 6).setValue('Joining Date');
+  if (sheet.getRange(1, 6).getDisplayValue() !== 'Joining Date') sheet.getRange(1, 6).setValue('Joining Date');
   if (sheet.getLastRow() < 2) return [];
   const joiningDates = sheet.getRange(2, 6, sheet.getLastRow() - 1, 1).getValues();
   return sheet.getRange(2, 1, sheet.getLastRow() - 1, 6).getDisplayValues()
@@ -105,12 +119,12 @@ function staffDirectory_() {
     });
 }
 function staffSavePerson_(person) {
-  const book = SpreadsheetApp.openById(SHEET_ID);
+  const book = staffBook_();
   const sheet = book.getSheetByName('Staff') || book.insertSheet('Staff');
   if (sheet.getLastRow() === 0) sheet.appendRow(['Name', 'Email', 'Role', 'Quota (legacy)', 'Active', 'Joining Date']);
   const rows = sheet.getLastRow() > 1 ? sheet.getRange(2, 1, sheet.getLastRow() - 1, 5).getDisplayValues() : [];
   const index = rows.findIndex(function(row) { return row[1].trim().toLowerCase() === (person.originalEmail || person.email); });
-  sheet.getRange(1, 6).setValue('Joining Date');
+  if (sheet.getRange(1, 6).getDisplayValue() !== 'Joining Date') sheet.getRange(1, 6).setValue('Joining Date');
   const previousDate = index < 0 ? '' : sheet.getRange(index + 2, 6).getDisplayValue();
   const values = [[person.name, person.email, person.role, person.quota || 0, person.active ? 'Yes' : 'No', person.joiningDate === undefined ? previousDate : person.joiningDate]];
   sheet.getRange(index < 0 ? sheet.getLastRow() + 1 : index + 2, 1, 1, 6).setNumberFormat('@').setValues(values);
@@ -130,6 +144,7 @@ function staffDays_(start, end) {
   return total - (firstSunday < total ? Math.floor((total - 1 - firstSunday) / 7) + 1 : 0);
 }
 function staffDispatch_(p) {
+  staffRequest_ = {book: null, tables: {}, rows: {}, keys: {}};
   try { return Object.assign({ok: true, staffVersion: 1}, staffOperation_(p)); }
   catch (error) { return {ok: false, staffVersion: 1, error: error.message || 'Unable to access staff records', status: error.status || 503}; }
 }

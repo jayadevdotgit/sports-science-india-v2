@@ -2,10 +2,12 @@
 
 import { ArrowLeft, ArrowRight, CheckCircle2, LockKeyhole, Mail, ShieldCheck } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Kibo from '@/components/panda/Kibo';
 
 export default function StaffLogin() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [sent, setSent] = useState(false);
@@ -21,6 +23,8 @@ export default function StaffLogin() {
     };
   }, []);
 
+  useEffect(() => { if (sent) router.prefetch('/staff'); }, [sent, router]);
+
   async function submit(mode: 'request' | 'verify') {
     setBusy(true);
     setMessage('');
@@ -28,7 +32,7 @@ export default function StaffLogin() {
       const response = await fetch('/api/staff/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode, email, code }) });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error);
-      if (mode === 'verify') { window.location.assign('/staff'); return; }
+      if (mode === 'verify') { router.replace('/staff'); return; }
       setSent(true); setMessage(data.message);
     } catch (error) { setMessage(error instanceof Error ? error.message : 'Unable to connect. Please try again.'); }
     finally { setBusy(false); }
