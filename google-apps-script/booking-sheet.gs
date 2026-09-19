@@ -68,8 +68,9 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
-    authorize_(e.parameter.key);
     const payload = JSON.parse(e.postData.contents);
+    authorize_(e.parameter.key || (payload.action === 'staff_portal' ? payload.key : ''));
+    if (payload.action === 'staff_portal') return jsonOutput_(staffDispatch_(payload));
 
     // Admin config updates
     if (payload.action === "config") {

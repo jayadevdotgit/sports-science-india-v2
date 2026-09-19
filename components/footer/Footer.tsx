@@ -11,7 +11,7 @@ import {
 const links = [
   ["Home", "/"], ["Services", "/#services"], ["About", "/about"],
   ["Technology", "/technology"], ["Experts", "/experts"],
-  ["Assessment", "/booking"], ["Contact", "/contact"],
+  ["Assessment", "/booking"], ["Contact", "/contact"], ["Staff portal", "/staff"],
 ];
 
 const socials = [

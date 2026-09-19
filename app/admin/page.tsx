@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { LogOut, Download, Loader2, Lock, User, FileSpreadsheet, CalendarClock, Save } from "lucide-react";
+import { LogOut, Download, Loader2, Lock, User, FileSpreadsheet, CalendarClock, Save, Users, Check, X, RefreshCw } from "lucide-react";
 import { DOCTORS, TIME_SLOTS, defaultDoctorConfigs, type DoctorConfig } from "@/lib/booking-config";
 import Navbar from "@/components/layout/Navbar";
 
 type AuthState = "checking" | "authed" | "guest";
-type Tab = "bookings" | "manage";
+type Tab = "bookings" | "manage" | "staff";
+type StaffPerson = { email: string; name: string; role: string; quota: number; joiningDate?: string; active?: boolean };
+type StaffLeave = { id: string; email: string; type: string; start: string; end: string; days: number; reason: string; status: string; reviewed_by?: string };
+type StaffData = { people: StaffPerson[]; leave: StaffLeave[]; attendance: Array<{ id: string; email: string; day: string; check_in: string; check_out?: string | null }>; today: string };
 
 const SLOT_OPTIONS = TIME_SLOTS.flatMap((g) => g.slots);
 
@@ -65,6 +68,9 @@ export default function AdminPage() {
   const [configLoading, setConfigLoading] = useState(false);
   const [configSaving, setConfigSaving] = useState(false);
   const [configMessage, setConfigMessage] = useState("");
+  const [staffData, setStaffData] = useState<StaffData | null>(null);
+  const [staffLoading, setStaffLoading] = useState(false);
+  const [staffMessage, setStaffMessage] = useState("");
 
   useEffect(() => {
     let active = true;
@@ -105,6 +111,24 @@ export default function AdminPage() {
         active = false;
       };
     }
+  }, [authState, tab]);
+
+  useEffect(() => {
+    if (authState !== "authed" || tab !== "staff") return;
+    let active = true;
+    setStaffLoading(true);
+    setStaffMessage("");
+    fetch("/api/admin/staff", { cache: "no-store" })
+      .then(async (response) => {
+        const data = await response.json();
+        if (!response.ok) throw new Error(data?.error || "Unable to load staff records.");
+        if (active) setStaffData(data as StaffData);
+      })
+      .catch((error: unknown) => {
+        if (active) setStaffMessage(error instanceof Error ? error.message : "Unable to load staff records.");
+      })
+      .finally(() => { if (active) setStaffLoading(false); });
+    return () => { active = false; };
   }, [authState, tab]);
 
   async function handleLogin(e: React.FormEvent) {
@@ -191,6 +215,22 @@ export default function AdminPage() {
     }
   }
 
+  async function handleStaffDecision(id: string, status: "Approved" | "Rejected") {
+    setStaffMessage("");
+    try {
+      const response = await fetch("/api/admin/staff", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "decision", id, status }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data?.error || "Unable to update request.");
+      setStaffData((previous) => previous ? { ...previous, leave: previous.leave.map((item) => item.id === id ? { ...item, status } : item) } : previous);
+    } catch (error: unknown) {
+      setStaffMessage(error instanceof Error ? error.message : "Unable to update request.");
+    }
+  }
+
   if (authState === "checking") {
     return (
       <>
@@ -213,7 +253,7 @@ export default function AdminPage() {
           </div>
           <h1 className="mt-5 text-center text-xl font-bold">Admin Login</h1>
           <p className="mt-1 text-center text-xs text-gray-400">
-            Sign in to manage bookings and doctor availability.
+            Sign in to manage bookings, doctor availability, staff attendance, and leave approvals.
           </p>
 
           {error && (
@@ -258,6 +298,9 @@ export default function AdminPage() {
               Sign In
             </button>
           </form>
+          <a href="/staff/login" className="mt-5 flex items-center justify-center rounded-xl border border-gray-800 p-3 text-xs font-semibold text-gray-300 transition hover:border-orange-500/50 hover:text-white">
+            Staff sign-in / leave requests
+          </a>
         </div>
       ) : (
         <div className="w-full max-w-3xl rounded-3xl border border-orange-500/20 bg-[#0c0c0e] p-6 sm:p-8 shadow-[0_20px_80px_rgba(0,0,0,0.8)]">
@@ -267,7 +310,7 @@ export default function AdminPage() {
                 <FileSpreadsheet size={22} />
               </div>
               <div>
-                <h1 className="text-xl font-bold">Admin Dashboard</h1>
+                <h1 className="text-xl font-bold">Admin Dashboard</h1><a href="/staff" className="text-sm text-orange-400 underline">Staff attendance &amp; leave approvals</a>
                 <p className="text-xs text-gray-400">Bookings & doctor availability.</p>
               </div>
             </div>
@@ -304,6 +347,14 @@ export default function AdminPage() {
               }`}
             >
               <CalendarClock size={14} /> Manage Booking
+            </button>
+            <button
+              onClick={() => setTab("staff")}
+              className={`flex items-center gap-2 border-b-2 px-4 py-2 text-sm font-semibold transition ${
+                tab === "staff" ? "border-orange-500 text-orange-400" : "border-transparent text-gray-400 hover:text-white"
+              }`}
+            >
+              <Users size={14} /> Staff &amp; Leave
             </button>
           </div>
 
@@ -433,6 +484,33 @@ export default function AdminPage() {
                   </button>
                 </>
               )}
+            </div>
+          )}
+
+          {tab === "staff" && (
+            <div className="mt-6">
+              <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h2 className="text-sm font-bold text-white">Staff attendance &amp; leave approvals</h2>
+                  <p className="text-[11px] text-gray-500">Sundays are excluded from leave deductions. Saturdays count.</p>
+                </div>
+                <button onClick={() => { setTab("bookings"); window.setTimeout(() => setTab("staff"), 0); }} className="flex items-center justify-center gap-2 rounded-xl border border-gray-800 px-3 py-2 text-xs text-gray-300 hover:border-gray-600">
+                  <RefreshCw size={13} /> Refresh
+                </button>
+              </div>
+              {staffMessage && <p className="mb-4 rounded-lg border border-orange-500/30 bg-orange-500/10 px-3 py-2 text-xs text-orange-200">{staffMessage}</p>}
+              {staffLoading ? <div className="flex items-center justify-center py-10 text-gray-400"><Loader2 size={20} className="mr-2 animate-spin" /> Loading staff records...</div> : staffData ? <>
+                <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  <div className="rounded-2xl border border-gray-800 bg-[#0e0e12] p-4"><p className="text-[11px] text-gray-500">Staff members</p><p className="mt-2 text-2xl font-bold">{staffData.people.filter(p=>p.active!==false && p.role!=='admin' && p.email!=='sportsscienceindia.office@gmail.com').length}</p></div>
+                  <div className="rounded-2xl border border-gray-800 bg-[#0e0e12] p-4"><p className="text-[11px] text-gray-500">Pending approvals</p><p className="mt-2 text-2xl font-bold text-orange-300">{staffData.leave.filter((item) => item.status === "Pending").length}</p></div>
+                  <div className="rounded-2xl border border-gray-800 bg-[#0e0e12] p-4"><p className="text-[11px] text-gray-500">Today&apos;s check-ins</p><p className="mt-2 text-2xl font-bold">{staffData.attendance.filter((item) => item.day === staffData.today && staffData.people.some(p=>p.email===item.email && p.active!==false && p.role!=='admin' && p.email!=='sportsscienceindia.office@gmail.com')).length}</p></div>
+                </div>
+                <div className="mb-5 overflow-hidden rounded-2xl border border-gray-800">
+                  <div className="border-b border-gray-800 px-4 py-3"><h3 className="text-sm font-bold">Requests needing review</h3></div>
+                  {staffData.leave.filter((item) => item.status === "Pending").length === 0 ? <p className="px-4 py-8 text-center text-xs text-gray-500">No pending leave requests.</p> : <div className="divide-y divide-gray-800">{staffData.leave.filter((item) => item.status === "Pending").map((item) => { const person = staffData.people.find((candidate) => candidate.email === item.email); return <div key={item.id} className="flex flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between"><div><p className="text-sm font-semibold">{person?.name || item.email}</p><p className="mt-1 text-xs text-gray-400">{item.type} · {item.start} to {item.end} · {item.days} {item.days === 1 ? "day" : "days"}</p><p className="mt-1 text-xs text-gray-500">{item.reason}</p></div><div className="flex gap-2"><button onClick={() => handleStaffDecision(item.id, "Approved")} className="flex items-center gap-1 rounded-lg bg-green-600/20 px-3 py-2 text-xs font-semibold text-green-300 hover:bg-green-600/30"><Check size={14} /> Approve</button><button onClick={() => handleStaffDecision(item.id, "Rejected")} className="flex items-center gap-1 rounded-lg bg-red-600/20 px-3 py-2 text-xs font-semibold text-red-300 hover:bg-red-600/30"><X size={14} /> Reject</button></div></div>})}</div>}
+                </div>
+                <div className="overflow-hidden rounded-2xl border border-gray-800"><div className="border-b border-gray-800 px-4 py-3"><h3 className="text-sm font-bold">Staff eligibility</h3><a href="/admin/staff" className="text-sm text-orange-400">Manage employees, attendance &amp; leave →</a></div><div className="divide-y divide-gray-800">{staffData.people.filter(p=>p.active!==false && p.role!=='admin' && p.email!=='sportsscienceindia.office@gmail.com').map((person) => <div key={person.email} className="flex items-center justify-between px-4 py-3"><div><p className="text-sm font-semibold">{person.name}</p><p className="text-xs text-gray-500">{person.email}</p></div><span className="text-sm text-orange-200">Joined: {person.joiningDate || "Not set"}</span></div>)}</div></div>
+              </> : <div className="rounded-2xl border border-orange-500/20 bg-orange-500/5 px-4 py-6 text-center"><Users className="mx-auto mb-3 text-orange-400" size={28} /><p className="text-sm font-semibold text-orange-100">Staff approvals are ready to connect.</p><p className="mx-auto mt-2 max-w-md text-xs leading-5 text-gray-400">Install the staff portal Apps Script file and enable the staff backend in Vercel. Then this tab will show requests here with Approve and Reject buttons.</p><a href="/staff" className="mt-4 inline-block text-xs font-semibold text-orange-300 underline">Open staff portal</a></div>}
             </div>
           )}
         </div>

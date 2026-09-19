@@ -1,3 +1,4 @@
+import MarketingOnly from '@/components/layout/MarketingOnly';
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -206,17 +207,17 @@ export default function RootLayout({
       </head>
 
       <body className="min-h-full flex flex-col bg-[#050505]">
-        <Loader />
+        <MarketingOnly><Loader /></MarketingOnly>
 
         <div className="relative">
-          <MouseGlow />
+          <MarketingOnly><MouseGlow /></MarketingOnly>
 
-          <SmoothScroll />
+          <MarketingOnly><SmoothScroll /></MarketingOnly>
 
           {children}
         </div>
 
-        <Kibo />
+        <MarketingOnly><Kibo /></MarketingOnly>
       </body>
     </html>
   );
