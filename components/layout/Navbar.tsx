@@ -12,8 +12,8 @@ import { getLenis, smoothScrollToEl } from "@/lib/scrollEngine";
 
 const navLinks = [
   { name: "Home", href: "#", target: "home" },
-  { name: "Service", href: "#services", target: "services" },
   { name: "Performance", href: "#ecosystem", target: "ecosystem" },
+  { name: "Service", href: "#services", target: "services" },
   { name: "Technology", href: "/technology", target: "technology" },
   { name: "Expert", href: "/experts", target: "experts" },
   { name: "About us", href: "/about", target: "about" },
