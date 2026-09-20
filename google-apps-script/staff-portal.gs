@@ -192,6 +192,17 @@ function staffOperation_(p) {
     // Old records also follow the current Sunday policy; balances cannot retain Sunday charges.
     row.days = staffDays_(row.start, row.end); return row;
   });
+  if (p.operation === 'report') {
+    if (!admin) staffError_('Administrator access required.',403);
+    if (typeof p.month !== 'string' || !/^\d{4}-(0[1-9]|1[0-2])$/.test(p.month)) staffError_('Choose a valid report month.');
+    const start = p.month + '-01';
+    if (!staffDateValid_(start)) staffError_('Choose a valid report month.');
+    const end = new Date(Date.UTC(Number(p.month.slice(0,4)),Number(p.month.slice(5,7)),0)).toISOString().slice(0,10);
+    return {reportVersion:1, month:p.month, today:today,
+      people:people.filter(function(person) { return person.email !== STAFF_APPROVER; }),
+      attendance:attendance.filter(function(row) { return row.email !== STAFF_APPROVER && row.day >= start && row.day <= end; }).sort(function(a,b) { return a.day.localeCompare(b.day) || a.email.localeCompare(b.email); }),
+      leave:leave.filter(function(row) { return row.email !== STAFF_APPROVER && row.start <= end && row.end >= start; }).map(function(row) { return Object.assign({},row,{monthDays:staffDays_(row.start > start ? row.start : start,row.end < end ? row.end : end)}); })};
+  }
   if (p.operation === 'read') {
     return {me: me, today: today, policyVersion: 2, leavePolicy: staffLeavePolicy_(me, leave, today),
       people: admin ? people.map(function(person) { return Object.assign({}, person, {role: person.email === STAFF_APPROVER ? 'admin' : 'staff'}); }) : [me],

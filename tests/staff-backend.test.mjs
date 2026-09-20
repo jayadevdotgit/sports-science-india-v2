@@ -143,3 +143,16 @@ test('request-local sheet reuse avoids repeat reads and preserves physical rows'
  vm.runInContext('staffRequest_ = null',context);
  rows[2][1]='external-update';assert.equal(context.staffRows_('Auth')[0].hash,'external-update');assert.equal(opens,2);
 });
+
+test('monthly report is admin-only, untruncated and clips cross-month leave days',()=>{
+ const {call,context}=fixture();const email='staff@example.test';
+ assert.equal(call({operation:'report',actor:email,month:'2026-09'}).status,403);
+ assert.equal(call({operation:'report',actor:admin,month:'2026-13'}).ok,false);
+ for(let i=0;i<1005;i++)context.staffPut_('Attendance',String(i),{id:String(i),email,day:'2026-09-19',check_in:'09:00 AM',check_out:'05:00 PM'});
+ context.staffPut_('Attendance','outside',{id:'outside',email,day:'2026-08-31'});
+ context.staffPut_('Attendance','office',{id:'office',email:admin,day:'2026-09-19'});
+ context.staffPut_('Leave','cross',{id:'cross',email,type:'Casual Leave (CL)',start:'2026-08-31',end:'2026-09-02',status:'Approved',created:'2026-08-01'});
+ const report=call({operation:'report',actor:admin,month:'2026-09'});
+ assert.equal(report.reportVersion,1);assert.equal(report.attendance.length,1005);assert.equal(report.people.length,1);assert.equal(report.leave[0].monthDays,2);assert.equal(report.leave[0].days,3);
+ assert.equal(call({operation:'report',actor:admin,month:'2026-10'}).attendance.length,0);
+});
