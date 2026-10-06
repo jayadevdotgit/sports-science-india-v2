@@ -1,8 +1,8 @@
 import { ChevronDown, FileText, ShieldCheck } from 'lucide-react';
 
-export default function HRPolicy() {
+export default function HRPolicy({ expanded = false }: { expanded?: boolean }) {
   return (
-    <details className="group mt-7 overflow-hidden rounded-2xl border border-orange-500/20 bg-[#101011] text-left">
+    <details open={expanded} className="group mt-7 overflow-hidden rounded-2xl border border-orange-500/20 bg-[#101011] text-left">
       <summary className="flex cursor-pointer list-none items-center gap-3 p-4 outline-none transition hover:bg-white/[0.03] focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-orange-400 [&::-webkit-details-marker]:hidden">
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-orange-500/20 bg-orange-500/10 text-orange-400"><FileText size={19} aria-hidden="true" /></span>
         <span className="min-w-0 flex-1">

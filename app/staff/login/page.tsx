@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Kibo from '@/components/panda/Kibo';
-import HRPolicy from '@/components/staff/HRPolicy';
 
 export default function StaffLogin() {
   const router = useRouter();
@@ -68,7 +67,6 @@ export default function StaffLogin() {
               {sent && <button className="mx-auto flex text-xs text-white/45 underline-offset-4 transition hover:text-white hover:underline" type="button" disabled={busy} onClick={() => { setSent(false); setCode(''); setMessage(''); }}>Change email / request a new code</button>}
             </form>
             {message && <p role="status" className="mt-4 rounded-xl border border-orange-500/20 bg-orange-500/10 px-4 py-3 text-sm leading-6 text-orange-100/80">{message}</p>}
-            <HRPolicy />
             <div className="mt-7 flex items-start gap-3 border-t border-white/10 pt-5 text-xs leading-5 text-white/35"><ShieldCheck size={15} className="mt-0.5 shrink-0 text-orange-400/70" /><p>Leave approvals are handled by the SSI office administrator.</p></div>
             <a href="/" className="mt-7 inline-flex items-center gap-2 text-xs text-white/40 transition-colors hover:text-white"><ArrowLeft size={14} /> Back to Sports Science India</a>
           </div>
