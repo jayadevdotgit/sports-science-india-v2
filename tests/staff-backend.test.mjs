@@ -156,3 +156,51 @@ test('monthly report is admin-only, untruncated and clips cross-month leave days
  assert.equal(report.reportVersion,1);assert.equal(report.attendance.length,1005);assert.equal(report.people.length,1);assert.equal(report.leave[0].monthDays,2);assert.equal(report.leave[0].days,3);
  assert.equal(call({operation:'report',actor:admin,month:'2026-10'}).attendance.length,0);
 });
+
+
+test('verified workspace bootstrap is scoped to OTP owner and codes stay single-use',()=>{
+  const {call}=fixture();const email='staff@example.test';
+  call({operation:'auth_request',email,hash:'hash'});
+  const bad=call({operation:'auth_verify',email,hash:'wrong',includeWorkspace:true,actor:admin});
+  assert.equal(bad.status,401);assert.equal(bad.workspace,undefined);
+  const result=call({operation:'auth_verify',email,hash:'hash',includeWorkspace:true,actor:admin});
+  assert.equal(result.verified,true);assert.equal(result.workspace.me.email,email);
+  assert.equal(result.workspace.me.role,'staff');assert.equal(result.workspace.people.length,1);
+  assert.equal(call({operation:'auth_verify',email,hash:'hash',includeWorkspace:true}).status,401);
+});
+
+test('workspace read failure after verification falls back without rejecting consumed OTP',()=>{
+  const {call,context}=fixture();const email='staff@example.test';
+  call({operation:'auth_request',email,hash:'hash'});
+  const rows=context.staffRows_;
+  context.staffRows_=name=>{if(name==='Attendance')throw new Error('Read unavailable');return rows(name)};
+  const result=call({operation:'auth_verify',email,hash:'hash',includeWorkspace:true});
+  assert.equal(result.verified,true);assert.equal(result.workspace,undefined);
+  assert.equal(call({operation:'auth_verify',email,hash:'hash'}).status,401);
+});
+
+
+test('attendance and leave each use one read, including legacy timestamp conversion',()=>{
+  for(const name of ['Attendance','Leave']) {
+    let reads=0,writes=0;
+    const columns=name==='Attendance'?5:11;
+    const timeColumn=name==='Attendance'?3:8;
+    const rows=[Array(columns).fill('header'),Array(columns).fill('')];
+    rows[1][0]='record';rows[1][1]='staff@example.test';
+    rows[1][timeColumn]='2026-09-19T11:45:00.000Z';
+    const formatted=name==='Attendance'?'05:15 PM':'2026-09-19 05:15 PM';
+    const sheet={getLastRow:()=>rows.length,getLastColumn:()=>columns,getRange:(r,c,h=1,w=1)=>{
+      const range={getDisplayValues:()=>{reads++;return Array.from({length:h},(_,i)=>Array.from({length:w},(_,j)=>rows[r-1+i][c-1+j]))},
+        setNumberFormat:()=>range,setValue:value=>{writes++;rows[r-1][c-1]=value;return range}};
+      return range;
+    }};
+    const context=vm.createContext({SHEET_ID:'test',SpreadsheetApp:{openById:()=>({getSheetByName:()=>sheet})},Utilities:{formatDate:()=>formatted}});
+    vm.runInContext(source,context);
+    const result=context.staffRows_(name);
+    assert.equal(reads,1);assert.equal(writes,1);
+    assert.equal(name==='Attendance'?result[0].check_in:result[0].created,formatted);
+    context.staffRows_(name);assert.equal(reads,1);
+    vm.runInContext('staffRequest_ = null',context);
+    context.staffRows_(name);assert.equal(reads,2);assert.equal(writes,1,'modern rows need no writes');
+  }
+});

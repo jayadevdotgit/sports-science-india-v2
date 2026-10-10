@@ -39,30 +39,6 @@ function staffTable_(name) {
     sheet.clearContents(); sheet.appendRow(STAFF_HEADERS.Auth);
     records.forEach(function(record) { staffPut_('Auth', record.email, record); });
   }
-  if (name === 'Attendance' && sheet.getLastRow() > 1) {
-    const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 5).getValues();
-    rows.forEach(function(row, index) {
-      ['3', '4'].forEach(function(column) {
-        const value = row[Number(column)];
-        if (value && String(value).indexOf(':') >= 0 && String(value).indexOf('T') >= 0) {
-          const parsed = new Date(value);
-          if (!isNaN(parsed.getTime())) sheet.getRange(index + 2, Number(column) + 1).setNumberFormat('@').setValue(Utilities.formatDate(parsed, 'Asia/Kolkata', 'hh:mm a'));
-        }
-      });
-    });
-  }
-  if (name === 'Leave' && sheet.getLastRow() > 1) {
-    const rows = sheet.getRange(2, 1, sheet.getLastRow() - 1, 11).getValues();
-    rows.forEach(function(row, index) {
-      [8, 10].forEach(function(column) {
-        const value = row[column];
-        if (value && String(value).indexOf('T') >= 0) {
-          const parsed = new Date(value);
-          if (!isNaN(parsed.getTime())) sheet.getRange(index + 2, column + 1).setNumberFormat('@').setValue(Utilities.formatDate(parsed, 'Asia/Kolkata', 'yyyy-MM-dd hh:mm a'));
-        }
-      });
-    });
-  }
   return sheet;
 }
 function staffRows_(name) {
@@ -71,6 +47,20 @@ function staffRows_(name) {
   if (sheet.getLastRow() < 2) return [];
   const headers = STAFF_HEADERS[name] || ['ID', 'Record JSON'];
   const values = sheet.getRange(2, 1, sheet.getLastRow() - 1, headers.length).getDisplayValues();
+  // Normalize legacy timestamps using the same read that supplies portal data.
+  // Previously table initialization scanned both sheets before reading them again.
+  const timeColumns = name === 'Attendance' ? [3, 4] : name === 'Leave' ? [8, 10] : [];
+  values.forEach(function(row, index) {
+    timeColumns.forEach(function(column) {
+      const value = row[column];
+      if (!value || String(value).indexOf('T') < 0) return;
+      const parsed = new Date(value);
+      if (isNaN(parsed.getTime())) return;
+      const formatted = Utilities.formatDate(parsed, 'Asia/Kolkata', name === 'Attendance' ? 'hh:mm a' : 'yyyy-MM-dd hh:mm a');
+      sheet.getRange(index + 2, column + 1).setNumberFormat('@').setValue(formatted);
+      row[column] = formatted;
+    });
+  });
   staffRequest_.keys[name] = values.map(function(row) { return row[0]; });
   return staffRequest_.rows[name] = values
     .filter(function(row) { return row.some(function(value) { return value !== ''; }); })
@@ -148,11 +138,11 @@ function staffDispatch_(p) {
   try { return Object.assign({ok: true, staffVersion: 1}, staffOperation_(p)); }
   catch (error) { return {ok: false, staffVersion: 1, error: error.message || 'Unable to access staff records', status: error.status || 503}; }
 }
-function staffOperation_(p) {
+function staffOperation_(p, directory) {
   const now = new Date();
   const nowTime = Utilities.formatDate(now, 'Asia/Kolkata', 'hh:mm a');
   const today = Utilities.formatDate(now, 'Asia/Kolkata', 'yyyy-MM-dd');
-  const people = staffDirectory_();
+  const people = directory || staffDirectory_();
   if (!people.some(function(person) { return person.email === STAFF_APPROVER; })) {
     const office = {email: STAFF_APPROVER, name: 'SSI Office', role: 'admin', quota: 0};
     office.active = true; staffSavePerson_(office); people.push(office);
@@ -180,6 +170,11 @@ function staffOperation_(p) {
     if (valid) { challenge.hash = ''; challenge.expires = 0; }
     staffPut_('Auth', p.email, challenge);
     if (!valid) staffError_('Invalid or expired sign-in code.', 401);
+    // Reuse this invocation after verifying the OTP. Never trust a supplied actor.
+    if (p.includeWorkspace === true) {
+      try { return {verified: true, workspace: staffOperation_({operation: 'read', actor: p.email}, people)}; }
+      catch (error) { return {verified: true}; } // A read failure must not invalidate a consumed code.
+    }
     return {verified: true};
   }
 

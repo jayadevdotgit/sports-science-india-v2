@@ -10,6 +10,8 @@ export async function staffBackend(payload:Record<string,unknown>):Promise<Recor
   if(process.env.STAFF_PORTAL_ENABLED!=='true'||!url||!token){
     throw new StaffError('Staff portal setup is pending. Please contact the office administrator.',503);
   }
+  const started=performance.now();
+  try {
   const response=await fetch(url,{method:'POST',cache:'no-store',redirect:'follow',
     headers:{'Content-Type':'text/plain;charset=utf-8'},signal:AbortSignal.timeout(45000),
     body:JSON.stringify({...payload,action:'staff_portal',key:token})});
@@ -18,4 +20,7 @@ export async function staffBackend(payload:Record<string,unknown>):Promise<Recor
   if(data?.staffVersion!==1)throw new StaffError('The staff backend needs to be updated.',503);
   if(!data.ok)throw new StaffError(data.error||'Unable to complete this action.',data.status||400);
   return data;
+  } finally {
+    console.info('[staff-backend-timing]', {operation:typeof payload.operation==='string'?payload.operation:'unknown',durationMs:Math.round(performance.now()-started)});
+  }
 }

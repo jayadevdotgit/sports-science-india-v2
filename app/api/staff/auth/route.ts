@@ -20,6 +20,6 @@ export async function POST(request:Request){try{
     return NextResponse.json({ok:true,message:'If this email is registered, a sign-in code has been sent. Please wait at least one minute before requesting another.'});
   }
   if(p.mode!=='verify'||typeof p.code!=='string'||!/^\d{6}$/.test(p.code))throw new StaffError('Enter the six-digit code');
-  await staffBackend({operation:'auth_verify',email,hash:otpHash(email,p.code)});
-  const response=NextResponse.json({ok:true});response.cookies.set(STAFF_COOKIE,issueSession(email),staffCookieOptions);return response;
+  const result=await staffBackend({operation:'auth_verify',email,hash:otpHash(email,p.code),includeWorkspace:true});
+  const response=NextResponse.json({ok:true,workspace:result.workspace},{headers:{'Cache-Control':'no-store'}});response.cookies.set(STAFF_COOKIE,issueSession(email),staffCookieOptions);return response;
 }catch(error){console.error('[staff-auth]',error);return NextResponse.json({error:error instanceof StaffError?error.message:'Unable to sign in. Please try again or contact the office.'},{status:error instanceof StaffError?error.status:503})}}

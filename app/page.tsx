@@ -31,6 +31,7 @@ export const metadata = buildMetadata({
 export default function Home() {
   return (
     <>
+      <link rel="preload" href="/models/bodyMuscles.glb" as="fetch" crossOrigin="anonymous" />
       <Navbar />
       <Hero />
       <JourneyTimeline />

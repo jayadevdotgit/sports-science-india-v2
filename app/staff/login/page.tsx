@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/layout/Navbar';
 import Kibo from '@/components/panda/Kibo';
+import {setWorkspaceBootstrap} from '@/lib/staff/workspace-bootstrap';
 
 export default function StaffLogin() {
   const router = useRouter();
@@ -32,7 +33,7 @@ export default function StaffLogin() {
       const response = await fetch('/api/staff/auth', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode, email, code }) });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error);
-      if (mode === 'verify') { router.replace('/staff'); return; }
+      if (mode === 'verify') { setWorkspaceBootstrap(data.workspace); router.replace('/staff'); return; }
       setSent(true); setMessage(data.message);
     } catch (error) { setMessage(error instanceof Error ? error.message : 'Unable to connect. Please try again.'); }
     finally { setBusy(false); }

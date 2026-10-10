@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "preview": "node scripts/preview.mjs",
     "collect:content": "node scripts/collect-content.mjs",
     "build": "next build",
     "start": "next start",

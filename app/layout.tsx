@@ -191,13 +191,6 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <head>
-        <link
-          rel="preload"
-          href="/models/bodyMuscles.glb"
-          as="fetch"
-          crossOrigin="anonymous"
-        />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
